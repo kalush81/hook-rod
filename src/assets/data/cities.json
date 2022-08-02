@@ -1,0 +1,11592 @@
+﻿[
+  {
+    "name": "Adamów (siedleckie)",
+    "lng": "22.15",
+    "lat": "51.45"
+  },
+  {
+    "name": "Adamów (zamojskie)",
+    "lng": "23.10",
+    "lat": "50.36"
+  },
+  {
+    "name": "Adamówka",
+    "lng": "22.42",
+    "lat": "50.16"
+  },
+  {
+    "name": "Aleksandrów",
+    "lng": "19.59",
+    "lat": "51.16"
+  },
+  {
+    "name": "Aleksandrów Kujawski",
+    "lng": "18.42",
+    "lat": "52.53"
+  },
+  {
+    "name": "Aleksandrów Łódzki",
+    "lng": "19.19",
+    "lat": "51.49"
+  },
+  {
+    "name": "Alwernia",
+    "lng": "19.32",
+    "lat": "50.04"
+  },
+  {
+    "name": "Andrespol",
+    "lng": "19.37",
+    "lat": "51.44"
+  },
+  {
+    "name": "Andrychów",
+    "lng": "19.20",
+    "lat": "49.52"
+  },
+  {
+    "name": "Andrzejewo",
+    "lng": "22.12",
+    "lat": "52.50"
+  },
+  {
+    "name": "Annopol",
+    "lng": "21.52",
+    "lat": "50.53"
+  },
+  {
+    "name": "Augustów",
+    "lng": "22.58",
+    "lat": "53.51"
+  },
+  {
+    "name": "Babiak",
+    "lng": "18.41",
+    "lat": "52.20"
+  },
+  {
+    "name": "Babice",
+    "lng": "19.26",
+    "lat": "50.04"
+  },
+  {
+    "name": "Babimost",
+    "lng": "15.50",
+    "lat": "52.09"
+  },
+  {
+    "name": "Baborów",
+    "lng": "17.59",
+    "lat": "50.09"
+  },
+  {
+    "name": "Baboszewo",
+    "lng": "20.15",
+    "lat": "52.42"
+  },
+  {
+    "name": "Baćkowice",
+    "lng": "21.14",
+    "lat": "50.48"
+  },
+  {
+    "name": "Bakałarzewo",
+    "lng": "22.39",
+    "lat": "54.06"
+  },
+  {
+    "name": "Baligród",
+    "lng": "22.17",
+    "lat": "49.21"
+  },
+  {
+    "name": "Bałtów",
+    "lng": "21.32",
+    "lat": "51.01"
+  },
+  {
+    "name": "Banie",
+    "lng": "14.38",
+    "lat": "53.06"
+  },
+  {
+    "name": "Banie Mazurskie",
+    "lng": "22.03",
+    "lat": "54.15"
+  },
+  {
+    "name": "Baranowicze",
+    "lng": "26.02",
+    "lat": "53.08"
+  },
+  {
+    "name": "Baranowo",
+    "lng": "21.18",
+    "lat": "53.11"
+  },
+  {
+    "name": "Baranów (kaliskie)",
+    "lng": "18.00",
+    "lat": "51.16"
+  },
+  {
+    "name": "Baranów (lubelskie)",
+    "lng": "22.09",
+    "lat": "51.34"
+  },
+  {
+    "name": "Baranów (skierniewickie)",
+    "lng": "20.28",
+    "lat": "52.07"
+  },
+  {
+    "name": "Baranów Sandomierski",
+    "lng": "21.33",
+    "lat": "50.30"
+  },
+  {
+    "name": "Barciany",
+    "lng": "21.21",
+    "lat": "54.13"
+  },
+  {
+    "name": "Barcin",
+    "lng": "17.57",
+    "lat": "52.52"
+  },
+  {
+    "name": "Barczewo",
+    "lng": "20.41",
+    "lat": "53.50"
+  },
+  {
+    "name": "Bardo",
+    "lng": "16.45",
+    "lat": "50.31"
+  },
+  {
+    "name": "Bargłów Kościelny",
+    "lng": "22.50",
+    "lat": "53.46"
+  },
+  {
+    "name": "Barlinek",
+    "lng": "15.13",
+    "lat": "52.59"
+  },
+  {
+    "name": "Bartoszyce",
+    "lng": "20.48",
+    "lat": "54.15"
+  },
+  {
+    "name": "Baruchowo",
+    "lng": "19.15",
+    "lat": "52.30"
+  },
+  {
+    "name": "Barwice",
+    "lng": "16.21",
+    "lat": "53.44"
+  },
+  {
+    "name": "Batorz",
+    "lng": "22.30",
+    "lat": "50.50"
+  },
+  {
+    "name": "Bądkowo",
+    "lng": "18.47",
+    "lat": "52.42"
+  },
+  {
+    "name": "Bedlno",
+    "lng": "19.34",
+    "lat": "52.13"
+  },
+  {
+    "name": "Bejsce",
+    "lng": "20.36",
+    "lat": "50.15"
+  },
+  {
+    "name": "Belsk Duży",
+    "lng": "20.49",
+    "lat": "51.50"
+  },
+  {
+    "name": "Bełchatów",
+    "lng": "19.22",
+    "lat": "51.22"
+  },
+  {
+    "name": "Bełżyce",
+    "lng": "22.17",
+    "lat": "51.10"
+  },
+  {
+    "name": "Bestwina",
+    "lng": "19.03",
+    "lat": "49.54"
+  },
+  {
+    "name": "Będków",
+    "lng": "19.45",
+    "lat": "51.35"
+  },
+  {
+    "name": "Będzin",
+    "lng": "19.08",
+    "lat": "50.19"
+  },
+  {
+    "name": "Będzino",
+    "lng": "15.59",
+    "lat": "54.12"
+  },
+  {
+    "name": "Biała (opolskie)",
+    "lng": "17.40",
+    "lat": "50.23"
+  },
+  {
+    "name": "Biała (sieradzkie)",
+    "lng": "18.27",
+    "lat": "51.16"
+  },
+  {
+    "name": "Biała Piska",
+    "lng": "22.04",
+    "lat": "53.37"
+  },
+  {
+    "name": "Biała Podlaska",
+    "lng": "23.07",
+    "lat": "52.02"
+  },
+  {
+    "name": "Biała Rawska",
+    "lng": "20.29",
+    "lat": "51.48"
+  },
+  {
+    "name": "Białaczów",
+    "lng": "20.18",
+    "lat": "51.18"
+  },
+  {
+    "name": "Białe Błota",
+    "lng": "17.55",
+    "lat": "53.06"
+  },
+  {
+    "name": "Białobrzegi (rzeszow.)",
+    "lng": "22.21",
+    "lat": "50.07"
+  },
+  {
+    "name": "Białobrzegi (radomskie)",
+    "lng": "20.57",
+    "lat": "51.39"
+  },
+  {
+    "name": "Białogard",
+    "lng": "15.59",
+    "lat": "54.00"
+  },
+  {
+    "name": "Białopole",
+    "lng": "23.44",
+    "lat": "50.59"
+  },
+  {
+    "name": "Białośliwie",
+    "lng": "17.07",
+    "lat": "53.06"
+  },
+  {
+    "name": "Białowieża",
+    "lng": "23.52",
+    "lat": "52.42"
+  },
+  {
+    "name": "Biały Bór",
+    "lng": "16.50",
+    "lat": "53.44"
+  },
+  {
+    "name": "Biały Dunajec",
+    "lng": "20.02",
+    "lat": "49.22"
+  },
+  {
+    "name": "Białystok",
+    "lng": "23.10",
+    "lat": "53.08"
+  },
+  {
+    "name": "Biecz",
+    "lng": "21.16",
+    "lat": "49.44"
+  },
+  {
+    "name": "Bielany",
+    "lng": "22.15",
+    "lat": "52.20"
+  },
+  {
+    "name": "Bielawa",
+    "lng": "16.37",
+    "lat": "50.42"
+  },
+  {
+    "name": "Bielawy",
+    "lng": "19.39",
+    "lat": "52.04"
+  },
+  {
+    "name": "Bielice",
+    "lng": "14.43",
+    "lat": "53.12"
+  },
+  {
+    "name": "Bieliny",
+    "lng": "20.55",
+    "lat": "50.51"
+  },
+  {
+    "name": "Bielsk",
+    "lng": "19.48",
+    "lat": "52.41"
+  },
+  {
+    "name": "Bielsk Podlaski",
+    "lng": "23.12",
+    "lat": "52.46"
+  },
+  {
+    "name": "Bielsko-Biała",
+    "lng": "19.04",
+    "lat": "49.50"
+  },
+  {
+    "name": "Bierawa",
+    "lng": "18.16",
+    "lat": "50.17"
+  },
+  {
+    "name": "Bierutów",
+    "lng": "17.33",
+    "lat": "51.07"
+  },
+  {
+    "name": "Bierzwnik",
+    "lng": "15.40",
+    "lat": "53.02"
+  },
+  {
+    "name": "Biesiekierz",
+    "lng": "16.03",
+    "lat": "54.08"
+  },
+  {
+    "name": "Bieżuń",
+    "lng": "19.52",
+    "lat": "52.57"
+  },
+  {
+    "name": "Biłgoraj",
+    "lng": "22.43",
+    "lat": "50.32"
+  },
+  {
+    "name": "Bircza",
+    "lng": "22.28",
+    "lat": "49.42"
+  },
+  {
+    "name": "Biskupice",
+    "lng": "20.07",
+    "lat": "49.58"
+  },
+  {
+    "name": "Biskupiec (toruńskie)",
+    "lng": "19.21",
+    "lat": "53.30"
+  },
+  {
+    "name": "Biskupiec (olsztyńskie)",
+    "lng": "20.57",
+    "lat": "53.52"
+  },
+  {
+    "name": "Biszcza",
+    "lng": "22.38",
+    "lat": "50.25"
+  },
+  {
+    "name": "Bisztynek",
+    "lng": "20.54",
+    "lat": "54.05"
+  },
+  {
+    "name": "Blachownia",
+    "lng": "18.58",
+    "lat": "50.47"
+  },
+  {
+    "name": "Bledzew",
+    "lng": "15.24",
+    "lat": "52.31"
+  },
+  {
+    "name": "Blizanów",
+    "lng": "18.01",
+    "lat": "51.54"
+  },
+  {
+    "name": "Bliżyn",
+    "lng": "20.45",
+    "lat": "51.06"
+  },
+  {
+    "name": "Błaszki",
+    "lng": "18.26",
+    "lat": "51.39"
+  },
+  {
+    "name": "Błażowa",
+    "lng": "22.06",
+    "lat": "49.54"
+  },
+  {
+    "name": "Błędów",
+    "lng": "20.42",
+    "lat": "51.47"
+  },
+  {
+    "name": "Błonie",
+    "lng": "20.36",
+    "lat": "52.12"
+  },
+  {
+    "name": "Bobolice",
+    "lng": "16.35",
+    "lat": "53.57"
+  },
+  {
+    "name": "Bobowa",
+    "lng": "20.57",
+    "lat": "49.43"
+  },
+  {
+    "name": "Bobrowice",
+    "lng": "15.05",
+    "lat": "51.57"
+  },
+  {
+    "name": "Bobrowniki (katowickie)",
+    "lng": "18.59",
+    "lat": "50.23"
+  },
+  {
+    "name": "Bobrowniki (włocławskie)",
+    "lng": "18.58",
+    "lat": "52.46"
+  },
+  {
+    "name": "Bobrowo",
+    "lng": "19.16",
+    "lat": "53.17"
+  },
+  {
+    "name": "Bochnia",
+    "lng": "20.25",
+    "lat": "49.58"
+  },
+  {
+    "name": "Boćki",
+    "lng": "23.02",
+    "lat": "52.39"
+  },
+  {
+    "name": "Bodzanów",
+    "lng": "20.02",
+    "lat": "52.31"
+  },
+  {
+    "name": "Bodzechów",
+    "lng": "21.23",
+    "lat": "50.51"
+  },
+  {
+    "name": "Bodzentyn",
+    "lng": "20.57",
+    "lat": "50.57"
+  },
+  {
+    "name": "Bogatynia",
+    "lng": "14.57",
+    "lat": "50.54"
+  },
+  {
+    "name": "Bogdaniec",
+    "lng": "15.03",
+    "lat": "52.41"
+  },
+  {
+    "name": "Bogoria",
+    "lng": "21.15",
+    "lat": "50.39"
+  },
+  {
+    "name": "Boguchwała",
+    "lng": "21.57",
+    "lat": "49.59"
+  },
+  {
+    "name": "Boguszów-Gorce",
+    "lng": "16.12",
+    "lat": "50.46"
+  },
+  {
+    "name": "Boguty-Pianki",
+    "lng": "22.25",
+    "lat": "52.43"
+  },
+  {
+    "name": "Bojadła",
+    "lng": "15.49",
+    "lat": "51.57"
+  },
+  {
+    "name": "Bojanowo",
+    "lng": "16.45",
+    "lat": "51.42"
+  },
+  {
+    "name": "Bojanów",
+    "lng": "21.57",
+    "lat": "50.26"
+  },
+  {
+    "name": "Bolesław",
+    "lng": "20.53",
+    "lat": "50.16"
+  },
+  {
+    "name": "Bolesławiec (kaliskie)",
+    "lng": "18.12",
+    "lat": "51.12"
+  },
+  {
+    "name": "Bolesławiec (jeleniog.)",
+    "lng": "15.34",
+    "lat": "51.16"
+  },
+  {
+    "name": "Boleszkowice",
+    "lng": "14.33",
+    "lat": "52.43"
+  },
+  {
+    "name": "Bolimów",
+    "lng": "20.10",
+    "lat": "52.05"
+  },
+  {
+    "name": "Bolków",
+    "lng": "16.06",
+    "lat": "50.55"
+  },
+  {
+    "name": "Boniewo",
+    "lng": "18.54",
+    "lat": "52.28"
+  },
+  {
+    "name": "Borek Wielkopolski",
+    "lng": "17.15",
+    "lat": "51.55"
+  },
+  {
+    "name": "Borki",
+    "lng": "22.32",
+    "lat": "51.44"
+  },
+  {
+    "name": "Borkowice",
+    "lng": "20.42",
+    "lat": "51.19"
+  },
+  {
+    "name": "Borowa",
+    "lng": "21.21",
+    "lat": "50.23"
+  },
+  {
+    "name": "Borowiczki",
+    "lng": "19.45",
+    "lat": "52.31"
+  },
+  {
+    "name": "Borowie",
+    "lng": "21.46",
+    "lat": "51.57"
+  },
+  {
+    "name": "Borów",
+    "lng": "17.00",
+    "lat": "50.53"
+  },
+  {
+    "name": "Borysław",
+    "lng": "23.27",
+    "lat": "49.16"
+  },
+  {
+    "name": "Borzechów",
+    "lng": "22.17",
+    "lat": "51.06"
+  },
+  {
+    "name": "Borzęcin",
+    "lng": "20.42",
+    "lat": "50.06"
+  },
+  {
+    "name": "Borzytuchom",
+    "lng": "17.23",
+    "lat": "54.13"
+  },
+  {
+    "name": "Branice",
+    "lng": "17.47",
+    "lat": "50.03"
+  },
+  {
+    "name": "Braniewo",
+    "lng": "19.50",
+    "lat": "54.23"
+  },
+  {
+    "name": "Brańsk",
+    "lng": "22.50",
+    "lat": "52.45"
+  },
+  {
+    "name": "Brańszczyk",
+    "lng": "21.36",
+    "lat": "52.37"
+  },
+  {
+    "name": "Brasław",
+    "lng": "27.02",
+    "lat": "55.38"
+  },
+  {
+    "name": "Brąszewice",
+    "lng": "18.27",
+    "lat": "51.30"
+  },
+  {
+    "name": "Brodnica (poznańskie)",
+    "lng": "16.53",
+    "lat": "52.09"
+  },
+  {
+    "name": "Brodnica (toruńskie)",
+    "lng": "19.24",
+    "lat": "53.15"
+  },
+  {
+    "name": "Brody (kieleckie)",
+    "lng": "21.14",
+    "lat": "51.02"
+  },
+  {
+    "name": "Brody (zielonogórskie)",
+    "lng": "14.45",
+    "lat": "51.45"
+  },
+  {
+    "name": "Brody",
+    "lng": "25.10",
+    "lat": "50.06"
+  },
+  {
+    "name": "Brojce",
+    "lng": "15.21",
+    "lat": "53.57"
+  },
+  {
+    "name": "Brok",
+    "lng": "21.51",
+    "lat": "52.42"
+  },
+  {
+    "name": "Brójce",
+    "lng": "19.38",
+    "lat": "51.40"
+  },
+  {
+    "name": "Brudzeń Duży",
+    "lng": "19.29",
+    "lat": "52.40"
+  },
+  {
+    "name": "Brudzew",
+    "lng": "18.36",
+    "lat": "52.06"
+  },
+  {
+    "name": "Brusy",
+    "lng": "17.44",
+    "lat": "53.53"
+  },
+  {
+    "name": "Brwinów",
+    "lng": "20.43",
+    "lat": "52.08"
+  },
+  {
+    "name": "Brzeg",
+    "lng": "17.29",
+    "lat": "50.52"
+  },
+  {
+    "name": "Brzeg Dolny",
+    "lng": "16.43",
+    "lat": "51.16"
+  },
+  {
+    "name": "Brzesko",
+    "lng": "20.37",
+    "lat": "49.58"
+  },
+  {
+    "name": "Brzeszcze",
+    "lng": "19.09",
+    "lat": "49.59"
+  },
+  {
+    "name": "Brześć Kujawski",
+    "lng": "18.53",
+    "lat": "52.37"
+  },
+  {
+    "name": "Brześć nad Bugiem",
+    "lng": "23.42",
+    "lat": "52.06"
+  },
+  {
+    "name": "Brzeziny (kaliskie)",
+    "lng": "18.16",
+    "lat": "51.36"
+  },
+  {
+    "name": "Brzeziny (skierniewic.)",
+    "lng": "19.45",
+    "lat": "51.48"
+  },
+  {
+    "name": "Brzeźnica (bielskie)",
+    "lng": "19.37",
+    "lat": "49.58"
+  },
+  {
+    "name": "Brzeźnica (zielonogór.)",
+    "lng": "15.24",
+    "lat": "51.43"
+  },
+  {
+    "name": "Brzeźnio",
+    "lng": "18.38",
+    "lat": "51.30"
+  },
+  {
+    "name": "Brzeźno",
+    "lng": "15.47",
+    "lat": "53.42"
+  },
+  {
+    "name": "Brzeżany",
+    "lng": "24.56",
+    "lat": "49.27"
+  },
+  {
+    "name": "Brzostek",
+    "lng": "21.25",
+    "lat": "49.53"
+  },
+  {
+    "name": "Brzozie",
+    "lng": "19.36",
+    "lat": "53.19"
+  },
+  {
+    "name": "Brzozów",
+    "lng": "22.02",
+    "lat": "49.42"
+  },
+  {
+    "name": "Brzuze",
+    "lng": "19.15",
+    "lat": "53.03"
+  },
+  {
+    "name": "Brzyska",
+    "lng": "21.23",
+    "lat": "49.49"
+  },
+  {
+    "name": "Buczacz",
+    "lng": "25.23",
+    "lat": "49.04"
+  },
+  {
+    "name": "Buczek",
+    "lng": "19.10",
+    "lat": "51.30"
+  },
+  {
+    "name": "Budry",
+    "lng": "21.53",
+    "lat": "54.15"
+  },
+  {
+    "name": "Budzów",
+    "lng": "19.41",
+    "lat": "49.47"
+  },
+  {
+    "name": "Budzyń",
+    "lng": "16.59",
+    "lat": "52.54"
+  },
+  {
+    "name": "Buk",
+    "lng": "16.31",
+    "lat": "52.22"
+  },
+  {
+    "name": "Bukowiec",
+    "lng": "18.14",
+    "lat": "53.26"
+  },
+  {
+    "name": "Bukowina Tatrzańska",
+    "lng": "20.06",
+    "lat": "49.20"
+  },
+  {
+    "name": "Bukowno",
+    "lng": "19.26",
+    "lat": "50.16"
+  },
+  {
+    "name": "Bukowsko",
+    "lng": "22.03",
+    "lat": "49.29"
+  },
+  {
+    "name": "Bulkowo",
+    "lng": "20.07",
+    "lat": "52.33"
+  },
+  {
+    "name": "Burzenin",
+    "lng": "18.50",
+    "lat": "51.27"
+  },
+  {
+    "name": "Busko Zdrój",
+    "lng": "20.48",
+    "lat": "50.28"
+  },
+  {
+    "name": "Bychawa",
+    "lng": "22.33",
+    "lat": "51.01"
+  },
+  {
+    "name": "Byczyna",
+    "lng": "18.13",
+    "lat": "51.07"
+  },
+  {
+    "name": "Bydgoszcz",
+    "lng": "18.00",
+    "lat": "53.07"
+  },
+  {
+    "name": "Bystrzyca Kłodzka",
+    "lng": "16.38",
+    "lat": "50.18"
+  },
+  {
+    "name": "Bytnica",
+    "lng": "15.09",
+    "lat": "52.09"
+  },
+  {
+    "name": "Bytom",
+    "lng": "18.54",
+    "lat": "50.23"
+  },
+  {
+    "name": "Bytom Odrzański",
+    "lng": "15.50",
+    "lat": "51.44"
+  },
+  {
+    "name": "Bytoń",
+    "lng": "18.35",
+    "lat": "52.34"
+  },
+  {
+    "name": "Bytów",
+    "lng": "17.30",
+    "lat": "54.10"
+  },
+  {
+    "name": "Cedry Wielkie",
+    "lng": "18.51",
+    "lat": "54.15"
+  },
+  {
+    "name": "Cedynia",
+    "lng": "14.12",
+    "lat": "52.53"
+  },
+  {
+    "name": "Cegłów",
+    "lng": "21.44",
+    "lat": "52.09"
+  },
+  {
+    "name": "Cekcyn",
+    "lng": "18.01",
+    "lat": "53.35"
+  },
+  {
+    "name": "Ceków-Kolonia",
+    "lng": "18.18",
+    "lat": "51.53"
+  },
+  {
+    "name": "Celestynów",
+    "lng": "21.23",
+    "lat": "52.03"
+  },
+  {
+    "name": "Ceranów",
+    "lng": "22.14",
+    "lat": "52.38"
+  },
+  {
+    "name": "Cewice",
+    "lng": "17.44",
+    "lat": "54.27"
+  },
+  {
+    "name": "Charsznica",
+    "lng": "19.56",
+    "lat": "50.25"
+  },
+  {
+    "name": "Chąśno",
+    "lng": "19.56",
+    "lat": "52.11"
+  },
+  {
+    "name": "Chełm",
+    "lng": "23.29",
+    "lat": "51.08"
+  },
+  {
+    "name": "Chełmek",
+    "lng": "19.14",
+    "lat": "50.06"
+  },
+  {
+    "name": "Chełmiec",
+    "lng": "20.40",
+    "lat": "49.38"
+  },
+  {
+    "name": "Chełmno",
+    "lng": "18.26",
+    "lat": "53.21"
+  },
+  {
+    "name": "Chełmża",
+    "lng": "18.36",
+    "lat": "53.12"
+  },
+  {
+    "name": "Chęciny",
+    "lng": "20.27",
+    "lat": "50.48"
+  },
+  {
+    "name": "Chlewiska",
+    "lng": "20.46",
+    "lat": "51.15"
+  },
+  {
+    "name": "Chłopice",
+    "lng": "22.41",
+    "lat": "49.57"
+  },
+  {
+    "name": "Chmielnik",
+    "lng": "20.45",
+    "lat": "50.37"
+  },
+  {
+    "name": "Chmielnik Rzeszowski",
+    "lng": "22.07",
+    "lat": "49.59"
+  },
+  {
+    "name": "Chmielno",
+    "lng": "18.06",
+    "lat": "54.20"
+  },
+  {
+    "name": "Choceń",
+    "lng": "19.01",
+    "lat": "52.30"
+  },
+  {
+    "name": "Chocianów",
+    "lng": "15.54",
+    "lat": "51.25"
+  },
+  {
+    "name": "Chociwel",
+    "lng": "15.19",
+    "lat": "53.27"
+  },
+  {
+    "name": "Chocz",
+    "lng": "17.53",
+    "lat": "51.58"
+  },
+  {
+    "name": "Choczewo",
+    "lng": "17.53",
+    "lat": "54.45"
+  },
+  {
+    "name": "Chodecz",
+    "lng": "19.02",
+    "lat": "52.24"
+  },
+  {
+    "name": "Chodel",
+    "lng": "22.08",
+    "lat": "51.07"
+  },
+  {
+    "name": "Chodów",
+    "lng": "19.02",
+    "lat": "52.15"
+  },
+  {
+    "name": "Chodzież",
+    "lng": "16.55",
+    "lat": "52.59"
+  },
+  {
+    "name": "Chojna",
+    "lng": "14.25",
+    "lat": "52.58"
+  },
+  {
+    "name": "Chojnice",
+    "lng": "17.33",
+    "lat": "53.42"
+  },
+  {
+    "name": "Chojnów",
+    "lng": "15.56",
+    "lat": "51.17"
+  },
+  {
+    "name": "Choreszcz",
+    "lng": "22.59",
+    "lat": "53.09"
+  },
+  {
+    "name": "Chorkówka",
+    "lng": "21.41",
+    "lat": "49.39"
+  },
+  {
+    "name": "Choroszcz",
+    "lng": "22.59",
+    "lat": "53.09"
+  },
+  {
+    "name": "Chorzele",
+    "lng": "20.53",
+    "lat": "53.16"
+  },
+  {
+    "name": "Chorzów",
+    "lng": "18.57",
+    "lat": "50.18"
+  },
+  {
+    "name": "Choszczno",
+    "lng": "15.24",
+    "lat": "53.10"
+  },
+  {
+    "name": "Chotcza",
+    "lng": "21.45",
+    "lat": "52.14"
+  },
+  {
+    "name": "Chrostkowo",
+    "lng": "19.15",
+    "lat": "53.57"
+  },
+  {
+    "name": "Chrzanów (katowickie)",
+    "lng": "19.24",
+    "lat": "50.08"
+  },
+  {
+    "name": "Chrzanów (tarnobrzeskie)",
+    "lng": "22.36",
+    "lat": "50.46"
+  },
+  {
+    "name": "Chrząstowice",
+    "lng": "18.04",
+    "lat": "50.40"
+  },
+  {
+    "name": "Chrzypsko Wielkie",
+    "lng": "16.14",
+    "lat": "52.38"
+  },
+  {
+    "name": "Chybie",
+    "lng": "18.49",
+    "lat": "49.54"
+  },
+  {
+    "name": "Chynów",
+    "lng": "21.05",
+    "lat": "51.54"
+  },
+  {
+    "name": "Ciasna",
+    "lng": "18.37",
+    "lat": "50.46"
+  },
+  {
+    "name": "Ciechanowiec",
+    "lng": "22.30",
+    "lat": "52.41"
+  },
+  {
+    "name": "Ciechanów",
+    "lng": "20.38",
+    "lat": "52.52"
+  },
+  {
+    "name": "Ciechocin",
+    "lng": "18.56",
+    "lat": "53.04"
+  },
+  {
+    "name": "Ciechocinek",
+    "lng": "18.47",
+    "lat": "52.53"
+  },
+  {
+    "name": "Cielądz",
+    "lng": "20.21",
+    "lat": "51.43"
+  },
+  {
+    "name": "Ciepielów",
+    "lng": "21.35",
+    "lat": "51.15"
+  },
+  {
+    "name": "Ciepłowody",
+    "lng": "16.55",
+    "lat": "50.41"
+  },
+  {
+    "name": "Cieplice Śląskie-Zdrój",
+    "lng": "15.41",
+    "lat": "50.52"
+  },
+  {
+    "name": "Cieszanów",
+    "lng": "23.08",
+    "lat": "50.14"
+  },
+  {
+    "name": "Cieszków",
+    "lng": "17.22",
+    "lat": "51.38"
+  },
+  {
+    "name": "Cieszyn",
+    "lng": "18.38",
+    "lat": "49.45"
+  },
+  {
+    "name": "Ciężkowice",
+    "lng": "20.58",
+    "lat": "49.48"
+  },
+  {
+    "name": "Cisek",
+    "lng": "18.13",
+    "lat": "50.17"
+  },
+  {
+    "name": "Cisna",
+    "lng": "22.20",
+    "lat": "49.13"
+  },
+  {
+    "name": "Cmolas",
+    "lng": "21.45",
+    "lat": "50.18"
+  },
+  {
+    "name": "Cybinka",
+    "lng": "14.48",
+    "lat": "52.12"
+  },
+  {
+    "name": "Cyców",
+    "lng": "23.08",
+    "lat": "51.18"
+  },
+  {
+    "name": "Czajków",
+    "lng": "18.21",
+    "lat": "51.29"
+  },
+  {
+    "name": "Czaplinek",
+    "lng": "16.14",
+    "lat": "53.33"
+  },
+  {
+    "name": "Czarna (krośnieńskie)",
+    "lng": "22.41",
+    "lat": "49.19"
+  },
+  {
+    "name": "Czarna (tarnowskie)",
+    "lng": "21.15",
+    "lat": "50.04"
+  },
+  {
+    "name": "Czarna (rzeszowskie)",
+    "lng": "22.12",
+    "lat": "50.07"
+  },
+  {
+    "name": "Czarna Białostocka",
+    "lng": "23.18",
+    "lat": "53.18"
+  },
+  {
+    "name": "Czarna Dąbrówka",
+    "lng": "17.34",
+    "lat": "54.22"
+  },
+  {
+    "name": "Czarne",
+    "lng": "16.56",
+    "lat": "53.42"
+  },
+  {
+    "name": "Czarnia",
+    "lng": "21.11",
+    "lat": "53.21"
+  },
+  {
+    "name": "Czarnków",
+    "lng": "16.34",
+    "lat": "52.54"
+  },
+  {
+    "name": "Czarnocin (kieleckie)",
+    "lng": "20.31",
+    "lat": "50.21"
+  },
+  {
+    "name": "Czarnocin (piotrkowskie)",
+    "lng": "19.41",
+    "lat": "51.35"
+  },
+  {
+    "name": "Czrnożyły",
+    "lng": "18.34",
+    "lat": "51.17"
+  },
+  {
+    "name": "Czarny Bór",
+    "lng": "16.07",
+    "lat": "50.46"
+  },
+  {
+    "name": "Czarny Dunajec",
+    "lng": "19.52",
+    "lat": "49.27"
+  },
+  {
+    "name": "Czastary",
+    "lng": "18.20",
+    "lat": "51.16"
+  },
+  {
+    "name": "Czchów",
+    "lng": "20.41",
+    "lat": "49.50"
+  },
+  {
+    "name": "Czechowice-Dziedzice",
+    "lng": "19.01",
+    "lat": "49.50"
+  },
+  {
+    "name": "Czemierniki",
+    "lng": "22.38",
+    "lat": "51.41"
+  },
+  {
+    "name": "Czempiń",
+    "lng": "16.45",
+    "lat": "52.08"
+  },
+  {
+    "name": "Czeremcha",
+    "lng": "23.21",
+    "lat": "52.31"
+  },
+  {
+    "name": "Czermin (rzeszowskie)",
+    "lng": "21.20",
+    "lat": "50.20"
+  },
+  {
+    "name": "Czermin (kaliskie)",
+    "lng": "17.45",
+    "lat": "51.57"
+  },
+  {
+    "name": "Czernica",
+    "lng": "17.15",
+    "lat": "51.03"
+  },
+  {
+    "name": "Czernice Borowe",
+    "lng": "20.43",
+    "lat": "53.02"
+  },
+  {
+    "name": "Czernichów",
+    "lng": "19.41",
+    "lat": "49.59"
+  },
+  {
+    "name": "Czerniejewo",
+    "lng": "17.29",
+    "lat": "52.26"
+  },
+  {
+    "name": "Czerniewice",
+    "lng": "20.10",
+    "lat": "51.39"
+  },
+  {
+    "name": "Czernikowo",
+    "lng": "18.56",
+    "lat": "52.57"
+  },
+  {
+    "name": "Czersk",
+    "lng": "17.58",
+    "lat": "53.48"
+  },
+  {
+    "name": "Czerwieńsk",
+    "lng": "15.26",
+    "lat": "52.01"
+  },
+  {
+    "name": "Czerwin",
+    "lng": "21.46",
+    "lat": "52.57"
+  },
+  {
+    "name": "Czerwińsk nad Wisłą",
+    "lng": "20.18",
+    "lat": "52.23"
+  },
+  {
+    "name": "Czerwonak",
+    "lng": "16.59",
+    "lat": "52.28"
+  },
+  {
+    "name": "Czerwonka",
+    "lng": "21.12",
+    "lat": "52.53"
+  },
+  {
+    "name": "Częstochowa",
+    "lng": "19.07",
+    "lat": "50.48"
+  },
+  {
+    "name": "Człopa",
+    "lng": "16.06",
+    "lat": "53.05"
+  },
+  {
+    "name": "Człuchów",
+    "lng": "17.21",
+    "lat": "53.41"
+  },
+  {
+    "name": "Czorsztyn",
+    "lng": "20.19",
+    "lat": "49.26"
+  },
+  {
+    "name": "Czosnów",
+    "lng": "20.43",
+    "lat": "52.24"
+  },
+  {
+    "name": "Czudec",
+    "lng": "21.51",
+    "lat": "49.57"
+  },
+  {
+    "name": "Czyże",
+    "lng": "23.26",
+    "lat": "52.47"
+  },
+  {
+    "name": "Czyżew-Osada",
+    "lng": "22.18",
+    "lat": "52.48"
+  },
+  {
+    "name": "Ćmielów",
+    "lng": "21.31",
+    "lat": "50.54"
+  },
+  {
+    "name": "Daleszyce",
+    "lng": "20.48",
+    "lat": "50.48"
+  },
+  {
+    "name": "Dalików",
+    "lng": "19.06",
+    "lat": "51.53"
+  },
+  {
+    "name": "Damasławek",
+    "lng": "17.30",
+    "lat": "52.50"
+  },
+  {
+    "name": "Damnica",
+    "lng": "17.17",
+    "lat": "54.30"
+  },
+  {
+    "name": "Darłowo",
+    "lng": "16.24",
+    "lat": "54.25"
+  },
+  {
+    "name": "Daszyna",
+    "lng": "19.11",
+    "lat": "52.09"
+  },
+  {
+    "name": "Dawidgródek",
+    "lng": "27.14",
+    "lat": "52.03"
+  },
+  {
+    "name": "Dąbie (konińskie)",
+    "lng": "18.49",
+    "lat": "52.05"
+  },
+  {
+    "name": "Dąbie (zielonogórskie)",
+    "lng": "15.10",
+    "lat": "52.01"
+  },
+  {
+    "name": "Dąbrowa (opolskie)",
+    "lng": "17.45",
+    "lat": "50.41"
+  },
+  {
+    "name": "Dąbrowa (bydgoskie)",
+    "lng": "17.57",
+    "lat": "52.44"
+  },
+  {
+    "name": "Dąbrowa Białostocka",
+    "lng": "23.21",
+    "lat": "53.39"
+  },
+  {
+    "name": "Dąbrowa Biskupia",
+    "lng": "18.32",
+    "lat": "52.47"
+  },
+  {
+    "name": "Dąbrowa Chełmińska",
+    "lng": "18.18",
+    "lat": "53.11"
+  },
+  {
+    "name": "Dąbrowa Górnicza",
+    "lng": "19.16",
+    "lat": "50.19"
+  },
+  {
+    "name": "Dąbrowa Tarnowska",
+    "lng": "20.59",
+    "lat": "50.11"
+  },
+  {
+    "name": "Dąbrowa Zielona",
+    "lng": "19.33",
+    "lat": "50.51"
+  },
+  {
+    "name": "Dąbrowice",
+    "lng": "19.05",
+    "lat": "52.19"
+  },
+  {
+    "name": "Dąbrówka",
+    "lng": "21.17",
+    "lat": "52.29"
+  },
+  {
+    "name": "Dąbrówno",
+    "lng": "20.03",
+    "lat": "53.26"
+  },
+  {
+    "name": "Debrzno",
+    "lng": "17.14",
+    "lat": "53.33"
+  },
+  {
+    "name": "Deszczno",
+    "lng": "15.18",
+    "lat": "52.40"
+  },
+  {
+    "name": "Dębe Wielkie",
+    "lng": "21.26",
+    "lat": "52.12"
+  },
+  {
+    "name": "Dębica",
+    "lng": "21.25",
+    "lat": "50.03"
+  },
+  {
+    "name": "Dęblin",
+    "lng": "21.52",
+    "lat": "51.34"
+  },
+  {
+    "name": "Dębnica Kaszubska",
+    "lng": "17.10",
+    "lat": "54.23"
+  },
+  {
+    "name": "Dębno (tarnowskie)",
+    "lng": "20.43",
+    "lat": "49.58"
+  },
+  {
+    "name": "Dębno (gorzowskie)",
+    "lng": "14.42",
+    "lat": "52.44"
+  },
+  {
+    "name": "Dębowa Kłoda",
+    "lng": "23.01",
+    "lat": "51.36"
+  },
+  {
+    "name": "Dębowa Łąka",
+    "lng": "19.06",
+    "lat": "53.15"
+  },
+  {
+    "name": "Dębowiec (krośnieńskie)",
+    "lng": "21.28",
+    "lat": "49.41"
+  },
+  {
+    "name": "Dębowiec (bielskie)",
+    "lng": "18.43",
+    "lat": "49.48"
+  },
+  {
+    "name": "Długołęka",
+    "lng": "17.12",
+    "lat": "51.10"
+  },
+  {
+    "name": "Długosiodło",
+    "lng": "21.36",
+    "lat": "52.46"
+  },
+  {
+    "name": "Dłutów",
+    "lng": "19.24",
+    "lat": "51.33"
+  },
+  {
+    "name": "Dmosin",
+    "lng": "19.45",
+    "lat": "51.55"
+  },
+  {
+    "name": "Dobczyce",
+    "lng": "20.06",
+    "lat": "49.53"
+  },
+  {
+    "name": "Dobiegniew",
+    "lng": "15.45",
+    "lat": "52.58"
+  },
+  {
+    "name": "Dobra (konińskie)",
+    "lng": "18.37",
+    "lat": "51.55"
+  },
+  {
+    "name": "Dobra (nowosądeckie)",
+    "lng": "20.15",
+    "lat": "49.43"
+  },
+  {
+    "name": "Dobra (szczecińskie)",
+    "lng": "14.23",
+    "lat": "53.29"
+  },
+  {
+    "name": "Dobra (szczecińskie)",
+    "lng": "15.18",
+    "lat": "53.34"
+  },
+  {
+    "name": "Dobrcz",
+    "lng": "18.09",
+    "lat": "53.16"
+  },
+  {
+    "name": "Dobre (siedleckie)",
+    "lng": "21.41",
+    "lat": "52.19"
+  },
+  {
+    "name": "Dobre (włocławskie)",
+    "lng": "18.33",
+    "lat": "52.41"
+  },
+  {
+    "name": "Dobre Miasto",
+    "lng": "20.24",
+    "lat": "53.59"
+  },
+  {
+    "name": "Dobrodzień",
+    "lng": "18.27",
+    "lat": "50.44"
+  },
+  {
+    "name": "Dobromierz",
+    "lng": "16.15",
+    "lat": "50.55"
+  },
+  {
+    "name": "Dobromil",
+    "lng": "22.47",
+    "lat": "49.34"
+  },
+  {
+    "name": "Dobroszyce",
+    "lng": "17.21",
+    "lat": "51.16"
+  },
+  {
+    "name": "Dobryszyce",
+    "lng": "19.25",
+    "lat": "51.09"
+  },
+  {
+    "name": "Dobrzany",
+    "lng": "15.25",
+    "lat": "53.21"
+  },
+  {
+    "name": "Dobrzelin",
+    "lng": "19.37",
+    "lat": "52.14"
+  },
+  {
+    "name": "Dobrzeń Wielki",
+    "lng": "17.51",
+    "lat": "50.46"
+  },
+  {
+    "name": "Dobrzyca",
+    "lng": "17.37",
+    "lat": "51.52"
+  },
+  {
+    "name": "Dobrzyniewo Kościelne",
+    "lng": "23.03",
+    "lat": "53.12"
+  },
+  {
+    "name": "Dobrzyń nad Wisłą",
+    "lng": "19.20",
+    "lat": "52.39"
+  },
+  {
+    "name": "Dolice",
+    "lng": "15.12",
+    "lat": "53.11"
+  },
+  {
+    "name": "Dolsk",
+    "lng": "17.04",
+    "lat": "51.59"
+  },
+  {
+    "name": "Dołhobyczów",
+    "lng": "24.02",
+    "lat": "50.35"
+  },
+  {
+    "name": "Domaniewice",
+    "lng": "19.48",
+    "lat": "52.01"
+  },
+  {
+    "name": "Domaniów",
+    "lng": "17.08",
+    "lat": "50.59"
+  },
+  {
+    "name": "Domaradz",
+    "lng": "21.59",
+    "lat": "49.48"
+  },
+  {
+    "name": "Domaszowice",
+    "lng": "17.53",
+    "lat": "51.03"
+  },
+  {
+    "name": "Dominowo",
+    "lng": "17.22",
+    "lat": "52.18"
+  },
+  {
+    "name": "Dopiewo",
+    "lng": "16.40",
+    "lat": "52.21"
+  },
+  {
+    "name": "Dorohusk",
+    "lng": "23.49",
+    "lat": "51.09"
+  },
+  {
+    "name": "Doruchów",
+    "lng": "18.05",
+    "lat": "51.25"
+  },
+  {
+    "name": "Dragacz",
+    "lng": "18.44",
+    "lat": "53.30"
+  },
+  {
+    "name": "Drawno",
+    "lng": "15.45",
+    "lat": "53.13"
+  },
+  {
+    "name": "Drawsko",
+    "lng": "16.02",
+    "lat": "52.51"
+  },
+  {
+    "name": "Drawsko Pomorskie",
+    "lng": "15.48",
+    "lat": "53.32"
+  },
+  {
+    "name": "Drelów",
+    "lng": "22.53",
+    "lat": "51.55"
+  },
+  {
+    "name": "Drezdenko",
+    "lng": "15.49",
+    "lat": "52.51"
+  },
+  {
+    "name": "Drobin",
+    "lng": "19.59",
+    "lat": "52.44"
+  },
+  {
+    "name": "Drohiczyn",
+    "lng": "22.39",
+    "lat": "52.24"
+  },
+  {
+    "name": "Drohobycz",
+    "lng": "23.30",
+    "lat": "49.21"
+  },
+  {
+    "name": "Drużbice",
+    "lng": "19.24",
+    "lat": "51.27"
+  },
+  {
+    "name": "Drwinia",
+    "lng": "20.26",
+    "lat": "50.06"
+  },
+  {
+    "name": "Drzewica",
+    "lng": "20.28",
+    "lat": "51.27"
+  },
+  {
+    "name": "Drzycim",
+    "lng": "18.19",
+    "lat": "53.31"
+  },
+  {
+    "name": "Dubeninki",
+    "lng": "22.34",
+    "lat": "54.18"
+  },
+  {
+    "name": "Dubicze Cerkiewne",
+    "lng": "23.26",
+    "lat": "52.39"
+  },
+  {
+    "name": "Dubiecko",
+    "lng": "22.24",
+    "lat": "49.50"
+  },
+  {
+    "name": "Dubienka",
+    "lng": "23.53",
+    "lat": "51.03"
+  },
+  {
+    "name": "Dukla",
+    "lng": "21.41",
+    "lat": "49.33"
+  },
+  {
+    "name": "Duszniki",
+    "lng": "16.24",
+    "lat": "52.27"
+  },
+  {
+    "name": "Duszniki-Zdrój",
+    "lng": "16.23",
+    "lat": "50.24"
+  },
+  {
+    "name": "Dwikozy",
+    "lng": "21.47",
+    "lat": "50.44"
+  },
+  {
+    "name": "Dydnia",
+    "lng": "22.12",
+    "lat": "49.41"
+  },
+  {
+    "name": "Dygowo",
+    "lng": "15.43",
+    "lat": "54.08"
+  },
+  {
+    "name": "Dynów",
+    "lng": "22.14",
+    "lat": "49.49"
+  },
+  {
+    "name": "Dywity",
+    "lng": "20.29",
+    "lat": "53.50"
+  },
+  {
+    "name": "Dziadkowice",
+    "lng": "22.54",
+    "lat": "52.34"
+  },
+  {
+    "name": "Dziadowa Kłoda",
+    "lng": "17.42",
+    "lat": "51.14"
+  },
+  {
+    "name": "Działdowo",
+    "lng": "20.11",
+    "lat": "53.14"
+  },
+  {
+    "name": "Działoszyce",
+    "lng": "20.21",
+    "lat": "50.22"
+  },
+  {
+    "name": "Działoszyn",
+    "lng": "18.52",
+    "lat": "51.07"
+  },
+  {
+    "name": "Dziemiany",
+    "lng": "17.47",
+    "lat": "54.01"
+  },
+  {
+    "name": "Dzierzążnia",
+    "lng": "20.14",
+    "lat": "52.38"
+  },
+  {
+    "name": "Dzierzgoń",
+    "lng": "19.21",
+    "lat": "53.56"
+  },
+  {
+    "name": "Dzierzgowo",
+    "lng": "20.39",
+    "lat": "53.09"
+  },
+  {
+    "name": "Dzierzkowice",
+    "lng": "22.05",
+    "lat": "50.58"
+  },
+  {
+    "name": "Dzierżoniów",
+    "lng": "16.38",
+    "lat": "50.43"
+  },
+  {
+    "name": "Dziwnów",
+    "lng": "14.45",
+    "lat": "54.02"
+  },
+  {
+    "name": "Dzwola",
+    "lng": "22.35",
+    "lat": "50.42"
+  },
+  {
+    "name": "Dźwierzuty",
+    "lng": "20.58",
+    "lat": "53.42"
+  },
+  {
+    "name": "Elbląg",
+    "lng": "19.24",
+    "lat": "54.10"
+  },
+  {
+    "name": "Ełk",
+    "lng": "22.21",
+    "lat": "53.29"
+  },
+  {
+    "name": "Fabianki",
+    "lng": "19.06",
+    "lat": "52.43"
+  },
+  {
+    "name": "Fajsławice",
+    "lng": "22.57",
+    "lat": "51.06"
+  },
+  {
+    "name": "Fałków",
+    "lng": "20.06",
+    "lat": "51.08"
+  },
+  {
+    "name": "Filipów",
+    "lng": "22.37",
+    "lat": "54.11"
+  },
+  {
+    "name": "Firlej",
+    "lng": "22.31",
+    "lat": "51.34"
+  },
+  {
+    "name": "Frampol",
+    "lng": "22.41",
+    "lat": "50.41"
+  },
+  {
+    "name": "Fredropol",
+    "lng": "22.45",
+    "lat": "49.42"
+  },
+  {
+    "name": "Frombork",
+    "lng": "19.41",
+    "lat": "54.21"
+  },
+  {
+    "name": "Frysztak",
+    "lng": "21.37",
+    "lat": "49.50"
+  },
+  {
+    "name": "Gać",
+    "lng": "22.22",
+    "lat": "50.02"
+  },
+  {
+    "name": "Galewice",
+    "lng": "18.16",
+    "lat": "51.20"
+  },
+  {
+    "name": "Garbatka-Letnisko",
+    "lng": "21.37",
+    "lat": "51.30"
+  },
+  {
+    "name": "Garbów",
+    "lng": "22.21",
+    "lat": "51.21"
+  },
+  {
+    "name": "Gardeja",
+    "lng": "18.57",
+    "lat": "53.37"
+  },
+  {
+    "name": "Garwolin",
+    "lng": "21.38",
+    "lat": "51.54"
+  },
+  {
+    "name": "Gaszowice",
+    "lng": "18.26",
+    "lat": "50.07"
+  },
+  {
+    "name": "Gaworzyce",
+    "lng": "15.53",
+    "lat": "51.38"
+  },
+  {
+    "name": "Gąbin",
+    "lng": "19.43",
+    "lat": "52.24"
+  },
+  {
+    "name": "Gąsawa",
+    "lng": "17.45",
+    "lat": "52.46"
+  },
+  {
+    "name": "Gdańsk",
+    "lng": "18.38",
+    "lat": "54.22"
+  },
+  {
+    "name": "Gdów",
+    "lng": "20.12",
+    "lat": "49.54"
+  },
+  {
+    "name": "Gdynia",
+    "lng": "18.32",
+    "lat": "54.32"
+  },
+  {
+    "name": "Giby",
+    "lng": "23.22",
+    "lat": "54.02"
+  },
+  {
+    "name": "Gidle",
+    "lng": "19.28",
+    "lat": "50.58"
+  },
+  {
+    "name": "Gielniów",
+    "lng": "20.28",
+    "lat": "51.24"
+  },
+  {
+    "name": "Gierałtowice",
+    "lng": "18.43",
+    "lat": "50.13"
+  },
+  {
+    "name": "Gietrzwałd",
+    "lng": "20.15",
+    "lat": "53.45"
+  },
+  {
+    "name": "Gilowice-Ślemień",
+    "lng": "19.18",
+    "lat": "49.42"
+  },
+  {
+    "name": "Gizałki",
+    "lng": "17.47",
+    "lat": "52.03"
+  },
+  {
+    "name": "Giżycko",
+    "lng": "21.47",
+    "lat": "54.02"
+  },
+  {
+    "name": "Glinojeck",
+    "lng": "20.17",
+    "lat": "52.49"
+  },
+  {
+    "name": "Gliwice",
+    "lng": "18.40",
+    "lat": "50.17"
+  },
+  {
+    "name": "Głębokie",
+    "lng": "27.41",
+    "lat": "55.08"
+  },
+  {
+    "name": "Głogów",
+    "lng": "16.05",
+    "lat": "51.39"
+  },
+  {
+    "name": "Głogów Malopolski",
+    "lng": "21.58",
+    "lat": "50.09"
+  },
+  {
+    "name": "Głogówek",
+    "lng": "17.51",
+    "lat": "50.21"
+  },
+  {
+    "name": "Głowaczów",
+    "lng": "21.20",
+    "lat": "51.38"
+  },
+  {
+    "name": "Głowno",
+    "lng": "19.43",
+    "lat": "51.58"
+  },
+  {
+    "name": "Główczyce",
+    "lng": "17.22",
+    "lat": "54.37"
+  },
+  {
+    "name": "Głubczyce",
+    "lng": "17.50",
+    "lat": "50.12"
+  },
+  {
+    "name": "Głuchołazy",
+    "lng": "17.23",
+    "lat": "50.19"
+  },
+  {
+    "name": "Głuchów",
+    "lng": "20.04",
+    "lat": "51.47"
+  },
+  {
+    "name": "Głusk",
+    "lng": "22.36",
+    "lat": "51.12"
+  },
+  {
+    "name": "Głuszyca",
+    "lng": "16.22",
+    "lat": "50.41"
+  },
+  {
+    "name": "Gniew",
+    "lng": "18.49",
+    "lat": "53.51"
+  },
+  {
+    "name": "Gniewino",
+    "lng": "18.01",
+    "lat": "54.43"
+  },
+  {
+    "name": "Gniewkowo",
+    "lng": "18.25",
+    "lat": "52.54"
+  },
+  {
+    "name": "Gniewoszów",
+    "lng": "21.49",
+    "lat": "51.28"
+  },
+  {
+    "name": "Gniezno",
+    "lng": "17.36",
+    "lat": "52.32"
+  },
+  {
+    "name": "Gnojnik",
+    "lng": "20.36",
+    "lat": "49.54"
+  },
+  {
+    "name": "Gnojno",
+    "lng": "20.51",
+    "lat": "50.37"
+  },
+  {
+    "name": "Godkowo",
+    "lng": "19.54",
+    "lat": "54.05"
+  },
+  {
+    "name": "Godów",
+    "lng": "18.29",
+    "lat": "49.56"
+  },
+  {
+    "name": "Godzianów",
+    "lng": "20.02",
+    "lat": "51.53"
+  },
+  {
+    "name": "Godziesze Wielkie",
+    "lng": "18.11",
+    "lat": "51.39"
+  },
+  {
+    "name": "Godziszów",
+    "lng": "22.29",
+    "lat": "50.46"
+  },
+  {
+    "name": "Gogolin",
+    "lng": "18.02",
+    "lat": "50.30"
+  },
+  {
+    "name": "Golczewo",
+    "lng": "14.58",
+    "lat": "53.59"
+  },
+  {
+    "name": "Goleniów",
+    "lng": "14.49",
+    "lat": "53.33"
+  },
+  {
+    "name": "Goleszów",
+    "lng": "18.44",
+    "lat": "49.44"
+  },
+  {
+    "name": "Golina",
+    "lng": "18.06",
+    "lat": "52.15"
+  },
+  {
+    "name": "Golub-Dobrzyń",
+    "lng": "19.03",
+    "lat": "53.07"
+  },
+  {
+    "name": "Gołańcz",
+    "lng": "17.18",
+    "lat": "52.57"
+  },
+  {
+    "name": "Gołcza",
+    "lng": "19.55",
+    "lat": "50.21"
+  },
+  {
+    "name": "Gołdap",
+    "lng": "22.18",
+    "lat": "54.18"
+  },
+  {
+    "name": "Gołuchów",
+    "lng": "17.56",
+    "lat": "51.51"
+  },
+  {
+    "name": "Gołymin-Ośrodek",
+    "lng": "20.53",
+    "lat": "52.48"
+  },
+  {
+    "name": "Gomunice",
+    "lng": "19.29",
+    "lat": "51.10"
+  },
+  {
+    "name": "Goniądz",
+    "lng": "22.44",
+    "lat": "53.29"
+  },
+  {
+    "name": "Goraj",
+    "lng": "22.41",
+    "lat": "50.43"
+  },
+  {
+    "name": "Gorlice",
+    "lng": "21.10",
+    "lat": "49.40"
+  },
+  {
+    "name": "Gorzkowice",
+    "lng": "19.36",
+    "lat": "51.13"
+  },
+  {
+    "name": "Gorzków",
+    "lng": "23.00",
+    "lat": "50.56"
+  },
+  {
+    "name": "Gorzów Śląski",
+    "lng": "18.26",
+    "lat": "51.02"
+  },
+  {
+    "name": "Gorzów Wielkopolski",
+    "lng": "15.14",
+    "lat": "52.44"
+  },
+  {
+    "name": "Gorzyce (katowickie)",
+    "lng": "18.24",
+    "lat": "49.58"
+  },
+  {
+    "name": "Gorzyce (tarnobrzeskie)",
+    "lng": "21.50",
+    "lat": "50.40"
+  },
+  {
+    "name": "Gostycyn",
+    "lng": "17.48",
+    "lat": "53.29"
+  },
+  {
+    "name": "Gostynin",
+    "lng": "19.28",
+    "lat": "52.25"
+  },
+  {
+    "name": "Gostyń",
+    "lng": "17.01",
+    "lat": "51.53"
+  },
+  {
+    "name": "Goszczanów",
+    "lng": "18.31",
+    "lat": "51.47"
+  },
+  {
+    "name": "Goszczyn",
+    "lng": "20.52",
+    "lat": "51.44"
+  },
+  {
+    "name": "Gościeradów",
+    "lng": "22.00",
+    "lat": "50.52"
+  },
+  {
+    "name": "Gościno",
+    "lng": "15.38",
+    "lat": "54.03"
+  },
+  {
+    "name": "Gowarczów",
+    "lng": "20.27",
+    "lat": "51.17"
+  },
+  {
+    "name": "Goworowo",
+    "lng": "21.34",
+    "lat": "52.54"
+  },
+  {
+    "name": "Gozdnica",
+    "lng": "15.06",
+    "lat": "51.26"
+  },
+  {
+    "name": "Gozdowo",
+    "lng": "19.41",
+    "lat": "52.44"
+  },
+  {
+    "name": "Góra",
+    "lng": "16.33",
+    "lat": "51.40"
+  },
+  {
+    "name": "Góra Kalwaria",
+    "lng": "21.13",
+    "lat": "51.59"
+  },
+  {
+    "name": "Góra Świętej Małgorzaty",
+    "lng": "19.19",
+    "lat": "52.03"
+  },
+  {
+    "name": "Górno",
+    "lng": "20.49",
+    "lat": "50.51"
+  },
+  {
+    "name": "Górowo Iławieckie",
+    "lng": "20.30",
+    "lat": "54.17"
+  },
+  {
+    "name": "Górzno (siedleckie)",
+    "lng": "21.43",
+    "lat": "51.51"
+  },
+  {
+    "name": "Górzno (toruńskie)",
+    "lng": "19.38",
+    "lat": "53.12"
+  },
+  {
+    "name": "Górzyca",
+    "lng": "14.38",
+    "lat": "52.29"
+  },
+  {
+    "name": "Gózd",
+    "lng": "21.23",
+    "lat": "51.23"
+  },
+  {
+    "name": "Grabica",
+    "lng": "19.32",
+    "lat": "51.29"
+  },
+  {
+    "name": "Grabowiec",
+    "lng": "23.33",
+    "lat": "50.49"
+  },
+  {
+    "name": "Grabowo",
+    "lng": "22.09",
+    "lat": "53.28"
+  },
+  {
+    "name": "Grabów",
+    "lng": "19.01",
+    "lat": "52.07"
+  },
+  {
+    "name": "Grabów nad Pilicą",
+    "lng": "21.14",
+    "lat": "51.44"
+  },
+  {
+    "name": "Grabów nad Prosną",
+    "lng": "18.07",
+    "lat": "51.30"
+  },
+  {
+    "name": "Grajewo",
+    "lng": "22.27",
+    "lat": "53.39"
+  },
+  {
+    "name": "Granowo",
+    "lng": "16.32",
+    "lat": "52.13"
+  },
+  {
+    "name": "Grążawy",
+    "lng": "19.34",
+    "lat": "53.15"
+  },
+  {
+    "name": "Grębków",
+    "lng": "21.55",
+    "lat": "52.16"
+  },
+  {
+    "name": "Grębocice",
+    "lng": "16.10",
+    "lat": "51.36"
+  },
+  {
+    "name": "Gręboszów",
+    "lng": "20.47",
+    "lat": "50.15"
+  },
+  {
+    "name": "Grębów",
+    "lng": "21.53",
+    "lat": "50.34"
+  },
+  {
+    "name": "Grodków",
+    "lng": "17.23",
+    "lat": "50.42"
+  },
+  {
+    "name": "Grodno",
+    "lng": "23.50",
+    "lat": "53.41"
+  },
+  {
+    "name": "Grodziczno",
+    "lng": "19.46",
+    "lat": "53.25"
+  },
+  {
+    "name": "Grodziec",
+    "lng": "18.04",
+    "lat": "52.02"
+  },
+  {
+    "name": "Grodzisk",
+    "lng": "22.45",
+    "lat": "52.35"
+  },
+  {
+    "name": "Grodzisk Mazowiecki",
+    "lng": "20.37",
+    "lat": "52.06"
+  },
+  {
+    "name": "Grodzisk Wielkopolski",
+    "lng": "16.22",
+    "lat": "52.14"
+  },
+  {
+    "name": "Grodzisko Dolne",
+    "lng": "22.28",
+    "lat": "50.10"
+  },
+  {
+    "name": "Gromadka",
+    "lng": "15.46",
+    "lat": "51.22"
+  },
+  {
+    "name": "Gromnik",
+    "lng": "20.57",
+    "lat": "49.50"
+  },
+  {
+    "name": "Gronowo Elbląskie",
+    "lng": "19.18",
+    "lat": "54.05"
+  },
+  {
+    "name": "Gródek",
+    "lng": "23.40",
+    "lat": "53.06"
+  },
+  {
+    "name": "Gródek nad Dunajcem",
+    "lng": "20.44",
+    "lat": "49.45"
+  },
+  {
+    "name": "Grójec",
+    "lng": "20.52",
+    "lat": "51.52"
+  },
+  {
+    "name": "Grudusk",
+    "lng": "20.36",
+    "lat": "53.04"
+  },
+  {
+    "name": "Grudziądz",
+    "lng": "18.46",
+    "lat": "53.29"
+  },
+  {
+    "name": "Grunwald",
+    "lng": "20.05",
+    "lat": "53.33"
+  },
+  {
+    "name": "Gruta",
+    "lng": "18.58",
+    "lat": "53.27"
+  },
+  {
+    "name": "Grybów",
+    "lng": "20.57",
+    "lat": "49.38"
+  },
+  {
+    "name": "Gryfice",
+    "lng": "15.12",
+    "lat": "53.54"
+  },
+  {
+    "name": "Gryfino",
+    "lng": "14.29",
+    "lat": "53.15"
+  },
+  {
+    "name": "Gryfów Śląski",
+    "lng": "15.25",
+    "lat": "51.02"
+  },
+  {
+    "name": "Grzegorzew",
+    "lng": "18.44",
+    "lat": "52.12"
+  },
+  {
+    "name": "Grzmiąca",
+    "lng": "16.26",
+    "lat": "53.50"
+  },
+  {
+    "name": "Gubin",
+    "lng": "14.43",
+    "lat": "51.57"
+  },
+  {
+    "name": "Gzy",
+    "lng": "20.56",
+    "lat": "52.45"
+  },
+  {
+    "name": "Haczów",
+    "lng": "21.54",
+    "lat": "49.40"
+  },
+  {
+    "name": "Hajnówka",
+    "lng": "23.35",
+    "lat": "52.45"
+  },
+  {
+    "name": "Halinów",
+    "lng": "21.21",
+    "lat": "52.14"
+  },
+  {
+    "name": "Hanna",
+    "lng": "23.31",
+    "lat": "51.43"
+  },
+  {
+    "name": "Hańsk",
+    "lng": "23.24",
+    "lat": "51.24"
+  },
+  {
+    "name": "Harasiuki",
+    "lng": "22.29",
+    "lat": "50.28"
+  },
+  {
+    "name": "Haźlach",
+    "lng": "18.37",
+    "lat": "49.48"
+  },
+  {
+    "name": "Hel",
+    "lng": "18.48",
+    "lat": "54.36"
+  },
+  {
+    "name": "Herby",
+    "lng": "18.53",
+    "lat": "50.40"
+  },
+  {
+    "name": "Horodło",
+    "lng": "24.03",
+    "lat": "50.54"
+  },
+  {
+    "name": "Horyniec",
+    "lng": "23.22",
+    "lat": "50.12"
+  },
+  {
+    "name": "Hrubieszów",
+    "lng": "23.53",
+    "lat": "50.48"
+  },
+  {
+    "name": "Huszlew",
+    "lng": "22.50",
+    "lat": "52.08"
+  },
+  {
+    "name": "Hyżne",
+    "lng": "22.11",
+    "lat": "49.55"
+  },
+  {
+    "name": "Igołomia-Wawrzeńczyce",
+    "lng": "20.18",
+    "lat": "50.06"
+  },
+  {
+    "name": "Iława",
+    "lng": "19.34",
+    "lat": "53.36"
+  },
+  {
+    "name": "Iłowa",
+    "lng": "15.12",
+    "lat": "51.30"
+  },
+  {
+    "name": "Iłowo-Osada",
+    "lng": "20.18",
+    "lat": "53.10"
+  },
+  {
+    "name": "Iłów",
+    "lng": "20.02",
+    "lat": "52.21"
+  },
+  {
+    "name": "Iłża",
+    "lng": "21.15",
+    "lat": "51.10"
+  },
+  {
+    "name": "Imielno",
+    "lng": "20.26",
+    "lat": "50.35"
+  },
+  {
+    "name": "Inowłódz",
+    "lng": "20.13",
+    "lat": "51.32"
+  },
+  {
+    "name": "Inowrocław",
+    "lng": "18.15",
+    "lat": "52.48"
+  },
+  {
+    "name": "Ińsko",
+    "lng": "15.32",
+    "lat": "53.26"
+  },
+  {
+    "name": "Irządze",
+    "lng": "19.41",
+    "lat": "50.38"
+  },
+  {
+    "name": "Istebna",
+    "lng": "18.54",
+    "lat": "49.34"
+  },
+  {
+    "name": "Iwaniska",
+    "lng": "21.16",
+    "lat": "50.44"
+  },
+  {
+    "name": "Iwanowice",
+    "lng": "19.59",
+    "lat": "50.14"
+  },
+  {
+    "name": "Iwierzyce",
+    "lng": "21.46",
+    "lat": "50.02"
+  },
+  {
+    "name": "Iwkowa",
+    "lng": "20.35",
+    "lat": "49.50"
+  },
+  {
+    "name": "Iwonicz-Zdrój",
+    "lng": "21.48",
+    "lat": "49.34"
+  },
+  {
+    "name": "Izbica",
+    "lng": "23.10",
+    "lat": "50.54"
+  },
+  {
+    "name": "Izbica Kujawska",
+    "lng": "18.46",
+    "lat": "52.25"
+  },
+  {
+    "name": "Izbicko",
+    "lng": "18.10",
+    "lat": "50.34"
+  },
+  {
+    "name": "Jabłonka",
+    "lng": "19.42",
+    "lat": "49.29"
+  },
+  {
+    "name": "Jabłonna (lubelskie)",
+    "lng": "22.36",
+    "lat": "51.05"
+  },
+  {
+    "name": "Jabłonna (warszawskie)",
+    "lng": "20.54",
+    "lat": "52.23"
+  },
+  {
+    "name": "Jabłonna Lacka",
+    "lng": "22.27",
+    "lat": "52.29"
+  },
+  {
+    "name": "Jabłonowo",
+    "lng": "19.04",
+    "lat": "53.24"
+  },
+  {
+    "name": "Jabłonowo Pomorskie",
+    "lng": "19.04",
+    "lat": "53.24"
+  },
+  {
+    "name": "Jabłoń",
+    "lng": "23.05",
+    "lat": "51.43"
+  },
+  {
+    "name": "Jadów",
+    "lng": "21.38",
+    "lat": "52.29"
+  },
+  {
+    "name": "Jaktorów",
+    "lng": "20.32",
+    "lat": "52.05"
+  },
+  {
+    "name": "Jakubów",
+    "lng": "21.41",
+    "lat": "52.13"
+  },
+  {
+    "name": "Janikowo",
+    "lng": "18.06",
+    "lat": "52.45"
+  },
+  {
+    "name": "Janowice Wielkie",
+    "lng": "15.55",
+    "lat": "50.53"
+  },
+  {
+    "name": "Janowiec",
+    "lng": "21.54",
+    "lat": "51.19"
+  },
+  {
+    "name": "Janowiec Kościelny",
+    "lng": "20.31",
+    "lat": "53.18"
+  },
+  {
+    "name": "Janowiec Wielkopolski",
+    "lng": "17.29",
+    "lat": "52.45"
+  },
+  {
+    "name": "Janowo",
+    "lng": "20.40",
+    "lat": "53.19"
+  },
+  {
+    "name": "Janów (częstochowskie)",
+    "lng": "19.26",
+    "lat": "50.43"
+  },
+  {
+    "name": "Janów (białostockie)",
+    "lng": "23.14",
+    "lat": "53.28"
+  },
+  {
+    "name": "Janów Lubelski",
+    "lng": "22.25",
+    "lat": "50.42"
+  },
+  {
+    "name": "Janów Podlaski",
+    "lng": "23.13",
+    "lat": "52.12"
+  },
+  {
+    "name": "Jaraczewo",
+    "lng": "17.18",
+    "lat": "51.58"
+  },
+  {
+    "name": "Jarczów",
+    "lng": "23.35",
+    "lat": "50.26"
+  },
+  {
+    "name": "Jarocin (tarnobrzeskie)",
+    "lng": "22.20",
+    "lat": "50.34"
+  },
+  {
+    "name": "Jarocin (kaliskie)",
+    "lng": "17.30",
+    "lat": "51.58"
+  },
+  {
+    "name": "Jarosław",
+    "lng": "22.42",
+    "lat": "50.02"
+  },
+  {
+    "name": "Jasienica",
+    "lng": "18.56",
+    "lat": "49.49"
+  },
+  {
+    "name": "Jasienica Rosielna",
+    "lng": "21.57",
+    "lat": "49.45"
+  },
+  {
+    "name": "Jasieniec",
+    "lng": "20.56",
+    "lat": "51.49"
+  },
+  {
+    "name": "Jasień",
+    "lng": "15.01",
+    "lat": "51.45"
+  },
+  {
+    "name": "Jasionówka",
+    "lng": "23.02",
+    "lat": "53.24"
+  },
+  {
+    "name": "Jasło",
+    "lng": "21.28",
+    "lat": "49.44"
+  },
+  {
+    "name": "Jastarnia",
+    "lng": "18.40",
+    "lat": "54.42"
+  },
+  {
+    "name": "Jastków",
+    "lng": "22.27",
+    "lat": "51.19"
+  },
+  {
+    "name": "Jastrowie",
+    "lng": "16.49",
+    "lat": "53.26"
+  },
+  {
+    "name": "Jastrząb",
+    "lng": "20.57",
+    "lat": "51.14"
+  },
+  {
+    "name": "Jastrzębia",
+    "lng": "21.12",
+    "lat": "51.28"
+  },
+  {
+    "name": "Jastrzębie-Zdrój",
+    "lng": "18.35",
+    "lat": "49.57"
+  },
+  {
+    "name": "Jaświły",
+    "lng": "22.58",
+    "lat": "53.24"
+  },
+  {
+    "name": "Jawor",
+    "lng": "16.12",
+    "lat": "51.04"
+  },
+  {
+    "name": "Jawornik Polski",
+    "lng": "22.17",
+    "lat": "49.54"
+  },
+  {
+    "name": "Jaworzno",
+    "lng": "19.16",
+    "lat": "50.13"
+  },
+  {
+    "name": "Jaworzyna Śląska",
+    "lng": "16.26",
+    "lat": "50.55"
+  },
+  {
+    "name": "Jedlicze",
+    "lng": "21.38",
+    "lat": "49.43"
+  },
+  {
+    "name": "Jedlina-Zdrój",
+    "lng": "16.21",
+    "lat": "50.43"
+  },
+  {
+    "name": "Jedlińsk",
+    "lng": "21.02",
+    "lat": "51.31"
+  },
+  {
+    "name": "Jedlnia-Letnisko",
+    "lng": "21.19",
+    "lat": "51.26"
+  },
+  {
+    "name": "Jednorożec",
+    "lng": "21.03",
+    "lat": "53.09"
+  },
+  {
+    "name": "Jedwabne",
+    "lng": "22.18",
+    "lat": "53.17"
+  },
+  {
+    "name": "Jedwabno",
+    "lng": "20.44",
+    "lat": "53.32"
+  },
+  {
+    "name": "Jelcz-Laskowice",
+    "lng": "17.19",
+    "lat": "51.01"
+  },
+  {
+    "name": "Jelenia Góra",
+    "lng": "15.44",
+    "lat": "50.54"
+  },
+  {
+    "name": "Jeleniewo",
+    "lng": "22.55",
+    "lat": "54.13"
+  },
+  {
+    "name": "Jeleśnia",
+    "lng": "19.19",
+    "lat": "49.39"
+  },
+  {
+    "name": "Jemielnica",
+    "lng": "18.23",
+    "lat": "50.33"
+  },
+  {
+    "name": "Jemielno",
+    "lng": "16.33",
+    "lat": "51.32"
+  },
+  {
+    "name": "Jerzmanowa",
+    "lng": "16.03",
+    "lat": "51.36"
+  },
+  {
+    "name": "Jerzmanowice-Przeginia",
+    "lng": "19.45",
+    "lat": "50.12"
+  },
+  {
+    "name": "Jeziora Wielkie",
+    "lng": "18.16",
+    "lat": "52.32"
+  },
+  {
+    "name": "Jeziorany",
+    "lng": "20.45",
+    "lat": "53.58"
+  },
+  {
+    "name": "Jeziorzany",
+    "lng": "22.17",
+    "lat": "51.36"
+  },
+  {
+    "name": "Jeżewo",
+    "lng": "18.29",
+    "lat": "53.31"
+  },
+  {
+    "name": "Jeżowe",
+    "lng": "22.10",
+    "lat": "50.23"
+  },
+  {
+    "name": "Jeżów",
+    "lng": "19.58",
+    "lat": "51.48"
+  },
+  {
+    "name": "Jeżów Sudecki",
+    "lng": "15.45",
+    "lat": "50.56"
+  },
+  {
+    "name": "Jędrzejów",
+    "lng": "20.18",
+    "lat": "50.39"
+  },
+  {
+    "name": "Jodłowa",
+    "lng": "21.19",
+    "lat": "49.53"
+  },
+  {
+    "name": "Jodłownik",
+    "lng": "20.14",
+    "lat": "49.47"
+  },
+  {
+    "name": "Joniec",
+    "lng": "20.35",
+    "lat": "52.36"
+  },
+  {
+    "name": "Jonkowo",
+    "lng": "20.19",
+    "lat": "53.50"
+  },
+  {
+    "name": "Jordanów",
+    "lng": "19.50",
+    "lat": "49.39"
+  },
+  {
+    "name": "Jordanów Śląski",
+    "lng": "16.52",
+    "lat": "50.52"
+  },
+  {
+    "name": "Józefów (zamojskie)",
+    "lng": "23.04",
+    "lat": "50.29"
+  },
+  {
+    "name": "Józefów (lubelskie)",
+    "lng": "21.51",
+    "lat": "51.02"
+  },
+  {
+    "name": "Józefów (warszawskie)",
+    "lng": "21.14",
+    "lat": "52.09"
+  },
+  {
+    "name": "Juchnowiec Dolny",
+    "lng": "23.08",
+    "lat": "53.01"
+  },
+  {
+    "name": "Jutrosin",
+    "lng": "17.11",
+    "lat": "51.38"
+  },
+  {
+    "name": "Kaczory",
+    "lng": "16.52",
+    "lat": "53.07"
+  },
+  {
+    "name": "Kadzidło",
+    "lng": "21.28",
+    "lat": "53.14"
+  },
+  {
+    "name": "Kalety",
+    "lng": "18.54",
+    "lat": "50.34"
+  },
+  {
+    "name": "Kalinowo",
+    "lng": "22.41",
+    "lat": "53.53"
+  },
+  {
+    "name": "Kaliska",
+    "lng": "18.13",
+    "lat": "53.55"
+  },
+  {
+    "name": "Kalisz",
+    "lng": "18.06",
+    "lat": "51.46"
+  },
+  {
+    "name": "Kalisz Pomorski",
+    "lng": "15.54",
+    "lat": "53.17"
+  },
+  {
+    "name": "Kalwaria Zebrzydowska",
+    "lng": "19.40",
+    "lat": "49.53"
+  },
+  {
+    "name": "Kałuszyn",
+    "lng": "21.49",
+    "lat": "52.13"
+  },
+  {
+    "name": "Kamienica",
+    "lng": "20.21",
+    "lat": "49.34"
+  },
+  {
+    "name": "Kamienica Polska",
+    "lng": "19.09",
+    "lat": "50.41"
+  },
+  {
+    "name": "Kamieniec",
+    "lng": "16.27",
+    "lat": "52.10"
+  },
+  {
+    "name": "Kamieniec Ząbkowicki",
+    "lng": "16.52",
+    "lat": "50.32"
+  },
+  {
+    "name": "Kamienna Góra",
+    "lng": "16.02",
+    "lat": "50.47"
+  },
+  {
+    "name": "Kamiennik",
+    "lng": "17.09",
+    "lat": "50.34"
+  },
+  {
+    "name": "Kamień (rzeszowskie)",
+    "lng": "22.09",
+    "lat": "50.20"
+  },
+  {
+    "name": "Kamień (chełmskie)",
+    "lng": "23.35",
+    "lat": "51.06"
+  },
+  {
+    "name": "Kamień Koszyrski",
+    "lng": "24.58",
+    "lat": "51.38"
+  },
+  {
+    "name": "Kamień Krajeński",
+    "lng": "17.31",
+    "lat": "53.32"
+  },
+  {
+    "name": "Kamień Pomorski",
+    "lng": "14.46",
+    "lat": "53.58"
+  },
+  {
+    "name": "Kamieńsk",
+    "lng": "19.30",
+    "lat": "51.13"
+  },
+  {
+    "name": "Kamionka",
+    "lng": "22.28",
+    "lat": "51.29"
+  },
+  {
+    "name": "Kamionka Strumiłowa",
+    "lng": "24.20",
+    "lat": "50.07"
+  },
+  {
+    "name": "Kamionka Wielka",
+    "lng": "20.49",
+    "lat": "49.35"
+  },
+  {
+    "name": "Kampinos",
+    "lng": "20.28",
+    "lat": "52.16"
+  },
+  {
+    "name": "Kańczuga",
+    "lng": "22.25",
+    "lat": "49.59"
+  },
+  {
+    "name": "Karczew",
+    "lng": "21.15",
+    "lat": "52.04"
+  },
+  {
+    "name": "Karczmiska",
+    "lng": "22.01",
+    "lat": "51.14"
+  },
+  {
+    "name": "Kargowa",
+    "lng": "15.52",
+    "lat": "52.04"
+  },
+  {
+    "name": "Karlino",
+    "lng": "15.53",
+    "lat": "54.02"
+  },
+  {
+    "name": "Karnice",
+    "lng": "15.03",
+    "lat": "54.01"
+  },
+  {
+    "name": "Karniewo",
+    "lng": "20.59",
+    "lat": "52.50"
+  },
+  {
+    "name": "Karpacz",
+    "lng": "15.44",
+    "lat": "50.47"
+  },
+  {
+    "name": "Karsin",
+    "lng": "17.55",
+    "lat": "53.54"
+  },
+  {
+    "name": "Kartuzy",
+    "lng": "18.12",
+    "lat": "54.20"
+  },
+  {
+    "name": "Katowice",
+    "lng": "19.00",
+    "lat": "50.15"
+  },
+  {
+    "name": "Kawęczyn",
+    "lng": "18.32",
+    "lat": "51.54"
+  },
+  {
+    "name": "Kazanów",
+    "lng": "21.28",
+    "lat": "51.17"
+  },
+  {
+    "name": "Kazimierz Biskupi",
+    "lng": "18.10",
+    "lat": "52.19"
+  },
+  {
+    "name": "Kazimierz Dolny",
+    "lng": "21.58",
+    "lat": "51.19"
+  },
+  {
+    "name": "Kazimierza Wielka",
+    "lng": "20.29",
+    "lat": "50.16"
+  },
+  {
+    "name": "Kaźmierz",
+    "lng": "16.35",
+    "lat": "52.30"
+  },
+  {
+    "name": "Kąkolewnica Wschodnia",
+    "lng": "22.42",
+    "lat": "51.54"
+  },
+  {
+    "name": "Kąty Wrocławskie",
+    "lng": "16.46",
+    "lat": "51.02"
+  },
+  {
+    "name": "Kcynia",
+    "lng": "17.29",
+    "lat": "52.59"
+  },
+  {
+    "name": "Kędzierzyn-Koźle",
+    "lng": "18.12",
+    "lat": "50.21"
+  },
+  {
+    "name": "Kępice",
+    "lng": "16.52",
+    "lat": "54.15"
+  },
+  {
+    "name": "Kępno",
+    "lng": "17.59",
+    "lat": "51.17"
+  },
+  {
+    "name": "Kęsowo",
+    "lng": "17.34",
+    "lat": "53.34"
+  },
+  {
+    "name": "Kętrzyn",
+    "lng": "21.23",
+    "lat": "54.05"
+  },
+  {
+    "name": "Kęty",
+    "lng": "19.13",
+    "lat": "49.53"
+  },
+  {
+    "name": "Kielce",
+    "lng": "20.37",
+    "lat": "50.53"
+  },
+  {
+    "name": "Kiełczygłów",
+    "lng": "18.59",
+    "lat": "51.14"
+  },
+  {
+    "name": "Kiernozia",
+    "lng": "19.52",
+    "lat": "52.16"
+  },
+  {
+    "name": "Kietrz",
+    "lng": "18.01",
+    "lat": "50.05"
+  },
+  {
+    "name": "Kije",
+    "lng": "20.34",
+    "lat": "50.36"
+  },
+  {
+    "name": "Kijewo Królewskie",
+    "lng": "18.27",
+    "lat": "53.16"
+  },
+  {
+    "name": "Kikół",
+    "lng": "19.07",
+    "lat": "52.55"
+  },
+  {
+    "name": "Kisielice",
+    "lng": "19.15",
+    "lat": "53.36"
+  },
+  {
+    "name": "Kiszkowo",
+    "lng": "17.16",
+    "lat": "52.35"
+  },
+  {
+    "name": "Kiwerce",
+    "lng": "25.27",
+    "lat": "50.50"
+  },
+  {
+    "name": "Kiwity",
+    "lng": "20.46",
+    "lat": "54.06"
+  },
+  {
+    "name": "Kleczew",
+    "lng": "18.11",
+    "lat": "52.22"
+  },
+  {
+    "name": "Klembów",
+    "lng": "21.20",
+    "lat": "52.24"
+  },
+  {
+    "name": "Kleszczele",
+    "lng": "23.20",
+    "lat": "52.35"
+  },
+  {
+    "name": "Kleszczewo",
+    "lng": "17.10",
+    "lat": "52.20"
+  },
+  {
+    "name": "Kleszczów",
+    "lng": "19.18",
+    "lat": "51.13"
+  },
+  {
+    "name": "Klimontów",
+    "lng": "21.27",
+    "lat": "50.40"
+  },
+  {
+    "name": "Klonowa",
+    "lng": "18.26",
+    "lat": "51.25"
+  },
+  {
+    "name": "Kluczbork",
+    "lng": "18.13",
+    "lat": "50.58"
+  },
+  {
+    "name": "Klucze",
+    "lng": "19.34",
+    "lat": "50.20"
+  },
+  {
+    "name": "Kluczewsko",
+    "lng": "19.55",
+    "lat": "50.56"
+  },
+  {
+    "name": "Kluki",
+    "lng": "19.14",
+    "lat": "51.21"
+  },
+  {
+    "name": "Klukowo",
+    "lng": "22.31",
+    "lat": "52.47"
+  },
+  {
+    "name": "Klwów",
+    "lng": "20.38",
+    "lat": "51.32"
+  },
+  {
+    "name": "Kłaj",
+    "lng": "20.18",
+    "lat": "50.00"
+  },
+  {
+    "name": "Kłecko",
+    "lng": "17.26",
+    "lat": "52.37"
+  },
+  {
+    "name": "Kłobuck",
+    "lng": "18.56",
+    "lat": "50.55"
+  },
+  {
+    "name": "Kłoczew",
+    "lng": "21.58",
+    "lat": "51.44"
+  },
+  {
+    "name": "Kłodawa (konińskie)",
+    "lng": "18.55",
+    "lat": "52.15"
+  },
+  {
+    "name": "Kłodawa (gorzowskie)",
+    "lng": "15.12",
+    "lat": "52.47"
+  },
+  {
+    "name": "Kłodzko",
+    "lng": "16.39",
+    "lat": "50.27"
+  },
+  {
+    "name": "Kłomnice",
+    "lng": "19.22",
+    "lat": "50.56"
+  },
+  {
+    "name": "Knurów",
+    "lng": "18.41",
+    "lat": "50.13"
+  },
+  {
+    "name": "Knyszyn",
+    "lng": "22.55",
+    "lat": "53.18"
+  },
+  {
+    "name": "Kobiele Wielkie",
+    "lng": "19.37",
+    "lat": "51.02"
+  },
+  {
+    "name": "Kobierzyce",
+    "lng": "16.56",
+    "lat": "50.58"
+  },
+  {
+    "name": "Kobryń",
+    "lng": "24.21",
+    "lat": "52.13"
+  },
+  {
+    "name": "Kobyla Góra",
+    "lng": "17.51",
+    "lat": "51.23"
+  },
+  {
+    "name": "Kobylanka",
+    "lng": "14.51",
+    "lat": "53.21"
+  },
+  {
+    "name": "Kobylin",
+    "lng": "17.14",
+    "lat": "51.42"
+  },
+  {
+    "name": "Kobylin-Borzymy",
+    "lng": "22.41",
+    "lat": "53.06"
+  },
+  {
+    "name": "Kobylnica",
+    "lng": "16.59",
+    "lat": "54.27"
+  },
+  {
+    "name": "Kobyłka",
+    "lng": "21.11",
+    "lat": "52.21"
+  },
+  {
+    "name": "Kochanowice",
+    "lng": "18.45",
+    "lat": "50.43"
+  },
+  {
+    "name": "Kocierzew Południowy",
+    "lng": "20.01",
+    "lat": "52.14"
+  },
+  {
+    "name": "Kock",
+    "lng": "22.27",
+    "lat": "51.39"
+  },
+  {
+    "name": "Kocmyrzów-Luborzyca",
+    "lng": "20.06",
+    "lat": "50.08"
+  },
+  {
+    "name": "Koczała",
+    "lng": "17.04",
+    "lat": "53.54"
+  },
+  {
+    "name": "Kodeń",
+    "lng": "22.37",
+    "lat": "51.55"
+  },
+  {
+    "name": "Kodrąb",
+    "lng": "19.38",
+    "lat": "51.06"
+  },
+  {
+    "name": "Kolbudy Górne",
+    "lng": "18.27",
+    "lat": "54.16"
+  },
+  {
+    "name": "Kolbuszowa",
+    "lng": "21.47",
+    "lat": "50.14"
+  },
+  {
+    "name": "Kolno (łomżyńskie)",
+    "lng": "21.56",
+    "lat": "53.24"
+  },
+  {
+    "name": "Kolno (olsztyńskie)",
+    "lng": "21.00",
+    "lat": "53.59"
+  },
+  {
+    "name": "Kolonowskie",
+    "lng": "18.23",
+    "lat": "50.39"
+  },
+  {
+    "name": "Kolsko",
+    "lng": "15.58",
+    "lat": "51.57"
+  },
+  {
+    "name": "Koluszki",
+    "lng": "19.49",
+    "lat": "51.45"
+  },
+  {
+    "name": "Kołaczkowo",
+    "lng": "17.37",
+    "lat": "52.13"
+  },
+  {
+    "name": "Kołaczyce",
+    "lng": "21.26",
+    "lat": "49.48"
+  },
+  {
+    "name": "Kołaki Kościelne",
+    "lng": "22.23",
+    "lat": "53.01"
+  },
+  {
+    "name": "Kołbaskowo",
+    "lng": "14.25",
+    "lat": "53.20"
+  },
+  {
+    "name": "Kołbiel",
+    "lng": "21.29",
+    "lat": "52.04"
+  },
+  {
+    "name": "Kołczygłowy",
+    "lng": "17.14",
+    "lat": "54.14"
+  },
+  {
+    "name": "Koło",
+    "lng": "18.39",
+    "lat": "52.12"
+  },
+  {
+    "name": "Kołobrzeg",
+    "lng": "15.34",
+    "lat": "54.10"
+  },
+  {
+    "name": "Kołomyja",
+    "lng": "25.04",
+    "lat": "48.32"
+  },
+  {
+    "name": "Komańcza",
+    "lng": "22.04",
+    "lat": "49.21"
+  },
+  {
+    "name": "Komarów-Osada",
+    "lng": "23.29",
+    "lat": "50.38"
+  },
+  {
+    "name": "Komarówka Podlaska",
+    "lng": "22.57",
+    "lat": "51.48"
+  },
+  {
+    "name": "Komorniki",
+    "lng": "16.48",
+    "lat": "52.21"
+  },
+  {
+    "name": "Komprachcice",
+    "lng": "17.49",
+    "lat": "50.38"
+  },
+  {
+    "name": "Konarzyny",
+    "lng": "17.22",
+    "lat": "53.50"
+  },
+  {
+    "name": "Kondratowice",
+    "lng": "16.56",
+    "lat": "50.46"
+  },
+  {
+    "name": "Koneck",
+    "lng": "18.43",
+    "lat": "52.47"
+  },
+  {
+    "name": "Koniecpol",
+    "lng": "19.41",
+    "lat": "50.47"
+  },
+  {
+    "name": "Konin",
+    "lng": "18.16",
+    "lat": "52.13"
+  },
+  {
+    "name": "Koniusza",
+    "lng": "20.13",
+    "lat": "50.12"
+  },
+  {
+    "name": "Konopiska",
+    "lng": "19.01",
+    "lat": "50.44"
+  },
+  {
+    "name": "Konopnica",
+    "lng": "18.50",
+    "lat": "51.21"
+  },
+  {
+    "name": "Konstancin-Jeziorna",
+    "lng": "21.08",
+    "lat": "52.05"
+  },
+  {
+    "name": "Konstantynów",
+    "lng": "23.05",
+    "lat": "52.12"
+  },
+  {
+    "name": "Konstantynów Łódzki",
+    "lng": "19.20",
+    "lat": "51.45"
+  },
+  {
+    "name": "Końskie",
+    "lng": "20.25",
+    "lat": "51.12"
+  },
+  {
+    "name": "Końskowola",
+    "lng": "22.04",
+    "lat": "51.25"
+  },
+  {
+    "name": "Koprzywnica",
+    "lng": "21.35",
+    "lat": "50.36"
+  },
+  {
+    "name": "Korczew",
+    "lng": "22.37",
+    "lat": "52.22"
+  },
+  {
+    "name": "Korczyna",
+    "lng": "21.49",
+    "lat": "49.43"
+  },
+  {
+    "name": "Korfantów",
+    "lng": "17.36",
+    "lat": "50.29"
+  },
+  {
+    "name": "Koronowo",
+    "lng": "17.56",
+    "lat": "53.19"
+  },
+  {
+    "name": "Korsze",
+    "lng": "21.08",
+    "lat": "54.10"
+  },
+  {
+    "name": "Korytnica",
+    "lng": "21.51",
+    "lat": "52.25"
+  },
+  {
+    "name": "Korzenna",
+    "lng": "20.51",
+    "lat": "49.41"
+  },
+  {
+    "name": "Kosakowo",
+    "lng": "18.29",
+    "lat": "54.36"
+  },
+  {
+    "name": "Kosów Lacki",
+    "lng": "22.09",
+    "lat": "52.35"
+  },
+  {
+    "name": "Kostomłoty",
+    "lng": "16.32",
+    "lat": "51.03"
+  },
+  {
+    "name": "Kostopol",
+    "lng": "26.26",
+    "lat": "50.53"
+  },
+  {
+    "name": "Kostrzyn (poznańskie)",
+    "lng": "17.13",
+    "lat": "52.24"
+  },
+  {
+    "name": "Kostrzyn (gorzowskie)",
+    "lng": "14.38",
+    "lat": "52.36"
+  },
+  {
+    "name": "Koszalin",
+    "lng": "16.11",
+    "lat": "54.11"
+  },
+  {
+    "name": "Koszarawa",
+    "lng": "19.24",
+    "lat": "49.38"
+  },
+  {
+    "name": "Koszęcin",
+    "lng": "18.51",
+    "lat": "50.38"
+  },
+  {
+    "name": "Koszyce",
+    "lng": "20.34",
+    "lat": "50.11"
+  },
+  {
+    "name": "Kościan",
+    "lng": "16.39",
+    "lat": "52.05"
+  },
+  {
+    "name": "Kościelec",
+    "lng": "18.34",
+    "lat": "52.11"
+  },
+  {
+    "name": "Kościerzyna",
+    "lng": "17.58",
+    "lat": "54.07"
+  },
+  {
+    "name": "Kotla",
+    "lng": "16.02",
+    "lat": "51.45"
+  },
+  {
+    "name": "Kotlin",
+    "lng": "17.39",
+    "lat": "51.55"
+  },
+  {
+    "name": "Kotuń",
+    "lng": "22.04",
+    "lat": "52.11"
+  },
+  {
+    "name": "Kowal",
+    "lng": "19.09",
+    "lat": "52.32"
+  },
+  {
+    "name": "Kowala",
+    "lng": "21.04",
+    "lat": "51.19"
+  },
+  {
+    "name": "Kowale Oleckie",
+    "lng": "22.26",
+    "lat": "54.10"
+  },
+  {
+    "name": "Kowalewo",
+    "lng": "18.54",
+    "lat": "53.10"
+  },
+  {
+    "name": "Kowalewo Pomorskie",
+    "lng": "18.54",
+    "lat": "53.10"
+  },
+  {
+    "name": "Kowary",
+    "lng": "15.49",
+    "lat": "50.48"
+  },
+  {
+    "name": "Kowel",
+    "lng": "24.41",
+    "lat": "51.14"
+  },
+  {
+    "name": "Kowiesy",
+    "lng": "20.26",
+    "lat": "51.53"
+  },
+  {
+    "name": "Koziegłowy",
+    "lng": "19.10",
+    "lat": "50.36"
+  },
+  {
+    "name": "Kozielice",
+    "lng": "14.48",
+    "lat": "53.06"
+  },
+  {
+    "name": "Kozienice",
+    "lng": "21.33",
+    "lat": "51.35"
+  },
+  {
+    "name": "Kozłowo",
+    "lng": "20.18",
+    "lat": "53.19"
+  },
+  {
+    "name": "Kozłów",
+    "lng": "20.01",
+    "lat": "50.29"
+  },
+  {
+    "name": "Kozy",
+    "lng": "19.09",
+    "lat": "49.51"
+  },
+  {
+    "name": "Koźmin",
+    "lng": "17.27",
+    "lat": "51.49"
+  },
+  {
+    "name": "Koźminek",
+    "lng": "18.21",
+    "lat": "51.48"
+  },
+  {
+    "name": "Kożuchow",
+    "lng": "15.36",
+    "lat": "51.45"
+  },
+  {
+    "name": "Kórnik",
+    "lng": "17.05",
+    "lat": "52.15"
+  },
+  {
+    "name": "Krajenka",
+    "lng": "16.59",
+    "lat": "53.23"
+  },
+  {
+    "name": "Kraków",
+    "lng": "19.57",
+    "lat": "50.03"
+  },
+  {
+    "name": "Kraków Krowodrza",
+    "lng": "19.58",
+    "lat": "50.05"
+  },
+  {
+    "name": "Kraków Nowa Huta",
+    "lng": "20.05",
+    "lat": "50.05"
+  },
+  {
+    "name": "Kraków Podgórze",
+    "lng": "19.55",
+    "lat": "50.01"
+  },
+  {
+    "name": "Kraków Śródmieście",
+    "lng": "19.58",
+    "lat": "50.04"
+  },
+  {
+    "name": "Kramsk",
+    "lng": "18.26",
+    "lat": "52.16"
+  },
+  {
+    "name": "Krapkowice",
+    "lng": "17.58",
+    "lat": "50.28"
+  },
+  {
+    "name": "Krasiczyn",
+    "lng": "22.40",
+    "lat": "49.47"
+  },
+  {
+    "name": "Krasne (rzeszowskie)",
+    "lng": "22.06",
+    "lat": "50.03"
+  },
+  {
+    "name": "Krasne (ciechanowskie)",
+    "lng": "20.59",
+    "lat": "52.55"
+  },
+  {
+    "name": "Krasnobród",
+    "lng": "23.14",
+    "lat": "50.33"
+  },
+  {
+    "name": "Krasnopol",
+    "lng": "23.12",
+    "lat": "54.07"
+  },
+  {
+    "name": "Krasnosielc",
+    "lng": "21.09",
+    "lat": "53.02"
+  },
+  {
+    "name": "Krasnystaw",
+    "lng": "23.11",
+    "lat": "50.59"
+  },
+  {
+    "name": "Krasocin",
+    "lng": "20.07",
+    "lat": "50.54"
+  },
+  {
+    "name": "Kraszewice",
+    "lng": "18.15",
+    "lat": "51.30"
+  },
+  {
+    "name": "Kraśniczyn",
+    "lng": "23.22",
+    "lat": "50.56"
+  },
+  {
+    "name": "Kraśnik",
+    "lng": "22.14",
+    "lat": "50.55"
+  },
+  {
+    "name": "Krempna",
+    "lng": "21.31",
+    "lat": "49.31"
+  },
+  {
+    "name": "Krobia",
+    "lng": "16.59",
+    "lat": "51.47"
+  },
+  {
+    "name": "Kroczyce",
+    "lng": "19.35",
+    "lat": "50.34"
+  },
+  {
+    "name": "Krokowa",
+    "lng": "18.10",
+    "lat": "54.46"
+  },
+  {
+    "name": "Krosno",
+    "lng": "21.46",
+    "lat": "49.42"
+  },
+  {
+    "name": "Krosno Odrzańskie",
+    "lng": "15.06",
+    "lat": "52.02"
+  },
+  {
+    "name": "Krościenko nad Dunajcem",
+    "lng": "20.25",
+    "lat": "49.26"
+  },
+  {
+    "name": "Krośnice",
+    "lng": "17.22",
+    "lat": "51.28"
+  },
+  {
+    "name": "Krośniewice",
+    "lng": "19.10",
+    "lat": "52.16"
+  },
+  {
+    "name": "Krotoszyce",
+    "lng": "16.03",
+    "lat": "51.09"
+  },
+  {
+    "name": "Krotoszyn",
+    "lng": "17.26",
+    "lat": "51.41"
+  },
+  {
+    "name": "Kruklanki",
+    "lng": "21.56",
+    "lat": "54.05"
+  },
+  {
+    "name": "Kruszwica",
+    "lng": "18.19",
+    "lat": "52.41"
+  },
+  {
+    "name": "Kruszyna",
+    "lng": "19.17",
+    "lat": "50.58"
+  },
+  {
+    "name": "Krynica",
+    "lng": "20.58",
+    "lat": "49.26"
+  },
+  {
+    "name": "Krynice",
+    "lng": "23.23",
+    "lat": "50.35"
+  },
+  {
+    "name": "Krynki",
+    "lng": "23.47",
+    "lat": "53.16"
+  },
+  {
+    "name": "Krypno",
+    "lng": "22.53",
+    "lat": "53.17"
+  },
+  {
+    "name": "Krzanowice",
+    "lng": "18.08",
+    "lat": "50.01"
+  },
+  {
+    "name": "Krzczonów",
+    "lng": "22.42",
+    "lat": "51.01"
+  },
+  {
+    "name": "Krzemieniec",
+    "lng": "25.45",
+    "lat": "50.07"
+  },
+  {
+    "name": "Krzemieniewo",
+    "lng": "16.51",
+    "lat": "51.51"
+  },
+  {
+    "name": "Krzepice",
+    "lng": "18.44",
+    "lat": "50.58"
+  },
+  {
+    "name": "Krzeszowice",
+    "lng": "19.38",
+    "lat": "50.08"
+  },
+  {
+    "name": "Krzeszów",
+    "lng": "22.21",
+    "lat": "50.25"
+  },
+  {
+    "name": "Krzeszyce",
+    "lng": "15.00",
+    "lat": "52.35"
+  },
+  {
+    "name": "Krzęcin",
+    "lng": "15.29",
+    "lat": "53.05"
+  },
+  {
+    "name": "Krzykosy",
+    "lng": "17.22",
+    "lat": "52.07"
+  },
+  {
+    "name": "Krzymów",
+    "lng": "18.27",
+    "lat": "52.12"
+  },
+  {
+    "name": "Krzynowłoga Mała",
+    "lng": "20.47",
+    "lat": "53.09"
+  },
+  {
+    "name": "Krzywcza",
+    "lng": "22.33",
+    "lat": "49.48"
+  },
+  {
+    "name": "Krzywda",
+    "lng": "22.12",
+    "lat": "51.48"
+  },
+  {
+    "name": "Krzywiń",
+    "lng": "16.49",
+    "lat": "51.58"
+  },
+  {
+    "name": "Krzyż",
+    "lng": "16.00",
+    "lat": "52.53"
+  },
+  {
+    "name": "Krzyżanowice",
+    "lng": "18.17",
+    "lat": "49.59"
+  },
+  {
+    "name": "Krzyżanów",
+    "lng": "19.28",
+    "lat": "52.11"
+  },
+  {
+    "name": "Książ Wielki",
+    "lng": "20.08",
+    "lat": "50.27"
+  },
+  {
+    "name": "Książ Wielkopolski",
+    "lng": "17.14",
+    "lat": "52.03"
+  },
+  {
+    "name": "Książki",
+    "lng": "19.04",
+    "lat": "53.20"
+  },
+  {
+    "name": "Księżpol",
+    "lng": "22.44",
+    "lat": "50.25"
+  },
+  {
+    "name": "Kuczbork-Osada",
+    "lng": "20.02",
+    "lat": "53.05"
+  },
+  {
+    "name": "Kudowa-Zdrój",
+    "lng": "16.15",
+    "lat": "50.27"
+  },
+  {
+    "name": "Kulesze Kościelne",
+    "lng": "22.31",
+    "lat": "53.01"
+  },
+  {
+    "name": "Kunice",
+    "lng": "16.15",
+    "lat": "51.14"
+  },
+  {
+    "name": "Kunów",
+    "lng": "21.17",
+    "lat": "50.58"
+  },
+  {
+    "name": "Kurów",
+    "lng": "22.12",
+    "lat": "51.24"
+  },
+  {
+    "name": "Kuryłówka",
+    "lng": "21.29",
+    "lat": "50.18"
+  },
+  {
+    "name": "Kurzętnik",
+    "lng": "19.34",
+    "lat": "53.24"
+  },
+  {
+    "name": "Kuślin",
+    "lng": "16.19",
+    "lat": "52.22"
+  },
+  {
+    "name": "Kutno",
+    "lng": "19.22",
+    "lat": "52.14"
+  },
+  {
+    "name": "Kuźnia Raciborska",
+    "lng": "18.20",
+    "lat": "50.12"
+  },
+  {
+    "name": "Kuźnica",
+    "lng": "23.39",
+    "lat": "53.31"
+  },
+  {
+    "name": "Kwidzyn",
+    "lng": "18.56",
+    "lat": "53.44"
+  },
+  {
+    "name": "Kwilcz",
+    "lng": "16.05",
+    "lat": "52.33"
+  },
+  {
+    "name": "Lanckorona",
+    "lng": "19.34",
+    "lat": "49.51"
+  },
+  {
+    "name": "Laskowa",
+    "lng": "20.27",
+    "lat": "49.46"
+  },
+  {
+    "name": "Lasowice Wielkie",
+    "lng": "18.14",
+    "lat": "50.53"
+  },
+  {
+    "name": "Laszki",
+    "lng": "22.54",
+    "lat": "50.02"
+  },
+  {
+    "name": "Latowicz",
+    "lng": "21.49",
+    "lat": "52.02"
+  },
+  {
+    "name": "Lądek",
+    "lng": "17.57",
+    "lat": "52.12"
+  },
+  {
+    "name": "Lądek-Zdrój",
+    "lng": "16.52",
+    "lat": "50.21"
+  },
+  {
+    "name": "Legionowo",
+    "lng": "20.56",
+    "lat": "52.25"
+  },
+  {
+    "name": "Legnica",
+    "lng": "16.10",
+    "lat": "51.13"
+  },
+  {
+    "name": "Legnickie Pole",
+    "lng": "16.15",
+    "lat": "51.09"
+  },
+  {
+    "name": "Lelis",
+    "lng": "21.34",
+    "lat": "53.11"
+  },
+  {
+    "name": "Lelkowo",
+    "lng": "20.14",
+    "lat": "54.19"
+  },
+  {
+    "name": "Lelów",
+    "lng": "19.37",
+    "lat": "50.41"
+  },
+  {
+    "name": "Leoncin",
+    "lng": "20.32",
+    "lat": "52.24"
+  },
+  {
+    "name": "Lesko",
+    "lng": "22.20",
+    "lat": "49.28"
+  },
+  {
+    "name": "Leszczyny",
+    "lng": "18.39",
+    "lat": "50.08"
+  },
+  {
+    "name": "Leszno",
+    "lng": "16.34",
+    "lat": "51.51"
+  },
+  {
+    "name": "Leszno (warszawskie)",
+    "lng": "20.36",
+    "lat": "52.16"
+  },
+  {
+    "name": "Lesznowola",
+    "lng": "20.56",
+    "lat": "52.05"
+  },
+  {
+    "name": "Leśna",
+    "lng": "15.16",
+    "lat": "51.01"
+  },
+  {
+    "name": "Leśna Podlaska",
+    "lng": "23.01",
+    "lat": "52.08"
+  },
+  {
+    "name": "Leśnica",
+    "lng": "18.12",
+    "lat": "50.26"
+  },
+  {
+    "name": "Leśniowice",
+    "lng": "23.29",
+    "lat": "50.59"
+  },
+  {
+    "name": "Lewin Brzeski",
+    "lng": "17.37",
+    "lat": "50.45"
+  },
+  {
+    "name": "Leżajsk",
+    "lng": "22.26",
+    "lat": "50.16"
+  },
+  {
+    "name": "Lębork",
+    "lng": "17.45",
+    "lat": "54.33"
+  },
+  {
+    "name": "Lgota Wielka",
+    "lng": "19.19",
+    "lat": "51.09"
+  },
+  {
+    "name": "Libiąż",
+    "lng": "19.19",
+    "lat": "50.07"
+  },
+  {
+    "name": "Lichnowy",
+    "lng": "18.55",
+    "lat": "54.07"
+  },
+  {
+    "name": "Lida",
+    "lng": "25.18",
+    "lat": "53.53"
+  },
+  {
+    "name": "Lidzbark",
+    "lng": "19.49",
+    "lat": "53.16"
+  },
+  {
+    "name": "Lidzbark Warmiński",
+    "lng": "20.35",
+    "lat": "54.07"
+  },
+  {
+    "name": "Limanowa",
+    "lng": "20.25",
+    "lat": "49.43"
+  },
+  {
+    "name": "Linia",
+    "lng": "17.56",
+    "lat": "54.28"
+  },
+  {
+    "name": "Liniewo",
+    "lng": "18.14",
+    "lat": "54.04"
+  },
+  {
+    "name": "Lipce Reymontowskie",
+    "lng": "19.56",
+    "lat": "51.54"
+  },
+  {
+    "name": "Lipiany",
+    "lng": "14.52",
+    "lat": "53.00"
+  },
+  {
+    "name": "Lipie",
+    "lng": "18.48",
+    "lat": "51.01"
+  },
+  {
+    "name": "Lipinki",
+    "lng": "21.18",
+    "lat": "49.40"
+  },
+  {
+    "name": "Lipinki Łużyckie",
+    "lng": "15.00",
+    "lat": "51.38"
+  },
+  {
+    "name": "Lipka",
+    "lng": "17.15",
+    "lat": "53.30"
+  },
+  {
+    "name": "Lipno",
+    "lng": "19.10",
+    "lat": "52.51"
+  },
+  {
+    "name": "Lipnica",
+    "lng": "17.24",
+    "lat": "53.59"
+  },
+  {
+    "name": "Lipnica Murowana",
+    "lng": "20.31",
+    "lat": "49.51"
+  },
+  {
+    "name": "Lipnik",
+    "lng": "21.30",
+    "lat": "50.44"
+  },
+  {
+    "name": "Lipno (leszczyńskie)",
+    "lng": "16.34",
+    "lat": "51.55"
+  },
+  {
+    "name": "Lipno (włocławskie)",
+    "lng": "19.11",
+    "lat": "52.51"
+  },
+  {
+    "name": "Lipowa",
+    "lng": "19.05",
+    "lat": "49.41"
+  },
+  {
+    "name": "Lipowiec Kościelny",
+    "lng": "20.10",
+    "lat": "53.06"
+  },
+  {
+    "name": "Lipsk",
+    "lng": "23.24",
+    "lat": "53.44"
+  },
+  {
+    "name": "Lipsko",
+    "lng": "21.40",
+    "lat": "51.09"
+  },
+  {
+    "name": "Lipusz",
+    "lng": "17.48",
+    "lat": "54.06"
+  },
+  {
+    "name": "Lisewo",
+    "lng": "18.41",
+    "lat": "53.18"
+  },
+  {
+    "name": "Lisia Góra",
+    "lng": "21.01",
+    "lat": "50.05"
+  },
+  {
+    "name": "Lisków",
+    "lng": "18.24",
+    "lat": "51.49"
+  },
+  {
+    "name": "Liszki",
+    "lng": "19.46",
+    "lat": "50.03"
+  },
+  {
+    "name": "Liw",
+    "lng": "21.57",
+    "lat": "52.23"
+  },
+  {
+    "name": "Lniano",
+    "lng": "18.13",
+    "lat": "53.32"
+  },
+  {
+    "name": "Lubaczów",
+    "lng": "23.08",
+    "lat": "50.09"
+  },
+  {
+    "name": "Lubanie",
+    "lng": "18.56",
+    "lat": "52.45"
+  },
+  {
+    "name": "Lubań",
+    "lng": "15.18",
+    "lat": "51.07"
+  },
+  {
+    "name": "Lubartów",
+    "lng": "22.37",
+    "lat": "51.27"
+  },
+  {
+    "name": "Lubasz",
+    "lng": "16.31",
+    "lat": "52.51"
+  },
+  {
+    "name": "Lubawa",
+    "lng": "19.45",
+    "lat": "53.30"
+  },
+  {
+    "name": "Lubawka",
+    "lng": "16.00",
+    "lat": "50.42"
+  },
+  {
+    "name": "Lubenia",
+    "lng": "21.56",
+    "lat": "49.56"
+  },
+  {
+    "name": "Lubichowo",
+    "lng": "18.23",
+    "lat": "53.52"
+  },
+  {
+    "name": "Lubicz",
+    "lng": "18.46",
+    "lat": "53.03"
+  },
+  {
+    "name": "Lubień",
+    "lng": "19.58",
+    "lat": "49.43"
+  },
+  {
+    "name": "Lubień Kujawski",
+    "lng": "19.10",
+    "lat": "52.24"
+  },
+  {
+    "name": "Lubiewo",
+    "lng": "18.02",
+    "lat": "53.28"
+  },
+  {
+    "name": "Lubin",
+    "lng": "16.12",
+    "lat": "51.24"
+  },
+  {
+    "name": "Lubiszyn",
+    "lng": "14.56",
+    "lat": "52.46"
+  },
+  {
+    "name": "Lublin",
+    "lng": "22.34",
+    "lat": "51.14"
+  },
+  {
+    "name": "Lubliniec",
+    "lng": "18.41",
+    "lat": "50.40"
+  },
+  {
+    "name": "Lubniewice",
+    "lng": "15.15",
+    "lat": "52.31"
+  },
+  {
+    "name": "Lubochnia",
+    "lng": "20.03",
+    "lat": "51.37"
+  },
+  {
+    "name": "Lubomia",
+    "lng": "18.19",
+    "lat": "50.03"
+  },
+  {
+    "name": "Lubomierz",
+    "lng": "15.31",
+    "lat": "51.01"
+  },
+  {
+    "name": "Lubomino",
+    "lng": "20.15",
+    "lat": "54.04"
+  },
+  {
+    "name": "Luboml",
+    "lng": "24.01",
+    "lat": "51.14"
+  },
+  {
+    "name": "Luboń",
+    "lng": "16.53",
+    "lat": "52.21"
+  },
+  {
+    "name": "Lubowidz",
+    "lng": "19.51",
+    "lat": "53.07"
+  },
+  {
+    "name": "Lubraniec",
+    "lng": "18.50",
+    "lat": "52.33"
+  },
+  {
+    "name": "Lubrza (opolskie)",
+    "lng": "17.38",
+    "lat": "50.20"
+  },
+  {
+    "name": "Lubrza (zielonogórskie)",
+    "lng": "14.58",
+    "lat": "51.47"
+  },
+  {
+    "name": "Lubsko",
+    "lng": "14.58",
+    "lat": "51.47"
+  },
+  {
+    "name": "Lubsza",
+    "lng": "17.31",
+    "lat": "50.55"
+  },
+  {
+    "name": "Lubycza Królewska",
+    "lng": "23.31",
+    "lat": "50.20"
+  },
+  {
+    "name": "Ludwin",
+    "lng": "22.55",
+    "lat": "51.21"
+  },
+  {
+    "name": "Lutocin",
+    "lng": "19.46",
+    "lat": "52.59"
+  },
+  {
+    "name": "Lutomiersk",
+    "lng": "19.13",
+    "lat": "51.45"
+  },
+  {
+    "name": "Lutowiska",
+    "lng": "22.42",
+    "lat": "49.16"
+  },
+  {
+    "name": "Lututów",
+    "lng": "18.26",
+    "lat": "51.22"
+  },
+  {
+    "name": "Luzino",
+    "lng": "18.07",
+    "lat": "54.34"
+  },
+  {
+    "name": "Lwów",
+    "lng": "24.00",
+    "lat": "49.50"
+  },
+  {
+    "name": "Lwówek",
+    "lng": "16.11",
+    "lat": "52.27"
+  },
+  {
+    "name": "Lwówek Śląski",
+    "lng": "15.35",
+    "lat": "51.07"
+  },
+  {
+    "name": "Lyski",
+    "lng": "18.23",
+    "lat": "50.07"
+  },
+  {
+    "name": "Łabiszyn",
+    "lng": "17.55",
+    "lat": "52.57"
+  },
+  {
+    "name": "Łabowa",
+    "lng": "20.51",
+    "lat": "49.32"
+  },
+  {
+    "name": "Łabunie",
+    "lng": "23.22",
+    "lat": "50.39"
+  },
+  {
+    "name": "Ładzice",
+    "lng": "19.21",
+    "lat": "51.05"
+  },
+  {
+    "name": "Łagiewniki",
+    "lng": "16.51",
+    "lat": "50.48"
+  },
+  {
+    "name": "Łagów (kieleckie)",
+    "lng": "21.05",
+    "lat": "50.47"
+  },
+  {
+    "name": "Łagów (zielonogórskie)",
+    "lng": "15.18",
+    "lat": "52.20"
+  },
+  {
+    "name": "Łambinowice",
+    "lng": "17.33",
+    "lat": "50.32"
+  },
+  {
+    "name": "Łanięta",
+    "lng": "19.17",
+    "lat": "52.22"
+  },
+  {
+    "name": "Łańcut",
+    "lng": "22.14",
+    "lat": "50.04"
+  },
+  {
+    "name": "Łapanów",
+    "lng": "20.17",
+    "lat": "49.52"
+  },
+  {
+    "name": "Łapsze Niżne",
+    "lng": "20.14",
+    "lat": "49.24"
+  },
+  {
+    "name": "Łapy",
+    "lng": "22.53",
+    "lat": "52.59"
+  },
+  {
+    "name": "Łasin",
+    "lng": "19.05",
+    "lat": "53.31"
+  },
+  {
+    "name": "Łask",
+    "lng": "19.08",
+    "lat": "51.36"
+  },
+  {
+    "name": "Łaskarzew",
+    "lng": "21.37",
+    "lat": "51.48"
+  },
+  {
+    "name": "Łaszczów",
+    "lng": "23.43",
+    "lat": "50.32"
+  },
+  {
+    "name": "Łaziska",
+    "lng": "21.53",
+    "lat": "51.09"
+  },
+  {
+    "name": "Łazy",
+    "lng": "19.24",
+    "lat": "50.26"
+  },
+  {
+    "name": "Łąck",
+    "lng": "19.37",
+    "lat": "50.28"
+  },
+  {
+    "name": "Łącko",
+    "lng": "20.26",
+    "lat": "49.34"
+  },
+  {
+    "name": "Łeba",
+    "lng": "17.33",
+    "lat": "54.47"
+  },
+  {
+    "name": "Łęczna",
+    "lng": "22.53",
+    "lat": "51.18"
+  },
+  {
+    "name": "Łęczyca",
+    "lng": "19.12",
+    "lat": "52.03"
+  },
+  {
+    "name": "Łęczyce",
+    "lng": "17.52",
+    "lat": "54.36"
+  },
+  {
+    "name": "Łęka Opatowska",
+    "lng": "18.06",
+    "lat": "51.13"
+  },
+  {
+    "name": "Łęki Szlacheckie",
+    "lng": "19.48",
+    "lat": "51.11"
+  },
+  {
+    "name": "Łęknica",
+    "lng": "14.44",
+    "lat": "51.33"
+  },
+  {
+    "name": "Łobez",
+    "lng": "15.37",
+    "lat": "53.38"
+  },
+  {
+    "name": "Łobżenica",
+    "lng": "17.15",
+    "lat": "53.16"
+  },
+  {
+    "name": "Łochów",
+    "lng": "21.42",
+    "lat": "52.32"
+  },
+  {
+    "name": "Łodygowice",
+    "lng": "19.09",
+    "lat": "49.43"
+  },
+  {
+    "name": "Łomazy",
+    "lng": "23.11",
+    "lat": "51.54"
+  },
+  {
+    "name": "Łomianki",
+    "lng": "20.53",
+    "lat": "52.20"
+  },
+  {
+    "name": "Łomża",
+    "lng": "22.04",
+    "lat": "53.11"
+  },
+  {
+    "name": "Łoniów",
+    "lng": "21.32",
+    "lat": "50.34"
+  },
+  {
+    "name": "Łopiennik Górny",
+    "lng": "23.02",
+    "lat": "51.03"
+  },
+  {
+    "name": "Łopuszno",
+    "lng": "20.15",
+    "lat": "50.57"
+  },
+  {
+    "name": "Łosice",
+    "lng": "22.43",
+    "lat": "52.13"
+  },
+  {
+    "name": "Łososina Dolna",
+    "lng": "20.36",
+    "lat": "49.44"
+  },
+  {
+    "name": "Łowicz",
+    "lng": "19.56",
+    "lat": "52.06"
+  },
+  {
+    "name": "Łódź",
+    "lng": "19.28",
+    "lat": "51.47"
+  },
+  {
+    "name": "Łódź Bałuty",
+    "lng": "19.24",
+    "lat": "51.48"
+  },
+  {
+    "name": "Łódź Górna",
+    "lng": "19.27",
+    "lat": "51.43"
+  },
+  {
+    "name": "Łódź Polesie",
+    "lng": "19.23",
+    "lat": "51.46"
+  },
+  {
+    "name": "Łódź Śródmieście",
+    "lng": "19.27",
+    "lat": "51.47"
+  },
+  {
+    "name": "Łódź Widzew",
+    "lng": "19.33",
+    "lat": "51.46"
+  },
+  {
+    "name": "Łubianka",
+    "lng": "18.28",
+    "lat": "53.08"
+  },
+  {
+    "name": "Łubniany",
+    "lng": "18.00",
+    "lat": "50.47"
+  },
+  {
+    "name": "Łubnice (tarnobrzeskie)",
+    "lng": "21.09",
+    "lat": "50.25"
+  },
+  {
+    "name": "Łubnice (kaliskie)",
+    "lng": "18.17",
+    "lat": "51.10"
+  },
+  {
+    "name": "Łubowo",
+    "lng": "17.28",
+    "lat": "52.31"
+  },
+  {
+    "name": "Łuck",
+    "lng": "25.20",
+    "lat": "50.44"
+  },
+  {
+    "name": "Łukowa",
+    "lng": "22.57",
+    "lat": "50.23"
+  },
+  {
+    "name": "Łukowica",
+    "lng": "20.29",
+    "lat": "49.37"
+  },
+  {
+    "name": "Łuków",
+    "lng": "22.23",
+    "lat": "51.56"
+  },
+  {
+    "name": "Łukta",
+    "lng": "20.05",
+    "lat": "53.48"
+  },
+  {
+    "name": "Łużna",
+    "lng": "21.02",
+    "lat": "49.43"
+  },
+  {
+    "name": "Łyse",
+    "lng": "21.34",
+    "lat": "53.22"
+  },
+  {
+    "name": "Łysomice",
+    "lng": "18.36",
+    "lat": "53.06"
+  },
+  {
+    "name": "Łyszkowice",
+    "lng": "19.54",
+    "lat": "51.59"
+  },
+  {
+    "name": "Maciejowice",
+    "lng": "21.34",
+    "lat": "51.42"
+  },
+  {
+    "name": "Magnuszew",
+    "lng": "21.24",
+    "lat": "51.46"
+  },
+  {
+    "name": "Majdan Królewski",
+    "lng": "21.45",
+    "lat": "50.23"
+  },
+  {
+    "name": "Maków",
+    "lng": "20.03",
+    "lat": "51.57"
+  },
+  {
+    "name": "Maków Mazowiecki",
+    "lng": "21.06",
+    "lat": "52.52"
+  },
+  {
+    "name": "Maków Podhalański",
+    "lng": "19.39",
+    "lat": "49.44"
+  },
+  {
+    "name": "Malanów",
+    "lng": "18.24",
+    "lat": "51.57"
+  },
+  {
+    "name": "Malbork",
+    "lng": "19.02",
+    "lat": "54.02"
+  },
+  {
+    "name": "Malczyce",
+    "lng": "16.29",
+    "lat": "51.13"
+  },
+  {
+    "name": "Malechowo",
+    "lng": "16.30",
+    "lat": "54.18"
+  },
+  {
+    "name": "Mała Wieś",
+    "lng": "20.06",
+    "lat": "52.28"
+  },
+  {
+    "name": "Małdyty",
+    "lng": "19.44",
+    "lat": "53.55"
+  },
+  {
+    "name": "Małkinia Górna",
+    "lng": "22.02",
+    "lat": "52.42"
+  },
+  {
+    "name": "Małogoszcz",
+    "lng": "20.16",
+    "lat": "50.49"
+  },
+  {
+    "name": "Małomice",
+    "lng": "15.27",
+    "lat": "51.33"
+  },
+  {
+    "name": "Mały Płock",
+    "lng": "22.02",
+    "lat": "53.18"
+  },
+  {
+    "name": "Manowo",
+    "lng": "16.18",
+    "lat": "54.07"
+  },
+  {
+    "name": "Marcinowice",
+    "lng": "16.35",
+    "lat": "50.53"
+  },
+  {
+    "name": "Marciszów",
+    "lng": "16.02",
+    "lat": "50.51"
+  },
+  {
+    "name": "Margonin",
+    "lng": "17.05",
+    "lat": "52.58"
+  },
+  {
+    "name": "Marianowo",
+    "lng": "15.16",
+    "lat": "53.23"
+  },
+  {
+    "name": "Marki",
+    "lng": "21.06",
+    "lat": "52.20"
+  },
+  {
+    "name": "Markowa",
+    "lng": "22.20",
+    "lat": "50.02"
+  },
+  {
+    "name": "Markusy",
+    "lng": "19.22",
+    "lat": "54.03"
+  },
+  {
+    "name": "Markuszów",
+    "lng": "22.16",
+    "lat": "51.23"
+  },
+  {
+    "name": "Masłowice",
+    "lng": "19.47",
+    "lat": "51.07"
+  },
+  {
+    "name": "Masłów",
+    "lng": "20.43",
+    "lat": "50.54"
+  },
+  {
+    "name": "Maszewo (szczecińskie)",
+    "lng": "15.03",
+    "lat": "53.30"
+  },
+  {
+    "name": "Maszewo (zielonogórskie)",
+    "lng": "14.54",
+    "lat": "52.04"
+  },
+  {
+    "name": "Medyka",
+    "lng": "22.57",
+    "lat": "49.48"
+  },
+  {
+    "name": "Mełgiew",
+    "lng": "22.47",
+    "lat": "51.14"
+  },
+  {
+    "name": "Męcinka",
+    "lng": "16.06",
+    "lat": "51.04"
+  },
+  {
+    "name": "Mędrzechów",
+    "lng": "20.57",
+    "lat": "50.17"
+  },
+  {
+    "name": "Miastko",
+    "lng": "16.58",
+    "lat": "54.00"
+  },
+  {
+    "name": "Miastkowo",
+    "lng": "21.50",
+    "lat": "53.09"
+  },
+  {
+    "name": "Miastków Kościelny",
+    "lng": "21.50",
+    "lat": "51.53"
+  },
+  {
+    "name": "Miączyn",
+    "lng": "23.31",
+    "lat": "50.44"
+  },
+  {
+    "name": "Michałowice (krakowskie)",
+    "lng": "19.59",
+    "lat": "50.10"
+  },
+  {
+    "name": "Michałowice (warszaw.)",
+    "lng": "20.53",
+    "lat": "52.09"
+  },
+  {
+    "name": "Michałowo",
+    "lng": "23.37",
+    "lat": "53.02"
+  },
+  {
+    "name": "Michałów",
+    "lng": "20.23",
+    "lat": "50.30"
+  },
+  {
+    "name": "Michów",
+    "lng": "22.19",
+    "lat": "51.31"
+  },
+  {
+    "name": "Miechów",
+    "lng": "20.02",
+    "lat": "50.21"
+  },
+  {
+    "name": "Miedziana Góra",
+    "lng": "20.33",
+    "lat": "50.56"
+  },
+  {
+    "name": "Miedzichowo",
+    "lng": "15.57",
+    "lat": "52.23"
+  },
+  {
+    "name": "Miedzna",
+    "lng": "22.06",
+    "lat": "52.28"
+  },
+  {
+    "name": "Miedźna",
+    "lng": "19.04",
+    "lat": "49.59"
+  },
+  {
+    "name": "Miedźno",
+    "lng": "18.59",
+    "lat": "50.58"
+  },
+  {
+    "name": "Miejsce Piastowe",
+    "lng": "21.48",
+    "lat": "49.38"
+  },
+  {
+    "name": "Miejska Górka",
+    "lng": "16.58",
+    "lat": "51.39"
+  },
+  {
+    "name": "Mielec",
+    "lng": "21.26",
+    "lat": "50.17"
+  },
+  {
+    "name": "Mieleszyn",
+    "lng": "17.30",
+    "lat": "52.40"
+  },
+  {
+    "name": "Mielnik",
+    "lng": "23.03",
+    "lat": "52.20"
+  },
+  {
+    "name": "Mielno",
+    "lng": "16.04",
+    "lat": "54.16"
+  },
+  {
+    "name": "Mieroszów",
+    "lng": "16.11",
+    "lat": "50.40"
+  },
+  {
+    "name": "Mierzęcice",
+    "lng": "19.08",
+    "lat": "50.27"
+  },
+  {
+    "name": "Mieszkowice",
+    "lng": "14.29",
+    "lat": "52.47"
+  },
+  {
+    "name": "Mieścisko",
+    "lng": "17.20",
+    "lat": "52.45"
+  },
+  {
+    "name": "Mietków",
+    "lng": "16.39",
+    "lat": "50.59"
+  },
+  {
+    "name": "Międzybórz",
+    "lng": "17.40",
+    "lat": "51.23"
+  },
+  {
+    "name": "Międzychód",
+    "lng": "15.53",
+    "lat": "52.36"
+  },
+  {
+    "name": "Międzylesie",
+    "lng": "16.41",
+    "lat": "50.09"
+  },
+  {
+    "name": "Międzyrzecz",
+    "lng": "15.34",
+    "lat": "52.31"
+  },
+  {
+    "name": "Międzyrzecz Podlaski",
+    "lng": "22.48",
+    "lat": "51.59"
+  },
+  {
+    "name": "Międzyzdroje",
+    "lng": "14.26",
+    "lat": "53.56"
+  },
+  {
+    "name": "Miękinia",
+    "lng": "16.44",
+    "lat": "51.12"
+  },
+  {
+    "name": "Mikołajki",
+    "lng": "21.35",
+    "lat": "53.48"
+  },
+  {
+    "name": "Mikołajki Pomorskie",
+    "lng": "19.10",
+    "lat": "53.51"
+  },
+  {
+    "name": "Mikołów",
+    "lng": "18.54",
+    "lat": "50.10"
+  },
+  {
+    "name": "Mikstat",
+    "lng": "17.58",
+    "lat": "51.32"
+  },
+  {
+    "name": "Milanów",
+    "lng": "22.54",
+    "lat": "51.42"
+  },
+  {
+    "name": "Milanówek",
+    "lng": "20.39",
+    "lat": "52.07"
+  },
+  {
+    "name": "Milejczyce",
+    "lng": "23.08",
+    "lat": "52.32"
+  },
+  {
+    "name": "Milejowo",
+    "lng": "19.32",
+    "lat": "54.13"
+  },
+  {
+    "name": "Milejów",
+    "lng": "22.56",
+    "lat": "51.13"
+  },
+  {
+    "name": "Milicz",
+    "lng": "17.17",
+    "lat": "51.32"
+  },
+  {
+    "name": "Milówka",
+    "lng": "19.05",
+    "lat": "49.34"
+  },
+  {
+    "name": "Miłakowo",
+    "lng": "20.05",
+    "lat": "54.01"
+  },
+  {
+    "name": "Miłki",
+    "lng": "21.53",
+    "lat": "53.57"
+  },
+  {
+    "name": "Miłkowice",
+    "lng": "16.04",
+    "lat": "51.16"
+  },
+  {
+    "name": "Miłomłyn",
+    "lng": "19.50",
+    "lat": "53.46"
+  },
+  {
+    "name": "Miłoradz",
+    "lng": "18.55",
+    "lat": "54.01"
+  },
+  {
+    "name": "Miłosław",
+    "lng": "17.30",
+    "lat": "52.13"
+  },
+  {
+    "name": "Mińsk Mazowiecki",
+    "lng": "21.33",
+    "lat": "52.11"
+  },
+  {
+    "name": "Mircze",
+    "lng": "23.54",
+    "lat": "50.39"
+  },
+  {
+    "name": "Mirosławiec",
+    "lng": "16.05",
+    "lat": "53.20"
+  },
+  {
+    "name": "Mirów",
+    "lng": "21.03",
+    "lat": "51.11"
+  },
+  {
+    "name": "Mirsk",
+    "lng": "15.23",
+    "lat": "50.58"
+  },
+  {
+    "name": "Mirzec",
+    "lng": "21.03",
+    "lat": "51.08"
+  },
+  {
+    "name": "Mława",
+    "lng": "20.23",
+    "lat": "53.07"
+  },
+  {
+    "name": "Młodzieszyn",
+    "lng": "20.12",
+    "lat": "52.18"
+  },
+  {
+    "name": "Młynary",
+    "lng": "19.43",
+    "lat": "54.11"
+  },
+  {
+    "name": "Mniów",
+    "lng": "20.29",
+    "lat": "51.01"
+  },
+  {
+    "name": "Mniszków",
+    "lng": "20.02",
+    "lat": "51.22"
+  },
+  {
+    "name": "Mochowo",
+    "lng": "19.33",
+    "lat": "52.46"
+  },
+  {
+    "name": "Modliborzyce",
+    "lng": "22.20",
+    "lat": "50.45"
+  },
+  {
+    "name": "Mogielnica",
+    "lng": "20.43",
+    "lat": "51.42"
+  },
+  {
+    "name": "Mogilany",
+    "lng": "19.53",
+    "lat": "49.56"
+  },
+  {
+    "name": "Mogilno",
+    "lng": "17.57",
+    "lat": "52.39"
+  },
+  {
+    "name": "Mokobody",
+    "lng": "22.07",
+    "lat": "52.16"
+  },
+  {
+    "name": "Mokrsko",
+    "lng": "18.29",
+    "lat": "51.11"
+  },
+  {
+    "name": "Mołodeczna",
+    "lng": "26.49",
+    "lat": "54.19"
+  },
+  {
+    "name": "Mońki",
+    "lng": "22.48",
+    "lat": "53.25"
+  },
+  {
+    "name": "Morawica",
+    "lng": "20.37",
+    "lat": "50.45"
+  },
+  {
+    "name": "Morąg",
+    "lng": "19.56",
+    "lat": "53.55"
+  },
+  {
+    "name": "Mordy",
+    "lng": "22.31",
+    "lat": "52.13"
+  },
+  {
+    "name": "Moryń",
+    "lng": "14.22",
+    "lat": "52.51"
+  },
+  {
+    "name": "Morzeszczyn",
+    "lng": "18.41",
+    "lat": "53.51"
+  },
+  {
+    "name": "Mosina",
+    "lng": "16.50",
+    "lat": "52.14"
+  },
+  {
+    "name": "Moskorzew",
+    "lng": "19.56",
+    "lat": "50.39"
+  },
+  {
+    "name": "Moszczenica (nowosąd.)",
+    "lng": "21.06",
+    "lat": "49.44"
+  },
+  {
+    "name": "Moszczenica (piotrkow.)",
+    "lng": "19.42",
+    "lat": "51.30"
+  },
+  {
+    "name": "Mrągowo",
+    "lng": "21.18",
+    "lat": "53.52"
+  },
+  {
+    "name": "Mrocza",
+    "lng": "17.36",
+    "lat": "53.15"
+  },
+  {
+    "name": "Mrozy",
+    "lng": "21.49",
+    "lat": "52.10"
+  },
+  {
+    "name": "Mstów",
+    "lng": "19.17",
+    "lat": "50.49"
+  },
+  {
+    "name": "Mszana",
+    "lng": "18.32",
+    "lat": "49.58"
+  },
+  {
+    "name": "Mszana Dolna",
+    "lng": "20.04",
+    "lat": "49.41"
+  },
+  {
+    "name": "Mszczonów",
+    "lng": "20.31",
+    "lat": "51.59"
+  },
+  {
+    "name": "Mściwojów",
+    "lng": "16.17",
+    "lat": "51.03"
+  },
+  {
+    "name": "Mucharz",
+    "lng": "19.33",
+    "lat": "49.49"
+  },
+  {
+    "name": "Murowana Goślina",
+    "lng": "17.00",
+    "lat": "52.34"
+  },
+  {
+    "name": "Murów",
+    "lng": "17.57",
+    "lat": "50.52"
+  },
+  {
+    "name": "Muszyna",
+    "lng": "20.55",
+    "lat": "49.21"
+  },
+  {
+    "name": "Mycielin",
+    "lng": "18.15",
+    "lat": "51.56"
+  },
+  {
+    "name": "Mykanów",
+    "lng": "19.11",
+    "lat": "50.56"
+  },
+  {
+    "name": "Mysłakowice",
+    "lng": "15.47",
+    "lat": "50.51"
+  },
+  {
+    "name": "Mysłowice",
+    "lng": "19.08",
+    "lat": "50.14"
+  },
+  {
+    "name": "Myszków",
+    "lng": "19.20",
+    "lat": "50.35"
+  },
+  {
+    "name": "Myszyniec",
+    "lng": "21.21",
+    "lat": "53.23"
+  },
+  {
+    "name": "Myślenice",
+    "lng": "19.57",
+    "lat": "49.50"
+  },
+  {
+    "name": "Myślibórz",
+    "lng": "14.51",
+    "lat": "52.55"
+  },
+  {
+    "name": "Nadarzyn",
+    "lng": "20.48",
+    "lat": "52.06"
+  },
+  {
+    "name": "Nagłowice-Oksa",
+    "lng": "20.06",
+    "lat": "50.40"
+  },
+  {
+    "name": "Nakło nad Notecią",
+    "lng": "17.35",
+    "lat": "53.09"
+  },
+  {
+    "name": "Nałęczów",
+    "lng": "22.13",
+    "lat": "51.17"
+  },
+  {
+    "name": "Namysłów",
+    "lng": "17.43",
+    "lat": "51.04"
+  },
+  {
+    "name": "Narew",
+    "lng": "23.32",
+    "lat": "52.55"
+  },
+  {
+    "name": "Narewka",
+    "lng": "23.45",
+    "lat": "52.51"
+  },
+  {
+    "name": "Narol",
+    "lng": "23.20",
+    "lat": "50.21"
+  },
+  {
+    "name": "Naruszewo",
+    "lng": "20.21",
+    "lat": "52.32"
+  },
+  {
+    "name": "Nasielsk",
+    "lng": "20.48",
+    "lat": "52.36"
+  },
+  {
+    "name": "Nawojowa",
+    "lng": "20.45",
+    "lat": "49.34"
+  },
+  {
+    "name": "Nekla",
+    "lng": "17.25",
+    "lat": "52.22"
+  },
+  {
+    "name": "Nędza",
+    "lng": "18.19",
+    "lat": "50.10"
+  },
+  {
+    "name": "Nidzica",
+    "lng": "20.25",
+    "lat": "53.21"
+  },
+  {
+    "name": "Nieborów",
+    "lng": "20.04",
+    "lat": "52.04"
+  },
+  {
+    "name": "Niebylec",
+    "lng": "21.54",
+    "lat": "49.52"
+  },
+  {
+    "name": "Niechanowo",
+    "lng": "17.41",
+    "lat": "52.28"
+  },
+  {
+    "name": "Niechlów",
+    "lng": "16.22",
+    "lat": "51.42"
+  },
+  {
+    "name": "Niedrzwica Duża",
+    "lng": "22.23",
+    "lat": "51.07"
+  },
+  {
+    "name": "Niedźwiada",
+    "lng": "22.42",
+    "lat": "51.33"
+  },
+  {
+    "name": "Niedźwiedź",
+    "lng": "20.05",
+    "lat": "49.38"
+  },
+  {
+    "name": "Niegosławice",
+    "lng": "15.43",
+    "lat": "51.35"
+  },
+  {
+    "name": "Niegowa",
+    "lng": "19.29",
+    "lat": "50.38"
+  },
+  {
+    "name": "Nielisz",
+    "lng": "23.03",
+    "lat": "50.48"
+  },
+  {
+    "name": "Niemce",
+    "lng": "22.38",
+    "lat": "51.21"
+  },
+  {
+    "name": "Niemcza",
+    "lng": "16.50",
+    "lat": "50.43"
+  },
+  {
+    "name": "Niemodlin",
+    "lng": "17.37",
+    "lat": "50.38"
+  },
+  {
+    "name": "Niepołomice",
+    "lng": "20.13",
+    "lat": "50.02"
+  },
+  {
+    "name": "Nieporęt",
+    "lng": "21.02",
+    "lat": "52.25"
+  },
+  {
+    "name": "Nieszawa",
+    "lng": "18.54",
+    "lat": "52.50"
+  },
+  {
+    "name": "Nieszczyce",
+    "lng": "16.24",
+    "lat": "51.33"
+  },
+  {
+    "name": "Nisko",
+    "lng": "22.08",
+    "lat": "50.31"
+  },
+  {
+    "name": "Niwiska",
+    "lng": "21.38",
+    "lat": "50.13"
+  },
+  {
+    "name": "Nowa Brzeźnica",
+    "lng": "19.11",
+    "lat": "51.05"
+  },
+  {
+    "name": "Nowa Dęba",
+    "lng": "21.46",
+    "lat": "50.26"
+  },
+  {
+    "name": "Nowa Karczma",
+    "lng": "18.12",
+    "lat": "54.08"
+  },
+  {
+    "name": "Nowa Ruda",
+    "lng": "16.31",
+    "lat": "50.35"
+  },
+  {
+    "name": "Nowa Sarzyna",
+    "lng": "22.21",
+    "lat": "50.20"
+  },
+  {
+    "name": "Nowa Słupia",
+    "lng": "21.05",
+    "lat": "50.52"
+  },
+  {
+    "name": "Nowa Sól",
+    "lng": "15.43",
+    "lat": "51.48"
+  },
+  {
+    "name": "Nowa Sucha",
+    "lng": "20.11",
+    "lat": "52.09"
+  },
+  {
+    "name": "Nowa Wieś Lęborska",
+    "lng": "17.45",
+    "lat": "54.33"
+  },
+  {
+    "name": "Nowa Wieś Wielka",
+    "lng": "17.06",
+    "lat": "52.58"
+  },
+  {
+    "name": "Nowe",
+    "lng": "18.43",
+    "lat": "53.38"
+  },
+  {
+    "name": "Nowe Brzesko",
+    "lng": "20.22",
+    "lat": "50.08"
+  },
+  {
+    "name": "Nowe Miasteczko",
+    "lng": "15.44",
+    "lat": "51.42"
+  },
+  {
+    "name": "Nowe Miasto",
+    "lng": "20.38",
+    "lat": "52.39"
+  },
+  {
+    "name": "Nowe Miasto Lubawskie",
+    "lng": "19.35",
+    "lat": "53.26"
+  },
+  {
+    "name": "Nowe Miasto nad Pilicą",
+    "lng": "20.34",
+    "lat": "51.37"
+  },
+  {
+    "name": "Nowe Miasto nad Wartą",
+    "lng": "17.25",
+    "lat": "52.05"
+  },
+  {
+    "name": "Nowe Ostrowy",
+    "lng": "19.12",
+    "lat": "52.18"
+  },
+  {
+    "name": "Nowe Piekuty",
+    "lng": "22.43",
+    "lat": "52.53"
+  },
+  {
+    "name": "Nowe Skalmierzyce",
+    "lng": "18.00",
+    "lat": "51.43"
+  },
+  {
+    "name": "Nowe Warpno",
+    "lng": "14.17",
+    "lat": "53.43"
+  },
+  {
+    "name": "Nowinka",
+    "lng": "22.58",
+    "lat": "53.55"
+  },
+  {
+    "name": "Nowodwór",
+    "lng": "22.05",
+    "lat": "51.39"
+  },
+  {
+    "name": "Nowogard",
+    "lng": "15.08",
+    "lat": "53.40"
+  },
+  {
+    "name": "Nowogrodziec",
+    "lng": "15.23",
+    "lat": "51.12"
+  },
+  {
+    "name": "Nowogród",
+    "lng": "21.54",
+    "lat": "53.14"
+  },
+  {
+    "name": "Nowogród Bobrzański",
+    "lng": "16.15",
+    "lat": "51.48"
+  },
+  {
+    "name": "Nowogród Pomorski",
+    "lng": "15.01",
+    "lat": "52.54"
+  },
+  {
+    "name": "Nowogródek",
+    "lng": "25.50",
+    "lat": "53.36"
+  },
+  {
+    "name": "Nowosolna",
+    "lng": "19.35",
+    "lat": "51.48"
+  },
+  {
+    "name": "Nowy Duninów",
+    "lng": "19.28",
+    "lat": "52.35"
+  },
+  {
+    "name": "Nowy Dwór",
+    "lng": "23.33",
+    "lat": "53.38"
+  },
+  {
+    "name": "Nowy Dwór Gdański",
+    "lng": "19.06",
+    "lat": "54.13"
+  },
+  {
+    "name": "Nowy Dwór Mazowiecki",
+    "lng": "20.43",
+    "lat": "52.26"
+  },
+  {
+    "name": "Nowy Kawęczyn",
+    "lng": "20.15",
+    "lat": "51.53"
+  },
+  {
+    "name": "Nowy Korczyn",
+    "lng": "20.49",
+    "lat": "50.19"
+  },
+  {
+    "name": "Nowy Sącz",
+    "lng": "20.42",
+    "lat": "49.37"
+  },
+  {
+    "name": "Nowy Staw",
+    "lng": "19.00",
+    "lat": "54.03"
+  },
+  {
+    "name": "Nowy Targ",
+    "lng": "20.02",
+    "lat": "49.29"
+  },
+  {
+    "name": "Nowy Tomyśl",
+    "lng": "16.08",
+    "lat": "52.19"
+  },
+  {
+    "name": "Nowy Wiśnicz",
+    "lng": "20.27",
+    "lat": "49.55"
+  },
+  {
+    "name": "Nowy Żmigród",
+    "lng": "21.32",
+    "lat": "49.37"
+  },
+  {
+    "name": "Nozdrzec",
+    "lng": "22.13",
+    "lat": "49.47"
+  },
+  {
+    "name": "Nur",
+    "lng": "22.19",
+    "lat": "52.41"
+  },
+  {
+    "name": "Nurzec-Stacja",
+    "lng": "23.05",
+    "lat": "52.28"
+  },
+  {
+    "name": "Nysa",
+    "lng": "17.20",
+    "lat": "50.28"
+  },
+  {
+    "name": "Oborniki",
+    "lng": "16.49",
+    "lat": "52.38"
+  },
+  {
+    "name": "Oborniki Śląskie",
+    "lng": "16.55",
+    "lat": "51.18"
+  },
+  {
+    "name": "Obrazów",
+    "lng": "21.39",
+    "lat": "50.41"
+  },
+  {
+    "name": "Obrowo",
+    "lng": "18.53",
+    "lat": "51.58"
+  },
+  {
+    "name": "Obryte",
+    "lng": "21.15",
+    "lat": "52.43"
+  },
+  {
+    "name": "Obrzycko",
+    "lng": "16.31",
+    "lat": "52.42"
+  },
+  {
+    "name": "Obsza",
+    "lng": "22.58",
+    "lat": "50.19"
+  },
+  {
+    "name": "Ochotnica Dolna",
+    "lng": "20.19",
+    "lat": "49.32"
+  },
+  {
+    "name": "Odolanów",
+    "lng": "17.40",
+    "lat": "51.34"
+  },
+  {
+    "name": "Odrzywół",
+    "lng": "20.33",
+    "lat": "51.31"
+  },
+  {
+    "name": "Ogrodzieniec",
+    "lng": "19.31",
+    "lat": "50.27"
+  },
+  {
+    "name": "Ojrzeń",
+    "lng": "20.33",
+    "lat": "52.47"
+  },
+  {
+    "name": "Okonek",
+    "lng": "16.51",
+    "lat": "53.32"
+  },
+  {
+    "name": "Olecko",
+    "lng": "22.30",
+    "lat": "54.02"
+  },
+  {
+    "name": "Olesno (częstochowskie)",
+    "lng": "18.25",
+    "lat": "50.53"
+  },
+  {
+    "name": "Olesno (tarnowskie)",
+    "lng": "20.56",
+    "lat": "50.13"
+  },
+  {
+    "name": "Oleszyce",
+    "lng": "23.02",
+    "lat": "50.10"
+  },
+  {
+    "name": "Oleśnica (kieleckie)",
+    "lng": "21.04",
+    "lat": "50.28"
+  },
+  {
+    "name": "Oleśnica (wrocławskie)",
+    "lng": "17.23",
+    "lat": "51.12"
+  },
+  {
+    "name": "Olkusz",
+    "lng": "19.04",
+    "lat": "50.17"
+  },
+  {
+    "name": "Olszanica",
+    "lng": "22.27",
+    "lat": "49.29"
+  },
+  {
+    "name": "Olszanka (bialskopodl.)",
+    "lng": "22.40",
+    "lat": "52.09"
+  },
+  {
+    "name": "Olszanka (opolskie)",
+    "lng": "17.29",
+    "lat": "50.48"
+  },
+  {
+    "name": "Olszewo-Borki",
+    "lng": "21.31",
+    "lat": "53.04"
+  },
+  {
+    "name": "Olszówka",
+    "lng": "18.52",
+    "lat": "52.11"
+  },
+  {
+    "name": "Olsztyn",
+    "lng": "20.30",
+    "lat": "53.47"
+  },
+  {
+    "name": "Olsztyn (częstochowskie)",
+    "lng": "19.16",
+    "lat": "50.45"
+  },
+  {
+    "name": "Olsztynek",
+    "lng": "20.17",
+    "lat": "53.35"
+  },
+  {
+    "name": "Olszyna",
+    "lng": "15.22",
+    "lat": "51.04"
+  },
+  {
+    "name": "Oława",
+    "lng": "17.18",
+    "lat": "50.57"
+  },
+  {
+    "name": "Opalenica",
+    "lng": "16.24",
+    "lat": "52.19"
+  },
+  {
+    "name": "Opatowiec",
+    "lng": "20.43",
+    "lat": "50.15"
+  },
+  {
+    "name": "Opatów (częstochowskie)",
+    "lng": "18.48",
+    "lat": "50.58"
+  },
+  {
+    "name": "Opatów (tarnobrzeskie)",
+    "lng": "21.25",
+    "lat": "50.49"
+  },
+  {
+    "name": "Opatówek",
+    "lng": "18.13",
+    "lat": "51.44"
+  },
+  {
+    "name": "Opinogóra Górna",
+    "lng": "20.43",
+    "lat": "52.55"
+  },
+  {
+    "name": "Opoczno",
+    "lng": "20.17",
+    "lat": "51.23"
+  },
+  {
+    "name": "Opole",
+    "lng": "17.56",
+    "lat": "50.40"
+  },
+  {
+    "name": "Opole Lubelskie",
+    "lng": "21.59",
+    "lat": "51.09"
+  },
+  {
+    "name": "Oporów",
+    "lng": "19.34",
+    "lat": "52.16"
+  },
+  {
+    "name": "Orchowo",
+    "lng": "18.01",
+    "lat": "52.30"
+  },
+  {
+    "name": "Orla",
+    "lng": "23.20",
+    "lat": "52.42"
+  },
+  {
+    "name": "Orły",
+    "lng": "22.48",
+    "lat": "49.53"
+  },
+  {
+    "name": "Orneta",
+    "lng": "20.08",
+    "lat": "54.07"
+  },
+  {
+    "name": "Orońsko",
+    "lng": "20.59",
+    "lat": "51.19"
+  },
+  {
+    "name": "Orzesze",
+    "lng": "18.45",
+    "lat": "50.09"
+  },
+  {
+    "name": "Orzysz",
+    "lng": "21.57",
+    "lat": "53.48"
+  },
+  {
+    "name": "Osie",
+    "lng": "18.21",
+    "lat": "53.36"
+  },
+  {
+    "name": "Osieck",
+    "lng": "21.26",
+    "lat": "51.58"
+  },
+  {
+    "name": "Osieczna",
+    "lng": "18.12",
+    "lat": "53.47"
+  },
+  {
+    "name": "Osiecznica",
+    "lng": "15.25",
+    "lat": "51.20"
+  },
+  {
+    "name": "Osiek (bielskie)",
+    "lng": "19.05",
+    "lat": "49.57"
+  },
+  {
+    "name": "Osiek (gdańskie)",
+    "lng": "18.29",
+    "lat": "53.43"
+  },
+  {
+    "name": "Osiek (tarnobrzeskie)",
+    "lng": "21.26",
+    "lat": "50.31"
+  },
+  {
+    "name": "Osiek (toruńskie)",
+    "lng": "19.23",
+    "lat": "53.10"
+  },
+  {
+    "name": "Osiek Jasielski",
+    "lng": "21.29",
+    "lat": "49.38"
+  },
+  {
+    "name": "Osiek Mały",
+    "lng": "18.36",
+    "lat": "52.16"
+  },
+  {
+    "name": "Osielsko",
+    "lng": "18.04",
+    "lat": "53.11"
+  },
+  {
+    "name": "Osięciny",
+    "lng": "18.43",
+    "lat": "52.38"
+  },
+  {
+    "name": "Osina",
+    "lng": "15.01",
+    "lat": "53.36"
+  },
+  {
+    "name": "Osjaków",
+    "lng": "18.48",
+    "lat": "51.18"
+  },
+  {
+    "name": "Ostaszewo",
+    "lng": "18.57",
+    "lat": "54.13"
+  },
+  {
+    "name": "Ostrołęka",
+    "lng": "21.35",
+    "lat": "53.05"
+  },
+  {
+    "name": "Ostroróg",
+    "lng": "16.26",
+    "lat": "52.38"
+  },
+  {
+    "name": "Ostrowice",
+    "lng": "15.58",
+    "lat": "53.38"
+  },
+  {
+    "name": "Ostrowiec Świętokrzyski",
+    "lng": "21.23",
+    "lat": "50.51"
+  },
+  {
+    "name": "Ostrowite",
+    "lng": "18.03",
+    "lat": "52.23"
+  },
+  {
+    "name": "Ostróda",
+    "lng": "19.58",
+    "lat": "53.42"
+  },
+  {
+    "name": "Ostróg",
+    "lng": "26.31",
+    "lat": "50.20"
+  },
+  {
+    "name": "Ostrów",
+    "lng": "21.36",
+    "lat": "50.06"
+  },
+  {
+    "name": "Ostrów Lubelski",
+    "lng": "22.52",
+    "lat": "51.30"
+  },
+  {
+    "name": "Ostrów Mazowiecka",
+    "lng": "21.53",
+    "lat": "52.48"
+  },
+  {
+    "name": "Ostrów Wielkopolski",
+    "lng": "17.49",
+    "lat": "51.38"
+  },
+  {
+    "name": "Ostrówek (lubelskie)",
+    "lng": "22.37",
+    "lat": "51.35"
+  },
+  {
+    "name": "Ostrówek (sieradzkie)",
+    "lng": "18.37",
+    "lat": "51.21"
+  },
+  {
+    "name": "Ostrzeszów",
+    "lng": "17.56",
+    "lat": "51.25"
+  },
+  {
+    "name": "Oszmina",
+    "lng": "25.56",
+    "lat": "54.25"
+  },
+  {
+    "name": "Ośno",
+    "lng": "14.52",
+    "lat": "52.27"
+  },
+  {
+    "name": "Ośno Lubuskie",
+    "lng": "14.52",
+    "lat": "52.27"
+  },
+  {
+    "name": "Oświęcim",
+    "lng": "19.08",
+    "lat": "50.02"
+  },
+  {
+    "name": "Otmuchów",
+    "lng": "17.10",
+    "lat": "50.28"
+  },
+  {
+    "name": "Otwock",
+    "lng": "21.15",
+    "lat": "52.07"
+  },
+  {
+    "name": "Otyń",
+    "lng": "15.43",
+    "lat": "51.51"
+  },
+  {
+    "name": "Ozimek",
+    "lng": "18.13",
+    "lat": "50.41"
+  },
+  {
+    "name": "Ozorków",
+    "lng": "19.17",
+    "lat": "51.58"
+  },
+  {
+    "name": "Ożarów",
+    "lng": "21.40",
+    "lat": "50.53"
+  },
+  {
+    "name": "Ożarów Mazowiecki",
+    "lng": "20.48",
+    "lat": "52.13"
+  },
+  {
+    "name": "Pabianice",
+    "lng": "19.22",
+    "lat": "51.40"
+  },
+  {
+    "name": "Pacanów",
+    "lng": "21.02",
+    "lat": "50.24"
+  },
+  {
+    "name": "Pacyna",
+    "lng": "19.43",
+    "lat": "52.18"
+  },
+  {
+    "name": "Paczków",
+    "lng": "17.01",
+    "lat": "50.28"
+  },
+  {
+    "name": "Padew Narodowa",
+    "lng": "21.31",
+    "lat": "50.26"
+  },
+  {
+    "name": "Pajęczno",
+    "lng": "19.00",
+    "lat": "51.09"
+  },
+  {
+    "name": "Pakosław",
+    "lng": "17.04",
+    "lat": "51.37"
+  },
+  {
+    "name": "Pakosławice",
+    "lng": "17.22",
+    "lat": "50.32"
+  },
+  {
+    "name": "Pakość",
+    "lng": "18.05",
+    "lat": "52.48"
+  },
+  {
+    "name": "Panki",
+    "lng": "18.45",
+    "lat": "50.53"
+  },
+  {
+    "name": "Papowo Biskupie",
+    "lng": "18.34",
+    "lat": "53.15"
+  },
+  {
+    "name": "Paprotnia",
+    "lng": "22.28",
+    "lat": "52.18"
+  },
+  {
+    "name": "Paradyż",
+    "lng": "20.06",
+    "lat": "51.19"
+  },
+  {
+    "name": "Parchowo",
+    "lng": "17.41",
+    "lat": "54.13"
+  },
+  {
+    "name": "Parczew",
+    "lng": "22.55",
+    "lat": "51.38"
+  },
+  {
+    "name": "Parysów",
+    "lng": "21.42",
+    "lat": "51.58"
+  },
+  {
+    "name": "Parzęczew",
+    "lng": "19.12",
+    "lat": "51.57"
+  },
+  {
+    "name": "Pasłęk",
+    "lng": "19.40",
+    "lat": "54.04"
+  },
+  {
+    "name": "Pasym",
+    "lng": "20.47",
+    "lat": "53.39"
+  },
+  {
+    "name": "Paszowice",
+    "lng": "16.11",
+    "lat": "51.02"
+  },
+  {
+    "name": "Pawłosiów",
+    "lng": "22.40",
+    "lat": "50.00"
+  },
+  {
+    "name": "Pawłowice",
+    "lng": "18.43",
+    "lat": "49.58"
+  },
+  {
+    "name": "Pawłowiczki",
+    "lng": "18.03",
+    "lat": "50.15"
+  },
+  {
+    "name": "Pawłów",
+    "lng": "21.07",
+    "lat": "50.58"
+  },
+  {
+    "name": "Pawonków",
+    "lng": "18.35",
+    "lat": "50.42"
+  },
+  {
+    "name": "Pątnów",
+    "lng": "18.38",
+    "lat": "51.08"
+  },
+  {
+    "name": "Pcim",
+    "lng": "19.58",
+    "lat": "49.45"
+  },
+  {
+    "name": "Pelplin",
+    "lng": "18.42",
+    "lat": "53.56"
+  },
+  {
+    "name": "Pełczyce",
+    "lng": "15.18",
+    "lat": "53.02"
+  },
+  {
+    "name": "Perlejewo",
+    "lng": "22.34",
+    "lat": "52.34"
+  },
+  {
+    "name": "Perzów",
+    "lng": "17.49",
+    "lat": "51.16"
+  },
+  {
+    "name": "Pęcław",
+    "lng": "16.14",
+    "lat": "51.38"
+  },
+  {
+    "name": "Pęczniew",
+    "lng": "18.44",
+    "lat": "51.49"
+  },
+  {
+    "name": "Pępowo",
+    "lng": "17.07",
+    "lat": "51.46"
+  },
+  {
+    "name": "Piaseczno",
+    "lng": "21.02",
+    "lat": "52.04"
+  },
+  {
+    "name": "Piaski (leszczyńskie)",
+    "lng": "17.04",
+    "lat": "51.53"
+  },
+  {
+    "name": "Piaski (lubelskie)",
+    "lng": "22.51",
+    "lat": "51.08"
+  },
+  {
+    "name": "Piastów",
+    "lng": "20.51",
+    "lat": "52.11"
+  },
+  {
+    "name": "Piątek",
+    "lng": "19.28",
+    "lat": "52.04"
+  },
+  {
+    "name": "Piątnica",
+    "lng": "22.05",
+    "lat": "53.11"
+  },
+  {
+    "name": "Piechowice",
+    "lng": "15.35",
+    "lat": "50.51"
+  },
+  {
+    "name": "Piecki",
+    "lng": "21.20",
+    "lat": "53.45"
+  },
+  {
+    "name": "Piekary Śląskie",
+    "lng": "18.57",
+    "lat": "50.23"
+  },
+  {
+    "name": "Piekoszów",
+    "lng": "20.27",
+    "lat": "50.53"
+  },
+  {
+    "name": "Pielgrzymka",
+    "lng": "15.49",
+    "lat": "51.07"
+  },
+  {
+    "name": "Pieniężno",
+    "lng": "20.08",
+    "lat": "54.14"
+  },
+  {
+    "name": "Pieńsk",
+    "lng": "15.02",
+    "lat": "51.15"
+  },
+  {
+    "name": "Pierzchnica",
+    "lng": "20.44",
+    "lat": "50.42"
+  },
+  {
+    "name": "Pieszyce",
+    "lng": "16.35",
+    "lat": "50.43"
+  },
+  {
+    "name": "Pietrowice Wielkie",
+    "lng": "19.05",
+    "lat": "50.05"
+  },
+  {
+    "name": "Pilawa",
+    "lng": "21.32",
+    "lat": "51.57"
+  },
+  {
+    "name": "Pilchowice",
+    "lng": "18.34",
+    "lat": "50.13"
+  },
+  {
+    "name": "Pilica",
+    "lng": "19.39",
+    "lat": "50.29"
+  },
+  {
+    "name": "Pilzno",
+    "lng": "21.17",
+    "lat": "49.59"
+  },
+  {
+    "name": "Piła",
+    "lng": "16.45",
+    "lat": "53.10"
+  },
+  {
+    "name": "Piława Górna",
+    "lng": "16.44",
+    "lat": "50.41"
+  },
+  {
+    "name": "Pińczów",
+    "lng": "20.32",
+    "lat": "50.32"
+  },
+  {
+    "name": "Pińsk",
+    "lng": "26.04",
+    "lat": "52.07"
+  },
+  {
+    "name": "Pionki",
+    "lng": "21.27",
+    "lat": "51.29"
+  },
+  {
+    "name": "Piotrków Trybunalski",
+    "lng": "19.41",
+    "lat": "51.24"
+  },
+  {
+    "name": "Piotrków Kujawski",
+    "lng": "18.30",
+    "lat": "52.33"
+  },
+  {
+    "name": "Pisz",
+    "lng": "21.48",
+    "lat": "53.38"
+  },
+  {
+    "name": "Piszczac",
+    "lng": "23.23",
+    "lat": "51.59"
+  },
+  {
+    "name": "Piwniczna",
+    "lng": "20.42",
+    "lat": "49.26"
+  },
+  {
+    "name": "Platerów",
+    "lng": "22.49",
+    "lat": "52.18"
+  },
+  {
+    "name": "Platerówka",
+    "lng": "15.11",
+    "lat": "51.04"
+  },
+  {
+    "name": "Pleszew",
+    "lng": "17.47",
+    "lat": "51.53"
+  },
+  {
+    "name": "Pleśna",
+    "lng": "20.56",
+    "lat": "49.56"
+  },
+  {
+    "name": "Płaska",
+    "lng": "23.16",
+    "lat": "53.54"
+  },
+  {
+    "name": "Płock",
+    "lng": "19.42",
+    "lat": "52.33"
+  },
+  {
+    "name": "Płoniawy-Bramura",
+    "lng": "21.04",
+    "lat": "52.59"
+  },
+  {
+    "name": "Płońsk",
+    "lng": "20.23",
+    "lat": "52.38"
+  },
+  {
+    "name": "Płoskinia",
+    "lng": "19.56",
+    "lat": "54.16"
+  },
+  {
+    "name": "Płośnica",
+    "lng": "20.01",
+    "lat": "53.16"
+  },
+  {
+    "name": "Płoty",
+    "lng": "15.16",
+    "lat": "53.48"
+  },
+  {
+    "name": "Płużnica",
+    "lng": "18.47",
+    "lat": "53.18"
+  },
+  {
+    "name": "Pniewy (poznańskie)",
+    "lng": "16.16",
+    "lat": "52.31"
+  },
+  {
+    "name": "Pniewy (radomskie)",
+    "lng": "20.44",
+    "lat": "51.55"
+  },
+  {
+    "name": "Pobiedziska",
+    "lng": "17.17",
+    "lat": "52.28"
+  },
+  {
+    "name": "Poczesna",
+    "lng": "19.09",
+    "lat": "50.43"
+  },
+  {
+    "name": "Poddębice",
+    "lng": "18.57",
+    "lat": "51.53"
+  },
+  {
+    "name": "Podedwórze",
+    "lng": "23.13",
+    "lat": "51.41"
+  },
+  {
+    "name": "Podegrodzie",
+    "lng": "20.36",
+    "lat": "49.35"
+  },
+  {
+    "name": "Podgórzyn",
+    "lng": "15.41",
+    "lat": "50.50"
+  },
+  {
+    "name": "Podkowa Leśna",
+    "lng": "20.43",
+    "lat": "52.07"
+  },
+  {
+    "name": "Pogorzela",
+    "lng": "17.14",
+    "lat": "51.48"
+  },
+  {
+    "name": "Pokój",
+    "lng": "17.30",
+    "lat": "50.54"
+  },
+  {
+    "name": "Pokrzywnica",
+    "lng": "21.01",
+    "lat": "52.38"
+  },
+  {
+    "name": "Polanica-Zdrój",
+    "lng": "16.31",
+    "lat": "50.24"
+  },
+  {
+    "name": "Polanów",
+    "lng": "16.41",
+    "lat": "54.07"
+  },
+  {
+    "name": "Police",
+    "lng": "14.33",
+    "lat": "53.33"
+  },
+  {
+    "name": "Policzna",
+    "lng": "21.38",
+    "lat": "51.27"
+  },
+  {
+    "name": "Polkowice",
+    "lng": "16.04",
+    "lat": "51.36"
+  },
+  {
+    "name": "Polska Cerekiew",
+    "lng": "18.09",
+    "lat": "50.14"
+  },
+  {
+    "name": "Połajewo",
+    "lng": "16.43",
+    "lat": "52.47"
+  },
+  {
+    "name": "Połaniec",
+    "lng": "21.17",
+    "lat": "50.26"
+  },
+  {
+    "name": "Połczyn-Zdrój",
+    "lng": "16.06",
+    "lat": "53.45"
+  },
+  {
+    "name": "Pomiechówek",
+    "lng": "20.44",
+    "lat": "52.28"
+  },
+  {
+    "name": "Poniatowa",
+    "lng": "22.05",
+    "lat": "51.12"
+  },
+  {
+    "name": "Poniec",
+    "lng": "16.48",
+    "lat": "51.46"
+  },
+  {
+    "name": "Popielów",
+    "lng": "17.44",
+    "lat": "50.49"
+  },
+  {
+    "name": "Popów",
+    "lng": "18.57",
+    "lat": "51.02"
+  },
+  {
+    "name": "Poraj",
+    "lng": "19.13",
+    "lat": "50.41"
+  },
+  {
+    "name": "Porąbka",
+    "lng": "19.13",
+    "lat": "49.49"
+  },
+  {
+    "name": "Postomino",
+    "lng": "16.42",
+    "lat": "54.30"
+  },
+  {
+    "name": "Poświętne (białostockie)",
+    "lng": "22.50",
+    "lat": "52.55"
+  },
+  {
+    "name": "Poświętne (piotrkowskie)",
+    "lng": "20.22",
+    "lat": "51.32"
+  },
+  {
+    "name": "Poświętne (siedleckie)",
+    "lng": "21.25",
+    "lat": "52.20"
+  },
+  {
+    "name": "Potęgowo",
+    "lng": "17.29",
+    "lat": "54.29"
+  },
+  {
+    "name": "Potok Górny",
+    "lng": "22.32",
+    "lat": "50.23"
+  },
+  {
+    "name": "Potok Wielki",
+    "lng": "22.14",
+    "lat": "50.47"
+  },
+  {
+    "name": "Potworów",
+    "lng": "20.43",
+    "lat": "51.31"
+  },
+  {
+    "name": "Pozezdrze",
+    "lng": "21.52",
+    "lat": "54.08"
+  },
+  {
+    "name": "Poznań",
+    "lng": "16.55",
+    "lat": "52.25"
+  },
+  {
+    "name": "Poznań Grunwald",
+    "lng": "16.54",
+    "lat": "52.23"
+  },
+  {
+    "name": "Poznań Jeżyce",
+    "lng": "16.47",
+    "lat": "52.27"
+  },
+  {
+    "name": "Poznań Nowe Miasto",
+    "lng": "17.01",
+    "lat": "52.23"
+  },
+  {
+    "name": "Poznań Stare Miasto",
+    "lng": "16.56",
+    "lat": "52.25"
+  },
+  {
+    "name": "Poznań Wilda",
+    "lng": "16.56",
+    "lat": "52.23"
+  },
+  {
+    "name": "Prabuty",
+    "lng": "19.12",
+    "lat": "53.46"
+  },
+  {
+    "name": "Praszka",
+    "lng": "18.27",
+    "lat": "51.03"
+  },
+  {
+    "name": "Prażmów",
+    "lng": "20.59",
+    "lat": "51.57"
+  },
+  {
+    "name": "Prochowice",
+    "lng": "16.23",
+    "lat": "51.17"
+  },
+  {
+    "name": "Promna",
+    "lng": "20.58",
+    "lat": "51.41"
+  },
+  {
+    "name": "Prostki",
+    "lng": "22.26",
+    "lat": "53.42"
+  },
+  {
+    "name": "Proszowice",
+    "lng": "20.17",
+    "lat": "50.12"
+  },
+  {
+    "name": "Prószków",
+    "lng": "17.53",
+    "lat": "50.35"
+  },
+  {
+    "name": "Pruchnik",
+    "lng": "22.32",
+    "lat": "49.54"
+  },
+  {
+    "name": "Prudnik",
+    "lng": "17.36",
+    "lat": "50.19"
+  },
+  {
+    "name": "Prusice",
+    "lng": "16.52",
+    "lat": "51.22"
+  },
+  {
+    "name": "Pruszcz",
+    "lng": "18.12",
+    "lat": "53.20"
+  },
+  {
+    "name": "Pruszcz Gdański",
+    "lng": "18.38",
+    "lat": "54.16"
+  },
+  {
+    "name": "Pruszków",
+    "lng": "20.48",
+    "lat": "52.10"
+  },
+  {
+    "name": "Przasnysz",
+    "lng": "20.53",
+    "lat": "53.01"
+  },
+  {
+    "name": "Przechlewo",
+    "lng": "17.15",
+    "lat": "53.48"
+  },
+  {
+    "name": "Przeciszów",
+    "lng": "20.22",
+    "lat": "50.00"
+  },
+  {
+    "name": "Przecław",
+    "lng": "21.29",
+    "lat": "50.12"
+  },
+  {
+    "name": "Przedbórz",
+    "lng": "19.52",
+    "lat": "51.06"
+  },
+  {
+    "name": "Przedecz",
+    "lng": "18.54",
+    "lat": "52.20"
+  },
+  {
+    "name": "Przelewice",
+    "lng": "15.05",
+    "lat": "53.06"
+  },
+  {
+    "name": "Przemęt",
+    "lng": "16.18",
+    "lat": "52.01"
+  },
+  {
+    "name": "Przemków",
+    "lng": "15.47",
+    "lat": "51.32"
+  },
+  {
+    "name": "Przemyśl",
+    "lng": "22.47",
+    "lat": "49.48"
+  },
+  {
+    "name": "Przerośl",
+    "lng": "22.39",
+    "lat": "54.15"
+  },
+  {
+    "name": "Przesmyki",
+    "lng": "22.35",
+    "lat": "52.17"
+  },
+  {
+    "name": "Przeworno",
+    "lng": "17.11",
+    "lat": "50.41"
+  },
+  {
+    "name": "Przeworsk",
+    "lng": "22.29",
+    "lat": "50.03"
+  },
+  {
+    "name": "Przewóz",
+    "lng": "14.58",
+    "lat": "51.28"
+  },
+  {
+    "name": "Przodkowo",
+    "lng": "18.17",
+    "lat": "54.23"
+  },
+  {
+    "name": "Przybiernów",
+    "lng": "14.46",
+    "lat": "53.45"
+  },
+  {
+    "name": "Przygodzice",
+    "lng": "17.50",
+    "lat": "51.35"
+  },
+  {
+    "name": "Przykona",
+    "lng": "18.37",
+    "lat": "51.58"
+  },
+  {
+    "name": "Przyłęk",
+    "lng": "21.45",
+    "lat": "51.19"
+  },
+  {
+    "name": "Przyrów",
+    "lng": "19.31",
+    "lat": "50.48"
+  },
+  {
+    "name": "Przystajń",
+    "lng": "18.41",
+    "lat": "50.53"
+  },
+  {
+    "name": "Przysucha",
+    "lng": "20.38",
+    "lat": "51.22"
+  },
+  {
+    "name": "Przytoczna",
+    "lng": "15.40",
+    "lat": "52.35"
+  },
+  {
+    "name": "Przytuły",
+    "lng": "22.19",
+    "lat": "53.22"
+  },
+  {
+    "name": "Przytyk",
+    "lng": "20.55",
+    "lat": "51.28"
+  },
+  {
+    "name": "Przywidz",
+    "lng": "18.19",
+    "lat": "54.12"
+  },
+  {
+    "name": "Psary",
+    "lng": "19.08",
+    "lat": "50.23"
+  },
+  {
+    "name": "Pszczew",
+    "lng": "15.46",
+    "lat": "52.28"
+  },
+  {
+    "name": "Pszczółki",
+    "lng": "18.41",
+    "lat": "54.11"
+  },
+  {
+    "name": "Pszczyna",
+    "lng": "18.57",
+    "lat": "49.59"
+  },
+  {
+    "name": "Puchaczów",
+    "lng": "22.59",
+    "lat": "51.18"
+  },
+  {
+    "name": "Puck",
+    "lng": "18.24",
+    "lat": "54.44"
+  },
+  {
+    "name": "Puławy",
+    "lng": "21.58",
+    "lat": "51.25"
+  },
+  {
+    "name": "Pułtusk",
+    "lng": "21.05",
+    "lat": "52.43"
+  },
+  {
+    "name": "Puńsk",
+    "lng": "23.11",
+    "lat": "54.15"
+  },
+  {
+    "name": "Purda",
+    "lng": "20.42",
+    "lat": "53.43"
+  },
+  {
+    "name": "Puszcza Mariańska",
+    "lng": "20.21",
+    "lat": "51.59"
+  },
+  {
+    "name": "Puszczykowo",
+    "lng": "16.50",
+    "lat": "52.17"
+  },
+  {
+    "name": "Pyrzyce",
+    "lng": "14.53",
+    "lat": "53.08"
+  },
+  {
+    "name": "Pyskowice",
+    "lng": "18.38",
+    "lat": "50.24"
+  },
+  {
+    "name": "Pysznica",
+    "lng": "22.08",
+    "lat": "50.34"
+  },
+  {
+    "name": "Pyzdry",
+    "lng": "17.41",
+    "lat": "52.10"
+  },
+  {
+    "name": "Raba Wyżna",
+    "lng": "19.53",
+    "lat": "49.34"
+  },
+  {
+    "name": "Rabka",
+    "lng": "19.57",
+    "lat": "49.37"
+  },
+  {
+    "name": "Rachanie",
+    "lng": "23.33",
+    "lat": "50.33"
+  },
+  {
+    "name": "Raciąż",
+    "lng": "20.07",
+    "lat": "52.47"
+  },
+  {
+    "name": "Raciążek",
+    "lng": "18.48",
+    "lat": "52.51"
+  },
+  {
+    "name": "Racibórz",
+    "lng": "18.14",
+    "lat": "50.05"
+  },
+  {
+    "name": "Raciechowice",
+    "lng": "20.08",
+    "lat": "49.50"
+  },
+  {
+    "name": "Racławice-Pałecznica",
+    "lng": "20.14",
+    "lat": "50.20"
+  },
+  {
+    "name": "Raczki",
+    "lng": "22.47",
+    "lat": "53.59"
+  },
+  {
+    "name": "Radecznica",
+    "lng": "22.50",
+    "lat": "50.46"
+  },
+  {
+    "name": "Radgoszcz",
+    "lng": "21.07",
+    "lat": "50.13"
+  },
+  {
+    "name": "Radków (częstochowskie)",
+    "lng": "19.59",
+    "lat": "50.43"
+  },
+  {
+    "name": "Radków (wałbrzyskie)",
+    "lng": "16.24",
+    "lat": "50.30"
+  },
+  {
+    "name": "Radłów (częstochowskie)",
+    "lng": "18.32",
+    "lat": "50.56"
+  },
+  {
+    "name": "Radłów (tarnowskie)",
+    "lng": "20.51",
+    "lat": "50.05"
+  },
+  {
+    "name": "Radom",
+    "lng": "21.10",
+    "lat": "51.24"
+  },
+  {
+    "name": "Radomin",
+    "lng": "19.12",
+    "lat": "53.05"
+  },
+  {
+    "name": "Radomsko",
+    "lng": "19.27",
+    "lat": "51.04"
+  },
+  {
+    "name": "Radomyśl",
+    "lng": "21.57",
+    "lat": "50.41"
+  },
+  {
+    "name": "Radomyśl Wielki",
+    "lng": "21.17",
+    "lat": "50.12"
+  },
+  {
+    "name": "Radoszyce",
+    "lng": "20.16",
+    "lat": "51.04"
+  },
+  {
+    "name": "Radowo Małe",
+    "lng": "15.27",
+    "lat": "53.40"
+  },
+  {
+    "name": "Radymno",
+    "lng": "22.50",
+    "lat": "49.57"
+  },
+  {
+    "name": "Radwanice",
+    "lng": "15.52",
+    "lat": "51.34"
+  },
+  {
+    "name": "Radzanowo",
+    "lng": "19.53",
+    "lat": "52.35"
+  },
+  {
+    "name": "Radzanów",
+    "lng": "20.05",
+    "lat": "52.57"
+  },
+  {
+    "name": "Radziechowy-Wieprz",
+    "lng": "19.10",
+    "lat": "49.38"
+  },
+  {
+    "name": "Radziejowice",
+    "lng": "20.33",
+    "lat": "52.01"
+  },
+  {
+    "name": "Radziejów",
+    "lng": "18.31",
+    "lat": "52.38"
+  },
+  {
+    "name": "Radziemnice",
+    "lng": "20.14",
+    "lat": "50.15"
+  },
+  {
+    "name": "Radziłów",
+    "lng": "22.25",
+    "lat": "53.25"
+  },
+  {
+    "name": "Radziwiłłówka",
+    "lng": "23.02",
+    "lat": "52.22"
+  },
+  {
+    "name": "Radzymin",
+    "lng": "21.11",
+    "lat": "52.25"
+  },
+  {
+    "name": "Radzyń Chełmiński",
+    "lng": "18.56",
+    "lat": "53.23"
+  },
+  {
+    "name": "Radzyń Podlaski",
+    "lng": "22.38",
+    "lat": "51.48"
+  },
+  {
+    "name": "Rajcza",
+    "lng": "19.06",
+    "lat": "49.30"
+  },
+  {
+    "name": "Rajgród",
+    "lng": "22.42",
+    "lat": "53.44"
+  },
+  {
+    "name": "Rakoniewice",
+    "lng": "16.16",
+    "lat": "52.09"
+  },
+  {
+    "name": "Raków",
+    "lng": "21.02",
+    "lat": "50.41"
+  },
+  {
+    "name": "Rakszawa",
+    "lng": "22.14",
+    "lat": "50.12"
+  },
+  {
+    "name": "Raniżów",
+    "lng": "21.59",
+    "lat": "50.16"
+  },
+  {
+    "name": "Raszków",
+    "lng": "17.44",
+    "lat": "51.43"
+  },
+  {
+    "name": "Raszyn",
+    "lng": "20.55",
+    "lat": "52.08"
+  },
+  {
+    "name": "Rataje",
+    "lng": "19.26",
+    "lat": "52.26"
+  },
+  {
+    "name": "Rawa Mazowiecka",
+    "lng": "20.16",
+    "lat": "51.46"
+  },
+  {
+    "name": "Rawa Ruska",
+    "lng": "23.37",
+    "lat": "50.14"
+  },
+  {
+    "name": "Rawicz",
+    "lng": "16.52",
+    "lat": "51.36"
+  },
+  {
+    "name": "Rąbino",
+    "lng": "15.56",
+    "lat": "53.52"
+  },
+  {
+    "name": "Recz",
+    "lng": "15.33",
+    "lat": "53.15"
+  },
+  {
+    "name": "Reda",
+    "lng": "18.20",
+    "lat": "54.37"
+  },
+  {
+    "name": "Regimin",
+    "lng": "20.34",
+    "lat": "52.57"
+  },
+  {
+    "name": "Rejowiec",
+    "lng": "23.18",
+    "lat": "51.06"
+  },
+  {
+    "name": "Rejowiec Fabryczny",
+    "lng": "23.16",
+    "lat": "51.07"
+  },
+  {
+    "name": "Reńska Wieś",
+    "lng": "18.09",
+    "lat": "50.19"
+  },
+  {
+    "name": "Repki",
+    "lng": "22.24",
+    "lat": "52.23"
+  },
+  {
+    "name": "Resko",
+    "lng": "15.24",
+    "lat": "53.46"
+  },
+  {
+    "name": "Reszel",
+    "lng": "21.09",
+    "lat": "54.03"
+  },
+  {
+    "name": "Rewal",
+    "lng": "15.00",
+    "lat": "54.04"
+  },
+  {
+    "name": "Ręczno",
+    "lng": "19.51",
+    "lat": "51.11"
+  },
+  {
+    "name": "Rędziny",
+    "lng": "19.13",
+    "lat": "50.52"
+  },
+  {
+    "name": "Rogowo (bydgoskie)",
+    "lng": "17.39",
+    "lat": "52.43"
+  },
+  {
+    "name": "Rogowo (włocławskie)",
+    "lng": "19.23",
+    "lat": "52.58"
+  },
+  {
+    "name": "Rogoźno",
+    "lng": "16.59",
+    "lat": "52.45"
+  },
+  {
+    "name": "Rogów",
+    "lng": "19.53",
+    "lat": "51.49"
+  },
+  {
+    "name": "Rogóźno",
+    "lng": "18.56",
+    "lat": "53.33"
+  },
+  {
+    "name": "Rohatyń",
+    "lng": "24.37",
+    "lat": "49.25"
+  },
+  {
+    "name": "Rojewo",
+    "lng": "18.17",
+    "lat": "52.54"
+  },
+  {
+    "name": "Rokiciny",
+    "lng": "19.47",
+    "lat": "51.40"
+  },
+  {
+    "name": "Rokietnica (poznańskie)",
+    "lng": "16.45",
+    "lat": "52.31"
+  },
+  {
+    "name": "Rokietnica (przemyskie)",
+    "lng": "22.39",
+    "lat": "49.54"
+  },
+  {
+    "name": "Rokitno",
+    "lng": "23.18",
+    "lat": "52.08"
+  },
+  {
+    "name": "Ropczyce",
+    "lng": "21.37",
+    "lat": "50.03"
+  },
+  {
+    "name": "Rossosz",
+    "lng": "23.09",
+    "lat": "51.52"
+  },
+  {
+    "name": "Rościszewo",
+    "lng": "19.46",
+    "lat": "52.54"
+  },
+  {
+    "name": "Rozdrażew",
+    "lng": "17.31",
+    "lat": "51.46"
+  },
+  {
+    "name": "Rozogi",
+    "lng": "21.22",
+    "lat": "53.29"
+  },
+  {
+    "name": "Rozprza",
+    "lng": "19.38",
+    "lat": "51.18"
+  },
+  {
+    "name": "Roźwienica",
+    "lng": "22.36",
+    "lat": "49.57"
+  },
+  {
+    "name": "Równe",
+    "lng": "26.15",
+    "lat": "50.37"
+  },
+  {
+    "name": "Różan",
+    "lng": "21.24",
+    "lat": "52.53"
+  },
+  {
+    "name": "Ruciane-Nida",
+    "lng": "21.34",
+    "lat": "53.39"
+  },
+  {
+    "name": "Ruda-Huta",
+    "lng": "23.36",
+    "lat": "51.14"
+  },
+  {
+    "name": "Ruda Maleniecka",
+    "lng": "20.13",
+    "lat": "51.19"
+  },
+  {
+    "name": "Ruda Śląska",
+    "lng": "18.52",
+    "lat": "50.16"
+  },
+  {
+    "name": "Rudna",
+    "lng": "16.16",
+    "lat": "51.31"
+  },
+  {
+    "name": "Rudnik (katowickie)",
+    "lng": "18.12",
+    "lat": "50.08"
+  },
+  {
+    "name": "Rudnik (tarnobrzeskie)",
+    "lng": "22.16",
+    "lat": "50.27"
+  },
+  {
+    "name": "Rudnik (zamojskie)",
+    "lng": "22.59",
+    "lat": "50.53"
+  },
+  {
+    "name": "Rudniki",
+    "lng": "18.36",
+    "lat": "51.02"
+  },
+  {
+    "name": "Rudziniec",
+    "lng": "18.25",
+    "lat": "50.22"
+  },
+  {
+    "name": "Ruja",
+    "lng": "16.24",
+    "lat": "51.11"
+  },
+  {
+    "name": "Rumia",
+    "lng": "18.24",
+    "lat": "54.34"
+  },
+  {
+    "name": "Rusiec",
+    "lng": "18.59",
+    "lat": "51.19"
+  },
+  {
+    "name": "Rusinów",
+    "lng": "20.35",
+    "lat": "51.26"
+  },
+  {
+    "name": "Rutka-Tartak",
+    "lng": "22.58",
+    "lat": "54.19"
+  },
+  {
+    "name": "Rutki",
+    "lng": "22.26",
+    "lat": "53.06"
+  },
+  {
+    "name": "Rybczewice",
+    "lng": "22.51",
+    "lat": "51.02"
+  },
+  {
+    "name": "Rybnik",
+    "lng": "18.33",
+    "lat": "50.05"
+  },
+  {
+    "name": "Rybno",
+    "lng": "19.56",
+    "lat": "53.23"
+  },
+  {
+    "name": "Rychliki",
+    "lng": "19.31",
+    "lat": "53.59"
+  },
+  {
+    "name": "Rychtal",
+    "lng": "17.51",
+    "lat": "51.09"
+  },
+  {
+    "name": "Rychwał",
+    "lng": "18.10",
+    "lat": "52.04"
+  },
+  {
+    "name": "Ryczywół",
+    "lng": "16.50",
+    "lat": "52.48"
+  },
+  {
+    "name": "Rydzyna",
+    "lng": "16.40",
+    "lat": "51.48"
+  },
+  {
+    "name": "Ryglice",
+    "lng": "21.08",
+    "lat": "49.53"
+  },
+  {
+    "name": "Ryjewo",
+    "lng": "18.57",
+    "lat": "53.51"
+  },
+  {
+    "name": "Ryki",
+    "lng": "21.57",
+    "lat": "51.37"
+  },
+  {
+    "name": "Rymanów",
+    "lng": "21.53",
+    "lat": "49.34"
+  },
+  {
+    "name": "Rymań",
+    "lng": "15.32",
+    "lat": "53.56"
+  },
+  {
+    "name": "Ryn",
+    "lng": "21.32",
+    "lat": "53.56"
+  },
+  {
+    "name": "Rypin",
+    "lng": "19.24",
+    "lat": "53.04"
+  },
+  {
+    "name": "Rytwiany",
+    "lng": "21.12",
+    "lat": "50.32"
+  },
+  {
+    "name": "Rząśnia",
+    "lng": "19.03",
+    "lat": "51.14"
+  },
+  {
+    "name": "Rząśnik",
+    "lng": "21.21",
+    "lat": "52.43"
+  },
+  {
+    "name": "Rzeczenica",
+    "lng": "17.06",
+    "lat": "53.46"
+  },
+  {
+    "name": "Rzeczniów",
+    "lng": "21.27",
+    "lat": "51.08"
+  },
+  {
+    "name": "Rzeczyca",
+    "lng": "20.18",
+    "lat": "51.36"
+  },
+  {
+    "name": "Rzekuń",
+    "lng": "21.38",
+    "lat": "53.03"
+  },
+  {
+    "name": "Rzepiennik Strzyżewski",
+    "lng": "21.02",
+    "lat": "49.48"
+  },
+  {
+    "name": "Rzepin",
+    "lng": "14.49",
+    "lat": "52.21"
+  },
+  {
+    "name": "Rzeszów",
+    "lng": "22.01",
+    "lat": "50.03"
+  },
+  {
+    "name": "Rzewnie",
+    "lng": "21.21",
+    "lat": "52.51"
+  },
+  {
+    "name": "Rzezawa",
+    "lng": "20.31",
+    "lat": "50.00"
+  },
+  {
+    "name": "Rzgów (konińskie)",
+    "lng": "18.03",
+    "lat": "52.09"
+  },
+  {
+    "name": "Rzgów (łódzkie)",
+    "lng": "19.30",
+    "lat": "51.40"
+  },
+  {
+    "name": "Sabnie",
+    "lng": "22.18",
+    "lat": "52.30"
+  },
+  {
+    "name": "Sadki",
+    "lng": "17.27",
+    "lat": "53.10"
+  },
+  {
+    "name": "Sadkowice",
+    "lng": "20.31",
+    "lat": "51.44"
+  },
+  {
+    "name": "Sadlinki",
+    "lng": "18.53",
+    "lat": "53.40"
+  },
+  {
+    "name": "Sadowie",
+    "lng": "21.23",
+    "lat": "50.51"
+  },
+  {
+    "name": "Sadowne",
+    "lng": "21.51",
+    "lat": "52.38"
+  },
+  {
+    "name": "Sambor",
+    "lng": "23.11",
+    "lat": "49.32"
+  },
+  {
+    "name": "Samborzec",
+    "lng": "21.39",
+    "lat": "50.39"
+  },
+  {
+    "name": "Sandomierz",
+    "lng": "21.45",
+    "lat": "50.41"
+  },
+  {
+    "name": "Sanniki",
+    "lng": "19.52",
+    "lat": "52.20"
+  },
+  {
+    "name": "Sanok",
+    "lng": "22.13",
+    "lat": "49.33"
+  },
+  {
+    "name": "Santok",
+    "lng": "15.24",
+    "lat": "52.44"
+  },
+  {
+    "name": "Sarnaki",
+    "lng": "22.53",
+    "lat": "52.19"
+  },
+  {
+    "name": "Sarny",
+    "lng": "26.36",
+    "lat": "51.21"
+  },
+  {
+    "name": "Sawin",
+    "lng": "23.27",
+    "lat": "51.16"
+  },
+  {
+    "name": "Secemin",
+    "lng": "19.50",
+    "lat": "50.46"
+  },
+  {
+    "name": "Sejny",
+    "lng": "23.21",
+    "lat": "54.06"
+  },
+  {
+    "name": "Serniki",
+    "lng": "22.40",
+    "lat": "51.26"
+  },
+  {
+    "name": "Serock",
+    "lng": "21.04",
+    "lat": "52.31"
+  },
+  {
+    "name": "Serokomla",
+    "lng": "22.19",
+    "lat": "51.42"
+  },
+  {
+    "name": "Sędziejowice",
+    "lng": "19.02",
+    "lat": "51.31"
+  },
+  {
+    "name": "Sędziszów",
+    "lng": "20.04",
+    "lat": "50.35"
+  },
+  {
+    "name": "Sędziszów Małopolski",
+    "lng": "21.42",
+    "lat": "50.04"
+  },
+  {
+    "name": "Sękowa",
+    "lng": "21.12",
+    "lat": "49.37"
+  },
+  {
+    "name": "Sępopol",
+    "lng": "21.01",
+    "lat": "54.16"
+  },
+  {
+    "name": "Sępólno Krajeńskie",
+    "lng": "17.32",
+    "lat": "53.27"
+  },
+  {
+    "name": "Sianów",
+    "lng": "16.18",
+    "lat": "54.13"
+  },
+  {
+    "name": "Sicienko",
+    "lng": "17.47",
+    "lat": "53.13"
+  },
+  {
+    "name": "Sidra",
+    "lng": "23.27",
+    "lat": "53.33"
+  },
+  {
+    "name": "Sieciechów",
+    "lng": "21.45",
+    "lat": "51.33"
+  },
+  {
+    "name": "Siedlce",
+    "lng": "22.17",
+    "lat": "52.11"
+  },
+  {
+    "name": "Siedlec",
+    "lng": "16.00",
+    "lat": "52.03"
+  },
+  {
+    "name": "Siedlisko",
+    "lng": "15.48",
+    "lat": "51.46"
+  },
+  {
+    "name": "Siedliszcze",
+    "lng": "23.10",
+    "lat": "51.12"
+  },
+  {
+    "name": "Siekierczyn",
+    "lng": "15.12",
+    "lat": "51.08"
+  },
+  {
+    "name": "Siemianowice Śląskie",
+    "lng": "19.02",
+    "lat": "50.18"
+  },
+  {
+    "name": "Siemiatycze",
+    "lng": "22.52",
+    "lat": "52.26"
+  },
+  {
+    "name": "Siemiątkowo Koziebródz.",
+    "lng": "20.01",
+    "lat": "52.53"
+  },
+  {
+    "name": "Siemień",
+    "lng": "22.36",
+    "lat": "51.38"
+  },
+  {
+    "name": "Siemkowice",
+    "lng": "18.54",
+    "lat": "51.12"
+  },
+  {
+    "name": "Siemyśl",
+    "lng": "15.32",
+    "lat": "54.02"
+  },
+  {
+    "name": "Sieniawa",
+    "lng": "22.37",
+    "lat": "50.11"
+  },
+  {
+    "name": "Siennica",
+    "lng": "21.37",
+    "lat": "52.06"
+  },
+  {
+    "name": "Siennica Różana",
+    "lng": "23.20",
+    "lat": "51.00"
+  },
+  {
+    "name": "Sienno",
+    "lng": "21.29",
+    "lat": "51.06"
+  },
+  {
+    "name": "Siepraw",
+    "lng": "19.58",
+    "lat": "49.55"
+  },
+  {
+    "name": "Sieradz",
+    "lng": "18.44",
+    "lat": "51.36"
+  },
+  {
+    "name": "Sierakowice",
+    "lng": "17.53",
+    "lat": "54.22"
+  },
+  {
+    "name": "Sieraków",
+    "lng": "16.05",
+    "lat": "52.39"
+  },
+  {
+    "name": "Sieroszewice",
+    "lng": "17.59",
+    "lat": "51.38"
+  },
+  {
+    "name": "Sierpc",
+    "lng": "19.40",
+    "lat": "52.52"
+  },
+  {
+    "name": "Siewierz",
+    "lng": "19.14",
+    "lat": "50.28"
+  },
+  {
+    "name": "Silnowo",
+    "lng": "16.29",
+    "lat": "53.37"
+  },
+  {
+    "name": "Sitkówka-Nowiny",
+    "lng": "20.34",
+    "lat": "50.49"
+  },
+  {
+    "name": "Sitno",
+    "lng": "23.23",
+    "lat": "50.45"
+  },
+  {
+    "name": "Skalbmierz",
+    "lng": "20.24",
+    "lat": "50.20"
+  },
+  {
+    "name": "Skała",
+    "lng": "19.51",
+    "lat": "50.14"
+  },
+  {
+    "name": "Skarszewy",
+    "lng": "18.27",
+    "lat": "54.05"
+  },
+  {
+    "name": "Skaryszew",
+    "lng": "21.15",
+    "lat": "51.19"
+  },
+  {
+    "name": "Skarżysko-Kamienna",
+    "lng": "20.51",
+    "lat": "51.07"
+  },
+  {
+    "name": "Skawina",
+    "lng": "19.49",
+    "lat": "49.59"
+  },
+  {
+    "name": "Skąpe",
+    "lng": "15.27",
+    "lat": "52.09"
+  },
+  {
+    "name": "Skępe",
+    "lng": "19.21",
+    "lat": "52.52"
+  },
+  {
+    "name": "Skierbieszów",
+    "lng": "23.22",
+    "lat": "50.51"
+  },
+  {
+    "name": "Skierniewice",
+    "lng": "20.08",
+    "lat": "51.58"
+  },
+  {
+    "name": "Skoczów",
+    "lng": "18.43",
+    "lat": "49.48"
+  },
+  {
+    "name": "Skoki",
+    "lng": "17.09",
+    "lat": "52.40"
+  },
+  {
+    "name": "Skołyszyn",
+    "lng": "21.21",
+    "lat": "49.45"
+  },
+  {
+    "name": "Skomlin",
+    "lng": "18.23",
+    "lat": "51.10"
+  },
+  {
+    "name": "Skoroszyce",
+    "lng": "17.22",
+    "lat": "50.35"
+  },
+  {
+    "name": "Skórcz",
+    "lng": "18.32",
+    "lat": "53.48"
+  },
+  {
+    "name": "Skórzec",
+    "lng": "22.08",
+    "lat": "52.07"
+  },
+  {
+    "name": "Skrwilno",
+    "lng": "19.37",
+    "lat": "53.01"
+  },
+  {
+    "name": "Skrzeszew",
+    "lng": "20.53",
+    "lat": "52.28"
+  },
+  {
+    "name": "Skrzyszów",
+    "lng": "21.06",
+    "lat": "49.59"
+  },
+  {
+    "name": "Skulsk",
+    "lng": "18.20",
+    "lat": "52.29"
+  },
+  {
+    "name": "Skwierzyna",
+    "lng": "15.29",
+    "lat": "52.36"
+  },
+  {
+    "name": "Słaboszów",
+    "lng": "20.17",
+    "lat": "50.23"
+  },
+  {
+    "name": "Sława",
+    "lng": "16.04",
+    "lat": "51.53"
+  },
+  {
+    "name": "Sławatycze",
+    "lng": "23.34",
+    "lat": "51.46"
+  },
+  {
+    "name": "Sławków",
+    "lng": "19.20",
+    "lat": "50.17"
+  },
+  {
+    "name": "Sławno (piotrkowskie)",
+    "lng": "20.09",
+    "lat": "51.23"
+  },
+  {
+    "name": "Sławno (słupskie)",
+    "lng": "16.39",
+    "lat": "54.22"
+  },
+  {
+    "name": "Sławoborze",
+    "lng": "15.42",
+    "lat": "53.53"
+  },
+  {
+    "name": "Słomniki",
+    "lng": "20.05",
+    "lat": "50.15"
+  },
+  {
+    "name": "Słonim",
+    "lng": "25.19",
+    "lat": "53.06"
+  },
+  {
+    "name": "Słońsk",
+    "lng": "14.48",
+    "lat": "52.34"
+  },
+  {
+    "name": "Słubice (gorzowskie)",
+    "lng": "14.34",
+    "lat": "52.21"
+  },
+  {
+    "name": "Słubice (płockie)",
+    "lng": "19.56",
+    "lat": "52.23"
+  },
+  {
+    "name": "Słupca",
+    "lng": "17.53",
+    "lat": "52.17"
+  },
+  {
+    "name": "Słupia (kieleckie)",
+    "lng": "19.58",
+    "lat": "50.36"
+  },
+  {
+    "name": "Słupia (skierniewickie)",
+    "lng": "19.58",
+    "lat": "51.51"
+  },
+  {
+    "name": "Słupsk",
+    "lng": "17.02",
+    "lat": "54.28"
+  },
+  {
+    "name": "Smętowo Graniczne",
+    "lng": "18.41",
+    "lat": "53.46"
+  },
+  {
+    "name": "Smołdzino",
+    "lng": "17.13",
+    "lat": "54.40"
+  },
+  {
+    "name": "Sobienie-Jeziory",
+    "lng": "21.19",
+    "lat": "51.56"
+  },
+  {
+    "name": "Sobków",
+    "lng": "20.27",
+    "lat": "50.42"
+  },
+  {
+    "name": "Sobolew",
+    "lng": "21.41",
+    "lat": "51.44"
+  },
+  {
+    "name": "Sobótka",
+    "lng": "16.45",
+    "lat": "50.54"
+  },
+  {
+    "name": "Sochaczew",
+    "lng": "20.13",
+    "lat": "52.14"
+  },
+  {
+    "name": "Sochocin",
+    "lng": "20.28",
+    "lat": "52.42"
+  },
+  {
+    "name": "Sokolniki",
+    "lng": "18.21",
+    "lat": "51.18"
+  },
+  {
+    "name": "Sokołów Małopolski",
+    "lng": "22.07",
+    "lat": "50.14"
+  },
+  {
+    "name": "Sokołów Podlaski",
+    "lng": "22.16",
+    "lat": "52.24"
+  },
+  {
+    "name": "Sokoły",
+    "lng": "22.42",
+    "lat": "52.59"
+  },
+  {
+    "name": "Sokółka",
+    "lng": "23.30",
+    "lat": "53.24"
+  },
+  {
+    "name": "Solec Kujawski",
+    "lng": "18.14",
+    "lat": "53.05"
+  },
+  {
+    "name": "Solec nad Wisłą",
+    "lng": "21.47",
+    "lat": "51.08"
+  },
+  {
+    "name": "Solec-Zdrój",
+    "lng": "20.53",
+    "lat": "50.22"
+  },
+  {
+    "name": "Solina",
+    "lng": "22.27",
+    "lat": "49.24"
+  },
+  {
+    "name": "Somianka",
+    "lng": "21.17",
+    "lat": "52.33"
+  },
+  {
+    "name": "Somonino",
+    "lng": "18.12",
+    "lat": "54.17"
+  },
+  {
+    "name": "Sompolno",
+    "lng": "18.30",
+    "lat": "52.23"
+  },
+  {
+    "name": "Sońsk",
+    "lng": "20.43",
+    "lat": "52.47"
+  },
+  {
+    "name": "Sopot",
+    "lng": "18.33",
+    "lat": "54.26"
+  },
+  {
+    "name": "Sorkwity",
+    "lng": "21.09",
+    "lat": "53.51"
+  },
+  {
+    "name": "Sosnowica",
+    "lng": "23.05",
+    "lat": "51.31"
+  },
+  {
+    "name": "Sosnowiec",
+    "lng": "19.08",
+    "lat": "50.17"
+  },
+  {
+    "name": "Sosnówka",
+    "lng": "23.20",
+    "lat": "51.46"
+  },
+  {
+    "name": "Sośnicowice",
+    "lng": "18.32",
+    "lat": "50.16"
+  },
+  {
+    "name": "Sośnie",
+    "lng": "17.37",
+    "lat": "51.28"
+  },
+  {
+    "name": "Sośno",
+    "lng": "17.41",
+    "lat": "53.24"
+  },
+  {
+    "name": "Spiczyn",
+    "lng": "22.46",
+    "lat": "51.21"
+  },
+  {
+    "name": "Spytkowice",
+    "lng": "19.30",
+    "lat": "50.00"
+  },
+  {
+    "name": "Srokowo",
+    "lng": "21.31",
+    "lat": "54.13"
+  },
+  {
+    "name": "Stalowa Wola",
+    "lng": "22.05",
+    "lat": "50.34"
+  },
+  {
+    "name": "Stanin",
+    "lng": "22.12",
+    "lat": "51.53"
+  },
+  {
+    "name": "Stanisławów (siedleckie)",
+    "lng": "21.33",
+    "lat": "52.18"
+  },
+  {
+    "name": "Stanisławów",
+    "lng": "24.43",
+    "lat": "48.55"
+  },
+  {
+    "name": "Stara Biała",
+    "lng": "19.38",
+    "lat": "52.37"
+  },
+  {
+    "name": "Stara Błotnica",
+    "lng": "20.59",
+    "lat": "51.33"
+  },
+  {
+    "name": "Stara Dąbrowa",
+    "lng": "15.08",
+    "lat": "53.25"
+  },
+  {
+    "name": "Stara Kamienica",
+    "lng": "15.34",
+    "lat": "50.55"
+  },
+  {
+    "name": "Stara Kiszewa",
+    "lng": "18.10",
+    "lat": "53.59"
+  },
+  {
+    "name": "Stara Kornica",
+    "lng": "22.57",
+    "lat": "52.11"
+  },
+  {
+    "name": "Starachowice",
+    "lng": "21.04",
+    "lat": "51.02"
+  },
+  {
+    "name": "Stare Babice",
+    "lng": "20.51",
+    "lat": "52.15"
+  },
+  {
+    "name": "Stare Bogaczowice",
+    "lng": "16.11",
+    "lat": "50.52"
+  },
+  {
+    "name": "Stare Czarnowo",
+    "lng": "14.46",
+    "lat": "53.17"
+  },
+  {
+    "name": "Stare Juchy",
+    "lng": "22.11",
+    "lat": "53.56"
+  },
+  {
+    "name": "Stare Kurowo",
+    "lng": "15.40",
+    "lat": "52.52"
+  },
+  {
+    "name": "Stare Miasto",
+    "lng": "18.13",
+    "lat": "52.11"
+  },
+  {
+    "name": "Stare Pole",
+    "lng": "19.12",
+    "lat": "54.03"
+  },
+  {
+    "name": "Stargard Szczeciński",
+    "lng": "15.02",
+    "lat": "53.20"
+  },
+  {
+    "name": "Starogard Gdański",
+    "lng": "18.32",
+    "lat": "53.58"
+  },
+  {
+    "name": "Staroźreby",
+    "lng": "19.58",
+    "lat": "52.38"
+  },
+  {
+    "name": "Stary Brus",
+    "lng": "23.18",
+    "lat": "51.29"
+  },
+  {
+    "name": "Stary Dzierzgoń",
+    "lng": "19.25",
+    "lat": "53.51"
+  },
+  {
+    "name": "Stary Dzikowiec",
+    "lng": "21.51",
+    "lat": "50.16"
+  },
+  {
+    "name": "Staru Dzików",
+    "lng": "22.56",
+    "lat": "50.14"
+  },
+  {
+    "name": "Stary Lubotyń",
+    "lng": "21.56",
+    "lat": "52.57"
+  },
+  {
+    "name": "Stary Sącz",
+    "lng": "20.38",
+    "lat": "49.34"
+  },
+  {
+    "name": "Stary Targ",
+    "lng": "19.10",
+    "lat": "53.56"
+  },
+  {
+    "name": "Stary Zamość",
+    "lng": "23.11",
+    "lat": "50.49"
+  },
+  {
+    "name": "Staszów",
+    "lng": "21.10",
+    "lat": "50.34"
+  },
+  {
+    "name": "Stawiguda",
+    "lng": "20.24",
+    "lat": "53.39"
+  },
+  {
+    "name": "Stawiski",
+    "lng": "22.10",
+    "lat": "53.23"
+  },
+  {
+    "name": "Stawiszyn",
+    "lng": "18.06",
+    "lat": "51.55"
+  },
+  {
+    "name": "Stąporków",
+    "lng": "20.33",
+    "lat": "51.09"
+  },
+  {
+    "name": "Stegna",
+    "lng": "19.06",
+    "lat": "54.20"
+  },
+  {
+    "name": "Stepnica",
+    "lng": "14.37",
+    "lat": "53.39"
+  },
+  {
+    "name": "Sterdyń",
+    "lng": "22.17",
+    "lat": "52.34"
+  },
+  {
+    "name": "Stęszew",
+    "lng": "16.41",
+    "lat": "52.17"
+  },
+  {
+    "name": "Stężyca",
+    "lng": "17.57",
+    "lat": "54.13"
+  },
+  {
+    "name": "Stoczek",
+    "lng": "21.54",
+    "lat": "52.33"
+  },
+  {
+    "name": "Stoczek Łukowski",
+    "lng": "21.58",
+    "lat": "51.58"
+  },
+  {
+    "name": "Stolno",
+    "lng": "18.30",
+    "lat": "53.19"
+  },
+  {
+    "name": "Stopnica",
+    "lng": "20.56",
+    "lat": "50.26"
+  },
+  {
+    "name": "Stoszowice",
+    "lng": "16.38",
+    "lat": "50.36"
+  },
+  {
+    "name": "Strachówka",
+    "lng": "21.38",
+    "lat": "52.25"
+  },
+  {
+    "name": "Strawczyn",
+    "lng": "20.25",
+    "lat": "50.57"
+  },
+  {
+    "name": "Stromiec",
+    "lng": "21.06",
+    "lat": "51.39"
+  },
+  {
+    "name": "Stronie Śląskie",
+    "lng": "16.52",
+    "lat": "50.18"
+  },
+  {
+    "name": "Strumień",
+    "lng": "18.46",
+    "lat": "49.55"
+  },
+  {
+    "name": "Stryj",
+    "lng": "23.51",
+    "lat": "49.16"
+  },
+  {
+    "name": "Stryków",
+    "lng": "19.35",
+    "lat": "51.54"
+  },
+  {
+    "name": "Stryszawa",
+    "lng": "19.32",
+    "lat": "49.43"
+  },
+  {
+    "name": "Stryszów",
+    "lng": "19.37",
+    "lat": "49.50"
+  },
+  {
+    "name": "Strzałkowo",
+    "lng": "17.49",
+    "lat": "52.19"
+  },
+  {
+    "name": "Strzegom",
+    "lng": "16.21",
+    "lat": "50.58"
+  },
+  {
+    "name": "Strzegowo-Osada",
+    "lng": "20.17",
+    "lat": "52.54"
+  },
+  {
+    "name": "Strzelce",
+    "lng": "19.24",
+    "lat": "52.19"
+  },
+  {
+    "name": "Strzelce Krajeńskie",
+    "lng": "15.31",
+    "lat": "52.53"
+  },
+  {
+    "name": "Strzelce Opolskie",
+    "lng": "18.18",
+    "lat": "50.31"
+  },
+  {
+    "name": "Strzelce Wielkie",
+    "lng": "19.08",
+    "lat": "51.08"
+  },
+  {
+    "name": "Strzeleczki",
+    "lng": "17.51",
+    "lat": "50.28"
+  },
+  {
+    "name": "Strzelin",
+    "lng": "17.04",
+    "lat": "50.47"
+  },
+  {
+    "name": "Strzelno",
+    "lng": "18.10",
+    "lat": "52.38"
+  },
+  {
+    "name": "Strzyżewice",
+    "lng": "22.27",
+    "lat": "51.03"
+  },
+  {
+    "name": "Strzyżów",
+    "lng": "21.47",
+    "lat": "49.52"
+  },
+  {
+    "name": "Stubno",
+    "lng": "22.58",
+    "lat": "49.53"
+  },
+  {
+    "name": "Studzienice",
+    "lng": "17.35",
+    "lat": "54.06"
+  },
+  {
+    "name": "Stupsk",
+    "lng": "20.27",
+    "lat": "53.01"
+  },
+  {
+    "name": "Subkowy",
+    "lng": "18.46",
+    "lat": "54.01"
+  },
+  {
+    "name": "Sucha Beskidzka",
+    "lng": "19.29",
+    "lat": "49.44"
+  },
+  {
+    "name": "Suchań",
+    "lng": "15.19",
+    "lat": "53.17"
+  },
+  {
+    "name": "Suchedniów",
+    "lng": "20.50",
+    "lat": "51.03"
+  },
+  {
+    "name": "Suchowola",
+    "lng": "23.06",
+    "lat": "53.35"
+  },
+  {
+    "name": "Suchożebry",
+    "lng": "22.16",
+    "lat": "52.16"
+  },
+  {
+    "name": "Suchy Las",
+    "lng": "16.53",
+    "lat": "52.28"
+  },
+  {
+    "name": "Sulechów",
+    "lng": "15.37",
+    "lat": "52.05"
+  },
+  {
+    "name": "Sulejów",
+    "lng": "19.52",
+    "lat": "51.22"
+  },
+  {
+    "name": "Sulejówek",
+    "lng": "21.16",
+    "lat": "52.13"
+  },
+  {
+    "name": "Sulęcin",
+    "lng": "15.07",
+    "lat": "52.27"
+  },
+  {
+    "name": "Sulęczyno",
+    "lng": "17.46",
+    "lat": "54.14"
+  },
+  {
+    "name": "Sulików",
+    "lng": "15.04",
+    "lat": "51.04"
+  },
+  {
+    "name": "Sulmierzyce",
+    "lng": "19.12",
+    "lat": "51.11"
+  },
+  {
+    "name": "Sułkowice",
+    "lng": "19.48",
+    "lat": "49.52"
+  },
+  {
+    "name": "Sułoszowa",
+    "lng": "19.44",
+    "lat": "50.17"
+  },
+  {
+    "name": "Sułów",
+    "lng": "22.58",
+    "lat": "50.46"
+  },
+  {
+    "name": "Supraśl",
+    "lng": "23.20",
+    "lat": "53.13"
+  },
+  {
+    "name": "Suraż",
+    "lng": "22.57",
+    "lat": "52.57"
+  },
+  {
+    "name": "Susiec",
+    "lng": "23.12",
+    "lat": "50.25"
+  },
+  {
+    "name": "Susz",
+    "lng": "19.21",
+    "lat": "53.43"
+  },
+  {
+    "name": "Suszec",
+    "lng": "18.48",
+    "lat": "50.02"
+  },
+  {
+    "name": "Suwałki",
+    "lng": "22.56",
+    "lat": "54.06"
+  },
+  {
+    "name": "Swarzędz",
+    "lng": "17.04",
+    "lat": "52.24"
+  },
+  {
+    "name": "Syców",
+    "lng": "17.43",
+    "lat": "51.18"
+  },
+  {
+    "name": "Sypniewo",
+    "lng": "21.18",
+    "lat": "53.01"
+  },
+  {
+    "name": "Szadek",
+    "lng": "18.59",
+    "lat": "51.42"
+  },
+  {
+    "name": "Szamocin",
+    "lng": "17.07",
+    "lat": "53.02"
+  },
+  {
+    "name": "Szamotuły",
+    "lng": "16.34",
+    "lat": "52.36"
+  },
+  {
+    "name": "Szastarka",
+    "lng": "22.19",
+    "lat": "50.52"
+  },
+  {
+    "name": "Szczaniec",
+    "lng": "15.41",
+    "lat": "52.16"
+  },
+  {
+    "name": "Szczawin Kościelny",
+    "lng": "19.37",
+    "lat": "52.23"
+  },
+  {
+    "name": "Szczawnica",
+    "lng": "20.28",
+    "lat": "49.26"
+  },
+  {
+    "name": "Szczawno-Zdrój",
+    "lng": "16.16",
+    "lat": "50.49"
+  },
+  {
+    "name": "Szczebrzeszyn",
+    "lng": "22.59",
+    "lat": "50.42"
+  },
+  {
+    "name": "Szczecin",
+    "lng": "14.34",
+    "lat": "53.26"
+  },
+  {
+    "name": "Szczecinek",
+    "lng": "16.41",
+    "lat": "53.43"
+  },
+  {
+    "name": "Szczekociny",
+    "lng": "19.48",
+    "lat": "50.38"
+  },
+  {
+    "name": "Szczerców",
+    "lng": "19.07",
+    "lat": "51.20"
+  },
+  {
+    "name": "Szczucin",
+    "lng": "21.04",
+    "lat": "50.19"
+  },
+  {
+    "name": "Szczuczyn",
+    "lng": "22.18",
+    "lat": "53.34"
+  },
+  {
+    "name": "Szczurowa",
+    "lng": "50.08",
+    "lat": "20.38"
+  },
+  {
+    "name": "Szczutowo",
+    "lng": "19.34",
+    "lat": "52.56"
+  },
+  {
+    "name": "Szczyrk",
+    "lng": "19.02",
+    "lat": "49.43"
+  },
+  {
+    "name": "Szczytna",
+    "lng": "16.26",
+    "lat": "50.25"
+  },
+  {
+    "name": "Szczytniki",
+    "lng": "18.20",
+    "lat": "51.41"
+  },
+  {
+    "name": "Szczytno",
+    "lng": "20.59",
+    "lat": "53.34"
+  },
+  {
+    "name": "Szelków",
+    "lng": "21.13",
+    "lat": "52.50"
+  },
+  {
+    "name": "Szemud",
+    "lng": "18.14",
+    "lat": "54.29"
+  },
+  {
+    "name": "Szepietowo",
+    "lng": "22.33",
+    "lat": "52.52"
+  },
+  {
+    "name": "Szerzyny",
+    "lng": "21.14",
+    "lat": "49.49"
+  },
+  {
+    "name": "Szklarska Poręba",
+    "lng": "15.32",
+    "lat": "50.50"
+  },
+  {
+    "name": "Szlichtyngowa",
+    "lng": "16.15",
+    "lat": "51.43"
+  },
+  {
+    "name": "Szprotawa",
+    "lng": "15.32",
+    "lat": "51.34"
+  },
+  {
+    "name": "Szreńsk",
+    "lng": "20.07",
+    "lat": "53.01"
+  },
+  {
+    "name": "Sztabin",
+    "lng": "23.07",
+    "lat": "53.41"
+  },
+  {
+    "name": "Sztum",
+    "lng": "19.02",
+    "lat": "53.56"
+  },
+  {
+    "name": "Sztutowo",
+    "lng": "19.10",
+    "lat": "54.20"
+  },
+  {
+    "name": "Szubin",
+    "lng": "17.45",
+    "lat": "53.01"
+  },
+  {
+    "name": "Szudziałowo",
+    "lng": "23.40",
+    "lat": "53.17"
+  },
+  {
+    "name": "Szumowo",
+    "lng": "22.06",
+    "lat": "52.56"
+  },
+  {
+    "name": "Szydłowiec",
+    "lng": "20.51",
+    "lat": "51.14"
+  },
+  {
+    "name": "Szydłowo",
+    "lng": "16.36",
+    "lat": "53.10"
+  },
+  {
+    "name": "Szydłów",
+    "lng": "21.00",
+    "lat": "50.36"
+  },
+  {
+    "name": "Szypliszki",
+    "lng": "23.04",
+    "lat": "54.15"
+  },
+  {
+    "name": "Ścinawa",
+    "lng": "16.26",
+    "lat": "51.25"
+  },
+  {
+    "name": "Ślesin",
+    "lng": "18.18",
+    "lat": "52.22"
+  },
+  {
+    "name": "Śliwice",
+    "lng": "18.10",
+    "lat": "53.43"
+  },
+  {
+    "name": "Śmigiel",
+    "lng": "16.32",
+    "lat": "52.01"
+  },
+  {
+    "name": "Śniadowo",
+    "lng": "21.59",
+    "lat": "53.02"
+  },
+  {
+    "name": "Śrem",
+    "lng": "17.01",
+    "lat": "52.05"
+  },
+  {
+    "name": "Środa Śląska",
+    "lng": "16.35",
+    "lat": "51.09"
+  },
+  {
+    "name": "Środa Wielkopolska",
+    "lng": "17.16",
+    "lat": "52.14"
+  },
+  {
+    "name": "Świątki",
+    "lng": "20.15",
+    "lat": "53.55"
+  },
+  {
+    "name": "Świątniki Górne",
+    "lng": "19.58",
+    "lat": "49.56"
+  },
+  {
+    "name": "Świdnica (wałbrzyskie)",
+    "lng": "16.29",
+    "lat": "50.50"
+  },
+  {
+    "name": "Świdnica (zielonogór.)",
+    "lng": "15.25",
+    "lat": "51.53"
+  },
+  {
+    "name": "Świdnik",
+    "lng": "22.41",
+    "lat": "51.12"
+  },
+  {
+    "name": "Świdwin",
+    "lng": "15.47",
+    "lat": "53.47"
+  },
+  {
+    "name": "Świebodzice",
+    "lng": "16.20",
+    "lat": "50.52"
+  },
+  {
+    "name": "Świebodzin",
+    "lng": "15.32",
+    "lat": "52.15"
+  },
+  {
+    "name": "Świecie",
+    "lng": "18.26",
+    "lat": "53.25"
+  },
+  {
+    "name": "Świecie nad Osą",
+    "lng": "19.06",
+    "lat": "53.27"
+  },
+  {
+    "name": "Świedziebnia",
+    "lng": "19.33",
+    "lat": "53.09"
+  },
+  {
+    "name": "Świeradów-Zdrój",
+    "lng": "15.21",
+    "lat": "50.54"
+  },
+  {
+    "name": "Świercze",
+    "lng": "20.46",
+    "lat": "52.41"
+  },
+  {
+    "name": "Świerczów",
+    "lng": "17.46",
+    "lat": "50.58"
+  },
+  {
+    "name": "Świerklaniec",
+    "lng": "18.56",
+    "lat": "50.26"
+  },
+  {
+    "name": "Świerklany",
+    "lng": "18.36",
+    "lat": "50.02"
+  },
+  {
+    "name": "Świerzawa",
+    "lng": "15.54",
+    "lat": "51.01"
+  },
+  {
+    "name": "Świerzno",
+    "lng": "14.57",
+    "lat": "53.57"
+  },
+  {
+    "name": "Świeszyno",
+    "lng": "16.10",
+    "lat": "54.07"
+  },
+  {
+    "name": "Święciechowa",
+    "lng": "16.31",
+    "lat": "51.52"
+  },
+  {
+    "name": "Święta Katarzyna",
+    "lng": "17.07",
+    "lat": "51.02"
+  },
+  {
+    "name": "Świętajno (olsztyńskie)",
+    "lng": "21.13",
+    "lat": "53.34"
+  },
+  {
+    "name": "Świętajno (suwalskie)",
+    "lng": "22.20",
+    "lat": "54.00"
+  },
+  {
+    "name": "Świętochłowice",
+    "lng": "18.55",
+    "lat": "50.19"
+  },
+  {
+    "name": "Świlcza",
+    "lng": "21.55",
+    "lat": "50.05"
+  },
+  {
+    "name": "Świnice Warckie",
+    "lng": "18.56",
+    "lat": "52.02"
+  },
+  {
+    "name": "Świnna",
+    "lng": "19.15",
+    "lat": "49.40"
+  },
+  {
+    "name": "Świnoujście",
+    "lng": "14.15",
+    "lat": "53.55"
+  },
+  {
+    "name": "Tarczyn",
+    "lng": "20.50",
+    "lat": "51.59"
+  },
+  {
+    "name": "Tarłów",
+    "lng": "21.43",
+    "lat": "51.00"
+  },
+  {
+    "name": "Tarnawatka",
+    "lng": "23.24",
+    "lat": "50.32"
+  },
+  {
+    "name": "Tarnobrzeg",
+    "lng": "21.41",
+    "lat": "50.35"
+  },
+  {
+    "name": "Tarnogród",
+    "lng": "22.45",
+    "lat": "50.21"
+  },
+  {
+    "name": "Tarnopol",
+    "lng": "25.36",
+    "lat": "49.34"
+  },
+  {
+    "name": "Tarnowiec",
+    "lng": "21.36",
+    "lat": "49.43"
+  },
+  {
+    "name": "Tarnowo Podgórne",
+    "lng": "16.40",
+    "lat": "52.28"
+  },
+  {
+    "name": "Tarnowskie Góry",
+    "lng": "18.52",
+    "lat": "50.27"
+  },
+  {
+    "name": "Tarnów",
+    "lng": "21.00",
+    "lat": "50.02"
+  },
+  {
+    "name": "Tarnów Opolski",
+    "lng": "18.05",
+    "lat": "50.35"
+  },
+  {
+    "name": "Tarnówka",
+    "lng": "16.50",
+    "lat": "53.21"
+  },
+  {
+    "name": "Tatrzańska",
+    "lng": "19.57",
+    "lat": "49.18"
+  },
+  {
+    "name": "Tąpkowice",
+    "lng": "19.02",
+    "lat": "50.27"
+  },
+  {
+    "name": "Tczew",
+    "lng": "18.43",
+    "lat": "54.06"
+  },
+  {
+    "name": "Tczów",
+    "lng": "21.27",
+    "lat": "51.20"
+  },
+  {
+    "name": "Telatyn",
+    "lng": "23.50",
+    "lat": "50.32"
+  },
+  {
+    "name": "Teresin",
+    "lng": "20.25",
+    "lat": "52.12"
+  },
+  {
+    "name": "Terespol",
+    "lng": "23.37",
+    "lat": "52.05"
+  },
+  {
+    "name": "Tereszpol",
+    "lng": "22.53",
+    "lat": "50.34"
+  },
+  {
+    "name": "Tłuchowo",
+    "lng": "19.28",
+    "lat": "52.45"
+  },
+  {
+    "name": "Tłuszcz",
+    "lng": "21.27",
+    "lat": "52.26"
+  },
+  {
+    "name": "Tokarnia",
+    "lng": "19.53",
+    "lat": "49.44"
+  },
+  {
+    "name": "Tolkmicko",
+    "lng": "19.31",
+    "lat": "54.19"
+  },
+  {
+    "name": "Tomaszów Lubelski",
+    "lng": "23.25",
+    "lat": "50.27"
+  },
+  {
+    "name": "Tomaszów Mazowiecki",
+    "lng": "20.02",
+    "lat": "51.32"
+  },
+  {
+    "name": "Tomice",
+    "lng": "19.29",
+    "lat": "49.54"
+  },
+  {
+    "name": "Topólka",
+    "lng": "18.43",
+    "lat": "52.31"
+  },
+  {
+    "name": "Toruń",
+    "lng": "18.37",
+    "lat": "53.02"
+  },
+  {
+    "name": "Torzym",
+    "lng": "15.04",
+    "lat": "52.19"
+  },
+  {
+    "name": "Toszek",
+    "lng": "18.31",
+    "lat": "50.28"
+  },
+  {
+    "name": "Trawniki",
+    "lng": "23.01",
+    "lat": "51.08"
+  },
+  {
+    "name": "Trąbki Wielkie",
+    "lng": "18.32",
+    "lat": "54.10"
+  },
+  {
+    "name": "Trojanów",
+    "lng": "21.50",
+    "lat": "51.42"
+  },
+  {
+    "name": "Troszyn",
+    "lng": "21.44",
+    "lat": "53.02"
+  },
+  {
+    "name": "Tryńcza",
+    "lng": "22.33",
+    "lat": "50.10"
+  },
+  {
+    "name": "Trzcianka",
+    "lng": "16.28",
+    "lat": "53.03"
+  },
+  {
+    "name": "Trzcianne",
+    "lng": "22.41",
+    "lat": "53.21"
+  },
+  {
+    "name": "Trzciel",
+    "lng": "15.52",
+    "lat": "52.22"
+  },
+  {
+    "name": "Trzcinica",
+    "lng": "18.01",
+    "lat": "51.10"
+  },
+  {
+    "name": "Trzcińsko-Zdrój",
+    "lng": "14.35",
+    "lat": "52.58"
+  },
+  {
+    "name": "Trzebiatów",
+    "lng": "15.15",
+    "lat": "54.04"
+  },
+  {
+    "name": "Trzebiechów",
+    "lng": "15.44",
+    "lat": "52.02"
+  },
+  {
+    "name": "Trzebiel",
+    "lng": "14.49",
+    "lat": "51.38"
+  },
+  {
+    "name": "Trzebielino",
+    "lng": "17.06",
+    "lat": "54.12"
+  },
+  {
+    "name": "Trzebieszów",
+    "lng": "22.33",
+    "lat": "51.59"
+  },
+  {
+    "name": "Trzebinia",
+    "lng": "19.28",
+    "lat": "50.10"
+  },
+  {
+    "name": "Trzebnica",
+    "lng": "17.04",
+    "lat": "51.18"
+  },
+  {
+    "name": "Trzebownisko",
+    "lng": "22.02",
+    "lat": "50.05"
+  },
+  {
+    "name": "Trzemeszno",
+    "lng": "17.49",
+    "lat": "52.34"
+  },
+  {
+    "name": "Trzeszczany",
+    "lng": "23.44",
+    "lat": "50.49"
+  },
+  {
+    "name": "Trzyciąż",
+    "lng": "19.46",
+    "lat": "50.19"
+  },
+  {
+    "name": "Trzydnik Duży",
+    "lng": "22.09",
+    "lat": "50.51"
+  },
+  {
+    "name": "Tuchola",
+    "lng": "17.51",
+    "lat": "53.36"
+  },
+  {
+    "name": "Tuchomie",
+    "lng": "17.20",
+    "lat": "54.07"
+  },
+  {
+    "name": "Tuchów",
+    "lng": "21.03",
+    "lat": "49.54"
+  },
+  {
+    "name": "Tuczępy",
+    "lng": "20.59",
+    "lat": "50.31"
+  },
+  {
+    "name": "Tuczna",
+    "lng": "23.26",
+    "lat": "51.53"
+  },
+  {
+    "name": "Tuczno",
+    "lng": "16.08",
+    "lat": "53.11"
+  },
+  {
+    "name": "Tuliszków",
+    "lng": "18.18",
+    "lat": "52.04"
+  },
+  {
+    "name": "Tułowice",
+    "lng": "20.17",
+    "lat": "52.22"
+  },
+  {
+    "name": "Tuplice",
+    "lng": "14.49",
+    "lat": "51.40"
+  },
+  {
+    "name": "Turawa",
+    "lng": "18.05",
+    "lat": "50.44"
+  },
+  {
+    "name": "Turek",
+    "lng": "18.30",
+    "lat": "52.01"
+  },
+  {
+    "name": "Turobin",
+    "lng": "22.45",
+    "lat": "50.49"
+  },
+  {
+    "name": "Turośl",
+    "lng": "21.44",
+    "lat": "53.23"
+  },
+  {
+    "name": "Turośń Kościelna",
+    "lng": "23.03",
+    "lat": "53.01"
+  },
+  {
+    "name": "Tuszów Narodowy",
+    "lng": "21.28",
+    "lat": "50.22"
+  },
+  {
+    "name": "Tuszyn",
+    "lng": "19.32",
+    "lat": "51.36"
+  },
+  {
+    "name": "Twardogóra",
+    "lng": "17.28",
+    "lat": "51.22"
+  },
+  {
+    "name": "Tworóg",
+    "lng": "18.43",
+    "lat": "50.33"
+  },
+  {
+    "name": "Tychowo",
+    "lng": "16.15",
+    "lat": "53.55"
+  },
+  {
+    "name": "Tychy",
+    "lng": "18.59",
+    "lat": "50.08"
+  },
+  {
+    "name": "Tychy Paprocany",
+    "lng": "19.00",
+    "lat": "50.06"
+  },
+  {
+    "name": "Tyczyn",
+    "lng": "22.02",
+    "lat": "49.58"
+  },
+  {
+    "name": "Tykocin",
+    "lng": "22.46",
+    "lat": "53.12"
+  },
+  {
+    "name": "Tymbark",
+    "lng": "20.19",
+    "lat": "49.44"
+  },
+  {
+    "name": "Tyrawa Wołoska",
+    "lng": "22.22",
+    "lat": "49.34"
+  },
+  {
+    "name": "Tyszowice",
+    "lng": "23.41",
+    "lat": "50.37"
+  },
+  {
+    "name": "Uchanie",
+    "lng": "23.39",
+    "lat": "50.55"
+  },
+  {
+    "name": "Udanin",
+    "lng": "16.27",
+    "lat": "51.02"
+  },
+  {
+    "name": "Ujazd (opolskie)",
+    "lng": "18.21",
+    "lat": "50.24"
+  },
+  {
+    "name": "Ujazd (piotrkowskie)",
+    "lng": "19.55",
+    "lat": "51.36"
+  },
+  {
+    "name": "Ujsoły",
+    "lng": "19.09",
+    "lat": "49.29"
+  },
+  {
+    "name": "Ujście",
+    "lng": "16.44",
+    "lat": "53.04"
+  },
+  {
+    "name": "Ulan-Majorat",
+    "lng": "22.29",
+    "lat": "51.48"
+  },
+  {
+    "name": "Ulanów",
+    "lng": "22.17",
+    "lat": "50.30"
+  },
+  {
+    "name": "Ulhówek",
+    "lng": "23.48",
+    "lat": "50.27"
+  },
+  {
+    "name": "Ułęż",
+    "lng": "22.07",
+    "lat": "51.36"
+  },
+  {
+    "name": "Uniejów",
+    "lng": "18.48",
+    "lat": "51.58"
+  },
+  {
+    "name": "Unisław",
+    "lng": "18.23",
+    "lat": "53.13"
+  },
+  {
+    "name": "Urszulin",
+    "lng": "23.12",
+    "lat": "51.24"
+  },
+  {
+    "name": "Urzędów",
+    "lng": "22.09",
+    "lat": "51.00"
+  },
+  {
+    "name": "Ustka",
+    "lng": "16.51",
+    "lat": "54.35"
+  },
+  {
+    "name": "Ustronie Morskie",
+    "lng": "15.45",
+    "lat": "54.13"
+  },
+  {
+    "name": "Ustroń",
+    "lng": "18.49",
+    "lat": "49.43"
+  },
+  {
+    "name": "Ustrzyki Dolne",
+    "lng": "22.36",
+    "lat": "49.26"
+  },
+  {
+    "name": "Uście Gorlickie",
+    "lng": "21.08",
+    "lat": "49.31"
+  },
+  {
+    "name": "Uścimów",
+    "lng": "22.56",
+    "lat": "51.28"
+  },
+  {
+    "name": "Wadowice",
+    "lng": "19.30",
+    "lat": "49.53"
+  },
+  {
+    "name": "Wadowice Górne",
+    "lng": "21.18",
+    "lat": "50.16"
+  },
+  {
+    "name": "Walce",
+    "lng": "18.00",
+    "lat": "50.22"
+  },
+  {
+    "name": "Walim",
+    "lng": "16.27",
+    "lat": "50.42"
+  },
+  {
+    "name": "Wałbrzych",
+    "lng": "16.17",
+    "lat": "50.47"
+  },
+  {
+    "name": "Wałcz",
+    "lng": "16.27",
+    "lat": "53.16"
+  },
+  {
+    "name": "Wapno",
+    "lng": "17.28",
+    "lat": "52.54"
+  },
+  {
+    "name": "Warka",
+    "lng": "21.12",
+    "lat": "51.47"
+  },
+  {
+    "name": "Warlubie",
+    "lng": "18.38",
+    "lat": "53.35"
+  },
+  {
+    "name": "Warnice",
+    "lng": "14.59",
+    "lat": "53.15"
+  },
+  {
+    "name": "Warszawa",
+    "lng": "21.02",
+    "lat": "52.12"
+  },
+  {
+    "name": "Warszawa Mokotów",
+    "lng": "21.03",
+    "lat": "52.09"
+  },
+  {
+    "name": "Warszawa Ochota",
+    "lng": "20.59",
+    "lat": "52.12"
+  },
+  {
+    "name": "Warszawa Praga Południe",
+    "lng": "21.10",
+    "lat": "52.12"
+  },
+  {
+    "name": "Warszawa Praga Północ",
+    "lng": "21.03",
+    "lat": "52.17"
+  },
+  {
+    "name": "Warszawa Śródmieście",
+    "lng": "21.01",
+    "lat": "52.13"
+  },
+  {
+    "name": "Warszawa Wola",
+    "lng": "20.56",
+    "lat": "52.14"
+  },
+  {
+    "name": "Warszawa Żoliborz",
+    "lng": "20.56",
+    "lat": "52.16"
+  },
+  {
+    "name": "Warta",
+    "lng": "18.38",
+    "lat": "51.42"
+  },
+  {
+    "name": "Warta Bolesławiecka",
+    "lng": "15.39",
+    "lat": "51.14"
+  },
+  {
+    "name": "Wartkowice",
+    "lng": "19.01",
+    "lat": "51.58"
+  },
+  {
+    "name": "Wasilków",
+    "lng": "23.12",
+    "lat": "53.12"
+  },
+  {
+    "name": "Waśniów",
+    "lng": "20.13",
+    "lat": "50.54"
+  },
+  {
+    "name": "Wąbrzeźno",
+    "lng": "18.57",
+    "lat": "53.17"
+  },
+  {
+    "name": "Wąchock",
+    "lng": "21.01",
+    "lat": "51.05"
+  },
+  {
+    "name": "Wądroże Wielkie",
+    "lng": "16.20",
+    "lat": "51.07"
+  },
+  {
+    "name": "Wągrowiec",
+    "lng": "17.12",
+    "lat": "52.48"
+  },
+  {
+    "name": "Wąpielsk",
+    "lng": "19.17",
+    "lat": "53.08"
+  },
+  {
+    "name": "Wąsewo",
+    "lng": "21.41",
+    "lat": "52.53"
+  },
+  {
+    "name": "Wąsosz",
+    "lng": "16.41",
+    "lat": "51.34"
+  },
+  {
+    "name": "Wąwolnica",
+    "lng": "22.09",
+    "lat": "51.17"
+  },
+  {
+    "name": "Wejherowo",
+    "lng": "18.15",
+    "lat": "54.36"
+  },
+  {
+    "name": "Werbkowice",
+    "lng": "23.46",
+    "lat": "50.45"
+  },
+  {
+    "name": "Węgierska Górka",
+    "lng": "19.07",
+    "lat": "49.37"
+  },
+  {
+    "name": "Węgliniec",
+    "lng": "15.13",
+    "lat": "51.17"
+  },
+  {
+    "name": "Węgorzewo",
+    "lng": "21.45",
+    "lat": "54.13"
+  },
+  {
+    "name": "Węgorzyno",
+    "lng": "15.33",
+    "lat": "53.32"
+  },
+  {
+    "name": "Węgrów",
+    "lng": "22.01",
+    "lat": "52.24"
+  },
+  {
+    "name": "Wiązowna",
+    "lng": "21.18",
+    "lat": "52.11"
+  },
+  {
+    "name": "Wiązownica",
+    "lng": "22.42",
+    "lat": "50.05"
+  },
+  {
+    "name": "Wiązów",
+    "lng": "17.17",
+    "lat": "50.49"
+  },
+  {
+    "name": "Wicko",
+    "lng": "17.37",
+    "lat": "54.40"
+  },
+  {
+    "name": "Widawa",
+    "lng": "18.57",
+    "lat": "51.26"
+  },
+  {
+    "name": "Widuchowa",
+    "lng": "14.22",
+    "lat": "53.07"
+  },
+  {
+    "name": "Wieczfnia Kościelna",
+    "lng": "20.29",
+    "lat": "53.12"
+  },
+  {
+    "name": "Wielbark",
+    "lng": "20.56",
+    "lat": "53.24"
+  },
+  {
+    "name": "Wieleń",
+    "lng": "16.10",
+    "lat": "52.54"
+  },
+  {
+    "name": "Wielgie",
+    "lng": "19.16",
+    "lat": "52.45"
+  },
+  {
+    "name": "Wielgomłyny",
+    "lng": "19.46",
+    "lat": "51.01"
+  },
+  {
+    "name": "Wielichowo",
+    "lng": "16.21",
+    "lat": "52.07"
+  },
+  {
+    "name": "Wieliczka",
+    "lng": "20.03",
+    "lat": "49.59"
+  },
+  {
+    "name": "Wieliczki",
+    "lng": "22.34",
+    "lat": "53.59"
+  },
+  {
+    "name": "Wielka Nieszawka",
+    "lng": "18.29",
+    "lat": "53.00"
+  },
+  {
+    "name": "Wielka Wieś",
+    "lng": "19.51",
+    "lat": "50.10"
+  },
+  {
+    "name": "Wielke Oczy",
+    "lng": "23.10",
+    "lat": "50.01"
+  },
+  {
+    "name": "Wielopole Skrzyńskie",
+    "lng": "21.37",
+    "lat": "49.57"
+  },
+  {
+    "name": "Wielowieś",
+    "lng": "18.37",
+    "lat": "50.31"
+  },
+  {
+    "name": "Wieluń",
+    "lng": "18.34",
+    "lat": "51.13"
+  },
+  {
+    "name": "Wieniawa",
+    "lng": "20.48",
+    "lat": "51.22"
+  },
+  {
+    "name": "Wieprz",
+    "lng": "19.22",
+    "lat": "49.54"
+  },
+  {
+    "name": "Wieruszów",
+    "lng": "18.10",
+    "lat": "51.17"
+  },
+  {
+    "name": "Wierzbica (chełmskie)",
+    "lng": "23.19",
+    "lat": "51.16"
+  },
+  {
+    "name": "Wierzbica (radomskie)",
+    "lng": "21.05",
+    "lat": "51.15"
+  },
+  {
+    "name": "Wierzbinek",
+    "lng": "18.31",
+    "lat": "52.26"
+  },
+  {
+    "name": "Wierzbno",
+    "lng": "21.51",
+    "lat": "52.18"
+  },
+  {
+    "name": "Wierzchlas",
+    "lng": "18.40",
+    "lat": "51.12"
+  },
+  {
+    "name": "Wierzchosławice",
+    "lng": "20.52",
+    "lat": "50.02"
+  },
+  {
+    "name": "Wierzchowo",
+    "lng": "16.06",
+    "lat": "53.27"
+  },
+  {
+    "name": "Wietrzychowice",
+    "lng": "20.46",
+    "lat": "50.12"
+  },
+  {
+    "name": "Więcbork",
+    "lng": "17.29",
+    "lat": "53.21"
+  },
+  {
+    "name": "Wijewo",
+    "lng": "16.11",
+    "lat": "51.55"
+  },
+  {
+    "name": "Wilamowice",
+    "lng": "19.09",
+    "lat": "49.55"
+  },
+  {
+    "name": "Wilczęta",
+    "lng": "19.53",
+    "lat": "54.10"
+  },
+  {
+    "name": "Wilczyce",
+    "lng": "21.40",
+    "lat": "50.45"
+  },
+  {
+    "name": "Wilczyn",
+    "lng": "18.10",
+    "lat": "52.29"
+  },
+  {
+    "name": "Wilejka",
+    "lng": "26.53",
+    "lat": "54.30"
+  },
+  {
+    "name": "Wilga",
+    "lng": "21.23",
+    "lat": "51.52"
+  },
+  {
+    "name": "Wilkołaz",
+    "lng": "22.21",
+    "lat": "51.01"
+  },
+  {
+    "name": "Wilkowice",
+    "lng": "19.06",
+    "lat": "49.46"
+  },
+  {
+    "name": "Wilków (lubelskie)",
+    "lng": "21.53",
+    "lat": "51.16"
+  },
+  {
+    "name": "Wilków (opolskie)",
+    "lng": "17.39",
+    "lat": "51.06"
+  },
+  {
+    "name": "Wilno",
+    "lng": "25.19",
+    "lat": "54.41"
+  },
+  {
+    "name": "Winnica",
+    "lng": "20.57",
+    "lat": "52.39"
+  },
+  {
+    "name": "Wińsko",
+    "lng": "16.37",
+    "lat": "51.23"
+  },
+  {
+    "name": "Wiskitki",
+    "lng": "20.23",
+    "lat": "52.05"
+  },
+  {
+    "name": "Wisła",
+    "lng": "18.52",
+    "lat": "49.39"
+  },
+  {
+    "name": "Wisznia Mała",
+    "lng": "17.03",
+    "lat": "51.15"
+  },
+  {
+    "name": "Wisznice",
+    "lng": "23.13",
+    "lat": "51.48"
+  },
+  {
+    "name": "Wiślica",
+    "lng": "20.41",
+    "lat": "50.21"
+  },
+  {
+    "name": "Wiśniew",
+    "lng": "22.17",
+    "lat": "52.05"
+  },
+  {
+    "name": "Wiśniewo",
+    "lng": "20.21",
+    "lat": "53.04"
+  },
+  {
+    "name": "Wiśniowa (krakowskie)",
+    "lng": "20.06",
+    "lat": "49.48"
+  },
+  {
+    "name": "Wiśniowa (rzeszowskie)",
+    "lng": "21.39",
+    "lat": "49.52"
+  },
+  {
+    "name": "Witkowo",
+    "lng": "17.47",
+    "lat": "52.26"
+  },
+  {
+    "name": "Witnica",
+    "lng": "14.53",
+    "lat": "52.41"
+  },
+  {
+    "name": "Witonia",
+    "lng": "19.18",
+    "lat": "52.08"
+  },
+  {
+    "name": "Wizna",
+    "lng": "22.23",
+    "lat": "53.13"
+  },
+  {
+    "name": "Wiżajny",
+    "lng": "22.52",
+    "lat": "54.22"
+  },
+  {
+    "name": "Wleń",
+    "lng": "15.41",
+    "lat": "51.01"
+  },
+  {
+    "name": "Władysławowo",
+    "lng": "18.24",
+    "lat": "54.48"
+  },
+  {
+    "name": "Władysławów",
+    "lng": "18.29",
+    "lat": "52.06"
+  },
+  {
+    "name": "Włocławek",
+    "lng": "19.03",
+    "lat": "52.39"
+  },
+  {
+    "name": "Włodawa",
+    "lng": "23.33",
+    "lat": "51.33"
+  },
+  {
+    "name": "Włodowice",
+    "lng": "19.27",
+    "lat": "50.33"
+  },
+  {
+    "name": "Włodzimierz Wołyński",
+    "lng": "24.20",
+    "lat": "50.51"
+  },
+  {
+    "name": "Włoszakowice",
+    "lng": "16.22",
+    "lat": "51.56"
+  },
+  {
+    "name": "Włoszczowa",
+    "lng": "19.58",
+    "lat": "50.51"
+  },
+  {
+    "name": "Wodynie",
+    "lng": "21.57",
+    "lat": "52.02"
+  },
+  {
+    "name": "Wodzierady",
+    "lng": "19.09",
+    "lat": "51.43"
+  },
+  {
+    "name": "Wodzisław",
+    "lng": "20.11",
+    "lat": "50.31"
+  },
+  {
+    "name": "Wodzisław Śląski",
+    "lng": "18.28",
+    "lat": "50.01"
+  },
+  {
+    "name": "Wohyń",
+    "lng": "22.47",
+    "lat": "51.46"
+  },
+  {
+    "name": "Wojaszówka",
+    "lng": "21.41",
+    "lat": "49.47"
+  },
+  {
+    "name": "Wojciechowice",
+    "lng": "21.35",
+    "lat": "50.51"
+  },
+  {
+    "name": "Wojciechów",
+    "lng": "22.15",
+    "lat": "51.14"
+  },
+  {
+    "name": "Wojcieszków",
+    "lng": "22.19",
+    "lat": "51.46"
+  },
+  {
+    "name": "Wojcieszów",
+    "lng": "15.55",
+    "lat": "50.58"
+  },
+  {
+    "name": "Wojnicz",
+    "lng": "20.50",
+    "lat": "49.58"
+  },
+  {
+    "name": "Wojsławice",
+    "lng": "23.33",
+    "lat": "50.55"
+  },
+  {
+    "name": "Wola Krzysztoporska",
+    "lng": "19.35",
+    "lat": "51.21"
+  },
+  {
+    "name": "Wola Mysłowska",
+    "lng": "21.57",
+    "lat": "51.51"
+  },
+  {
+    "name": "Wola Uhruska",
+    "lng": "23.38",
+    "lat": "51.19"
+  },
+  {
+    "name": "Wolanów",
+    "lng": "20.59",
+    "lat": "51.23"
+  },
+  {
+    "name": "Wolbórz",
+    "lng": "19.50",
+    "lat": "51.31"
+  },
+  {
+    "name": "Wolbrom",
+    "lng": "19.46",
+    "lat": "50.23"
+  },
+  {
+    "name": "Wolin",
+    "lng": "14.31",
+    "lat": "53.50"
+  },
+  {
+    "name": "Wolsztyn",
+    "lng": "16.07",
+    "lat": "52.07"
+  },
+  {
+    "name": "Wołczyn",
+    "lng": "18.03",
+    "lat": "51.01"
+  },
+  {
+    "name": "Wołkowysk",
+    "lng": "24.28",
+    "lat": "53.10"
+  },
+  {
+    "name": "Wołomin",
+    "lng": "21.14",
+    "lat": "52.21"
+  },
+  {
+    "name": "Wołów",
+    "lng": "16.39",
+    "lat": "51.21"
+  },
+  {
+    "name": "Woźniki",
+    "lng": "19.04",
+    "lat": "50.35"
+  },
+  {
+    "name": "Wólka",
+    "lng": "22.39",
+    "lat": "51.16"
+  },
+  {
+    "name": "Wręczyca Wielka",
+    "lng": "18.55",
+    "lat": "50.50"
+  },
+  {
+    "name": "Wrocław",
+    "lng": "17.02",
+    "lat": "51.07"
+  },
+  {
+    "name": "Wrocław Fabryczna",
+    "lng": "16.57",
+    "lat": "51.08"
+  },
+  {
+    "name": "Wrocław Krzyki",
+    "lng": "17.04",
+    "lat": "51.08"
+  },
+  {
+    "name": "Wrocław Psie Pole",
+    "lng": "17.07",
+    "lat": "51.08"
+  },
+  {
+    "name": "Wrocław Stare Miasto",
+    "lng": "17.03",
+    "lat": "51.06"
+  },
+  {
+    "name": "Wrocław Śródmieście",
+    "lng": "17.03",
+    "lat": "51.07"
+  },
+  {
+    "name": "Wronki",
+    "lng": "16.22",
+    "lat": "52.43"
+  },
+  {
+    "name": "Wróblew",
+    "lng": "18.37",
+    "lat": "51.36"
+  },
+  {
+    "name": "Września",
+    "lng": "17.35",
+    "lat": "52.20"
+  },
+  {
+    "name": "Wschowa",
+    "lng": "16.18",
+    "lat": "51.48"
+  },
+  {
+    "name": "Wydminy",
+    "lng": "22.02",
+    "lat": "53.59"
+  },
+  {
+    "name": "Wymiarki",
+    "lng": "15.05",
+    "lat": "51.31"
+  },
+  {
+    "name": "Wyryki",
+    "lng": "23.23",
+    "lat": "51.33"
+  },
+  {
+    "name": "Wyrzysk",
+    "lng": "17.16",
+    "lat": "53.09"
+  },
+  {
+    "name": "Wysoka",
+    "lng": "17.04",
+    "lat": "53.11"
+  },
+  {
+    "name": "Wysokie",
+    "lng": "22.40",
+    "lat": "50.45"
+  },
+  {
+    "name": "Wysokie Mazowieckie",
+    "lng": "22.30",
+    "lat": "52.55"
+  },
+  {
+    "name": "Wyszki",
+    "lng": "22.59",
+    "lat": "52.51"
+  },
+  {
+    "name": "Wyszków",
+    "lng": "21.27",
+    "lat": "52.36"
+  },
+  {
+    "name": "Wyszogród",
+    "lng": "20.12",
+    "lat": "52.23"
+  },
+  {
+    "name": "Wyśmierzyce",
+    "lng": "20.48",
+    "lat": "51.38"
+  },
+  {
+    "name": "Zabierzów",
+    "lng": "19.48",
+    "lat": "50.07"
+  },
+  {
+    "name": "Zabłudów",
+    "lng": "23.21",
+    "lat": "53.01"
+  },
+  {
+    "name": "Zabór",
+    "lng": "15.43",
+    "lat": "51.57"
+  },
+  {
+    "name": "Zabrodzie",
+    "lng": "21.26",
+    "lat": "52.30"
+  },
+  {
+    "name": "Zabrze",
+    "lng": "18.47",
+    "lat": "50.18"
+  },
+  {
+    "name": "Zadzim",
+    "lng": "18.51",
+    "lat": "51.46"
+  },
+  {
+    "name": "Zagnańsk",
+    "lng": "20.41",
+    "lat": "50.58"
+  },
+  {
+    "name": "Zagórów",
+    "lng": "17.54",
+    "lat": "52.10"
+  },
+  {
+    "name": "Zagórz",
+    "lng": "22.16",
+    "lat": "49.31"
+  },
+  {
+    "name": "Zagrodno",
+    "lng": "15.52",
+    "lat": "51.12"
+  },
+  {
+    "name": "Zakliczyn",
+    "lng": "20.49",
+    "lat": "49.51"
+  },
+  {
+    "name": "Zaklików",
+    "lng": "22.07",
+    "lat": "50.46"
+  },
+  {
+    "name": "Zakopane",
+    "lng": "19.57",
+    "lat": "49.18"
+  },
+  {
+    "name": "Zakroczym",
+    "lng": "20.37",
+    "lat": "52.26"
+  },
+  {
+    "name": "Zakrzew (radomskie)",
+    "lng": "21.00",
+    "lat": "51.27"
+  },
+  {
+    "name": "Zakrzew (zamojskie)",
+    "lng": "22.36",
+    "lat": "50.54"
+  },
+  {
+    "name": "Zakrzewo (pilskie)",
+    "lng": "17.08",
+    "lat": "53.25"
+  },
+  {
+    "name": "Zakrzewo (włocławskie)",
+    "lng": "18.37",
+    "lat": "52.45"
+  },
+  {
+    "name": "Zakrzówek",
+    "lng": "22.22",
+    "lat": "50.56"
+  },
+  {
+    "name": "Zalesie",
+    "lng": "23.23",
+    "lat": "52.02"
+  },
+  {
+    "name": "Zaleszany",
+    "lng": "21.54",
+    "lat": "50.39"
+  },
+  {
+    "name": "Zalewo",
+    "lng": "19.36",
+    "lat": "53.51"
+  },
+  {
+    "name": "Załuski",
+    "lng": "20.31",
+    "lat": "52.32"
+  },
+  {
+    "name": "Zambrów",
+    "lng": "22.15",
+    "lat": "52.59"
+  },
+  {
+    "name": "Zamość",
+    "lng": "23.16",
+    "lat": "50.43"
+  },
+  {
+    "name": "Zaniemyśl",
+    "lng": "17.10",
+    "lat": "52.10"
+  },
+  {
+    "name": "Zapolice",
+    "lng": "18.53",
+    "lat": "51.32"
+  },
+  {
+    "name": "Zaręby Kościelne",
+    "lng": "22.08",
+    "lat": "52.46"
+  },
+  {
+    "name": "Zarszyn",
+    "lng": "49.35",
+    "lat": "22.01"
+  },
+  {
+    "name": "Zarzecze",
+    "lng": "22.32",
+    "lat": "49.59"
+  },
+  {
+    "name": "Zator",
+    "lng": "19.26",
+    "lat": "49.59"
+  },
+  {
+    "name": "Zatory",
+    "lng": "21.11",
+    "lat": "52.36"
+  },
+  {
+    "name": "Zawady",
+    "lng": "22.39",
+    "lat": "53.09"
+  },
+  {
+    "name": "Zawadzkie",
+    "lng": "18.29",
+    "lat": "50.37"
+  },
+  {
+    "name": "Zawichost",
+    "lng": "21.51",
+    "lat": "50.49"
+  },
+  {
+    "name": "Zawidów",
+    "lng": "15.04",
+    "lat": "51.01"
+  },
+  {
+    "name": "Zawidz",
+    "lng": "19.52",
+    "lat": "52.49"
+  },
+  {
+    "name": "Zawiercie",
+    "lng": "19.25",
+    "lat": "50.30"
+  },
+  {
+    "name": "Zawoja",
+    "lng": "19.34",
+    "lat": "49.40"
+  },
+  {
+    "name": "Zawonia",
+    "lng": "17.12",
+    "lat": "51.19"
+  },
+  {
+    "name": "Ząbki",
+    "lng": "21.07",
+    "lat": "52.17"
+  },
+  {
+    "name": "Ząbkowice Śląskie",
+    "lng": "16.49",
+    "lat": "50.35"
+  },
+  {
+    "name": "Zbąszynek",
+    "lng": "15.49",
+    "lat": "52.15"
+  },
+  {
+    "name": "Zbąszyń",
+    "lng": "15.55",
+    "lat": "52.15"
+  },
+  {
+    "name": "Zbiczno",
+    "lng": "19.23",
+    "lat": "53.20"
+  },
+  {
+    "name": "Zblewo",
+    "lng": "18.20",
+    "lat": "53.56"
+  },
+  {
+    "name": "Zbójna",
+    "lng": "21.47",
+    "lat": "53.15"
+  },
+  {
+    "name": "Zbójno",
+    "lng": "19.09",
+    "lat": "53.00"
+  },
+  {
+    "name": "Zbrosławice",
+    "lng": "18.45",
+    "lat": "50.25"
+  },
+  {
+    "name": "Zbuczyn Poduchowny",
+    "lng": "22.06",
+    "lat": "52.06"
+  },
+  {
+    "name": "Zduny (kaliskie)",
+    "lng": "17.22",
+    "lat": "51.38"
+  },
+  {
+    "name": "Zduny (skierniewickie)",
+    "lng": "19.48",
+    "lat": "52.09"
+  },
+  {
+    "name": "Zduńska Wola",
+    "lng": "18.56",
+    "lat": "51.36"
+  },
+  {
+    "name": "Zdzieszowice",
+    "lng": "18.07",
+    "lat": "50.25"
+  },
+  {
+    "name": "Zebrzydowice",
+    "lng": "18.37",
+    "lat": "49.53"
+  },
+  {
+    "name": "Zelów",
+    "lng": "19.13",
+    "lat": "51.28"
+  },
+  {
+    "name": "Zembrzyce",
+    "lng": "19.36",
+    "lat": "49.46"
+  },
+  {
+    "name": "Zębowice",
+    "lng": "18.21",
+    "lat": "50.46"
+  },
+  {
+    "name": "Zgierz",
+    "lng": "19.25",
+    "lat": "51.52"
+  },
+  {
+    "name": "Zgorzelec",
+    "lng": "15.01",
+    "lat": "51.09"
+  },
+  {
+    "name": "Zielona Góra",
+    "lng": "15.30",
+    "lat": "51.56"
+  },
+  {
+    "name": "Zielonka",
+    "lng": "21.09",
+    "lat": "52.18"
+  },
+  {
+    "name": "Zielonki",
+    "lng": "19.55",
+    "lat": "50.07"
+  },
+  {
+    "name": "Ziębice",
+    "lng": "17.03",
+    "lat": "50.37"
+  },
+  {
+    "name": "Zławieś Wielka",
+    "lng": "18.20",
+    "lat": "53.06"
+  },
+  {
+    "name": "Złocieniec",
+    "lng": "16.00",
+    "lat": "53.32"
+  },
+  {
+    "name": "Złoczew",
+    "lng": "18.37",
+    "lat": "51.25"
+  },
+  {
+    "name": "Złoczów",
+    "lng": "24.52",
+    "lat": "49.47"
+  },
+  {
+    "name": "Złota",
+    "lng": "20.36",
+    "lat": "50.23"
+  },
+  {
+    "name": "Złotniki Kujawskie",
+    "lng": "18.09",
+    "lat": "52.54"
+  },
+  {
+    "name": "Złotoryja",
+    "lng": "15.55",
+    "lat": "51.08"
+  },
+  {
+    "name": "Złotów",
+    "lng": "17.02",
+    "lat": "53.22"
+  },
+  {
+    "name": "Złoty Stok",
+    "lng": "16.52",
+    "lat": "50.27"
+  },
+  {
+    "name": "Zwierzyn",
+    "lng": "15.33",
+    "lat": "52.49"
+  },
+  {
+    "name": "Zwierzyniec",
+    "lng": "22.58",
+    "lat": "50.37"
+  },
+  {
+    "name": "Zwoleń",
+    "lng": "21.36",
+    "lat": "51.22"
+  },
+  {
+    "name": "Żabia Wola",
+    "lng": "20.41",
+    "lat": "52.02"
+  },
+  {
+    "name": "Żabno",
+    "lng": "20.53",
+    "lat": "50.07"
+  },
+  {
+    "name": "Żagań",
+    "lng": "15.19",
+    "lat": "51.37"
+  },
+  {
+    "name": "Żarki",
+    "lng": "19.22",
+    "lat": "50.38"
+  },
+  {
+    "name": "Żarnowiec",
+    "lng": "19.52",
+    "lat": "50.29"
+  },
+  {
+    "name": "Żarnów",
+    "lng": "20.11",
+    "lat": "51.15"
+  },
+  {
+    "name": "Żarów",
+    "lng": "16.30",
+    "lat": "50.57"
+  },
+  {
+    "name": "Żary",
+    "lng": "15.08",
+    "lat": "51.38"
+  },
+  {
+    "name": "Żelechów",
+    "lng": "21.54",
+    "lat": "51.49"
+  },
+  {
+    "name": "Żegocina",
+    "lng": "20.25",
+    "lat": "49.48"
+  },
+  {
+    "name": "Żelazków",
+    "lng": "18.11",
+    "lat": "51.51"
+  },
+  {
+    "name": "Żelechlinek",
+    "lng": "20.02",
+    "lat": "51.43"
+  },
+  {
+    "name": "Żelechów",
+    "lng": "21.54",
+    "lat": "51.49"
+  },
+  {
+    "name": "Żerków",
+    "lng": "17.34",
+    "lat": "52.04"
+  },
+  {
+    "name": "Żmigród",
+    "lng": "16.54",
+    "lat": "51.28"
+  },
+  {
+    "name": "Żmudź",
+    "lng": "23.40",
+    "lat": "51.01"
+  },
+  {
+    "name": "Żnin",
+    "lng": "17.43",
+    "lat": "52.51"
+  },
+  {
+    "name": "Żołynia",
+    "lng": "22.18",
+    "lat": "50.10"
+  },
+  {
+    "name": "Żory",
+    "lng": "18.42",
+    "lat": "50.03"
+  },
+  {
+    "name": "Żółkiewka",
+    "lng": "22.50",
+    "lat": "50.54"
+  },
+  {
+    "name": "Żórawina",
+    "lng": "17.03",
+    "lat": "50.59"
+  },
+  {
+    "name": "Żukowice",
+    "lng": "15.59",
+    "lat": "51.40"
+  },
+  {
+    "name": "Żukowo",
+    "lng": "18.21",
+    "lat": "54.21"
+  },
+  {
+    "name": "Żurawica",
+    "lng": "22.47",
+    "lat": "49.49"
+  },
+  {
+    "name": "Żuromin",
+    "lng": "19.54",
+    "lat": "53.04"
+  },
+  {
+    "name": "Żychlin",
+    "lng": "19.37",
+    "lat": "52.15"
+  },
+  {
+    "name": "Żyraków",
+    "lng": "21.25",
+    "lat": "50.06"
+  },
+  {
+    "name": "Żyrardów",
+    "lng": "20.26",
+    "lat": "52.03"
+  },
+  {
+    "name": "Żyrzyn",
+    "lng": "22.06",
+    "lat": "51.30"
+  },
+  {
+    "name": "Żytno",
+    "lng": "19.37",
+    "lat": "50.56"
+  },
+  {
+    "name": "Żywiec",
+    "lng": "19.12",
+    "lat": "49.42"
+  }
+]
