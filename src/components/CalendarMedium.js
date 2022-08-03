@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import PegDatesRow from "./PegDatesRow";
-import axios from "axios";
+//import axios from "axios";
 import moment from "moment";
 
 const CalendarMedium = function ({ id, lowiskoDataProp, maxPegs, maxDays }) {
-  const [bookedDays, setBookedDays] = useState([]);
+  //  const [bookedDays, setBookedDays] = useState([]);
   const [firstIdx, setFirstIdx] = useState(0);
   const [lastIdx, setLastIdx] = useState(maxPegs);
   const [otherDays, setOtherDays] = useState(0);
-
-  //console.log("nextTwoWeeks", nextTwoWeeks);
 
   const { pegs } = lowiskoDataProp;
 
@@ -61,11 +59,8 @@ const CalendarMedium = function ({ id, lowiskoDataProp, maxPegs, maxDays }) {
   return (
     <CalendarCss>
       <div>{id}</div>
-
       <header className="calendar_header">
         <h3>Sprawdź dostępne terminy</h3>
-        {/*
-         */}
       </header>
 
       <div className="wrapper">
@@ -76,13 +71,13 @@ const CalendarMedium = function ({ id, lowiskoDataProp, maxPegs, maxDays }) {
             className="calendar_lowisko_day_box"
             onClick={() => setOtherDays(otherDays - maxDays)}
           >
-            <img src="../../left.svg" alt="" />
+            <img src="../../left.svg" alt="sprawdz poprzednie dni" />
           </button>
           <button
             className="calendar_lowisko_day_box"
             onClick={() => setOtherDays(otherDays + maxDays)}
           >
-            <img src="../../right.svg" alt="" />
+            <img src="../../right.svg" alt="sprawdz kolejne dni" />
           </button>
         </div>
       </div>
@@ -106,13 +101,19 @@ const CalendarMedium = function ({ id, lowiskoDataProp, maxPegs, maxDays }) {
           className="calendar_lowisko_day_box block"
           onClick={() => handlePrev(firstIdx, lastIdx)}
         >
-          <img src="../../up.svg" alt="" />
+          <img
+            src="../../up.svg"
+            alt="sprawdz dostepnosc na poprzednich stanowiska"
+          />
         </button>
         <button
           className="calendar_lowisko_day_box block"
           onClick={() => handleNext(firstIdx, lastIdx)}
         >
-          <img src="../../down.svg" alt="" />
+          <img
+            src="../../down.svg"
+            alt="sprawdz dostepnosc na nastepnych stanowiskach"
+          />
         </button>
       </div>
     </CalendarCss>

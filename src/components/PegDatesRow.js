@@ -6,8 +6,6 @@ function PegDatesRow({ peg, currentDay, maxDays }) {
     .fill(undefined)
     .map((el, i) => moment(currentDay).add(i, "day").format("L"));
 
-  console.log("cuurentDay", currentDay);
-  console.log(daysArr);
   return (
     <div className="calendar_lowisko_num">
       <span key={peg.id} className="calendar_lowisko_day_box_num">
