@@ -4,13 +4,13 @@ import PegDatesRow from "./PegDatesRow";
 import axios from "axios";
 import moment from "moment";
 
-const CalendarMedium = function ({ id, lowiskoDataProp, max }) {
+const CalendarMedium = function ({ id, lowiskoDataProp, maxPegs, maxDays }) {
   const [bookedDays, setBookedDays] = useState([]);
   const [firstIdx, setFirstIdx] = useState(0);
-  const [lastIdx, setLastIdx] = useState(max);
-  const [nextTwoWeeks, setNextTwoWeeks] = useState(0);
+  const [lastIdx, setLastIdx] = useState(maxPegs);
+  const [otherDays, setOtherDays] = useState(0);
 
-  console.log("nextTwoWeeks", nextTwoWeeks);
+  //console.log("nextTwoWeeks", nextTwoWeeks);
 
   const { pegs } = lowiskoDataProp;
 
@@ -38,15 +38,15 @@ const CalendarMedium = function ({ id, lowiskoDataProp, max }) {
   // }, [id]);
   const resetQueue = () => {
     setFirstIdx(0);
-    setLastIdx(max);
+    setLastIdx(maxPegs);
   };
 
   const handleNext = (first, last) => {
     if (last >= lowiskoDataProp.pegs.length) {
       resetQueue();
     } else {
-      setFirstIdx(first + max);
-      setLastIdx(last + max);
+      setFirstIdx(first + maxPegs);
+      setLastIdx(last + maxPegs);
     }
   };
 
@@ -54,8 +54,8 @@ const CalendarMedium = function ({ id, lowiskoDataProp, max }) {
     if (first <= 0) {
       resetQueue();
     } else {
-      setFirstIdx(first - max);
-      setLastIdx(last - max);
+      setFirstIdx(first - maxPegs);
+      setLastIdx(last - maxPegs);
     }
   };
   return (
@@ -74,13 +74,13 @@ const CalendarMedium = function ({ id, lowiskoDataProp, max }) {
         <div className="offset-right">
           <button
             className="calendar_lowisko_day_box"
-            onClick={() => setNextTwoWeeks(nextTwoWeeks - 14)}
+            onClick={() => setOtherDays(otherDays - maxDays)}
           >
             <img src="../../left.svg" alt="" />
           </button>
           <button
             className="calendar_lowisko_day_box"
-            onClick={() => setNextTwoWeeks(nextTwoWeeks + 14)}
+            onClick={() => setOtherDays(otherDays + maxDays)}
           >
             <img src="../../right.svg" alt="" />
           </button>
@@ -95,8 +95,8 @@ const CalendarMedium = function ({ id, lowiskoDataProp, max }) {
               return (
                 <PegDatesRow
                   peg={peg}
-                  currentDay={moment().add(nextTwoWeeks, "day").format()}
-                  maxDays={14}
+                  currentDay={moment().add(otherDays, "day").format()}
+                  maxDays={maxDays}
                 />
               );
             }

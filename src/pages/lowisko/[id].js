@@ -91,9 +91,10 @@ const Lowisko = ({ params }) => {
                   <CalendarMedium
                     id={id}
                     lowiskoDataProp={lowiskoData}
-                    max={
+                    maxPegs={
                       lowiskoData.pegs.length > 5 ? 5 : lowiskoData.pegs.length
                     }
+                    maxDays={8}
                   />
                 )}
               </section>
