@@ -216,11 +216,11 @@ const Map = () => {
                   </div>
                   <div className="lowi_itm_amnt">
                     <img className="fish" alt="fishsvg" src={Fish}></img>
-                    <b>Odmiany: </b>Karp, Jesiotr, Okoń
+                    <b>Odmiany: </b>Karp, Jesiotr, Okoń - przykład
                   </div>
                   <div className="lowi_itm_amnt">
                     <img className="trophy" alt="trophy" src={Trophy}></img>
-                    <b>Rekord: </b>Karp 55kg 70cm
+                    <b>Rekord: </b>Karp 55kg 70cm - przykład
                   </div>
                   <div className="lowi_itm_amnt stanowiska">
                     <img
@@ -228,7 +228,7 @@ const Map = () => {
                       alt="silhouette"
                       src={Silhouette}
                     ></img>
-                    <b>Liczba stanowisk: </b>6
+                    <b>Liczba stanowisk: </b>{lowisko.numberOfPegs || 'nieznana'}
                   </div>
                   <div className="lowi_itm_amnt cena">
                     <img className="dollar" alt="dollar" src={Dollar}></img>

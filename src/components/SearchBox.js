@@ -170,10 +170,10 @@ const SearchBox = () => {
               onChange={handleChange}
               ref={input1Ref}
             >
-              <Option value="50">+50km</Option>
-              <Option value="100">+50-100km</Option>
-              <Option value="200">+100-200km</Option>
-              <Option value="1000">&gt;200km</Option>
+              <Option value="50">&lt; 50km</Option>
+              <Option value="100">&lt; 100km</Option>
+              <Option value="200">&lt; 200km</Option>
+              <Option value="1000">&gt; 200km</Option>
             </Select>
             <RangePicker
               className="home_cover_search_date"

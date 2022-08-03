@@ -66,7 +66,7 @@ const Lowisko = ({ params }) => {
                   <Link to="/">{}</Link>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>Łowiska</Breadcrumb.Item>
-                <Breadcrumb.Item>Stalowa Wola</Breadcrumb.Item>
+                <Breadcrumb.Item>{lowiskoData.city}</Breadcrumb.Item>
                 <Breadcrumb.Item>{lowiskoData.name}</Breadcrumb.Item>
               </Breadcrumb>
             </div>
@@ -85,16 +85,24 @@ const Lowisko = ({ params }) => {
                   }}
                 ></div>
               </div>
-              <Reservation />
+              <Reservation pegs={lowiskoData.pegs} />
               <section>
-                <CalendarMedium id={id} lowiskoDataProp={lowiskoData} />
+                {lowiskoData.pegs && (
+                  <CalendarMedium
+                    id={id}
+                    lowiskoDataProp={lowiskoData}
+                    max={
+                      lowiskoData.pegs.length > 5 ? 5 : lowiskoData.pegs.length
+                    }
+                  />
+                )}
               </section>
               <div className="lowisko_udogo"></div>
               <div className="lowisko_regu">
                 <h2>Regulamin Łowiska</h2>
                 <div className="lowisko_regu_body">
                   <h3 className="text_toggle" onClick={toggleOpened}>
-                    Regulamin Łowiska Extra-Carp Radymno {opened ? "v" : ">"}
+                    Regulamin Łowiska Extra-Carp Radymno {opened ? " v" : " >"}
                   </h3>
                   <Collapse isOpened={opened}>
                     <p>

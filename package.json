@@ -11,7 +11,8 @@
     "start": "npm run develop",
     "build": "cross-env NODE_OPTIONS=\"-r esm\" gatsby build",
     "serve": "cross-env NODE_OPTIONS=\"-r esm\" gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "prettier": "prettier -w"
   },
   "eslintConfig": {
     "extends": [

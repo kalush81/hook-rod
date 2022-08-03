@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import PegDatesRow from "./PegDatesRow";
 import axios from "axios";
+import moment from "moment";
 
-const CalendarMedium = function ({ id, lowiskoDataProp }) {
+const CalendarMedium = function ({ id, lowiskoDataProp, max }) {
   const [bookedDays, setBookedDays] = useState([]);
+  const [firstIdx, setFirstIdx] = useState(0);
+  const [lastIdx, setLastIdx] = useState(max);
+  const [nextTwoWeeks, setNextTwoWeeks] = useState(0);
+
+  console.log("nextTwoWeeks", nextTwoWeeks);
 
   const { pegs } = lowiskoDataProp;
 
@@ -29,42 +36,90 @@ const CalendarMedium = function ({ id, lowiskoDataProp }) {
 
   //   loadCalendar();
   // }, [id]);
+  const resetQueue = () => {
+    setFirstIdx(0);
+    setLastIdx(max);
+  };
 
+  const handleNext = (first, last) => {
+    if (last >= lowiskoDataProp.pegs.length) {
+      resetQueue();
+    } else {
+      setFirstIdx(first + max);
+      setLastIdx(last + max);
+    }
+  };
+
+  const handlePrev = (first, last) => {
+    if (first <= 0) {
+      resetQueue();
+    } else {
+      setFirstIdx(first - max);
+      setLastIdx(last - max);
+    }
+  };
   return (
     <CalendarCss>
       <div>{id}</div>
 
       <header className="calendar_header">
         <h3>Sprawdź dostępne terminy</h3>
-        <button className="dates_full_btn">Terminarz</button>
+        {/*
+         */}
       </header>
+
+      <div className="wrapper">
+        <span style={{ fontSize: "9px" }}>stanowisko</span>
+        <p>2022 sierpień</p>
+        <div className="offset-right">
+          <button
+            className="calendar_lowisko_day_box"
+            onClick={() => setNextTwoWeeks(nextTwoWeeks - 14)}
+          >
+            <img src="../../left.svg" alt="" />
+          </button>
+          <button
+            className="calendar_lowisko_day_box"
+            onClick={() => setNextTwoWeeks(nextTwoWeeks + 14)}
+          >
+            <img src="../../right.svg" alt="" />
+          </button>
+        </div>
+      </div>
 
       <div className="calendr_date_selector"></div>
       <div className="calendar_lowiska_list">
         {pegs &&
-          pegs.map((peg, i) => (
-            <div className="calendar_lowisko_num">
-              <span className="calendar_lowisko_day_box_num">
-                {peg.pegNumber}
-              </span>
-              <span className="calendar_lowisko_day_box"></span>
-              <span className="calendar_lowisko_day_box"></span>
-              <span className="calendar_lowisko_day_box"></span>
-              <span className="calendar_lowisko_day_box"></span>
-              <span className="calendar_lowisko_day_box"></span>
-              <span className="calendar_lowisko_day_box"></span>
-              <span className="calendar_lowisko_day_box"></span>
-              <span className="calendar_lowisko_day_box"></span>
-              <span className="calendar_lowisko_day_box"></span>
-              <span className="calendar_lowisko_day_box"></span>
-            </div>
-          ))}
+          pegs.map((peg, i) => {
+            if (i >= firstIdx && i < lastIdx) {
+              return (
+                <PegDatesRow
+                  peg={peg}
+                  currentDay={moment().add(nextTwoWeeks, "day").format()}
+                  maxDays={14}
+                />
+              );
+            }
+          })}
+
+        <button
+          className="calendar_lowisko_day_box block"
+          onClick={() => handlePrev(firstIdx, lastIdx)}
+        >
+          <img src="../../up.svg" alt="" />
+        </button>
+        <button
+          className="calendar_lowisko_day_box block"
+          onClick={() => handleNext(firstIdx, lastIdx)}
+        >
+          <img src="../../down.svg" alt="" />
+        </button>
       </div>
     </CalendarCss>
   );
 };
 
-const CalendarCss = styled.div`
+export const CalendarCss = styled.div`
   scroll-behavior: smooth;
   padding: 19px 21px;
   background: #e4f4ca;
@@ -121,6 +176,26 @@ const CalendarCss = styled.div`
     display: inline-block;
     margin-right: 9px;
     text-align: center;
+  }
+
+  .block {
+    display: block;
+    margin-bottom: 7px;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding-bottom: 8px;
+  }
+
+  .offset-right {
+    margin-right: 0px;
+  }
+
+  .small {
+    font-size: 7px;
   }
 `;
 

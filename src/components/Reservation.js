@@ -6,13 +6,13 @@ import "antd/dist/antd.css";
 const { RangePicker } = DatePicker;
 const { Option } = Select;
 
-const Reservation = () => {
+const Reservation = ({pegs}) => {
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
   };
-
+  
   return (
     <Form form={form} name="register" onFinish={onFinish} scrollToFirstError>
       <CalendarCSS>
@@ -36,11 +36,10 @@ const Reservation = () => {
                 size="medium"
                 placeholder="Stanowisko"
                 showAction="focus"
-              >
-                <Option value="1">1 stanowisko</Option>
-                <Option value="2">2 stanowisko</Option>
-                <Option value="3">3 stanowisko</Option>
-                <Option value="4">4 stanowisko</Option>
+              > 
+                {pegs && pegs.map(peg => {
+                  return <Option value={peg.id}>{peg.pegName}</Option>
+                })}
               </Select>
             </Form.Item>
             <Form.Item name="osoby">
@@ -217,3 +216,9 @@ const CalendarCSS = styled.div`
 `;
 
 export default Reservation;
+
+
+/* <Option value="1">1 stanowisko</Option>
+                <Option value="2">2 stanowisko</Option>
+                <Option value="3">3 stanowisko</Option>
+                <Option value="4">4 stanowisko</Option> */
