@@ -1,6 +1,5 @@
 # hookrod-gatsby
 
-
 1. Czy podanie dat podczas pierwszej wyszukiwarki jest obowiazkowe ?
 2. Jednosc jezykowa
 3. Docelowo wszystkie images beda serwowane z serwera z api ?    

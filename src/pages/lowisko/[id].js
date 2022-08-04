@@ -94,7 +94,7 @@ const Lowisko = ({ params }) => {
                     maxPegs={
                       lowiskoData.pegs.length > 5 ? 5 : lowiskoData.pegs.length
                     }
-                    maxDays={8}
+                    maxDays={14}
                   />
                 )}
               </section>
@@ -555,6 +555,9 @@ const LowiskoCss = styled.div`
   }
   .text_toggle:hover {
     opacity: 0.69;
+  }
+  .reserved {
+    background-color: red;
   }
 `;
 
