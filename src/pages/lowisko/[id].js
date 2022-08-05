@@ -87,16 +87,17 @@ const Lowisko = ({ params }) => {
               </div>
               <Reservation pegs={lowiskoData.pegs} />
               <section>
-                {lowiskoData.pegs && (
-                  <CalendarMedium
-                    id={id}
-                    lowiskoDataProp={lowiskoData}
-                    maxPegs={
-                      lowiskoData.pegs.length > 5 ? 5 : lowiskoData.pegs.length
-                    }
-                    maxDays={14}
-                  />
-                )}
+                (
+                <CalendarMedium
+                  id={id}
+                  lowiskoDataProp={lowiskoData}
+                  maxPegs={
+                    5
+                    //lowiskoData?.pegs?.length > 5 ? 5 : lowiskoData.pegs.length
+                  }
+                  maxDays={14}
+                />
+                )
               </section>
               <div className="lowisko_udogo"></div>
               <div className="lowisko_regu">
@@ -555,9 +556,6 @@ const LowiskoCss = styled.div`
   }
   .text_toggle:hover {
     opacity: 0.69;
-  }
-  .reserved {
-    background-color: red;
   }
 `;
 

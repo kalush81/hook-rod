@@ -7,7 +7,7 @@ function unify(date) {
   return [y, m, d].join("");
 }
 
-const isDayInRange = (day, bkngs) => {
+const isDayBooked = (day, bkngs) => {
   const dates = bkngs.map((bk) => [bk.startDay, bk.endDay]);
   const trueOrfalse = dates.map((rangeArr) => {
     const date = unify(day);
@@ -23,23 +23,24 @@ const isDayInRange = (day, bkngs) => {
       return false;
     }
   });
-
-  return trueOrfalse.some((tf) => tf === true);
+  return trueOrfalse.some((tf) => tf === true); // tf  -> true or false
 };
-
-function DateSquare({ day, bookings }) {
-  if (isDayInRange(day, bookings)) {
+let bookingsMock = [
+  { startDay: "01.08.2022", endDay: "04.08.2022", status: "PAID" },
+  { startDay: "05.08.2022", endDay: "06.08.2022", status: "PAID" },
+];
+function DateSquare({ day, bookings = bookingsMock }) {
+  if (isDayBooked(day, bookings)) {
     return (
       <span className="calendar_lowisko_day_box small reserved">
-        {/* {bookings.find((b) => b.startDay === day)?.status || day} */}
-        {day}
+        <img src="../../X.svg" alt="" />
       </span>
     );
   }
   return (
-    <span className="calendar_lowisko_day_box small">
-      {/* {bookings.find((b) => b.startDay === day)?.status || day} */}
-      {day}
+    <span className="calendar_lowisko_day_box small free">
+      {/* {day} */}
+      <img src="../../V.svg" alt="" />
     </span>
   );
 }
