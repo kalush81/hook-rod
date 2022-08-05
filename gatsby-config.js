@@ -43,20 +43,22 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
+          //include: /assets/
           include: /\.inline\.svg$/,
         },
       },
     },
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-netlify",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: path.join(__dirname, `src`, `assets`, `images`),
+        path: `${__dirname}/src/assets/images`,
       },
+      __key: "images",
     },
-    `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-netlify`,
   ],
 };

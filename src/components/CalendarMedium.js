@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import axios from "axios";
+import PegDatesRow from "./PegDatesRow";
+//import axios from "axios";
+import moment from "moment";
 
-const CalendarMedium = function ({ id, lowiskoDataProp }) {
-  const [bookedDays, setBookedDays] = useState([]);
+const CalendarMedium = function ({ id, lowiskoDataProp, maxPegs, maxDays }) {
+  const [firstIdx, setFirstIdx] = useState(0);
+  const [lastIdx, setLastIdx] = useState(maxPegs);
+  const [otherDays, setOtherDays] = useState(0);
 
   const { pegs } = lowiskoDataProp;
 
@@ -29,42 +33,132 @@ const CalendarMedium = function ({ id, lowiskoDataProp }) {
 
   //   loadCalendar();
   // }, [id]);
+  const resetQueue = () => {
+    setFirstIdx(0);
+    setLastIdx(maxPegs);
+  };
+
+  const handleNext = (first, last) => {
+    if (last >= lowiskoDataProp.pegs.length) {
+      resetQueue();
+    } else {
+      setFirstIdx(first + maxPegs);
+      setLastIdx(last + maxPegs);
+    }
+  };
+
+  const handlePrev = (first, last) => {
+    if (first <= 0) {
+      resetQueue();
+    } else {
+      setFirstIdx(first - maxPegs);
+      setLastIdx(last - maxPegs);
+    }
+  };
+
+  let daysArr = new Array(maxDays)
+    .fill(undefined)
+    .map((el, i) =>
+      moment(moment().add(otherDays, "day").format()).add(i, "day").format("L")
+    );
 
   return (
     <CalendarCss>
       <div>{id}</div>
-
       <header className="calendar_header">
         <h3>Sprawdź dostępne terminy</h3>
-        <button className="dates_full_btn">Terminarz</button>
       </header>
 
-      <div className="calendr_date_selector"></div>
-      <div className="calendar_lowiska_list">
-        {pegs &&
-          pegs.map((peg, i) => (
-            <div className="calendar_lowisko_num">
-              <span className="calendar_lowisko_day_box_num">
-                {peg.pegNumber}
-              </span>
-              <span className="calendar_lowisko_day_box"></span>
-              <span className="calendar_lowisko_day_box"></span>
-              <span className="calendar_lowisko_day_box"></span>
-              <span className="calendar_lowisko_day_box"></span>
-              <span className="calendar_lowisko_day_box"></span>
-              <span className="calendar_lowisko_day_box"></span>
-              <span className="calendar_lowisko_day_box"></span>
-              <span className="calendar_lowisko_day_box"></span>
-              <span className="calendar_lowisko_day_box"></span>
-              <span className="calendar_lowisko_day_box"></span>
-            </div>
-          ))}
+      <div className="flex">
+        <button
+          className="calendar_lowisko_day_box noStyle"
+          onClick={() => setOtherDays(otherDays - maxDays)}
+        >
+          <img
+            className="svgBigger"
+            src="../../left.svg"
+            alt="sprawdz poprzednie dni"
+          />
+        </button>
+        <span>wcześniej</span>
+        <span>2022 sierpień</span>
+        <span>później</span>
+        <button
+          className="calendar_lowisko_day_box noStyle"
+          onClick={() => setOtherDays(otherDays + maxDays)}
+        >
+          <img src="../../right.svg" alt="sprawdz kolejne dni" />
+        </button>
+      </div>
+      <div className="wrapper">
+        <button
+          className="calendar_lowisko_day_box block noStyle"
+          onClick={() => handlePrev(firstIdx, lastIdx)}
+        >
+          <img
+            src="../../up.svg"
+            alt="sprawdz dostepnosc na poprzednich stanowiska"
+          />
+        </button>
+        {/* <span
+          className="calendar_lowisko_day_box small noStyle"
+          style={{ fontSize: "9px" }}
+        >
+          stanowisko
+        </span> */}
+
+        {daysArr.map((day) => {
+          return (
+            <span className="calendar_lowisko_day_box small noStyle">
+              {day}
+            </span>
+          );
+        })}
+      </div>
+
+      <div className="calendar_date_selector"></div>
+      <div className="calendar_lowiska_list border">
+        {pegs
+          ? pegs.map((peg, i) => {
+              if (i >= firstIdx && i < lastIdx) {
+                return (
+                  <PegDatesRow
+                    peg={peg}
+                    currentDay={moment().add(otherDays, "day").format()}
+                    maxDays={maxDays}
+                    daysArr={daysArr}
+                  />
+                );
+              }
+            })
+          : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((peg, i) => {
+              if (i >= firstIdx && i < lastIdx) {
+                return (
+                  <PegDatesRow
+                    peg={peg}
+                    currentDay={moment().add(otherDays, "day").format()}
+                    maxDays={maxDays}
+                    daysArr={daysArr}
+                  />
+                );
+              }
+            })}
+
+        <button
+          className="calendar_lowisko_day_box block noStyle"
+          onClick={() => handleNext(firstIdx, lastIdx)}
+        >
+          <img
+            src="../../down.svg"
+            alt="sprawdz dostepnosc na nastepnych stanowiskach"
+          />
+        </button>
       </div>
     </CalendarCss>
   );
 };
 
-const CalendarCss = styled.div`
+export const CalendarCss = styled.div`
   scroll-behavior: smooth;
   padding: 19px 21px;
   background: #e4f4ca;
@@ -103,11 +197,14 @@ const CalendarCss = styled.div`
   }
 
   .calendar_lowisko_day_box {
+    background: green;
     border: 2px solid #c6c6c6;
     border-radius: 6px;
     width: 50px;
     height: 50px;
-    display: inline-block;
+    display: grid;
+    justify-content: center;
+    align-content: center;
     margin-right: 9px;
   }
 
@@ -121,6 +218,54 @@ const CalendarCss = styled.div`
     display: inline-block;
     margin-right: 9px;
     text-align: center;
+  }
+
+  .block {
+    display: block;
+    margin-bottom: 7px;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding-bottom: 8px;
+  }
+
+  .offset-right {
+    margin-right: 0px;
+  }
+
+  .small {
+    font-size: 7px;
+  }
+
+  .reserved {
+    background-color: #e70000;
+  }
+
+  .noStyle {
+    background-color: transparent;
+    border: none;
+  }
+
+  .flex {
+    display: flex;
+
+    align-items: center;
+    justify-content: end;
+  }
+  .flex > span {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    font-size: 12px;
+  }
+  .flex span:nth-child(3) {
+    font-size: 22px;
+  }
+
+  button img {
+    width: 16px;
   }
 `;
 

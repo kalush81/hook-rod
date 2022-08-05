@@ -1,10 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import zwedka from "../assets/images/partner-zwedka.png";
-import pvaking from "../assets/images/partner-pva.png";
-import pescador from "../assets/images/partner-pescador.png";
 import meus from "../assets/images/partner-meus.png";
 import bg from "../assets/images/partnerzy-cover.jpg";
+import { StaticImage } from "gatsby-plugin-image";
 
 const Partnerzy = () => {
   return (
@@ -17,7 +15,12 @@ const Partnerzy = () => {
             href="https://www.facebook.com/groups/142539496494765"
           >
             <div className="partner_div">
-              <img className="zwedka" alt="zwedka" src={zwedka}></img>
+              <StaticImage
+                className="zwedka"
+                src="../assets/images/partner-zwedka.png"
+                alt="zwedka"
+              />
+              {/* <img className="zwedka" alt="zwedka" src={zwedka}></img> */}
               <div className="text_div"></div>
             </div>
           </a>
@@ -27,7 +30,11 @@ const Partnerzy = () => {
             target="_blank"
           >
             <div className="partner_div">
-              <img className="pva" alt="zwedka" src={pvaking}></img>
+              <StaticImage
+                className="zwedka"
+                src={"../assets/images/partner-pva.png"}
+                alt="pva"
+              />
               <div className="text_div"></div>
             </div>
           </a>
@@ -37,13 +44,21 @@ const Partnerzy = () => {
             target="_blank"
           >
             <div className="partner_div">
-              <img className="zwedka" alt="zwedka" src={pescador}></img>
+              <StaticImage
+                className="zwedka"
+                src={"../assets/images/partner-pescador.png"}
+                alt="pescador"
+              />
               <div className="text_div"></div>
             </div>
           </a>
           <a href="https://meus.net.pl/" rel="noreferrer" target="_blank">
             <div className="partner_div">
-              <img className="zwedka" alt="zwedka" src={meus}></img>
+              <StaticImage
+                className="zwedka"
+                alt="meus"
+                src={"../assets/images/partner-meus.png"}
+              />
               <div className="text_div"></div>
             </div>
           </a>
