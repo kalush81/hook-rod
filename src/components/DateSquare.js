@@ -3,7 +3,6 @@ import React from "react";
 // bkngs = [{startDay: '08.08.2022', endDay: '10.08.2022', status: 'PAID'}, {startDay: '13.08.2022', endDay: '14.08.2022'. status: 'PAID'}]
 function unify(date) {
   const [d, m, y] = date.split(".");
-  console.log([y, m, d].join(""));
   return [y, m, d].join("");
 }
 

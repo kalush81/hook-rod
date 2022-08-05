@@ -10,7 +10,7 @@
     "develop": "cross-env NODE_OPTIONS=\"-r esm\" gatsby develop",
     "start": "npm run develop",
     "dev": "npm gatsby develop",
-    "build": "cross-env NODE_OPTIONS=\"-r esm\" gatsby build --legacy-peer-deps",
+    "build": "cross-env NODE_OPTIONS=\"-r esm\" gatsby build",
     "serve": "cross-env NODE_OPTIONS=\"-r esm\" gatsby serve",
     "clean": "gatsby clean",
     "prettier": "prettier -w"

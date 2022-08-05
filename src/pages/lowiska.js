@@ -1,21 +1,14 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-
-import axios from "axios";
-
+import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 
+import axios from "axios";
+import { Select, ConfigProvider, Skeleton } from "antd";
 import plPL from "antd/lib/locale/pl_PL";
 import "moment/locale/pl";
-import { Select, ConfigProvider, Skeleton } from "antd";
 
 import SearchBar from "../components/SearchBar";
-
-import Pin from "../assets/images/pin.svg";
-import Fish from "../assets/images/fish.svg";
-import Trophy from "../assets/images/trophy.svg";
-import Silhouette from "../assets/images/silhouette.svg";
-import Dollar from "../assets/images/dollar.svg";
 
 const { Option } = Select;
 
@@ -36,29 +29,35 @@ const Lowiska = function ({ location }) {
     const ulng = params.get("ulng");
     // get data from API
     const loadLowiska = async () => {
-      const response = await axios.get(
-        `https://karpteam.herokuapp.com/api/lakes/checkLakesOnDate`,
-        {
-          mode: "cors",
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          withCredentials: false,
-          credentials: "same-origin",
-          crossdomain: true,
-          params: {
-            distance,
-            eday,
-            sday,
-            ulat,
-            ulng,
-          },
-        }
-      );
-      setLowiskaArr(response.data);
-      console.log("LOWISKA", response.data);
+      try {
+        const response = await axios.get(
+          `https://karpteam.herokuapp.com/api/lakes/checkLakesOnDate`,
+          {
+            mode: "cors",
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            withCredentials: false,
+            credentials: "same-origin",
+            crossdomain: true,
+            params: {
+              distance,
+              eday,
+              sday,
+              ulat,
+              ulng,
+            },
+          }
+        );
+        setLowiskaArr(response.data);
+        console.log("LOWISKA", response.data.imagePath);
+      } catch (error) {
+        console.log(
+          "couldnt fetch from https://karpteam.herokuapp.com/api/lakes/checkLakesOnDate"
+        );
+      }
     };
 
     loadLowiska();
@@ -132,54 +131,59 @@ const Lowiska = function ({ location }) {
                   .filter((lowisk) => lowisk.freePegs !== 0)
                   .sort((a, b) => (a.distance > b.distance ? 1 : -1))
                   .map((data, key) => (
+                    //console.log()
                     <div key={key}>
                       <li className="lowi_itm">
                         <Link to={`/lowisko/${data.id}`}>
                           <div className="lowisko_img">
-                            <img
+                            <StaticImage
                               alt="fish"
                               src={
-                                data.imagePath
-                                  ? data.imagePath
-                                  : "https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcR0RuAVNfoJKGQ5915S8WgNlOqINorTaqe9q82s7CfcSbcV64z2xktqF91WYjPZmxJiOABVAR_sdB52p45HY-A"
+                                //lowiskaArr.imagePath
+                                //? lowiskaArr.imagePath
+                                "https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcR0RuAVNfoJKGQ5915S8WgNlOqINorTaqe9q82s7CfcSbcV64z2xktqF91WYjPZmxJiOABVAR_sdB52p45HY-A"
                               }
-                            ></img>
+                            />
                           </div>
                           <h2 className="lowi_itm_header">{data.name}</h2>
                           <div className="lowi_itm_amnt lokalizacja">
-                            <img className="pin" alt="pin" src={Pin}></img>
+                            <StaticImage
+                              className="pin"
+                              alt="pin"
+                              src="../assets/images/pin.svg"
+                            />
                             <b>Lokalizacja</b>
                           </div>
                           <div className="lowi_itm_amnt">
-                            <img
+                            <StaticImage
                               className="fish"
                               alt="fishsvg"
-                              src={Fish}
-                            ></img>
+                              src="../assets/images/fish.svg"
+                            />
                             <b>Odmiany: </b>Karp, Jesiotr, Okoń
                           </div>
                           <div className="lowi_itm_amnt">
-                            <img
+                            <StaticImage
                               className="trophy"
                               alt="trophy"
-                              src={Trophy}
-                            ></img>
+                              src="../assets/images/trophy.svg"
+                            />
                             <b>Rekord: </b>Karp 55kg 70cm
                           </div>
                           <div className="lowi_itm_amnt stanowiska">
-                            <img
+                            <StaticImage
                               className="silhouette"
                               alt="silhouette"
-                              src={Silhouette}
-                            ></img>
+                              src="../assets/images/silhouette.svg"
+                            />
                             <b>Liczba stanowisk: </b>6
                           </div>
                           <div className="lowi_itm_amnt cena">
-                            <img
+                            <StaticImage
                               className="dollar"
                               alt="dollar"
-                              src={Dollar}
-                            ></img>
+                              src="../assets/images/dollar.svg"
+                            />
                             <b>Od 25zł / osoba</b>
                           </div>
                           <div className="lowi_itm_distance">
