@@ -230,7 +230,7 @@ export const CalendarCss = styled.div`
   }
 
   .calendar_lowisko_day_box {
-    background: green;
+    background: #15bf12;
     border: 2px solid #c6c6c6;
     border-radius: 6px;
     width: 50px;
