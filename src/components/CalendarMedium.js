@@ -4,12 +4,13 @@ import PegDatesRow from "./PegDatesRow";
 //import axios from "axios";
 import moment from "moment";
 
-const CalendarMedium = function ({ id, lowiskoDataProp, maxPegs, maxDays }) {
+const CalendarMedium = function ({ id, lowiskoData, maxPegs, maxDays }) {
   const [firstIdx, setFirstIdx] = useState(0);
   const [lastIdx, setLastIdx] = useState(maxPegs);
   const [otherDays, setOtherDays] = useState(0);
 
-  const { pegs } = lowiskoDataProp;
+  const { pegs } = lowiskoData;
+  console.log("pegs", pegs);
 
   // useEffect(() => {
   //   const loadCalendar = async () => {
@@ -40,7 +41,7 @@ const CalendarMedium = function ({ id, lowiskoDataProp, maxPegs, maxDays }) {
   };
 
   const handleNext = (first, last) => {
-    if (last >= lowiskoDataProp.pegs.length) {
+    if (last >= lowiskoData.pegs.length) {
       resetQueue();
     } else {
       setFirstIdx(first + maxPegs);
@@ -133,12 +134,6 @@ const CalendarMedium = function ({ id, lowiskoDataProp, maxPegs, maxDays }) {
             alt="sprawdz dostepnosc na poprzednich stanowiska"
           />
         </button>
-        {/* <span
-          className="calendar_lowisko_day_box small noStyle"
-          style={{ fontSize: "9px" }}
-        >
-          stanowisko
-        </span> */}
 
         {daysArr.map((day) => {
           return (
@@ -149,33 +144,22 @@ const CalendarMedium = function ({ id, lowiskoDataProp, maxPegs, maxDays }) {
         })}
       </div>
 
-      <div className="calendar_date_selector"></div>
+      {/* <div className="calendar_date_selector"></div> */}
       <div className="calendar_lowiska_list border">
-        {pegs
-          ? pegs.map((peg, i) => {
-              if (i >= firstIdx && i < lastIdx) {
-                return (
-                  <PegDatesRow
-                    peg={peg}
-                    currentDay={moment().add(otherDays, "day").format()}
-                    maxDays={maxDays}
-                    daysArr={daysArr}
-                  />
-                );
-              }
-            })
-          : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((peg, i) => {
-              if (i >= firstIdx && i < lastIdx) {
-                return (
-                  <PegDatesRow
-                    peg={peg}
-                    currentDay={moment().add(otherDays, "day").format()}
-                    maxDays={maxDays}
-                    daysArr={daysArr}
-                  />
-                );
-              }
-            })}
+        {pegs &&
+          pegs.map((peg, i) => {
+            if (i >= firstIdx && i < lastIdx) {
+              console.log("dzialam");
+              return (
+                <PegDatesRow
+                  peg={peg}
+                  currentDay={moment().add(otherDays, "day").format()}
+                  maxDays={maxDays}
+                  daysArr={daysArr}
+                />
+              );
+            }
+          })}
 
         <button
           className="calendar_lowisko_day_box block noStyle"
@@ -239,6 +223,7 @@ export const CalendarCss = styled.div`
     justify-content: center;
     align-content: center;
     margin-right: 9px;
+    cursor: pointer;
   }
 
   .calendar_lowisko_day_box_num {
@@ -278,6 +263,11 @@ export const CalendarCss = styled.div`
 
   .reserved {
     background-color: #e70000;
+    cursor: not-allowed;
+  }
+
+  span.pending {
+    background-color: yellow;
   }
 
   .noStyle {

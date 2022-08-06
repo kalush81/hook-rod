@@ -19,14 +19,138 @@ import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import CalendarMedium from "../../components/CalendarMedium";
 import Reservation from "../../components/Reservation.js";
 
+let lowiskoDataMock = {
+  id: 26,
+  name: "Staw u Lomaxa",
+  city: "Stalowa Wola",
+  postCode: "37450",
+  address: "Spacerowa 12",
+  latitude: 50.558523,
+  longitude: 22.083079,
+  imagePath: "https://i.ibb.co/H76PLN1/received-301554618657421.jpg",
+  voivodeship: "Podkarpackie",
+  regulations: null,
+  numberOfPegs: 5,
+  user: null,
+  pegs: [
+    {
+      id: 25,
+      pegNumber: 1,
+      pegName: "Stanowisko 1",
+      reservation: [
+        {
+          startDay: "12.05.2022",
+          endDay: "14.05.2022",
+          createdAt: "2022-05-10T10:53:06",
+          status: "PENDING",
+          cost: 0.0,
+          paymentType: null,
+          reservation_FEE: null,
+        },
+        {
+          startDay: "01.06.2022",
+          endDay: "02.06.2022",
+          createdAt: "2022-05-26T09:01:43",
+          status: "PENDING",
+          cost: 55.5,
+          paymentType: null,
+          reservation_FEE: 5.0,
+        },
+        {
+          startDay: "05.06.2022",
+          endDay: "07.06.2022",
+          createdAt: "2022-05-26T09:08:39",
+          status: "PAID",
+          cost: 55.5,
+          paymentType: null,
+          reservation_FEE: 5.0,
+        },
+        {
+          startDay: "10.06.2022",
+          endDay: "13.06.2022",
+          createdAt: "2022-05-27T11:54:35",
+          status: "PENDING",
+          cost: 55.5,
+          paymentType: null,
+          reservation_FEE: 5.0,
+        },
+        {
+          startDay: "03.08.2022",
+          endDay: "04.08.2022",
+          createdAt: "2022-08-03T11:14:59",
+          status: "PAID",
+          cost: null,
+          paymentType: null,
+          reservation_FEE: 5.0,
+        },
+      ],
+    },
+    {
+      id: 26,
+      pegNumber: 2,
+      pegName: "Stanowisko 2",
+      reservation: [
+        {
+          startDay: "12.05.2022",
+          endDay: "14.05.2022",
+          createdAt: "2022-05-10T10:53:06",
+          status: "PENDING",
+          cost: 0.0,
+          paymentType: null,
+          reservation_FEE: null,
+        },
+        {
+          startDay: "01.06.2022",
+          endDay: "02.06.2022",
+          createdAt: "2022-05-26T09:01:43",
+          status: "PENDING",
+          cost: 55.5,
+          paymentType: null,
+          reservation_FEE: 5.0,
+        },
+        {
+          startDay: "01.06.2022",
+          endDay: "02.06.2022",
+          createdAt: "2022-05-26T09:08:39",
+          status: "PENDING",
+          cost: 55.5,
+          paymentType: null,
+          reservation_FEE: 5.0,
+        },
+        {
+          startDay: "01.06.2022",
+          endDay: "02.06.2022",
+          createdAt: "2022-05-27T11:54:35",
+          status: "PENDING",
+          cost: 55.5,
+          paymentType: null,
+          reservation_FEE: 5.0,
+        },
+        {
+          startDay: "03.08.2022",
+          endDay: "04.08.2022",
+          createdAt: "2022-08-03T11:14:59",
+          status: "PENDING",
+          cost: null,
+          paymentType: null,
+          reservation_FEE: 5.0,
+        },
+      ],
+    },
+  ],
+  additionalList: [],
+};
+
 const Lowisko = ({ params }) => {
   const { id } = params;
 
   const [opened, setOpened] = useState(false);
-  const [lowiskoData, setLowiskoData] = useState([]);
+  const [lowiskoData, setLowiskoData] = useState(null);
   const [isError, setIsError] = useState(false);
 
   const toggleOpened = () => setOpened((value) => !value);
+
+  console.log("lowiskoData in[id].js", lowiskoData);
 
   useEffect(() => {
     const loadLowiskoData = async () => {
@@ -64,7 +188,7 @@ const Lowisko = ({ params }) => {
     // get data from API
   }, [id]);
 
-  if (lowiskoData.length < 1)
+  if (!lowiskoData)
     return (
       <div
         style={{
@@ -97,31 +221,39 @@ const Lowisko = ({ params }) => {
                   <Link to="/">{}</Link>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>Łowiska</Breadcrumb.Item>
-                <Breadcrumb.Item>{lowiskoData.city}</Breadcrumb.Item>
-                <Breadcrumb.Item>{lowiskoData.name}</Breadcrumb.Item>
+                <Breadcrumb.Item>
+                  {lowiskoData && lowiskoData.city}
+                </Breadcrumb.Item>
+                <Breadcrumb.Item>
+                  {lowiskoData && lowiskoData.name}
+                </Breadcrumb.Item>
               </Breadcrumb>
             </div>
 
             <div className="lowisko_body container">
               <div className="lowisko_card">
-                <h1 className="lowisko_name">{lowiskoData.name}</h1>
+                <h1 className="lowisko_name">
+                  {lowiskoData && lowiskoData.name}
+                </h1>
                 <div className="lowisko_city">
                   <FontAwesomeIcon icon={faMapMarkerAlt} />
-                  <span> {lowiskoData.city}</span>
+                  <span> {lowiskoData && lowiskoData.city}</span>
                 </div>
                 <div
                   className="lowisko_image"
                   style={{
-                    backgroundImage: `url(${lowiskoData.imagePath})`,
+                    backgroundImage: `url(${
+                      lowiskoData && lowiskoData.imagePath
+                    })`,
                   }}
                 ></div>
               </div>
-              <Reservation pegs={lowiskoData.pegs} />
+              <Reservation pegs={lowiskoData && lowiskoData.pegs} />
               <section>
                 {lowiskoData && (
                   <CalendarMedium
                     id={id}
-                    lowiskoDataProp={lowiskoData}
+                    lowiskoData={lowiskoData}
                     maxPegs={
                       lowiskoData?.pegs?.length > 5
                         ? 5
