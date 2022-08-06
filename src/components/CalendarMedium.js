@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import PegDatesRow from "./PegDatesRow";
-import axios from "axios";
+//import axios from "axios";
 import moment from "moment";
 
 const CalendarMedium = function ({ id, lowiskoDataProp, maxPegs, maxDays }) {
@@ -62,6 +62,38 @@ const CalendarMedium = function ({ id, lowiskoDataProp, maxPegs, maxDays }) {
     .map((el, i) =>
       moment(moment().add(otherDays, "day").format()).add(i, "day").format("L")
     );
+  const months = [
+    "styczen",
+    "luty",
+    "marzec",
+    "kwiecien",
+    "maj",
+    "czerwiec",
+    "lipiec",
+    "sierpien",
+    "wrzesien",
+    "pazdziernik",
+    "listopad",
+    "grudzien",
+  ];
+
+  const mpd = daysArr.map(
+    (date) => months[Number(date.split(".")[1]) - 1] + "/" + date.split(".")[2]
+  );
+
+  let arr = [mpd[0].split("/"), mpd[mpd.length - 1].split("/")];
+
+  let str = "";
+
+  if (arr[0][0] === arr[1][0]) {
+    str = arr[0].join(" ");
+  } else {
+    if (arr[0][1] === arr[1][1]) {
+      str = arr[0][0] + "/" + arr[1][0] + " " + arr[0][1];
+    } else {
+      str = arr[0].join(" ") + " / " + arr[1].join(" ");
+    }
+  }
 
   return (
     <CalendarCss>
@@ -82,7 +114,7 @@ const CalendarMedium = function ({ id, lowiskoDataProp, maxPegs, maxDays }) {
           />
         </button>
         <span>wcześniej</span>
-        <span>2022 sierpień</span>
+        <span>{str}</span>
         <span>później</span>
         <button
           className="calendar_lowisko_day_box noStyle"
