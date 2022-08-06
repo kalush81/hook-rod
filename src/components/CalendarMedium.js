@@ -270,7 +270,10 @@ export const CalendarCss = styled.div`
   }
 
   .small {
-    font-size: 9px;
+    font-family: "Lato";
+    font-style: normal;
+    font-size: 12px;
+    color: #828282;
   }
 
   .reserved {
