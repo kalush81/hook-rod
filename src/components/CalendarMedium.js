@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import PegDatesRow from "./PegDatesRow";
-//import axios from "axios";
+import axios from "axios";
 import moment from "moment";
 
 const CalendarMedium = function ({ id, lowiskoDataProp, maxPegs, maxDays }) {
@@ -33,6 +33,7 @@ const CalendarMedium = function ({ id, lowiskoDataProp, maxPegs, maxDays }) {
 
   //   loadCalendar();
   // }, [id]);
+
   const resetQueue = () => {
     setFirstIdx(0);
     setLastIdx(maxPegs);

@@ -61,256 +61,252 @@ const Lowisko = ({ params }) => {
     // get data from API
   }, [id]);
 
+  if (lowiskoData.length < 1)
+    return (
+      <div
+        style={{
+          maxWidth: "700px",
+          margin: "auto",
+          top: "30%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          position: "absolute",
+        }}
+      >
+        <h2>
+          Dane dotyczące tego łowiska są tymczasowo niedostępne, wybierz inne
+          łowisko z listy albo sprawdź później.
+          <p>Za wszelkie niedogodności przepraszamy.</p>
+        </h2>
+      </div>
+    );
+
   return (
     <>
-      {lowiskoData.length ? (
-        <ConfigProvider locale={plPL}>
-          <LowiskoCss>
-            <div className="lowisko">
-              <div className="breadcrumbs">
-                <Breadcrumb>
-                  <Breadcrumb.Item>
-                    <Link to="/">{}</Link>
-                  </Breadcrumb.Item>
-                  <Breadcrumb.Item>Łowiska</Breadcrumb.Item>
-                  <Breadcrumb.Item>{lowiskoData.city}</Breadcrumb.Item>
-                  <Breadcrumb.Item>{lowiskoData.name}</Breadcrumb.Item>
-                </Breadcrumb>
-              </div>
+      <ConfigProvider locale={plPL}>
+        <LowiskoCss>
+          <div className="lowisko">
+            <div className="breadcrumbs">
+              <Breadcrumb>
+                <Breadcrumb.Item>
+                  <Link to="/">{}</Link>
+                </Breadcrumb.Item>
+                <Breadcrumb.Item>Łowiska</Breadcrumb.Item>
+                <Breadcrumb.Item>{lowiskoData.city}</Breadcrumb.Item>
+                <Breadcrumb.Item>{lowiskoData.name}</Breadcrumb.Item>
+              </Breadcrumb>
+            </div>
 
-              <div className="lowisko_body container">
-                <div className="lowisko_card">
-                  <h1 className="lowisko_name">{lowiskoData.name}</h1>
-                  <div className="lowisko_city">
-                    <FontAwesomeIcon icon={faMapMarkerAlt} />
-                    <span> {lowiskoData.city}</span>
-                  </div>
-                  <div
-                    className="lowisko_image"
-                    style={{
-                      backgroundImage: `url(${lowiskoData.imagePath})`,
-                    }}
-                  ></div>
+            <div className="lowisko_body container">
+              <div className="lowisko_card">
+                <h1 className="lowisko_name">{lowiskoData.name}</h1>
+                <div className="lowisko_city">
+                  <FontAwesomeIcon icon={faMapMarkerAlt} />
+                  <span> {lowiskoData.city}</span>
                 </div>
-                <Reservation pegs={lowiskoData.pegs} />
-                <section>
-                  (
-                  {lowiskoData && (
-                    <CalendarMedium
-                      id={id}
-                      lowiskoDataProp={lowiskoData}
-                      maxPegs={
-                        lowiskoData?.pegs?.length > 5
-                          ? 5
-                          : lowiskoData.pegs?.length
-                      }
-                      maxDays={14}
-                    />
-                  )}
-                  )
-                </section>
-                <div className="lowisko_udogo"></div>
-                <div className="lowisko_regu">
-                  <h2>Regulamin Łowiska</h2>
-                  <div className="lowisko_regu_body">
-                    <h3 className="text_toggle" onClick={toggleOpened}>
-                      Regulamin Łowiska Extra-Carp Radymno{" "}
-                      {opened ? " v" : " >"}
-                    </h3>
-                    <Collapse isOpened={opened}>
-                      <p>
-                        1. Wszystkie opłaty dokonujemy u właściciela łowiska lub
-                        osoby upoważnionej. Marcin tel: 793-026-620, Kamil
-                        791-130-256, Maciek 570-510-088, Mateusz 505-973-234
-                        e-mail: kontakt@extra-carp.pl
-                      </p>{" "}
-                      <p>
-                        2. Opłata za wędkowanie to 60 zł za dobę (Każdy wędkarz
-                        ma prawo łowić max. na 3 wędki)
-                      </p>{" "}
-                      <p>
-                        3. W przypadku opuszczenia łowiska przez osobę wędkującą
-                        podczas trwania opłaconej doby opłaty za wędkowanie
-                        pobierane są ponownie.
-                      </p>{" "}
-                      <p>
-                        4. Przed wjazdem na łowisko i jego opuszczeniem należy
-                        powiadomić właściciela lub osobę upoważnioną.
-                      </p>{" "}
-                      <p>
-                        5. Doba na łowisku trwa od godz 12.00 do 12.00
-                        następnego dnia jednak istnieje możliwość wcześniejszego
-                        przyjazdu na stanowisko lub późniejsze jego opuszczenie
-                        po uzgodnieniu z właścicielem, ale tylko w przypadku gdy
-                        na dane stanowisko nie ma kolejnej rezerwacji w tym
-                        terminie.
-                      </p>{" "}
-                      <p>
-                        6. Łowisko czynne od 1 kwietnia do 31 październik, w
-                        miesiącu marcu i listopadzie zależności o warunków
-                        pogodowych.
-                      </p>{" "}
-                      <p>
-                        7. Poza wyznaczonymi terminami obowiązuje całkowity
-                        zakaz wstępu na łowisko bez wiedzy właściciela.
-                      </p>{" "}
-                      <p>
-                        8. W razie wypadków losowych i braku możliwości
-                        przyjazdu na łowisko zwroty zaliczki będą rozpatrywane
-                        indywidualnie.
-                      </p>{" "}
-                      <p>
-                        9. Zaliczkę należy wpłacać z podaniem danych osoby
-                        rezerwującej, terminu przyjazdu oraz numeru
-                        zarezerwowanego stanowiska.
-                      </p>{" "}
-                      <p>
-                        10. Od Karpiarzy wymagane jest posiadanie na stanowisku:
-                        maty karpiowej o długości przynajmniej 120 cm,
-                        szerokości 80cm, grubości 8cm wypełnionej wewnątrz
-                        miękką-stabilną otuliną lub tzw. maty-kołyski, środka do
-                        dezynfekcji, podbieraka o rozstawie ramion 1 metr, żyłki
-                        minimum 0,30mm. Na łowisku można stosować plecionkę, ale
-                        należy wtedy zastosować przypon strzałowy z żyłki mono
-                        lub fluocarbon min 10 m. Dopuszczone wszystkie modele
-                        haków zadziorowych z wyłączeniem haków typu Longshank
-                        nailer tzw. Bananówbr{" "}
-                      </p>
-                      <p>
-                        11. Na łowisku obowiązuje zakaz nęcenia surowymi
-                        zbożami: kukurydza, orzech tygrysi, łubin, pszenica itp.{" "}
-                      </p>
-                      <p>
-                        12. Dozwolone jest wywożenie zestawów oraz nęcenie ze
-                        środka pływającego. Osoby poruszające się po akwenie
-                        środkami pływającymi obligatoryjnie muszą używać kapoków
-                        lub kamizelek asekuracyjnych.{" "}
-                      </p>
-                      <p>
-                        13. Złowione ryby należy po delikatnym wypięciu jak
-                        najszybciej z powrotem wpuścić do akwenu, ryb tych nie
-                        wolno przetrzymywać w workach karpiowych ani też różnego
-                        rodzaju siatkach. Ze złowionymi rybami należy obchodzić
-                        się w sposób bardzo delikatny dbając o ich zdrowie i
-                        bezpieczeństwo, należy polewać je wodą. Złowione okazy
-                        można zważyć i wykonać sesję zdjęciową, która jednak nie
-                        może trwać dłużej niż 5 minut. Ryby o wadze powyżej 20
-                        kg, muszą być zgłoszone do opiekuna.{" "}
-                      </p>
-                      <p>
-                        14. Szczególnie mile będą widziani wędkarze zachowujący
-                        się kulturalnie, spokojnie oraz pozostawiający po sobie
-                        czystość i porządek. Wędkarz zobowiązany jest wysprzątać
-                        swoje stanowisko wędkarskie przed i po zakończeniu
-                        wędkowania (śmieci należy pozostawić w kontenerze
-                        przeznaczonym do tego celu lub zabrać z łowiska ze
-                        sobą). Zaśmiecanie będzie karane karą grzywny 100 zł.
-                      </p>
-                      <p>
-                        15. Właściciele łowiska nie ponoszą odpowiedzialności za
-                        wypadki losowe oraz rzeczy pozostawione na łowisku, a
-                        także zastrzegają sobie prawo do zmiany regulaminu.{" "}
-                      </p>
-                      <p>
-                        16. Osoby łamiące regulamin zostaną wydalone z terenu
-                        obiektu bez zwrotu opłat i bez możliwości ponownego
-                        przyjazdu. Dotyczy to także osób towarzyszących.{" "}
-                      </p>
-                      <p>
-                        17. Osoby, które zostaną przyłapane na kradzieży ryb
-                        zostaną ukarane oraz zatrzymane do dyspozycji policji.{" "}
-                      </p>
-                      <p>
-                        18. Właściciele lub osoby upoważnione mają prawo
-                        kontrolować osoby przebywające na łowisku oraz ich
-                        pojazdy.{" "}
-                      </p>
-                      <p>
-                        19. Każdy przywłaszczony kilogram ryby podlega karze
-                        1000 zł. Nie tolerujemy tzw. „mięsiarzy ” – będą surowo
-                        karani.{" "}
-                      </p>
-                      <p>
-                        20. Jeśli ktoś zostanie złapany na łowieniu wędkami za
-                        które nie została uiszczona opłata poniesie karę w
-                        wysokości 100 zł za każdą nieopłaconą wędkę.{" "}
-                      </p>
-                      <p>
-                        21. Dopuszcza się możliwość wędkowania, rozbijania
-                        namiotów w obrębie stanowiska, jak również zanęcania,
-                        sondowania, stawiania markerów (Nie wolno znaczyć
-                        łowiska przedmiotami innymi niż przeznaczone do tego
-                        celu np. markery). Czynności te nie mogą utrudniać
-                        wędkowania wędkarzom przebywającym na innych
-                        stanowiskach.{" "}
-                      </p>
-                      <p>
-                        22. Na łowisku obowiązuje zakaz spiningowania i łowienia
-                        „na żywca”. Osoby łamiące regulamin zostaną wyproszone z
-                        łowiska.{" "}
-                      </p>
-                      <p>23. Obowiązuje metoda ZŁÓW i WYPUŚĆ „NO KILL” </p>
-                      <p>
-                        24. Kategorycznie zabrania się: – Obowiązuje całkowity
-                        zakaz zabierania ryb. – Przetrzymywania ryb w siatce ,
-                        worku itp. – Brania ryb pod skrzela. – Całkowity zakaz
-                        palenia ognisk (dozwolony grill) – Kąpieli w łowisku. –
-                        Zanieczyszczania łowiska i zaśmiecania terenu łowiska. –
-                        Nadużywania alkoholu, całkowity zakaz zakłócania spokoju
-                        innym użytkownikom łowiska. – Niszczenia zieleni,
-                        łamania drzewek i niszczenia przyrody. – Puszczania psów
-                        bez smyczy i kagańca, poza obrębem swojego stanowiska. –
-                        Nakazuje się łowić na tzw. zestaw z bezpiecznym klipsem.
-                        W razie udaremnienia kłusownictwa na zbiorniku
-                        obowiązuje: Przestępstwo kłusownictwa w ustawie o
-                        rybactwie śródlądowym: Art. 27a. 1. Kto: 1) poławia ryby
-                        nie będąc uprawnionym do rybactwa (art. 4), 2) dokonuje
-                        połowu ryb bez upoważnienia, o którym mowa w art. 5, 3)
-                        narusza zakazy określone w art. 8 ust. 1 pkt 1–10 i ust.
-                        2, z zastrzeżeniem art. 27 ust. 1 pkt 2, 4) narusza
-                        zakazy określone w art. 10 ust. 1, art. 14 ust. 2 oraz
-                        art. 19 ust. 1 – podlega grzywnie, karze ograniczenia
-                        wolności albo pozbawienia wolności do lat 2. 2. W razie
-                        skazania za przestępstwa określone w ust. 1 orzeka się:
-                        1) nawiązkę na rzecz pokrzywdzonego uprawnionego do
-                        rybactwa w wysokości określonej przez sąd, 2) przepadek
-                        narzędzi lub innych przedmiotów, które służyły lub były
-                        przeznaczone do popełnienia przestępstwa, a także
-                        przedmiotów pochodzących bezpośrednio lub pośrednio z
-                        przestępstwa. 3. Orzeczenie o przepadku, o którym mowa w
-                        ust. 2 pkt 2, może dotyczyć również przedmiotów
-                        niestanowiących własności sprawcy. Wejście lub wjazd na
-                        teren łowiska oznacza zgodę oraz akceptację regulaminu
-                        Łowiska Extra-Carp.
-                      </p>
-                    </Collapse>
-                    <div className="text_toggle" onClick={toggleOpened}>
-                      {opened ? "Zwiń..." : "Rozwiń..."}
-                    </div>
+                <div
+                  className="lowisko_image"
+                  style={{
+                    backgroundImage: `url(${lowiskoData.imagePath})`,
+                  }}
+                ></div>
+              </div>
+              <Reservation pegs={lowiskoData.pegs} />
+              <section>
+                (
+                {lowiskoData && (
+                  <CalendarMedium
+                    id={id}
+                    lowiskoDataProp={lowiskoData}
+                    maxPegs={
+                      lowiskoData?.pegs?.length > 5
+                        ? 5
+                        : lowiskoData.pegs?.length
+                    }
+                    maxDays={14}
+                  />
+                )}
+                )
+              </section>
+              <div className="lowisko_udogo"></div>
+              <div className="lowisko_regu">
+                <h2>Regulamin Łowiska</h2>
+                <div className="lowisko_regu_body">
+                  <h3 className="text_toggle" onClick={toggleOpened}>
+                    Regulamin Łowiska Extra-Carp Radymno {opened ? " v" : " >"}
+                  </h3>
+                  <Collapse isOpened={opened}>
+                    <p>
+                      1. Wszystkie opłaty dokonujemy u właściciela łowiska lub
+                      osoby upoważnionej. Marcin tel: 793-026-620, Kamil
+                      791-130-256, Maciek 570-510-088, Mateusz 505-973-234
+                      e-mail: kontakt@extra-carp.pl
+                    </p>{" "}
+                    <p>
+                      2. Opłata za wędkowanie to 60 zł za dobę (Każdy wędkarz ma
+                      prawo łowić max. na 3 wędki)
+                    </p>{" "}
+                    <p>
+                      3. W przypadku opuszczenia łowiska przez osobę wędkującą
+                      podczas trwania opłaconej doby opłaty za wędkowanie
+                      pobierane są ponownie.
+                    </p>{" "}
+                    <p>
+                      4. Przed wjazdem na łowisko i jego opuszczeniem należy
+                      powiadomić właściciela lub osobę upoważnioną.
+                    </p>{" "}
+                    <p>
+                      5. Doba na łowisku trwa od godz 12.00 do 12.00 następnego
+                      dnia jednak istnieje możliwość wcześniejszego przyjazdu na
+                      stanowisko lub późniejsze jego opuszczenie po uzgodnieniu
+                      z właścicielem, ale tylko w przypadku gdy na dane
+                      stanowisko nie ma kolejnej rezerwacji w tym terminie.
+                    </p>{" "}
+                    <p>
+                      6. Łowisko czynne od 1 kwietnia do 31 październik, w
+                      miesiącu marcu i listopadzie zależności o warunków
+                      pogodowych.
+                    </p>{" "}
+                    <p>
+                      7. Poza wyznaczonymi terminami obowiązuje całkowity zakaz
+                      wstępu na łowisko bez wiedzy właściciela.
+                    </p>{" "}
+                    <p>
+                      8. W razie wypadków losowych i braku możliwości przyjazdu
+                      na łowisko zwroty zaliczki będą rozpatrywane
+                      indywidualnie.
+                    </p>{" "}
+                    <p>
+                      9. Zaliczkę należy wpłacać z podaniem danych osoby
+                      rezerwującej, terminu przyjazdu oraz numeru
+                      zarezerwowanego stanowiska.
+                    </p>{" "}
+                    <p>
+                      10. Od Karpiarzy wymagane jest posiadanie na stanowisku:
+                      maty karpiowej o długości przynajmniej 120 cm, szerokości
+                      80cm, grubości 8cm wypełnionej wewnątrz miękką-stabilną
+                      otuliną lub tzw. maty-kołyski, środka do dezynfekcji,
+                      podbieraka o rozstawie ramion 1 metr, żyłki minimum
+                      0,30mm. Na łowisku można stosować plecionkę, ale należy
+                      wtedy zastosować przypon strzałowy z żyłki mono lub
+                      fluocarbon min 10 m. Dopuszczone wszystkie modele haków
+                      zadziorowych z wyłączeniem haków typu Longshank nailer
+                      tzw. Bananówbr{" "}
+                    </p>
+                    <p>
+                      11. Na łowisku obowiązuje zakaz nęcenia surowymi zbożami:
+                      kukurydza, orzech tygrysi, łubin, pszenica itp.{" "}
+                    </p>
+                    <p>
+                      12. Dozwolone jest wywożenie zestawów oraz nęcenie ze
+                      środka pływającego. Osoby poruszające się po akwenie
+                      środkami pływającymi obligatoryjnie muszą używać kapoków
+                      lub kamizelek asekuracyjnych.{" "}
+                    </p>
+                    <p>
+                      13. Złowione ryby należy po delikatnym wypięciu jak
+                      najszybciej z powrotem wpuścić do akwenu, ryb tych nie
+                      wolno przetrzymywać w workach karpiowych ani też różnego
+                      rodzaju siatkach. Ze złowionymi rybami należy obchodzić
+                      się w sposób bardzo delikatny dbając o ich zdrowie i
+                      bezpieczeństwo, należy polewać je wodą. Złowione okazy
+                      można zważyć i wykonać sesję zdjęciową, która jednak nie
+                      może trwać dłużej niż 5 minut. Ryby o wadze powyżej 20 kg,
+                      muszą być zgłoszone do opiekuna.{" "}
+                    </p>
+                    <p>
+                      14. Szczególnie mile będą widziani wędkarze zachowujący
+                      się kulturalnie, spokojnie oraz pozostawiający po sobie
+                      czystość i porządek. Wędkarz zobowiązany jest wysprzątać
+                      swoje stanowisko wędkarskie przed i po zakończeniu
+                      wędkowania (śmieci należy pozostawić w kontenerze
+                      przeznaczonym do tego celu lub zabrać z łowiska ze sobą).
+                      Zaśmiecanie będzie karane karą grzywny 100 zł.
+                    </p>
+                    <p>
+                      15. Właściciele łowiska nie ponoszą odpowiedzialności za
+                      wypadki losowe oraz rzeczy pozostawione na łowisku, a
+                      także zastrzegają sobie prawo do zmiany regulaminu.{" "}
+                    </p>
+                    <p>
+                      16. Osoby łamiące regulamin zostaną wydalone z terenu
+                      obiektu bez zwrotu opłat i bez możliwości ponownego
+                      przyjazdu. Dotyczy to także osób towarzyszących.{" "}
+                    </p>
+                    <p>
+                      17. Osoby, które zostaną przyłapane na kradzieży ryb
+                      zostaną ukarane oraz zatrzymane do dyspozycji policji.{" "}
+                    </p>
+                    <p>
+                      18. Właściciele lub osoby upoważnione mają prawo
+                      kontrolować osoby przebywające na łowisku oraz ich
+                      pojazdy.{" "}
+                    </p>
+                    <p>
+                      19. Każdy przywłaszczony kilogram ryby podlega karze 1000
+                      zł. Nie tolerujemy tzw. „mięsiarzy ” – będą surowo karani.{" "}
+                    </p>
+                    <p>
+                      20. Jeśli ktoś zostanie złapany na łowieniu wędkami za
+                      które nie została uiszczona opłata poniesie karę w
+                      wysokości 100 zł za każdą nieopłaconą wędkę.{" "}
+                    </p>
+                    <p>
+                      21. Dopuszcza się możliwość wędkowania, rozbijania
+                      namiotów w obrębie stanowiska, jak również zanęcania,
+                      sondowania, stawiania markerów (Nie wolno znaczyć łowiska
+                      przedmiotami innymi niż przeznaczone do tego celu np.
+                      markery). Czynności te nie mogą utrudniać wędkowania
+                      wędkarzom przebywającym na innych stanowiskach.{" "}
+                    </p>
+                    <p>
+                      22. Na łowisku obowiązuje zakaz spiningowania i łowienia
+                      „na żywca”. Osoby łamiące regulamin zostaną wyproszone z
+                      łowiska.{" "}
+                    </p>
+                    <p>23. Obowiązuje metoda ZŁÓW i WYPUŚĆ „NO KILL” </p>
+                    <p>
+                      24. Kategorycznie zabrania się: – Obowiązuje całkowity
+                      zakaz zabierania ryb. – Przetrzymywania ryb w siatce ,
+                      worku itp. – Brania ryb pod skrzela. – Całkowity zakaz
+                      palenia ognisk (dozwolony grill) – Kąpieli w łowisku. –
+                      Zanieczyszczania łowiska i zaśmiecania terenu łowiska. –
+                      Nadużywania alkoholu, całkowity zakaz zakłócania spokoju
+                      innym użytkownikom łowiska. – Niszczenia zieleni, łamania
+                      drzewek i niszczenia przyrody. – Puszczania psów bez
+                      smyczy i kagańca, poza obrębem swojego stanowiska. –
+                      Nakazuje się łowić na tzw. zestaw z bezpiecznym klipsem. W
+                      razie udaremnienia kłusownictwa na zbiorniku obowiązuje:
+                      Przestępstwo kłusownictwa w ustawie o rybactwie
+                      śródlądowym: Art. 27a. 1. Kto: 1) poławia ryby nie będąc
+                      uprawnionym do rybactwa (art. 4), 2) dokonuje połowu ryb
+                      bez upoważnienia, o którym mowa w art. 5, 3) narusza
+                      zakazy określone w art. 8 ust. 1 pkt 1–10 i ust. 2, z
+                      zastrzeżeniem art. 27 ust. 1 pkt 2, 4) narusza zakazy
+                      określone w art. 10 ust. 1, art. 14 ust. 2 oraz art. 19
+                      ust. 1 – podlega grzywnie, karze ograniczenia wolności
+                      albo pozbawienia wolności do lat 2. 2. W razie skazania za
+                      przestępstwa określone w ust. 1 orzeka się: 1) nawiązkę na
+                      rzecz pokrzywdzonego uprawnionego do rybactwa w wysokości
+                      określonej przez sąd, 2) przepadek narzędzi lub innych
+                      przedmiotów, które służyły lub były przeznaczone do
+                      popełnienia przestępstwa, a także przedmiotów pochodzących
+                      bezpośrednio lub pośrednio z przestępstwa. 3. Orzeczenie o
+                      przepadku, o którym mowa w ust. 2 pkt 2, może dotyczyć
+                      również przedmiotów niestanowiących własności sprawcy.
+                      Wejście lub wjazd na teren łowiska oznacza zgodę oraz
+                      akceptację regulaminu Łowiska Extra-Carp.
+                    </p>
+                  </Collapse>
+                  <div className="text_toggle" onClick={toggleOpened}>
+                    {opened ? "Zwiń..." : "Rozwiń..."}
                   </div>
                 </div>
               </div>
             </div>
-          </LowiskoCss>
-        </ConfigProvider>
-      ) : (
-        <div
-          style={{
-            maxWidth: "700px",
-            margin: "auto",
-            top: "30%",
-            left: "50%",
-            transform: "translateX(-50%)",
-            position: "absolute",
-          }}
-        >
-          <h2>
-            Dane dotyczące tego łowiska są tymczasowo niedostępne, wybierz inne
-            łowisko z listy albo sprawdź później.
-            <p>Za wszelkie niedogodności przepraszamy.</p>
-          </h2>
-        </div>
-      )}
+          </div>
+        </LowiskoCss>
+      </ConfigProvider>
     </>
   );
 };
