@@ -19,18 +19,14 @@ import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import CalendarMedium from "../../components/CalendarMedium";
 import Reservation from "../../components/Reservation.js";
 
-// const handleChange = (value) => {
-//   console.log(`selected ${value}`);
-// };
-
 const Lowisko = ({ params }) => {
-  console.log(params);
   const { id } = params;
 
   const [opened, setOpened] = useState(false);
-  const toggleOpened = () => setOpened((value) => !value);
-
   const [lowiskoData, setLowiskoData] = useState([]);
+  const [isError, setIsError] = useState(false);
+
+  const toggleOpened = () => setOpened((value) => !value);
 
   useEffect(() => {
     const loadLowiskoData = async () => {
@@ -50,9 +46,16 @@ const Lowisko = ({ params }) => {
           }
         );
         setLowiskoData(response.data);
-        console.log("LOWISKo DATA", response.data);
       } catch (error) {
-        console.log(`can not get lowisko, ${id}`);
+        if (error.response) {
+          if (error.response.status === 404) {
+            setIsError(error.response.data.message);
+          } else {
+            setIsError(
+              ` ${error.status} \n Za wszelkie niedogodności przepraszamy. `
+            );
+          }
+        }
       }
     };
 
@@ -74,9 +77,11 @@ const Lowisko = ({ params }) => {
         }}
       >
         <h2>
-          Dane dotyczące tego łowiska są tymczasowo niedostępne, wybierz inne
-          łowisko z listy albo sprawdź później.
-          <p>Za wszelkie niedogodności przepraszamy.</p>
+          {isError ? (
+            <span>{isError}</span>
+          ) : (
+            <span>...ładowanie danych łowiska</span>
+          )}
         </h2>
       </div>
     );
