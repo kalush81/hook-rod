@@ -89,7 +89,7 @@ const CalendarMedium = function ({ id, lowiskoDataProp, maxPegs, maxDays }) {
     str = arr[0].join(" ");
   } else {
     if (arr[0][1] === arr[1][1]) {
-      str = arr[0][0] + "/" + arr[1][0] + " " + arr[0][1];
+      str = arr[0][0] + " / " + arr[1][0] + " " + arr[0][1];
     } else {
       str = arr[0].join(" ") + " / " + arr[1].join(" ");
     }

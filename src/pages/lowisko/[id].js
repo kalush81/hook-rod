@@ -118,7 +118,6 @@ const Lowisko = ({ params }) => {
               </div>
               <Reservation pegs={lowiskoData.pegs} />
               <section>
-                (
                 {lowiskoData && (
                   <CalendarMedium
                     id={id}
@@ -131,7 +130,6 @@ const Lowisko = ({ params }) => {
                     maxDays={14}
                   />
                 )}
-                )
               </section>
               <div className="lowisko_udogo"></div>
               <div className="lowisko_regu">
