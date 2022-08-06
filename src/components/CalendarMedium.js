@@ -143,7 +143,7 @@ const CalendarMedium = function ({ id, lowiskoDataProp, maxPegs, maxDays }) {
         {daysArr.map((day) => {
           return (
             <span className="calendar_lowisko_day_box small noStyle">
-              {day}
+              {day.substring(0, 5)}
             </span>
           );
         })}
@@ -270,7 +270,7 @@ export const CalendarCss = styled.div`
   }
 
   .small {
-    font-size: 7px;
+    font-size: 9px;
   }
 
   .reserved {
