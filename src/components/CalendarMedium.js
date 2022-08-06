@@ -284,9 +284,8 @@ export const CalendarCss = styled.div`
 
   .flex {
     display: flex;
-
     align-items: center;
-    justify-content: end;
+    justify-content: center;
   }
   .flex > span {
     margin-left: 1.5rem;
