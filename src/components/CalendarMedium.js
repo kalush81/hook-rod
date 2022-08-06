@@ -97,9 +97,9 @@ const CalendarMedium = function ({ id, lowiskoDataProp, maxPegs, maxDays }) {
 
   return (
     <CalendarCss>
-      <div>{id}</div>
+      {/* <div>{id}</div> */}
       <header className="calendar_header">
-        <h3>Sprawdź dostępne terminy</h3>
+        <h3 style={{ textAlign: "center" }}>Terminarz rezerwacji</h3>
       </header>
 
       <div className="flex">
@@ -200,7 +200,7 @@ export const CalendarCss = styled.div`
   .calendar_header {
     display: flex;
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .calendar_header h3 {
