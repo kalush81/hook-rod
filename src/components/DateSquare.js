@@ -1,5 +1,4 @@
 import React from "react";
-import { isDayBooked } from "../utils/booking-checker";
 
 function DateSquare({ day, bookingData }) {
   console.log("bookingData in DateSquare", bookingData);

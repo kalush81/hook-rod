@@ -267,7 +267,21 @@ export const CalendarCss = styled.div`
   }
 
   span.pending {
-    background-color: yellow;
+    background-color: grey;
+    z-index: 1;
+    position: relative;
+  }
+  span.pending::after {
+    position: absolute;
+    bottom: -2px;
+    display: block;
+    width: 50px;
+    height: 12px;
+    content: "oczekująca";
+    z-index: -1;
+    font-size: 7px;
+    text-align: center;
+    color: white;
   }
 
   .noStyle {
