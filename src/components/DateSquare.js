@@ -9,7 +9,7 @@ function DateSquare({ day, bookingData }) {
           bookingData.status === "PENDING" ? "pending" : "reserved"
         }`}
       >
-        <img src="../../X.svg" alt="" />
+        {bookingData.status === "PAID" && <img src="../../X.svg" alt="" />}
       </span>
     );
   }

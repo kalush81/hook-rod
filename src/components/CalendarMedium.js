@@ -270,14 +270,16 @@ export const CalendarCss = styled.div`
     background-color: grey;
     z-index: 1;
     position: relative;
+    cursor: not-allowed;
   }
   span.pending::after {
     position: absolute;
-    bottom: -2px;
+    bottom: 50%;
+    left: -2px;
     display: block;
     width: 50px;
     height: 12px;
-    content: "oczekująca";
+    content: "rezerwacja oczekująca";
     z-index: -1;
     font-size: 7px;
     text-align: center;
