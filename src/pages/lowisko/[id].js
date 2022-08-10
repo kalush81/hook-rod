@@ -150,8 +150,6 @@ const Lowisko = ({ params }) => {
 
   const toggleOpened = () => setOpened((value) => !value);
 
-  console.log("lowiskoData in[id].js", lowiskoData);
-
   useEffect(() => {
     const loadLowiskoData = async () => {
       try {
