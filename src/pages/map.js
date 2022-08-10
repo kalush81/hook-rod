@@ -1,8 +1,9 @@
+//todos
+//1. get fishery data from gatsby data layer using grapql;
+
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-import axios from "axios";
 import { Link } from "gatsby";
-
 import Pin from "../assets/images/pin.svg";
 import Fish from "../assets/images/fish.svg";
 import Trophy from "../assets/images/trophy.svg";
@@ -20,37 +21,37 @@ const Map = () => {
   const handleClick = (e) => {
     setVoiv(e.target.id);
   };
-  const loadLowiskaByVoivodeship = async () => {
-    // get data from API
-    const response = await axios.get(
-      `https://karpteam.herokuapp.com/api/lakes/woj?voivodeship=${voiv}`,
-      {
-        mode: "cors",
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        withCredentials: false,
-        credentials: "same-origin",
-        crossdomain: true,
-      }
-    );
-    console.log("Lowiska Data", response.data);
-    setLowiska(response.data);
-    if (response.data.length === 0) {
-      setError(true);
-    } else {
-      setError(false);
-      ref.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-  useEffect(() => {
-    if (voiv === null) {
-      return;
-    }
-    loadLowiskaByVoivodeship();
-  }, [voiv]);
+  // const loadLowiskaByVoivodeship = async () => {
+  //   // get data from API
+  //   const response = await axios.get(
+  //     `https://karpteam.herokuapp.com/api/lakes/woj?voivodeship=${voiv}`,
+  //     {
+  //       mode: "cors",
+  //       headers: {
+  //         "Access-Control-Allow-Origin": "*",
+  //         Accept: "application/json",
+  //         "Content-Type": "application/json",
+  //       },
+  //       withCredentials: false,
+  //       credentials: "same-origin",
+  //       crossdomain: true,
+  //     }
+  //   );
+  //   console.log("Lowiska Data", response.data);
+  //   setLowiska(response.data);
+  //   if (response.data.length === 0) {
+  //     setError(true);
+  //   } else {
+  //     setError(false);
+  //     ref.current.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
+  // useEffect(() => {
+  //   if (voiv === null) {
+  //     return;
+  //   }
+  //   loadLowiskaByVoivodeship();
+  // }, [voiv]);
 
   return (
     <MapCss>
@@ -228,7 +229,8 @@ const Map = () => {
                       alt="silhouette"
                       src={Silhouette}
                     ></img>
-                    <b>Liczba stanowisk: </b>{lowisko.numberOfPegs || 'nieznana'}
+                    <b>Liczba stanowisk: </b>
+                    {lowisko.numberOfPegs || "nieznana"}
                   </div>
                   <div className="lowi_itm_amnt cena">
                     <img className="dollar" alt="dollar" src={Dollar}></img>
