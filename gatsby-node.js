@@ -24,7 +24,7 @@ exports.sourceNodes = async ({
 
     resultData.forEach((data) => {
       createNode({
-        // nameWithOwner and url are arbitrary fields from the data
+        //use any arbitrary fields from the data
         name: data.name,
         city: data.city,
         voiv: data.voivodeship,
@@ -40,5 +40,8 @@ exports.sourceNodes = async ({
     });
   } catch (err) {
     console.log("err...", err);
+    reporter.info(
+      `there was a problem while fetching data for nodes creation from fishery api`
+    );
   }
 };
