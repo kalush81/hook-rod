@@ -3,12 +3,12 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-import { Link } from "gatsby";
-import Pin from "../assets/images/pin.svg";
-import Fish from "../assets/images/fish.svg";
-import Trophy from "../assets/images/trophy.svg";
-import Silhouette from "../assets/images/silhouette.svg";
-import Dollar from "../assets/images/dollar.svg";
+import { graphql, Link } from "gatsby";
+import Pin from "../../assets/images/pin.svg";
+import Fish from "../../assets/images/fish.svg";
+import Trophy from "../../assets/images/trophy.svg";
+import Silhouette from "../../assets/images/silhouette.svg";
+import Dollar from "../../assets/images/dollar.svg";
 
 const Map = () => {
   const initialName = "Wybierz Województwo";
@@ -245,6 +245,19 @@ const Map = () => {
     </MapCss>
   );
 };
+
+// export const query = graphql`
+//   query AllFishery {
+//     allFishery {
+//       nodes {
+//         city
+//         id
+//         name
+//         voiv
+//       }
+//     }
+//   }
+// `;
 
 const MapCss = styled.div`
   overflow-x: hidden;

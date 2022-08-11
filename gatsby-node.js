@@ -29,7 +29,16 @@ const voivodeshipsData = [
       imagePath: null,
       city: "Jerzyn",
       voivodeship: "Wielkopolskie",
-      numberOfPegs: null,
+      numberOfPegs: 12,
+      priceRange: {
+        cheapest: 10,
+        higest: 40,
+      },
+      record: {
+        name: "Karp",
+        weight: 55,
+        size: 70,
+      },
       info: [
         `Wszystkie opłaty dokonujemy u właściciela łowiska lub
         osoby upoważnionej. Marcin tel: 793-026-620, Kamil
@@ -333,6 +342,7 @@ exports.sourceNodes = async ({
         data.forEach((data) => {
           createNode({
             id: String(data.id), //required for gatsby to process
+            slug: data.voivodeship,
             //use any arbitrary fields from the data
             name: data.name,
             city: data.city,
