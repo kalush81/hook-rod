@@ -29,6 +29,7 @@ const voivodeshipsData = [
       imagePath: null,
       city: "Jerzyn",
       voivodeship: "Wielkopolskie",
+      slug: "wielkopolskie",
       numberOfPegs: 12,
       priceRange: {
         cheapest: 10,
@@ -201,6 +202,7 @@ const voivodeshipsData = [
       imagePath: null,
       city: "Czechowidze-Dziedzice",
       voivodeship: "Śląskie",
+      slug: "slaskie",
       numberOfPegs: null,
     },
   ],
@@ -213,6 +215,7 @@ const voivodeshipsData = [
       imagePath: null,
       city: "Szymanowice",
       voivodeship: "Świętokrzyskie",
+      slug: "swietokrzyskie",
       numberOfPegs: null,
     },
   ],
@@ -224,6 +227,7 @@ const voivodeshipsData = [
       imagePath: null,
       city: "Nasutów",
       voivodeship: "Lubelskie",
+      slug: "lubelskie",
       numberOfPegs: null,
     },
   ],
@@ -234,6 +238,7 @@ const voivodeshipsData = [
       imagePath: "https://i.ibb.co/H76PLN1/received-301554618657421.jpg",
       city: "Stalowa Wola",
       voivodeship: "Podkarpackie",
+      slug: "podkarpackie",
       numberOfPegs: 5,
     },
     {
@@ -243,6 +248,7 @@ const voivodeshipsData = [
         "https://i.ibb.co/HCK0mF9/278576123-5179840055409237-3808512376689358088-n.jpg",
       city: "Zgoda",
       voivodeship: "Podkarpackie",
+      slug: "podkarpackie",
       numberOfPegs: 123,
     },
     {
@@ -252,6 +258,7 @@ const voivodeshipsData = [
         "https://i.ibb.co/KVXK2G5/117714995-3471086599610855-7441530922398424970-o.jpg",
       city: "Radymno",
       voivodeship: "Podkarpackie",
+      slug: "podkarpackie",
       numberOfPegs: 2,
     },
     {
@@ -260,6 +267,7 @@ const voivodeshipsData = [
       imagePath: null,
       city: "Krzemienna",
       voivodeship: "Podkarpackie",
+      slug: "podkarpackie",
       numberOfPegs: null,
     },
     {
@@ -269,6 +277,7 @@ const voivodeshipsData = [
         "https://i.ibb.co/yYGxXWt/90645521-1571791229663500-7710748060590014464-n.jpg",
       city: "Jamnica",
       voivodeship: "Podkarpackie",
+      slug: "podkarpackie",
       numberOfPegs: null,
     },
     {
@@ -277,6 +286,7 @@ const voivodeshipsData = [
       imagePath: null,
       city: "Chwałowice",
       voivodeship: "Podkarpackie",
+      slug: "podkarpackie",
       numberOfPegs: null,
     },
     {
@@ -285,6 +295,7 @@ const voivodeshipsData = [
       imagePath: null,
       city: "TEST",
       voivodeship: "Podkarpackie",
+      slug: "podkarpackie",
       numberOfPegs: 6,
     },
   ],
@@ -295,6 +306,7 @@ const voivodeshipsData = [
       imagePath: null,
       city: "Tarnów",
       voivodeship: "Małopolskie",
+      slug: "malopolskie",
       numberOfPegs: null,
     },
   ],
@@ -341,9 +353,9 @@ exports.sourceNodes = async ({
       if (data.length > 0) {
         data.forEach((data) => {
           createNode({
-            id: String(data.id), //required for gatsby to process
-            slug: data.voivodeship,
-            //use any arbitrary fields from the data
+            id: String(data.id), //id is required for gatsby to process
+            slug: data.slug,
+            imagePath: data.imagePath,
             name: data.name,
             city: data.city,
             voiv: data.voivodeship,

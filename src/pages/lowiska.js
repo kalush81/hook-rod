@@ -10,6 +10,12 @@ import "moment/locale/pl";
 
 import SearchBar from "../components/SearchBar";
 
+import Pin from "../assets/images/pin.svg";
+import Fish from "../assets/images/fish.svg";
+import Trophy from "../assets/images/trophy.svg";
+import Silhouette from "../assets/images/silhouette.svg";
+import Dollar from "../assets/images/dollar.svg";
+
 const { Option } = Select;
 
 const handleChange = (value) => {
@@ -136,7 +142,7 @@ const Lowiska = function ({ location }) {
                       <li className="lowi_itm">
                         <Link to={`/lowisko/${data.id}`}>
                           <div className="lowisko_img">
-                            <StaticImage
+                            <img
                               alt="fish"
                               src={
                                 //lowiskaArr.imagePath
@@ -147,43 +153,27 @@ const Lowiska = function ({ location }) {
                           </div>
                           <h2 className="lowi_itm_header">{data.name}</h2>
                           <div className="lowi_itm_amnt lokalizacja">
-                            <StaticImage
-                              className="pin"
-                              alt="pin"
-                              src="../assets/images/pin.svg"
-                            />
+                            <img className="pin" alt="pin" src={Pin} />
                             <b>Lokalizacja</b>
                           </div>
                           <div className="lowi_itm_amnt">
-                            <StaticImage
-                              className="fish"
-                              alt="fishsvg"
-                              src="../assets/images/fish.svg"
-                            />
+                            <img className="fish" alt="fishsvg" src={Fish} />
                             <b>Odmiany: </b>Karp, Jesiotr, Okoń
                           </div>
                           <div className="lowi_itm_amnt">
-                            <StaticImage
-                              className="trophy"
-                              alt="trophy"
-                              src="../assets/images/trophy.svg"
-                            />
+                            <img className="trophy" alt="trophy" src={Trophy} />
                             <b>Rekord: </b>Karp 55kg 70cm
                           </div>
                           <div className="lowi_itm_amnt stanowiska">
-                            <StaticImage
+                            <img
                               className="silhouette"
                               alt="silhouette"
-                              src="../assets/images/silhouette.svg"
+                              src={Silhouette}
                             />
                             <b>Liczba stanowisk: </b>6
                           </div>
                           <div className="lowi_itm_amnt cena">
-                            <StaticImage
-                              className="dollar"
-                              alt="dollar"
-                              src="../assets/images/dollar.svg"
-                            />
+                            <img className="dollar" alt="dollar" src={Dollar} />
                             <b>Od 25zł / osoba</b>
                           </div>
                           <div className="lowi_itm_distance">

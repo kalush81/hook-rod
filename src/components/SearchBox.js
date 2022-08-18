@@ -208,10 +208,24 @@ const SearchBox = () => {
                 size="large"
                 ref={buttonRef}
                 style={{
-                  width: 180,
+                  width: 150,
                 }}
               >
                 SZUKAJ
+              </Button>
+              <span style={{ margin: "0 1rem" }}>lub</span>
+            </Link>
+            <Link to="/voivodeships-map">
+              <Button
+                className="home_cover_search_btn"
+                type="secondary"
+                size="large"
+                ref={buttonRef}
+                style={{
+                  width: 150,
+                }}
+              >
+                wybierz z mapy
               </Button>
             </Link>
           </div>
