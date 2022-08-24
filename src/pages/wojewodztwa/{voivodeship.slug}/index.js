@@ -1,6 +1,5 @@
 import * as React from "react";
 import { graphql, Link } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
 import Layout from "../../../components/layout";
 import styled from "styled-components";
 
@@ -9,24 +8,26 @@ import Fish from "../../../assets/images/fish.svg";
 import Trophy from "../../../assets/images/trophy.svg";
 import Silhouette from "../../../assets/images/silhouette.svg";
 import Dollar from "../../../assets/images/dollar.svg";
-import { FisheryDiv as Div } from "../../../components/MapCss";
+import Map from "../../../components/MapCss";
 
 //prettier-ignore
-function Voivodeship({
-  data: { allFishery: { nodes }, }, pageContext: { slug } }) {
-  console.log(nodes);
-
+function Fisheries({data: {voivodeship: {fisheries}}}) {
+  console.log(fisheries)
   return (
     <Layout>
-      <Header>lista łowisk w {slug}</Header>
+      <Header>lista łowisk w : </Header>
       {/*prettier-ignore*/}
-      {nodes.map(
-        ({ slug, voiv, name, city, id, imagePath, numberOfPegs = "nieznana" }) => {
+      
+    <Map wasSelected={true}>
+
+      <div className="lowiskadiv">
+      {fisheries.map(
+        ({ name, id, imagePath, numberOfPegs = 'nieznana', city }) => {
           return (
-            <Div>
-              <div key={id} >
-                <li className="lowi_itm">
-                  <Link to={`/lowisko/${id}`}>
+            <div  key={id}>
+
+                <li className="lowi_itm" >
+                  <Link to={`${name.toLowerCase()}`} >
                     <div className="lowisko_img">
                       <img
                         alt="fish"
@@ -36,7 +37,8 @@ function Voivodeship({
                     <h2 className="lowi_itm_header">{name}</h2>
                     <div className="lowi_itm_amnt lokalizacja">
                       <img className="pin" alt="pin" src={Pin}></img>
-                      <b>Lokalizacja</b>
+                      <b>Lokalizacja: </b>
+                      {city}
                     </div>
                     <div className="lowi_itm_amnt">
                       <img className="fish" alt="fishsvg" src={Fish}></img>
@@ -53,7 +55,7 @@ function Voivodeship({
                         src={Silhouette}
                       ></img>
                       <b>Liczba stanowisk: </b>
-                      {numberOfPegs}
+                      {numberOfPegs || 'nieznana'}
                     </div>
                     <div className="lowi_itm_amnt cena">
                       <img className="dollar" alt="dollar" src={Dollar}></img>
@@ -61,28 +63,30 @@ function Voivodeship({
                     </div>
                   </Link>
                 </li>
-              </div>
-            </Div>
+            </div>
           );
         }
-      )}
+      )} 
+        </div>
+        
+      {/* </FisheryDiv> */}
+    </Map>
+
+      
     </Layout>
   );
 }
 
 export const query = graphql`
-  query AllFishery($slug: String) {
-    allFishery(filter: { slug: { eq: $slug } }) {
-      nodes {
-        id
-        slug
-        voiv
+  query QueryAllFisheries($slug: String) {
+    voivodeship(slug: { eq: $slug }) {
+      fisheries {
         name
+        id
+        imagePath
+        info
+        numberOfPegs
         city
-        activities {
-          allowed
-          forbidden
-        }
       }
     }
   }
@@ -91,12 +95,5 @@ const Header = styled.h1`
   margin-top: 80px;
   text-align: center;
 `;
-// const Div = styled.div`
-//   overflow-x: hidden;
-//   overflow-y: scroll;
-//   height: calc(100vh - 120px);
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// `;
-export default Voivodeship;
+
+export default Fisheries;
