@@ -9,8 +9,8 @@ const CalendarMedium = function ({ id, lowiskoData, maxPegs, maxDays }) {
   const [lastIdx, setLastIdx] = useState(maxPegs);
   const [otherDays, setOtherDays] = useState(0);
 
-  const { pegs } = lowiskoData;
-  console.log("pegs", pegs);
+  // const { pegs } = lowiskoData;
+  // console.log("pegs", pegs);
 
   // useEffect(() => {
   //   const loadCalendar = async () => {
@@ -146,20 +146,19 @@ const CalendarMedium = function ({ id, lowiskoData, maxPegs, maxDays }) {
 
       {/* <div className="calendar_date_selector"></div> */}
       <div className="calendar_lowiska_list border">
-        {pegs &&
-          pegs.map((peg, i) => {
-            if (i >= firstIdx && i < lastIdx) {
-              console.log("dzialam");
-              return (
-                <PegDatesRow
-                  peg={peg}
-                  currentDay={moment().add(otherDays, "day").format()}
-                  maxDays={maxDays}
-                  daysArr={daysArr}
-                />
-              );
-            }
-          })}
+        {/* {pegs.map((peg, i) => {
+          if (i >= firstIdx && i < lastIdx) {
+            console.log("dzialam");
+            return (
+              <PegDatesRow
+                peg={peg}
+                currentDay={moment().add(otherDays, "day").format()}
+                maxDays={maxDays}
+                daysArr={daysArr}
+              />
+            );
+          }
+        })} */}
 
         <button
           className="calendar_lowisko_day_box block noStyle"

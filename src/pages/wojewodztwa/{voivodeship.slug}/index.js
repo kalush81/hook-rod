@@ -13,6 +13,11 @@ import Map from "../../../components/MapCss";
 //prettier-ignore
 function Fisheries({data: {voivodeship: {fisheries}}}) {
   console.log(fisheries)
+  const listSpecies = (species) => {
+    return species.map(name => {
+      return <span>{name + ' '}</span>
+    })
+  }
   return (
     <Layout>
       <Header>lista łowisk w : </Header>
@@ -22,16 +27,16 @@ function Fisheries({data: {voivodeship: {fisheries}}}) {
 
       <div className="lowiskadiv">
       {fisheries.map(
-        ({ name, id, imagePath, numberOfPegs = 'nieznana', city }) => {
+        ({ name, id, imagePath, numberOfPegs, city, record, priceRange, species }) => {
           return (
             <div  key={id}>
 
                 <li className="lowi_itm" >
-                  <Link to={`${name.toLowerCase()}`} >
+                  <Link to={`${name}`} >
                     <div className="lowisko_img">
                       <img
                         alt="fish"
-                        src="https://i.ibb.co/H76PLN1/received-301554618657421.jpg"
+                        src={imagePath || "https://i.ibb.co/H76PLN1/received-301554618657421.jpg"}
                       />
                     </div>
                     <h2 className="lowi_itm_header">{name}</h2>
@@ -42,11 +47,11 @@ function Fisheries({data: {voivodeship: {fisheries}}}) {
                     </div>
                     <div className="lowi_itm_amnt">
                       <img className="fish" alt="fishsvg" src={Fish}></img>
-                      <b>Odmiany: </b>Karp, Jesiotr, Okoń - przykład
+                      <b>Odmiany: </b>{species && listSpecies(species)}
                     </div>
                     <div className="lowi_itm_amnt">
                       <img className="trophy" alt="trophy" src={Trophy}></img>
-                      <b>Rekord: </b>Karp 55kg 70cm - przykład
+                      <b>Rekord: </b>{record?.name} {record?.size} {record?.weight}
                     </div>
                     <div className="lowi_itm_amnt stanowiska">
                       <img
@@ -55,11 +60,11 @@ function Fisheries({data: {voivodeship: {fisheries}}}) {
                         src={Silhouette}
                       ></img>
                       <b>Liczba stanowisk: </b>
-                      {numberOfPegs || 'nieznana'}
+                      {numberOfPegs}
                     </div>
                     <div className="lowi_itm_amnt cena">
                       <img className="dollar" alt="dollar" src={Dollar}></img>
-                      <b>Od 25zł / osoba</b>
+                      <b>Od {priceRange?.from} / osoba</b>
                     </div>
                   </Link>
                 </li>
@@ -81,13 +86,28 @@ export const query = graphql`
   query QueryAllFisheries($slug: String) {
     voivodeship(slug: { eq: $slug }) {
       fisheries {
-        name
+        activities {
+          allowed
+          forbidden
+        }
+        species
+        city
         id
         imagePath
         info
+        name
         numberOfPegs
-        city
+        priceRange {
+          from
+        }
+        record {
+          name
+          size
+          weight
+        }
+        voivodeship
       }
+      id
     }
   }
 `;
