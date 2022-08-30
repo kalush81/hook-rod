@@ -602,21 +602,21 @@ const LowiskoCss = styled.div`
     background: rgba(var(--offwhitergba), 0.49);
   }
 
-  .owisko_cal_day--available {
+  .lowisko_cal_day--available {
     background: var(--litegreen);
     cursor: pointer;
     color: var(--black);
   }
-  .owisko_cal_day--selected {
+  .lowisko_cal_day--selected {
     background: var(--yellow);
     cursor: pointer;
   }
 
-  .owisko_cal_day--available:hover {
+  .lowisko_cal_day--available:hover {
     background: var(--yellow);
     box-shadow: 1px 2px 9px rgba(0, 0, 0, 0.1);
   }
-  .owisko_cal_day--available:hover {
+  .lowisko_cal_day--available:hover {
     background: var(--yellow);
     box-shadow: 1px 2px 9px rgba(0, 0, 0, 0.1);
   }

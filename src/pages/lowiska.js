@@ -302,7 +302,7 @@ const LowiskaCss = styled.div`
   }
   .lowi_itm *,
   .lowi_itm:hover * {
-    color: var(--black) !important;
+    color: var(--black);
   }
 
   .lowi_itm_header {

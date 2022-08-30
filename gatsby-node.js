@@ -392,7 +392,7 @@ exports.sourceNodes = async ({
       data.fisheries.forEach((fishery) => {
         const required = {
           id: String(fishery.id),
-          path: `wojewodztwa/${data.voiv}/${fishery.slug}`,
+          path: `wojewodztwo/${data.voiv}/${fishery.slug}`,
           slug: fishery.slug,
         };
         const rest = { ...fishery };
