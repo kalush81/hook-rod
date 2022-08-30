@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import { Link } from "gatsby";
-import axios from "axios";
+//import axios from "axios";
 
 import plPL from "antd/lib/locale/pl_PL";
 import "moment/locale/pl";
@@ -141,21 +141,21 @@ let lowiskoDataMock = {
 };
 
 const Fishery = ({ pageContext: fishery }) => {
-  console.log(fishery);
+  //console.log(fishery);
   //mozna podac default values tak jak w przypadku imagePath
   const {
     id,
     city,
     name,
     numberOfPegs,
-    info,
-    slug,
+    regulations,
     imagePath = "https://i.ibb.co/H76PLN1/received-301554618657421.jpg",
+    voivodeship,
   } = fishery;
 
   const [opened, setOpened] = useState(false);
-  const [lowiskoData, setLowiskoData] = useState(null);
-  const [isError, setIsError] = useState(false);
+  //const [lowiskoData, setLowiskoData] = useState(null);
+  //const [isError, setIsError] = useState(false);
 
   const toggleOpened = () => setOpened((value) => !value);
 
@@ -233,7 +233,7 @@ const Fishery = ({ pageContext: fishery }) => {
                 <Breadcrumb.Item>
                   <Link to="/">{}</Link>
                 </Breadcrumb.Item>
-                <Breadcrumb.Item>Łowiska</Breadcrumb.Item>
+                <Breadcrumb.Item>{voivodeship}</Breadcrumb.Item>
                 <Breadcrumb.Item>{city}</Breadcrumb.Item>
                 <Breadcrumb.Item>{name}</Breadcrumb.Item>
               </Breadcrumb>
@@ -249,15 +249,18 @@ const Fishery = ({ pageContext: fishery }) => {
                 <div
                   className="lowisko_image"
                   style={{
-                    backgroundImage: `url(${{ imagePath }})`,
+                    backgroundImage: `url(${
+                      imagePath ||
+                      "https://i.ibb.co/H76PLN1/received-301554618657421.jpg"
+                    })`,
                   }}
                 >
-                  <img
+                  {/* <img
                     src={
                       imagePath ||
                       "https://i.ibb.co/H76PLN1/received-301554618657421.jpg"
                     }
-                  />
+                  /> */}
                 </div>
               </div>
               <Reservation pegs={null} />
@@ -281,7 +284,7 @@ const Fishery = ({ pageContext: fishery }) => {
                     Regulamin Łowiska {name} {opened ? " v" : " >"}
                   </h3>
                   <Collapse isOpened={opened}>
-                    {info && listAllInfo(info)}
+                    {regulations && listAllInfo(regulations)}
                   </Collapse>
                   <div className="text_toggle" onClick={toggleOpened}>
                     {opened ? "Zwiń..." : "Rozwiń..."}

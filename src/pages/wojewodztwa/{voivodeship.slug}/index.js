@@ -27,12 +27,12 @@ function Fisheries({data: {voivodeship: {fisheries}}}) {
 
       <div className="lowiskadiv">
       {fisheries.map(
-        ({ name, id, imagePath, numberOfPegs, city, record, priceRange, species }) => {
+        ({ name, id, imagePath, numberOfPegs, city, record, priceRange, species, slug }) => {
           return (
             <div  key={id}>
 
                 <li className="lowi_itm" >
-                  <Link to={`${name}`} >
+                  <Link to={`${slug}`} >
                     <div className="lowisko_img">
                       <img
                         alt="fish"
@@ -86,21 +86,17 @@ export const query = graphql`
   query QueryAllFisheries($slug: String) {
     voivodeship(slug: { eq: $slug }) {
       fisheries {
-        activities {
-          allowed
-          forbidden
-        }
         species
         city
         id
         imagePath
-        info
+        regulations
         name
+        slug
         numberOfPegs
-        priceRange {
-          from
-        }
-        record {
+        priceLowest
+        priceHighest
+        records {
           name
           size
           weight

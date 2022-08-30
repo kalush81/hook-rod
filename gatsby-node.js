@@ -29,21 +29,28 @@ const voivodeshipsData = [
       {
         id: 215,
         name: "Jerzyn",
+        slug: "Jerzyn",
         imagePath:
-          "https://lh3.googleusercontent.com/p/AF1QipNH9Lhn3blaTIGLsda9q9BFFsQpzo6dYJGS-ciW=s3490-w3490-h2038",
+          "https://movyu-prod.s3.amazonaws.com/sports/fishing/location_507/images/sliders/8f58129c-ebe0-4fec-898d-c8f8b0334b0b",
         city: "Jerzyn",
         voivodeship: "Wielkopolskie",
         numberOfPegs: 12,
-        priceRange: {
-          from: 10,
-        },
+        priceLowest: 10,
+        priceHighest: 90,
         species: ["Jesiotr", "Karp", "Okoń"],
-        record: {
-          name: "Karp",
-          weight: 55,
-          size: 70,
-        },
-        info: [
+        records: [
+          {
+            name: "Karp",
+            weight: 55,
+            size: 70,
+          },
+          {
+            name: "Szczupak",
+            weight: 30,
+            size: 100,
+          },
+        ],
+        regulations: [
           `1. Wszystkie opłaty dokonujemy u właściciela łowiska lub
       osoby upoważnionej. Marcin tel: 793-026-620, Kamil
       791-130-256, Maciek 570-510-088, Mateusz 505-973-234
@@ -191,10 +198,6 @@ const voivodeshipsData = [
       Wejście lub wjazd na teren łowiska oznacza zgodę oraz
       akceptację regulaminu Łowiska Extra-Carp.]`,
         ],
-        activities: {
-          allowed: ["example 1", "example 2"],
-          forbidden: ["example 1", "example 3"],
-        },
       },
     ],
     voiv: "wielkopolskie",
@@ -204,7 +207,8 @@ const voivodeshipsData = [
     fisheries: [
       {
         id: 107,
-        name: "Uroczysko-Karpiowe",
+        name: "Uroczysko Karpiowe",
+        slug: "uroczyszko-karpiowe",
         imagePath: null,
         city: "Czechowidze-Dziedzice",
         voivodeship: "Śląskie",
@@ -219,6 +223,7 @@ const voivodeshipsData = [
       {
         id: 292,
         name: "Szymanowice",
+        slug: "szymanowice",
         imagePath: null,
         city: "Szymanowice",
         voivodeship: "Świętokrzyskie",
@@ -233,6 +238,7 @@ const voivodeshipsData = [
       {
         id: 90,
         name: "Wzory",
+        slug: "wzory",
         imagePath: null,
         city: "Nasutów",
         voivodeship: "Lubelskie",
@@ -246,7 +252,8 @@ const voivodeshipsData = [
     fisheries: [
       {
         id: 26,
-        name: "Staw-u-Lomaxa",
+        name: "Staw u Lomaxa",
+        slug: "staw-u-lomaxa",
         imagePath: "https://i.ibb.co/H76PLN1/received-301554618657421.jpg",
         city: "Stalowa Wola",
         voivodeship: "Podkarpackie",
@@ -255,6 +262,7 @@ const voivodeshipsData = [
       {
         id: 30,
         name: "Zgoda",
+        slug: "zgoda",
         imagePath:
           "https://i.ibb.co/HCK0mF9/278576123-5179840055409237-3808512376689358088-n.jpg",
         city: "unknown",
@@ -263,7 +271,8 @@ const voivodeshipsData = [
       },
       {
         id: 46,
-        name: "Extra-Carp-Radymno",
+        name: "Extra Carp Radymno",
+        slug: "extra-carp-radymo",
         imagePath:
           "https://i.ibb.co/KVXK2G5/117714995-3471086599610855-7441530922398424970-o.jpg",
         city: "Radymno",
@@ -272,7 +281,8 @@ const voivodeshipsData = [
       },
       {
         id: 74,
-        name: "Krzemienna-nad-Sanem",
+        name: "Krzemienna nad Sanem",
+        slug: "krzemienna-nad-sanem",
         imagePath: null,
         city: "Krzemienna",
         voivodeship: "Podkarpackie",
@@ -280,7 +290,8 @@ const voivodeshipsData = [
       },
       {
         id: 142,
-        name: "Przystanek-Stawy",
+        name: "Przystanek Stawy",
+        slug: "przystanek-stawy",
         imagePath:
           "https://i.ibb.co/yYGxXWt/90645521-1571791229663500-7710748060590014464-n.jpg",
         city: "Jamnica",
@@ -290,6 +301,7 @@ const voivodeshipsData = [
       {
         id: 285,
         name: "Chwałowice",
+        slug: "chwałowice",
         imagePath: null,
         city: "Chwałowice",
         voivodeship: "Podkarpackie",
@@ -298,6 +310,7 @@ const voivodeshipsData = [
       {
         id: 322,
         name: "TEST",
+        slug: "test",
         imagePath: null,
         city: "TEST",
         voivodeship: "Podkarpackie",
@@ -311,7 +324,8 @@ const voivodeshipsData = [
     fisheries: [
       {
         id: 66,
-        name: "Dzika-Woda",
+        name: "Dzika Woda",
+        slug: "dzika-woda",
         imagePath: null,
         city: "Tarnów",
         voivodeship: "Małopolskie",
@@ -378,8 +392,8 @@ exports.sourceNodes = async ({
       data.fisheries.forEach((fishery) => {
         const required = {
           id: String(fishery.id),
-          path: `wojewodztwa/${data.voiv}/${fishery.name}`,
-          slug: fishery.name.toLowerCase(),
+          path: `wojewodztwa/${data.voiv}/${fishery.slug}`,
+          slug: fishery.slug,
         };
         const rest = { ...fishery };
         const node = Object.assign({}, rest, required, {
@@ -411,16 +425,11 @@ exports.createPages = async function ({ actions, graphql }) {
           name
           id
           path
-          info
+          regulations
           voivodeship
-          priceRange {
-            from
-          }
-          activities {
-            allowed
-            forbidden
-          }
-          record {
+          priceLowest
+          priceHighest
+          records {
             name
             weight
             size
