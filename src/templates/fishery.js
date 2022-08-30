@@ -1,20 +1,13 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-
 import { Link } from "gatsby";
 //import axios from "axios";
-
 import plPL from "antd/lib/locale/pl_PL";
 import "moment/locale/pl";
 import { ConfigProvider, Breadcrumb } from "antd";
-
 import { Collapse } from "react-collapse";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
-
 import CalendarMedium from "../components/CalendarMedium";
 import Reservation from "../components/Reservation.js";
 
