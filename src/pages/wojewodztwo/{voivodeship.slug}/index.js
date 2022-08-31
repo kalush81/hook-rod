@@ -22,7 +22,7 @@ function FisheryListByVoivodeship({ data: { voivodeship: { fisheries } } }) {
 }
 
 export const query = graphql`
-  query QueryAllFisheries($slug: String) {
+  query QueryAllFisheriesByVoiv($slug: String) {
     voivodeship(slug: { eq: $slug }) {
       fisheries {
         species

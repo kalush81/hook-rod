@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+import { slugifyVoiv } from "../utils/slugify-voivodeship";
 import { Pin, Fish, Trophy, Silhouette, Dollar } from "../assets/icons";
 
 const listSpecies = (species) => {
@@ -10,10 +11,11 @@ const listSpecies = (species) => {
 
 //prettier-ignore
 function FisheryCard({ data }) {
+  console.log('fishery card data', data)
   return (
     <div key={data.id}>
       <li className="lowi_itm">
-        <Link to={`${data.slug}`}>
+        <Link to={`/wojewodztwo/${slugifyVoiv(data.voivodeship)}/${data.slug}`}>
           <div className="lowisko_img">
             <img alt="fish" src={ data.imagePath || "https://i.ibb.co/H76PLN1/received-301554618657421.jpg" }/>
           </div>

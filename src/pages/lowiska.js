@@ -1,20 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { StaticImage } from "gatsby-plugin-image";
-import { Link } from "gatsby";
-
 import axios from "axios";
 import { Select, ConfigProvider, Skeleton } from "antd";
 import plPL from "antd/lib/locale/pl_PL";
 import "moment/locale/pl";
-
 import SearchBar from "../components/SearchBar";
-
-import Pin from "../assets/images/pin.svg";
-import Fish from "../assets/images/fish.svg";
-import Trophy from "../assets/images/trophy.svg";
-import Silhouette from "../assets/images/silhouette.svg";
-import Dollar from "../assets/images/dollar.svg";
+import FisheryCard from "../components/FisheryCard";
+import { graphql } from "gatsby";
 
 const { Option } = Select;
 
@@ -22,8 +14,13 @@ const handleChange = (value) => {
   console.log(`selected ${value}`);
 };
 //location is available from react router DONT CONFUSE FOR PASSED PARAM See documentation on react router for more https://v5.reactrouter.com/web/api/Hooks
-const Lowiska = function ({ location }) {
-  // Client-side Runtime Data Fetching
+const Lowiska = function ({
+  location,
+  data: {
+    allFishery: { nodes },
+  },
+}) {
+  console.log(nodes);
   const [lowiskaArr, setLowiskaArr] = useState([]);
 
   useEffect(() => {
@@ -58,7 +55,7 @@ const Lowiska = function ({ location }) {
           }
         );
         setLowiskaArr(response.data);
-        console.log("LOWISKA", response.data.imagePath);
+        console.log("LOWISKA", response.data);
       } catch (error) {
         console.log(
           "couldnt fetch from https://karpteam.herokuapp.com/api/lakes/checkLakesOnDate"
@@ -127,61 +124,17 @@ const Lowiska = function ({ location }) {
                   <br />
                   <Skeleton active />
                   <br />
-                  <Skeleton active />
+                  {/* <Skeleton active />
                   <br />
-                  <Skeleton active />
+                  <Skeleton active /> */}
                 </>
               )}
               <ul className="lowi_list_ul">
-                {lowiskaArr
-                  .filter((lowisk) => lowisk.freePegs !== 0)
-                  .sort((a, b) => (a.distance > b.distance ? 1 : -1))
-                  .map((data, key) => (
-                    //console.log()
-                    <div key={key}>
-                      <li className="lowi_itm">
-                        <Link to={`/lowisko/${data.id}`}>
-                          <div className="lowisko_img">
-                            <img
-                              alt="fish"
-                              src={
-                                //lowiskaArr.imagePath
-                                //? lowiskaArr.imagePath
-                                "https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcR0RuAVNfoJKGQ5915S8WgNlOqINorTaqe9q82s7CfcSbcV64z2xktqF91WYjPZmxJiOABVAR_sdB52p45HY-A"
-                              }
-                            />
-                          </div>
-                          <h2 className="lowi_itm_header">{data.name}</h2>
-                          <div className="lowi_itm_amnt lokalizacja">
-                            <img className="pin" alt="pin" src={Pin} />
-                            <b>Lokalizacja</b>
-                          </div>
-                          <div className="lowi_itm_amnt">
-                            <img className="fish" alt="fishsvg" src={Fish} />
-                            <b>Odmiany: </b>Karp, Jesiotr, Okoń
-                          </div>
-                          <div className="lowi_itm_amnt">
-                            <img className="trophy" alt="trophy" src={Trophy} />
-                            <b>Rekord: </b>Karp 55kg 70cm
-                          </div>
-                          <div className="lowi_itm_amnt stanowiska">
-                            <img
-                              className="silhouette"
-                              alt="silhouette"
-                              src={Silhouette}
-                            />
-                            <b>Liczba stanowisk: </b>6
-                          </div>
-                          <div className="lowi_itm_amnt cena">
-                            <img className="dollar" alt="dollar" src={Dollar} />
-                            <b>Od 25zł / osoba</b>
-                          </div>
-                          <div className="lowi_itm_distance">
-                            Odległość: {data.distance}km
-                          </div>
-                        </Link>
-                      </li>
-                    </div>
+                {nodes
+                  //.filter((lowisk) => lowisk.freePegs !== 0)
+                  //.sort((a, b) => (a.distance > b.distance ? 1 : -1))
+                  .map((node) => (
+                    <FisheryCard key={node.id} data={{ ...node }} />
                   ))}
               </ul>
             </section>
@@ -191,6 +144,31 @@ const Lowiska = function ({ location }) {
     </ConfigProvider>
   );
 };
+
+export const query = graphql`
+  query QueryFisheriesBySearchBar {
+    allFishery {
+      nodes {
+        species
+        city
+        id
+        imagePath
+        regulations
+        name
+        slug
+        numberOfPegs
+        priceLowest
+        priceHighest
+        records {
+          name
+          size
+          weight
+        }
+        voivodeship
+      }
+    }
+  }
+`;
 
 const LowiskaCss = styled.div`
   scroll-behavior: smooth;
