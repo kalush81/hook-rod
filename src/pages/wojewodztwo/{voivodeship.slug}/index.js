@@ -1,6 +1,6 @@
 import * as React from "react";
 import { graphql, Link } from "gatsby";
-import Layout from "../../../components/Layout";
+//import Layout from "../../../components/Layout";
 import styled from "styled-components";
 import Map from "../../../components/MapCss";
 import FisheryCard from "../../../components/FisheryCard";
@@ -8,7 +8,8 @@ import FisheryCard from "../../../components/FisheryCard";
 //prettier-ignore
 function FisheryListByVoivodeship({ data: { voivodeship: { fisheries } } }, ...props) {
   return (
-    <Layout>
+    <>
+
       <Header>lista łowisk w : {fisheries.length > 0 && fisheries[0].voivodeship}</Header>
       <Map wasSelected={true}>
         <div className="lowiskadiv">
@@ -17,7 +18,8 @@ function FisheryListByVoivodeship({ data: { voivodeship: { fisheries } } }, ...p
           })}
         </div>
       </Map>
-    </Layout>
+    </>
+   
   );
 }
 

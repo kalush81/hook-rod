@@ -2,7 +2,7 @@ import { graphql } from "gatsby";
 import React from "react";
 import FisheryCard from "../../../components/FisheryCard";
 import Map from "../../../components/MapCss";
-import Layout from "antd/lib/layout/layout";
+//import Layout from "antd/lib/layout/layout";
 
 function City({
   data: {
@@ -10,15 +10,13 @@ function City({
   },
 }) {
   return (
-    <Layout>
-      <Map wasSelected={true} disabled={true}>
-        <div className="lowiskadiv">
-          {fisheries.map((fisheryCardData) => {
-            return <FisheryCard data={{ ...fisheryCardData }} />;
-          })}
-        </div>
-      </Map>
-    </Layout>
+    <Map wasSelected={true} disabled={true}>
+      <div className="lowiskadiv">
+        {fisheries.map((fisheryCardData) => {
+          return <FisheryCard data={{ ...fisheryCardData }} />;
+        })}
+      </div>
+    </Map>
   );
 }
 
