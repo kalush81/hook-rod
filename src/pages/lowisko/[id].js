@@ -10,12 +10,9 @@ import axios from "axios";
 import plPL from "antd/lib/locale/pl_PL";
 import "moment/locale/pl";
 import { Button, ConfigProvider, Breadcrumb } from "antd";
-
 import { Collapse } from "react-collapse";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
-
 import TimeTable from "../../components/TimeTable";
 import Reservation from "../../components/Reservation.js";
 

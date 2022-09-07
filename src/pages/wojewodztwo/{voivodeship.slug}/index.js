@@ -8,7 +8,6 @@ import FisheryCard from "../../../components/FisheryCard";
 function FisheryListByVoivodeship({ data: { voivodeship: { fisheries } } }, ...props) {
   return (
     <>
-
       <Header>lista łowisk w : {fisheries.length > 0 && fisheries[0].voivodeship}</Header>
       <Map wasSelected={true}>
         <div className="lowiskadiv">
