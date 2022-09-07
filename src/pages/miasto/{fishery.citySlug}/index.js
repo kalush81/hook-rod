@@ -2,7 +2,6 @@ import { graphql } from "gatsby";
 import React from "react";
 import FisheryCard from "../../../components/FisheryCard";
 import Map from "../../../components/MapCss";
-//import Layout from "antd/lib/layout/layout";
 
 function City({
   data: {

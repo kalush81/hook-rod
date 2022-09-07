@@ -1,6 +1,5 @@
 import * as React from "react";
 import { graphql, Link } from "gatsby";
-//import Layout from "../../../components/Layout";
 import styled from "styled-components";
 import Map from "../../../components/MapCss";
 import FisheryCard from "../../../components/FisheryCard";
