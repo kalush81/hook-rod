@@ -13,15 +13,19 @@ const { Option } = Select;
 const handleChange = (value) => {
   console.log(`selected ${value}`);
 };
-//location is available from react router DONT CONFUSE FOR PASSED PARAM See documentation on react router for more https://v5.reactrouter.com/web/api/Hooks
-const Lowiska = function ({
-  location,
-  data: {
-    allFishery: { nodes },
-  },
-}) {
-  console.log(nodes);
+
+//prettier-ignore
+const Lowiska = function ( { location,data: {allFishery: { nodes } } } ) {
+
   const [lowiskaArr, setLowiskaArr] = useState([]);
+  const params = new URLSearchParams(location.search);
+    const distance = params.get("distance");
+    const eday = params.get("eday");
+    const sday = params.get("sday");
+    const ulat = params.get("ulat");
+    const ulng = params.get("ulng");
+
+    console.log('ulat?', typeof ulat)
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -54,11 +58,22 @@ const Lowiska = function ({
             },
           }
         );
-        setLowiskaArr(response.data);
-        console.log("LOWISKA", response.data);
+
+        //const ids = response.data.map((fishery) => fishery.id);
+        //const filtered = nodes.filter(node => ids.includes(Number(node.id)))
+
+        const combinedNode = response.data.map((fishery) => {
+          let foundNode = nodes.find((node) => Number(node.id) === fishery.id)
+          if (foundNode) {
+            return {...foundNode, ...fishery}
+          }
+        });
+        setLowiskaArr(combinedNode)
+
       } catch (error) {
         console.log(
-          "couldnt fetch from https://karpteam.herokuapp.com/api/lakes/checkLakesOnDate"
+          "couldnt fetch from https://karpteam.herokuapp.com/api/lakes/checkLakesOnDate",
+          error
         );
       }
     };
@@ -74,7 +89,9 @@ const Lowiska = function ({
             <SearchBar
               cityName={location.state.srchdCity}
               rangeProp={location.state.dist}
-              fDates={location.state.fullDates}
+              datesProp={location.state.fullDates}
+              ulat={ulat}
+              ulng={ulng}
             />
           ) : (
             <SearchBar />
@@ -124,16 +141,14 @@ const Lowiska = function ({
                   <br />
                   <Skeleton active />
                   <br />
-                  {/* <Skeleton active />
-                  <br />
-                  <Skeleton active /> */}
+                  
                 </>
               )}
               <ul className="lowi_list_ul">
-                {nodes
+                {lowiskaArr.length > 0 &&
                   //.filter((lowisk) => lowisk.freePegs !== 0)
                   //.sort((a, b) => (a.distance > b.distance ? 1 : -1))
-                  .map((node) => (
+                  lowiskaArr.map((node) => (
                     <FisheryCard key={node.id} data={{ ...node }} />
                   ))}
               </ul>
@@ -143,28 +158,30 @@ const Lowiska = function ({
       </LowiskaCss>
     </ConfigProvider>
   );
+
 };
 
 export const query = graphql`
   query QueryFisheriesBySearchBar {
     allFishery {
       nodes {
-        species
         city
         id
         imagePath
         regulations
         name
-        slug
+        nameSlug
+
         numberOfPegs
-        priceLowest
-        priceHighest
-        records {
+        priceLow
+
+        fishOnLake {
           name
-          size
           weight
+          lenght
         }
         voivodeship
+        voivodeshipSlug
       }
     }
   }

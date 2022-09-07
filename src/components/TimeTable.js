@@ -1,39 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import PegDatesRow from "./PegDatesRow";
-//import axios from "axios";
+import axios from "axios";
 import moment from "moment";
+import { getCallendarString } from "../utils/get-date-string";
 
-const CalendarMedium = function ({ id, lowiskoData, maxPegs, maxDays }) {
+const TimeTable = function ({ id, maxPegs, maxDays }) {
   const [firstIdx, setFirstIdx] = useState(0);
   const [lastIdx, setLastIdx] = useState(maxPegs);
   const [otherDays, setOtherDays] = useState(0);
+  const [pegs, setPegsData] = useState();
 
-  // const { pegs } = lowiskoData;
-  // console.log("pegs", pegs);
-
-  // useEffect(() => {
-  //   const loadCalendar = async () => {
-  //     const response = await axios.get(
-  //       `https://karpteam.herokuapp.com/api/lakes/checkLakesOnDate`,
-  //       {
-  //         mode: "cors",
-  //         headers: {
-  //           "Access-Control-Allow-Origin": "*",
-  //           Accept: "application/json",
-  //           "Content-Type": "application/json",
-  //         },
-  //         withCredentials: false,
-  //         credentials: "same-origin",
-  //         crossdomain: true,
-  //       }
-  //     );
-  //     setBookedDays(response.data);
-  //     console.log("LOWISKA", response.data);
-  //   };
-
-  //   loadCalendar();
-  // }, [id]);
+  useEffect(() => {
+    const getLakeReservsById = async () => {
+      try {
+        const response = await axios.get(
+          `https://karpteam.herokuapp.com/api/lakes/${id}`,
+          {
+            mode: "cors",
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            withCredentials: false,
+            credentials: "same-origin",
+            crossdomain: true,
+          }
+        );
+        setPegsData(response.data.pegs);
+      } catch (error) {
+        console.error("error while fetching reservations data", error);
+      }
+    };
+    getLakeReservsById();
+  }, [id]);
 
   const resetQueue = () => {
     setFirstIdx(0);
@@ -41,7 +42,7 @@ const CalendarMedium = function ({ id, lowiskoData, maxPegs, maxDays }) {
   };
 
   const handleNext = (first, last) => {
-    if (last >= lowiskoData.pegs.length) {
+    if (last >= pegs.length) {
       resetQueue();
     } else {
       setFirstIdx(first + maxPegs);
@@ -63,38 +64,6 @@ const CalendarMedium = function ({ id, lowiskoData, maxPegs, maxDays }) {
     .map((el, i) =>
       moment(moment().add(otherDays, "day").format()).add(i, "day").format("L")
     );
-  const months = [
-    "styczen",
-    "luty",
-    "marzec",
-    "kwiecien",
-    "maj",
-    "czerwiec",
-    "lipiec",
-    "sierpien",
-    "wrzesien",
-    "pazdziernik",
-    "listopad",
-    "grudzien",
-  ];
-
-  const mpd = daysArr.map(
-    (date) => months[Number(date.split(".")[1]) - 1] + "/" + date.split(".")[2]
-  );
-
-  let arr = [mpd[0].split("/"), mpd[mpd.length - 1].split("/")];
-
-  let str = "";
-
-  if (arr[0][0] === arr[1][0]) {
-    str = arr[0].join(" ");
-  } else {
-    if (arr[0][1] === arr[1][1]) {
-      str = arr[0][0] + " / " + arr[1][0] + " " + arr[0][1];
-    } else {
-      str = arr[0].join(" ") + " / " + arr[1].join(" ");
-    }
-  }
 
   return (
     <CalendarCss>
@@ -115,7 +84,7 @@ const CalendarMedium = function ({ id, lowiskoData, maxPegs, maxDays }) {
           />
         </button>
         <span>wcześniej</span>
-        <span>{str}</span>
+        <span>{getCallendarString(daysArr)}</span>
         <span>później</span>
         <button
           className="calendar_lowisko_day_box noStyle"
@@ -137,7 +106,7 @@ const CalendarMedium = function ({ id, lowiskoData, maxPegs, maxDays }) {
 
         {daysArr.map((day) => {
           return (
-            <span className="calendar_lowisko_day_box small noStyle">
+            <span key={day} className="calendar_lowisko_day_box small noStyle">
               {day.substring(0, 5)}
             </span>
           );
@@ -146,19 +115,21 @@ const CalendarMedium = function ({ id, lowiskoData, maxPegs, maxDays }) {
 
       {/* <div className="calendar_date_selector"></div> */}
       <div className="calendar_lowiska_list border">
-        {/* {pegs.map((peg, i) => {
-          if (i >= firstIdx && i < lastIdx) {
-            console.log("dzialam");
-            return (
-              <PegDatesRow
-                peg={peg}
-                currentDay={moment().add(otherDays, "day").format()}
-                maxDays={maxDays}
-                daysArr={daysArr}
-              />
-            );
-          }
-        })} */}
+        {pegs &&
+          pegs.map((peg, i) => {
+            if (i >= firstIdx && i < lastIdx) {
+              console.log("dzialam");
+              return (
+                <PegDatesRow
+                  key={peg.pegNumber}
+                  peg={peg}
+                  currentDay={moment().add(otherDays, "day").format()}
+                  maxDays={maxDays}
+                  daysArr={daysArr}
+                />
+              );
+            }
+          })}
 
         <button
           className="calendar_lowisko_day_box block noStyle"
@@ -309,4 +280,4 @@ export const CalendarCss = styled.div`
   }
 `;
 
-export default CalendarMedium;
+export default TimeTable;

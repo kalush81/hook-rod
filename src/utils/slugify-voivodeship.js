@@ -12,7 +12,7 @@ const voivodeships = {
   świętokrzyskie: "swietokrzyskie",
   podlaskie: "podlaskie",
   lubelskie: "lubelskie",
-  podkarpackie: "podkarapckie",
+  podkarpackie: "podkarpackie",
   opolskie: "opolskie",
   małopolskie: "malopolskie",
 };

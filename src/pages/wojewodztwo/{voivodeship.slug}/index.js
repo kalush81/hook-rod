@@ -6,10 +6,10 @@ import Map from "../../../components/MapCss";
 import FisheryCard from "../../../components/FisheryCard";
 
 //prettier-ignore
-function FisheryListByVoivodeship({ data: { voivodeship: { fisheries } } }) {
+function FisheryListByVoivodeship({ data: { voivodeship: { fisheries } } }, ...props) {
   return (
     <Layout>
-      <Header>lista łowisk w : </Header>
+      <Header>lista łowisk w : {fisheries.length > 0 && fisheries[0].voivodeship}</Header>
       <Map wasSelected={true}>
         <div className="lowiskadiv">
           {fisheries.map((fisheryCardData) => {
@@ -25,22 +25,25 @@ export const query = graphql`
   query QueryAllFisheriesByVoiv($slug: String) {
     voivodeship(slug: { eq: $slug }) {
       fisheries {
-        species
+        fishOnLake {
+          name
+          weight
+          lenght
+        }
+
         city
+        citySlug
         id
         imagePath
         regulations
         name
-        slug
+        nameSlug
+
         numberOfPegs
-        priceLowest
-        priceHighest
-        records {
-          name
-          size
-          weight
-        }
+        priceLow
+
         voivodeship
+        voivodeshipSlug
       }
       id
     }

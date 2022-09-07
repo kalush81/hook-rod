@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
 
-function Map({ children }) {
+function Map({ children, disabled }) {
   const initialName = "Wybierz Województwo";
 
   const [name, setName] = useState(initialName);
@@ -15,7 +15,7 @@ function Map({ children }) {
   };
 
   return (
-    <MapCss>
+    <MapCss disabled={disabled}>
       <div className="mapdiv">
         <h1>{name}</h1>
         {/* <h3 className={`errordiv ${error ? "" : "hidden"}`}>
@@ -200,7 +200,7 @@ export const MapCss = styled.div`
   flex-direction: column;
   align-items: center;
   .mapdiv {
-    display: flex;
+    display: ${(props) => (props.disabled ? "none" : "flex")};
     flex-direction: column;
     justify-content: center;
     align-items: center;

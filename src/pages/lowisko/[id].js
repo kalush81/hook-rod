@@ -16,7 +16,7 @@ import { Collapse } from "react-collapse";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 
-import CalendarMedium from "../../components/CalendarMedium";
+import TimeTable from "../../components/TimeTable";
 import Reservation from "../../components/Reservation.js";
 
 let lowiskoDataMock = {
@@ -249,7 +249,7 @@ const Lowisko = ({ params }) => {
               <Reservation pegs={lowiskoData && lowiskoData.pegs} />
               <section>
                 {lowiskoData && (
-                  <CalendarMedium
+                  <TimeTable
                     id={id}
                     lowiskoData={lowiskoData}
                     maxPegs={

@@ -1,7 +1,6 @@
 import React from "react";
 
 function DateSquare({ day, bookingData }) {
-  console.log("bookingData in DateSquare", bookingData);
   if (bookingData.isBooked) {
     return (
       <span

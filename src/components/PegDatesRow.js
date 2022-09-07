@@ -3,8 +3,6 @@ import DateSquare from "./DateSquare";
 import { getBookingDataOnDay } from "../utils/booking-checker";
 
 function PegDatesRow({ peg, daysArr }) {
-  console.log("peg", peg);
-  console.log("daysArr", daysArr);
   let bookings = peg.reservation?.map(({ startDay, endDay, status }) => {
     return {
       startDay,

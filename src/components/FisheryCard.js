@@ -1,21 +1,19 @@
 import React from "react";
 import { Link } from "gatsby";
-import { slugifyVoiv } from "../utils/slugify-voivodeship";
 import { Pin, Fish, Trophy, Silhouette, Dollar } from "../assets/icons";
 
 const listSpecies = (species) => {
-  return species.map((name) => {
-    return <span>{name + " "}</span>;
+  return species.map((fish) => {
+    return <span>{fish.name + " "}</span>;
   });
 };
 
 //prettier-ignore
 function FisheryCard({ data }) {
-  console.log('fishery card data', data)
   return (
     <div key={data.id}>
       <li className="lowi_itm">
-        <Link to={`/wojewodztwo/${slugifyVoiv(data.voivodeship)}/${data.slug}`}>
+        <Link to={`/wojewodztwo/${data.voivodeshipSlug}/${data.nameSlug}`}>
           <div className="lowisko_img">
             <img alt="fish" src={ data.imagePath || "https://i.ibb.co/H76PLN1/received-301554618657421.jpg" }/>
           </div>
@@ -28,15 +26,21 @@ function FisheryCard({ data }) {
           <div className="lowi_itm_amnt">
             <img className="fish" alt="fishsvg" src={Fish}></img>
             <b>Odmiany: </b>
-            {data.species && listSpecies(data.species)}
+            <b>{data.fishOnLake && listSpecies(data.fishOnLake)}</b>
           </div>
           <div className="lowi_itm_amnt">
             <img className="trophy" alt="trophy" src={Trophy}></img>
             <b>Rekord: </b>
-            {data.records && (
-              <Link to="/">
-                <span style={{ color: "red" }}>zobacz nasze rekordy</span>
-              </Link>
+            {data.fishOnLake && data.fishOnLake.length > 0 && (
+              <>
+              <b>
+
+              <span style={{ color: "red" }}>{data.fishOnLake[0].name} </span>
+              <span style={{ color: "red" }}>{data.fishOnLake[0].weight} kg </span>
+              <span style={{ color: "red" }}>{data.fishOnLake[0].lenght}cm</span>
+              </b>
+              </>
+              
             )}
           </div>
           <div className="lowi_itm_amnt stanowiska">
@@ -44,10 +48,22 @@ function FisheryCard({ data }) {
             <b>Liczba stanowisk: </b>
             {data.numberOfPegs}
           </div>
+          {data.freePegs && (
+              <div>
+              <b>Wolnych stanowisk: </b>
+              {data.freePegs}
+              </div>
+            )}
           <div className="lowi_itm_amnt cena">
             <img className="dollar" alt="dollar" src={Dollar}></img>
-            <b>Od {data.priceLowest} zł / osoba</b>
+            <b>Od {data.priceLow} zł / osoba</b>
           </div>
+          {data.distance && (
+            <div className="lowi_itm_distance">
+              <b>Odległość: </b>
+              {data.distance} km
+            </div>
+          )}
         </Link>
       </li>
     </div>

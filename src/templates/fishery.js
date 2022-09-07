@@ -8,95 +8,26 @@ import { ConfigProvider, Breadcrumb } from "antd";
 import { Collapse } from "react-collapse";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
-import CalendarMedium from "../components/CalendarMedium";
+import TimeTable from "../components/TimeTable";
 import Reservation from "../components/Reservation.js";
 
 const FisheryPage = ({ pageContext: fishery }) => {
   const {
     id,
     city,
+    citySlug,
     name,
+    nameSlug,
     numberOfPegs,
     regulations,
     imagePath = "https://i.ibb.co/H76PLN1/received-301554618657421.jpg",
     voivodeship,
+    voivodeshipSlug,
   } = fishery;
 
   const [opened, setOpened] = useState(false);
-  //const [lowiskoData, setLowiskoData] = useState(null);
-  //const [isError, setIsError] = useState(false);
 
   const toggleOpened = () => setOpened((value) => !value);
-
-  const listAllInfo = (infos) => {
-    return infos.map((info) => {
-      return <p>{info}</p>;
-    });
-  };
-  //todo
-  //1. fetch reservations data for all pegs on current fishery by fishery.id
-  //2. pass reservations data to CalendarMedium as props
-
-  let justSpace = null;
-  justSpace;
-
-  // useEffect(() => {
-  //   const getAllReservations = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         `https://karpteam.herokuapp.com/api/lakes/${id}`,
-  //         {
-  //           mode: "cors",
-  //           headers: {
-  //             "Access-Control-Allow-Origin": "*",
-  //             Accept: "application/json",
-  //             "Content-Type": "application/json",
-  //           },
-  //           withCredentials: false,
-  //           credentials: "same-origin",
-  //           crossdomain: true,
-  //         }
-  //       );
-  //       setLowiskoData(response.data);
-  //     } catch (error) {
-  //       if (error.response) {
-  //         if (error.response.status === 404) {
-  //           setIsError(error.response.data.message);
-  //         } else {
-  //           setIsError(
-  //             ` ${error.status} \n Za wszelkie niedogodności przepraszamy. `
-  //           );
-  //         }
-  //       }
-  //     }
-  //   };
-
-  //   //getAllReservations();
-
-  //   // get data from API
-  // }, []);
-
-  // if (!lowiskoData)
-  //   return (
-  //     <div
-  //       style={{
-  //         maxWidth: "700px",
-  //         margin: "auto",
-  //         top: "30%",
-  //         left: "50%",
-  //         transform: "translateX(-50%)",
-  //         position: "absolute",
-  //       }}
-  //     >
-  //       <h2>
-  //         {isError ? (
-  //           <span>{isError}</span>
-  //         ) : (
-  //           <span>...ładowanie danych łowiska</span>
-  //         )}
-  //       </h2>
-  //     </div>
-  //   );
 
   return (
     <>
@@ -108,8 +39,14 @@ const FisheryPage = ({ pageContext: fishery }) => {
                 <Breadcrumb.Item>
                   <Link to="/">{}</Link>
                 </Breadcrumb.Item>
-                <Breadcrumb.Item>{voivodeship}</Breadcrumb.Item>
-                <Breadcrumb.Item>{city}</Breadcrumb.Item>
+                <Breadcrumb.Item>
+                  <Link to={`/wojewodztwo/${voivodeshipSlug}`}>
+                    {voivodeship}
+                  </Link>
+                </Breadcrumb.Item>
+                <Breadcrumb.Item>
+                  <Link to={`/miasto/${citySlug}`}>{city}</Link>
+                </Breadcrumb.Item>
                 <Breadcrumb.Item>{name}</Breadcrumb.Item>
               </Breadcrumb>
             </div>
@@ -131,12 +68,11 @@ const FisheryPage = ({ pageContext: fishery }) => {
                   }}
                 ></div>
               </div>
-              <Reservation pegs={null} />
+              <Reservation />
               <section>
-                <CalendarMedium
+                <TimeTable
                   id={id}
-                  fisheryData={fishery}
-                  maxPegs={numberOfPegs > 5 ? 5 : numberOfPegs}
+                  maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
                   maxDays={14}
                 />
               </section>
@@ -151,9 +87,7 @@ const FisheryPage = ({ pageContext: fishery }) => {
                   >
                     Regulamin Łowiska {name} {opened ? " v" : " >"}
                   </h3>
-                  <Collapse isOpened={opened}>
-                    {regulations && listAllInfo(regulations)}
-                  </Collapse>
+                  <Collapse isOpened={opened}>{regulations}</Collapse>
                   <div className="text_toggle" onClick={toggleOpened}>
                     {opened ? "Zwiń..." : "Rozwiń..."}
                   </div>

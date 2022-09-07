@@ -23,13 +23,13 @@ const UseFocus = () => {
   return [htmlElRef, setFocus];
 };
 
-const SearchBar = ({ cityName, rangeProp, datesProp }) => {
+const SearchBar = ({ cityName, rangeProp, datesProp, ulat, ulng }) => {
   const [value, setValue] = useState(cityName);
   const [cityQueryArr, setCityQueryArr] = useState([]);
   const [input1Ref, setInput1Focus] = UseFocus();
   const [input2Ref, setInput2Focus] = UseFocus();
   const [buttonRef, setButtonFocus] = UseFocus();
-  const [latLng, setLatLng] = useState({});
+  const [latLng, setLatLng] = useState({ lat: ulat, lng: ulng });
   const [sEDate, setSEDate] = useState({});
   const [rangeVal, setRangeVal] = useState(rangeProp);
   const [dFull, setDFull] = useState(datesProp);
@@ -135,10 +135,10 @@ const SearchBar = ({ cityName, rangeProp, datesProp }) => {
               onChange={handleChange}
               ref={input1Ref}
             >
-              <Option value="50">+50km</Option>
-              <Option value="100">+100km</Option>
-              <Option value="200">+200km</Option>
-              <Option value="1000">&gt;200km</Option>
+              <Option value="50">&lt; 50km</Option>
+              <Option value="100">&lt; 100km</Option>
+              <Option value="200">&lt; 200km</Option>
+              <Option value="1000">&gt; 200km</Option>
             </Select>
             <RangePicker
               className="lowi_search_date"
