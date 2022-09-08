@@ -12,7 +12,7 @@ function FisheryListByVoivodeship({ data: { voivodeship: { fisheries } } }) {
       <Header>lista łowisk w : {fisheries && fisheries.length > 0 ? fisheries[0].voivodeship :  "not found"}</Header>
       <Map wasSelected={true}>
         <div className="lowiskadiv">
-          {fisheries.map((fisheryCardData) => {
+          {fisheries && fisheries.length > 0 && fisheries.map((fisheryCardData) => {
             return <FisheryCard data={{ ...fisheryCardData }} />;
           })}
         </div>
