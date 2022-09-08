@@ -37,7 +37,7 @@ function FisheryCard({ data }) {
 
               <span style={{ color: "red" }}>{data.fishOnLake[0].name} </span>
               <span style={{ color: "red" }}>{data.fishOnLake[0].weight} kg </span>
-              <span style={{ color: "red" }}>{data.fishOnLake[0].lenght}cm</span>
+              <span style={{ color: "red" }}>{data.fishOnLake[0].length}cm</span>
               </b>
               </>
               

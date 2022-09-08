@@ -28,7 +28,7 @@ export const query = graphql`
         fishOnLake {
           name
           weight
-          lenght
+          length
         }
 
         city

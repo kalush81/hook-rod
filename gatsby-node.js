@@ -62,6 +62,8 @@ exports.sourceNodes = async ({
   try {
     const allLakesFromApi = await getStaticDataFromApi();
 
+    console.log("control allLakesFromApi", allLakesFromApi);
+
     allLakesFromApi.map((lake, i) => {
       voivodeshipsData.forEach((v) => {
         if (v.voiv === lake.voivodeship.toLowerCase()) {
@@ -73,12 +75,13 @@ exports.sourceNodes = async ({
     const slugifiedData = voivodeshipsData.map((voivData) => {
       const slugifiedFisheries = voivData.fisheries.map((fishery) => ({
         ...fishery,
+        imagePath: fishery.imagePath || "",
         regulations: voivData.regulations || "zbiór przepisów",
         citySlug: translate(fishery.city),
         nameSlug: translate(fishery.name),
         voivodeshipSlug: translate(fishery.voivodeship),
         priceLow: fishery.priceLow || 1,
-        facilities: fishery.facilities || ["parking", "grill"],
+        facilities: fishery.facilities,
       }));
       return {
         ...voivData,
@@ -143,13 +146,15 @@ exports.createPages = async function ({ actions, graphql }) {
           fishOnLake {
             name
             weight
-            lenght
+            length
           }
           imagePath
           numberOfPegs
           latitude
           longitude
-          facilities
+          facilities {
+            name
+          }
         }
       }
     }

@@ -147,41 +147,41 @@ const Lowisko = ({ params }) => {
 
   const toggleOpened = () => setOpened((value) => !value);
 
-  useEffect(() => {
-    const loadLowiskoData = async () => {
-      try {
-        const response = await axios.get(
-          `https://karpteam.herokuapp.com/api/lakes/${id}`,
-          {
-            mode: "cors",
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            withCredentials: false,
-            credentials: "same-origin",
-            crossdomain: true,
-          }
-        );
-        setLowiskoData(response.data);
-      } catch (error) {
-        if (error.response) {
-          if (error.response.status === 404) {
-            setIsError(error.response.data.message);
-          } else {
-            setIsError(
-              ` ${error.status} \n Za wszelkie niedogodności przepraszamy. `
-            );
-          }
-        }
-      }
-    };
+  // useEffect(() => {
+  //   const loadLowiskoData = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         `https://karpteam.herokuapp.com/api/lakes/${id}`,
+  //         {
+  //           mode: "cors",
+  //           headers: {
+  //             "Access-Control-Allow-Origin": "*",
+  //             Accept: "application/json",
+  //             "Content-Type": "application/json",
+  //           },
+  //           withCredentials: false,
+  //           credentials: "same-origin",
+  //           crossdomain: true,
+  //         }
+  //       );
+  //       setLowiskoData(response.data);
+  //     } catch (error) {
+  //       if (error.response) {
+  //         if (error.response.status === 404) {
+  //           setIsError(error.response.data.message);
+  //         } else {
+  //           setIsError(
+  //             ` ${error.status} \n Za wszelkie niedogodności przepraszamy. `
+  //           );
+  //         }
+  //       }
+  //     }
+  //   };
 
-    loadLowiskoData();
+  //   loadLowiskoData();
 
-    // get data from API
-  }, [id]);
+  //   // get data from API
+  // }, [id]);
 
   if (!lowiskoData)
     return (
