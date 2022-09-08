@@ -38,7 +38,7 @@ const fetch = (...args) =>
 
 const getStaticDataFromApi = async () => {
   const result = await fetch(
-    `https://karpteam.herokuapp.com/api/lakes/static`,
+    `https://hookandrod.herokuapp.com/api/lakes/static`,
     {
       mode: "cors",
       headers: {

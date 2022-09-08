@@ -15,7 +15,7 @@ const TimeTable = function ({ id, maxPegs, maxDays }) {
     const getLakeReservsById = async () => {
       try {
         const response = await axios.get(
-          `https://karpteam.herokuapp.com/api/lakes/${id}`,
+          `https://hookandrod.herokuapp.com/api/lakes/${id}`,
           {
             mode: "cors",
             headers: {

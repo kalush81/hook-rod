@@ -38,7 +38,7 @@ const Lowiska = function ( { location,data: {allFishery: { nodes } } } ) {
     const loadLowiska = async () => {
       try {
         const response = await axios.get(
-          `https://karpteam.herokuapp.com/api/lakes/checkLakesOnDate`,
+          `https://hookandrod.herokuapp.com/api/lakes/checkLakesOnDate`,
           {
             mode: "cors",
             headers: {
