@@ -36,9 +36,10 @@ const Lowiska = function ( { location,data: {allFishery: { nodes } } } ) {
     const ulng = params.get("ulng");
     // get data from API
     const loadLowiska = async () => {
+      console.log(distance, eday, sday, ulat, ulng)
       try {
         const response = await axios.get(
-          `https://hookandrod.herokuapp.com/api/lakes/checkLakesOnDate`,
+          `http://hookandrod.herokuapp.com/api/lakes/checkLakesOnDate`,
           {
             mode: "cors",
             headers: {
@@ -72,7 +73,7 @@ const Lowiska = function ( { location,data: {allFishery: { nodes } } } ) {
 
       } catch (error) {
         console.log(
-          "couldnt fetch from https://karpteam.herokuapp.com/api/lakes/checkLakesOnDate",
+          "couldnt fetch from https://hookandrod.herokuapp.com/api/lakes/checkLakesOnDate",
           error
         );
       }

@@ -8,7 +8,8 @@ export const getBookingDataOnDay = (date, bookings) => {
     let s = unify(bkng.startDay);
     let e = unify(bkng.endDay);
 
-    if ((day >= s && day < e) || (day === s && day === e)) {
+    // logic belowe needs extensive testing !!!
+    if ((day >= s && day <= e) || (day === s && day === e)) {
       bookingData.isBooked = true;
       bookingData.status = bkng.status;
     }

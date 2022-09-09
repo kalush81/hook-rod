@@ -61,9 +61,6 @@ exports.sourceNodes = async ({
 }) => {
   try {
     const allLakesFromApi = await getStaticDataFromApi();
-
-    console.log("control allLakesFromApi", allLakesFromApi);
-
     allLakesFromApi.map((lake, i) => {
       voivodeshipsData.forEach((v) => {
         if (v.voiv === lake.voivodeship.toLowerCase()) {
@@ -81,7 +78,6 @@ exports.sourceNodes = async ({
         nameSlug: translate(fishery.name),
         voivodeshipSlug: translate(fishery.voivodeship),
         priceLow: fishery.priceLow || 1,
-        facilities: fishery.facilities,
       }));
       return {
         ...voivData,
