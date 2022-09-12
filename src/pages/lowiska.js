@@ -39,7 +39,7 @@ const Lowiska = function ( { location,data: {allFishery: { nodes } } } ) {
       console.log(distance, eday, sday, ulat, ulng)
       try {
         const response = await axios.get(
-          `http://hookandrod.herokuapp.com/api/lakes/checkLakesOnDate`,
+          `https://hookandrod.herokuapp.com/api/lakes/checkLakesOnDate`,
           {
             mode: "cors",
             headers: {
