@@ -1,6 +1,14 @@
 import React from "react";
+import { useContext } from "react";
+import { DatesReservedContext } from "./datesReservationContext";
 
 function DateSquare({ day, bookingData }) {
+  const { value, setValue } = useContext(DatesReservedContext);
+
+  const handleClick = (day) => {
+    setValue(day);
+  };
+
   if (bookingData.isBooked) {
     return (
       <span
@@ -15,7 +23,7 @@ function DateSquare({ day, bookingData }) {
   return (
     <span
       className="calendar_lowisko_day_box small free"
-      onClick={(e) => console.log(`span wac clicked with day: ${day}`, e)}
+      onClick={(e) => handleClick(day)}
     >
       {/* {day} */}
       <img src="../../V.svg" alt="" />

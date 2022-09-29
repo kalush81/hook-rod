@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import TimeTable from "../components/TimeTable";
 import Reservation from "../components/Reservation.js";
+import { DatesReservedContext } from "../components/datesReservationContext";
+import moment from "moment";
 
 const FisheryPage = ({ pageContext: fishery }) => {
   const {
@@ -26,6 +28,8 @@ const FisheryPage = ({ pageContext: fishery }) => {
   } = fishery;
 
   const [opened, setOpened] = useState(false);
+
+  const [value, setValue] = useState(moment());
 
   const toggleOpened = () => setOpened((value) => !value);
 
@@ -68,14 +72,18 @@ const FisheryPage = ({ pageContext: fishery }) => {
                   }}
                 ></div>
               </div>
-              <Reservation />
-              <section>
-                <TimeTable
-                  id={id}
-                  maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
-                  maxDays={14}
-                />
-              </section>
+
+              <DatesReservedContext.Provider value={{ value, setValue }}>
+                <Reservation />
+                <section>
+                  <TimeTable
+                    id={id}
+                    maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
+                    maxDays={14}
+                  />
+                </section>
+              </DatesReservedContext.Provider>
+
               <div className="lowisko_udogo"></div>
               <div className="lowisko_regu">
                 <h2>Regulamin Łowiska</h2>

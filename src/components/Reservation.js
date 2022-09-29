@@ -1,18 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Form, Select, DatePicker, Checkbox, Button } from "antd";
 import "antd/dist/antd.css";
+import { useContext } from "react";
+import { DatesReservedContext } from "./datesReservationContext";
+import moment from "moment";
+
+const dateFormat = "DD.MM.YYYY";
 
 const { RangePicker } = DatePicker;
 const { Option } = Select;
 
-const Reservation = ({pegs}) => {
+const Reservation = ({ pegs }) => {
+  // beda uzyte do wstawiena dat pochodzacych z klikniecia na date w terminarzu
+  const [startDate, setStartDate] = useState(moment());
+
   const [form] = Form.useForm();
+
+  const { value: sdate } = useContext(DatesReservedContext);
+
+  console.log("sdate", sdate);
 
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
   };
-  
+
   return (
     <Form form={form} name="register" onFinish={onFinish} scrollToFirstError>
       <CalendarCSS>
@@ -25,7 +37,7 @@ const Reservation = ({pegs}) => {
               rules={[
                 {
                   required: true,
-                  message: "Please input your password!",
+                  message: "Please input your peg name!",
                 },
               ]}
             >
@@ -36,10 +48,11 @@ const Reservation = ({pegs}) => {
                 size="medium"
                 placeholder="Stanowisko"
                 showAction="focus"
-              > 
-                {pegs && pegs.map(peg => {
-                  return <Option value={peg.id}>{peg.pegName}</Option>
-                })}
+              >
+                {pegs &&
+                  pegs.map((peg) => {
+                    return <Option value={peg.id}>{peg.pegName}</Option>;
+                  })}
               </Select>
             </Form.Item>
             <Form.Item name="osoby">
@@ -59,9 +72,18 @@ const Reservation = ({pegs}) => {
             </Form.Item>
           </div>
           <div className="row row2">
-            <Form.Item name="daty">
-              <RangePicker className="rangepicker_row2" />
-            </Form.Item>
+            {/* <Form.Item name="daty"> */}
+            <RangePicker
+              // className="rangepicker_row2"
+              // allowEmpty={[true, true]}
+              // defaultValue={startDate}
+              value={[
+                moment(sdate, dateFormat),
+                moment(sdate, dateFormat).add(1, "days"),
+              ]}
+              format={dateFormat}
+            />
+            {/* </Form.Item> */}
           </div>
           <h2>Opcje dodatkowe</h2>
           <div className="options">
@@ -124,6 +146,14 @@ const Reservation = ({pegs}) => {
           </div>
         </div>
       </CalendarCSS>
+      {/* <button
+        onClick={() => {
+          console.log("inside btn click callback");
+          setStartDate("2021/02/02");
+        }}
+      >
+        setDate
+      </button> */}
     </Form>
   );
 };
@@ -216,7 +246,6 @@ const CalendarCSS = styled.div`
 `;
 
 export default Reservation;
-
 
 /* <Option value="1">1 stanowisko</Option>
                 <Option value="2">2 stanowisko</Option>

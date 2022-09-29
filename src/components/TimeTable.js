@@ -4,12 +4,17 @@ import PegDatesRow from "./PegDatesRow";
 import axios from "axios";
 import moment from "moment";
 import { getCallendarString } from "../utils/get-date-string";
+import { useContext } from "react";
+import { DatesReservedContext } from "./datesReservationContext";
 
 const TimeTable = function ({ id, maxPegs, maxDays }) {
   const [firstIdx, setFirstIdx] = useState(0);
   const [lastIdx, setLastIdx] = useState(maxPegs);
   const [otherDays, setOtherDays] = useState(0);
   const [pegs, setPegsData] = useState();
+
+  //all about context - dates
+  const [value, setValue] = useContext(DatesReservedContext);
 
   useEffect(() => {
     const getLakeReservsById = async () => {

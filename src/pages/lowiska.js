@@ -11,7 +11,7 @@ import { graphql } from "gatsby";
 const { Option } = Select;
 
 const handleChange = (value) => {
-  console.log(`selected ${value}`);
+  //console.log(`selected ${value}`);
 };
 
 //prettier-ignore
@@ -36,7 +36,6 @@ const Lowiska = function ( { location,data: {allFishery: { nodes } } } ) {
     const ulng = params.get("ulng");
     // get data from API
     const loadLowiska = async () => {
-      console.log(distance, eday, sday, ulat, ulng)
       try {
         const response = await axios.get(
           `https://hookandrod.herokuapp.com/api/lakes/checkLakesOnDate`,
