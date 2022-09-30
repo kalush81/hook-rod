@@ -13,7 +13,8 @@ const { Option } = Select;
 
 const Reservation = ({ pegs }) => {
   // beda uzyte do wstawiena dat pochodzacych z klikniecia na date w terminarzu
-  const [startDate, setStartDate] = useState(moment());
+  const [endDate, setEndDate] = useState(null);
+  const [startDate, setStartDate] = useState(null);
 
   const [form] = Form.useForm();
 
@@ -78,10 +79,14 @@ const Reservation = ({ pegs }) => {
               // allowEmpty={[true, true]}
               // defaultValue={startDate}
               value={[
-                moment(sdate, dateFormat),
-                moment(sdate, dateFormat).add(1, "days"),
+                startDate || (sdate && moment(sdate, dateFormat)),
+                endDate || (sdate && moment(sdate, dateFormat).add(1, "days")),
               ]}
               format={dateFormat}
+              onChange={(dates) => {
+                setStartDate(dates[0]);
+                setEndDate(dates[1]);
+              }}
             />
             {/* </Form.Item> */}
           </div>

@@ -29,7 +29,7 @@ const FisheryPage = ({ pageContext: fishery }) => {
 
   const [opened, setOpened] = useState(false);
 
-  const [value, setValue] = useState(moment());
+  const [value, setValue] = useState(null);
 
   const toggleOpened = () => setOpened((value) => !value);
 
