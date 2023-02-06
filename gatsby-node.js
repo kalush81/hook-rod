@@ -72,7 +72,10 @@ exports.sourceNodes = async ({
     const slugifiedData = voivodeshipsData.map((voivData) => {
       const slugifiedFisheries = voivData.fisheries.map((fishery) => ({
         ...fishery,
-        imagePath: fishery.imagePath || "",
+        imagePath:
+          `https://hookrod.s3.eu-central-1.amazonaws.com/${fishery.imagePath}` ||
+          "",
+        fishOnLake: fishery.fishOnLake || [{ name: "", weight: 0, length: 0 }],
         regulations: voivData.regulations || "zbiór przepisów",
         citySlug: translate(fishery.city),
         nameSlug: translate(fishery.name),
@@ -139,11 +142,11 @@ exports.createPages = async function ({ actions, graphql }) {
           voivodeship
           voivodeshipSlug
           priceLow
-          # fishOnLake {
-          #   name
-          #   weight
-          #   length
-          # }
+          fishOnLake {
+            name
+            weight
+            length
+          }
           imagePath
           numberOfPegs
           latitude
