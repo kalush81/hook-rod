@@ -12,9 +12,11 @@ const TimeTable = function ({ id, maxPegs, maxDays }) {
   const [lastIdx, setLastIdx] = useState(maxPegs);
   const [otherDays, setOtherDays] = useState(0);
   const [pegs, setPegsData] = useState();
+  const { value, setValue } = useContext(DatesReservedContext);
 
-  //all about context - dates
-  const [value, setValue] = useContext(DatesReservedContext);
+  const setPegsDataForReservationComponent = (data) => {
+    setValue(data);
+  };
 
   useEffect(() => {
     const getLakeReservsById = async () => {
@@ -34,6 +36,7 @@ const TimeTable = function ({ id, maxPegs, maxDays }) {
           }
         );
         setPegsData(response.data.pegs);
+        setPegsDataForReservationComponent(response.data.pegs);
       } catch (error) {
         console.error("error while fetching reservations data", error);
       }
@@ -118,12 +121,10 @@ const TimeTable = function ({ id, maxPegs, maxDays }) {
         })}
       </div>
 
-      {/* <div className="calendar_date_selector"></div> */}
       <div className="calendar_lowiska_list border">
         {pegs &&
           pegs.map((peg, i) => {
             if (i >= firstIdx && i < lastIdx) {
-              console.log("dzialam");
               return (
                 <PegDatesRow
                   key={peg.pegNumber}

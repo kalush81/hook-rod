@@ -1,14 +1,6 @@
 import React from "react";
-import { useContext } from "react";
-import { DatesReservedContext } from "./datesReservationContext";
 
 function DateSquare({ day, bookingData }) {
-  const { value, setValue } = useContext(DatesReservedContext);
-
-  const handleClick = (day) => {
-    setValue(day);
-  };
-
   if (bookingData.isBooked) {
     return (
       <span

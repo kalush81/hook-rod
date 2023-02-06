@@ -1,26 +1,62 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Form, Select, DatePicker, Checkbox, Button } from "antd";
 import "antd/dist/antd.css";
-import { useContext } from "react";
-import { DatesReservedContext } from "./datesReservationContext";
 import moment from "moment";
 
 const dateFormat = "DD.MM.YYYY";
+
+function getDates(startDate, stopDate) {
+  var dateArray = [];
+  var currentDate = moment(startDate, dateFormat);
+  var stopDate = moment(stopDate, dateFormat);
+  while (currentDate <= stopDate) {
+    dateArray.push(moment(currentDate, dateFormat).format(dateFormat));
+    currentDate = moment(currentDate, dateFormat).add(1, "days");
+  }
+  return dateArray;
+}
+
+const getAllDates = (reservations) => {
+  return reservations
+    .map((r) => {
+      return getDates(r.startDay, r.endDay);
+    })
+    .flat();
+};
 
 const { RangePicker } = DatePicker;
 const { Option } = Select;
 
 const Reservation = ({ pegs }) => {
-  // beda uzyte do wstawiena dat pochodzacych z klikniecia na date w terminarzu
-  const [endDate, setEndDate] = useState(null);
-  const [startDate, setStartDate] = useState(null);
-
   const [form] = Form.useForm();
+  const [pegId, setPegId] = useState(null);
+  const [dates, setDates] = useState(null);
+  const [hackValue, setHackValue] = useState(null);
+  const [value, setValue] = useState(null);
 
-  const { value: sdate } = useContext(DatesReservedContext);
+  const handleSelectChange = (id) => {
+    setPegId(id);
+  };
 
-  console.log("sdate", sdate);
+  const disabledDate = (current) => {
+    const pegById = pegs.find((peg) => peg.id === pegId);
+    const reservedDates = getAllDates(pegById.reservation);
+    return !!reservedDates.find(
+      (date) =>
+        moment(current).format(dateFormat) ===
+        moment(date, dateFormat).format(dateFormat)
+    );
+  };
+
+  const onOpenChange = (open) => {
+    if (open) {
+      setHackValue([null, null]);
+      setDates([null, null]);
+    } else {
+      setHackValue(null);
+    }
+  };
 
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
@@ -49,6 +85,7 @@ const Reservation = ({ pegs }) => {
                 size="medium"
                 placeholder="Stanowisko"
                 showAction="focus"
+                onChange={handleSelectChange}
               >
                 {pegs &&
                   pegs.map((peg) => {
@@ -75,18 +112,13 @@ const Reservation = ({ pegs }) => {
           <div className="row row2">
             {/* <Form.Item name="daty"> */}
             <RangePicker
-              // className="rangepicker_row2"
-              // allowEmpty={[true, true]}
-              // defaultValue={startDate}
-              value={[
-                startDate || (sdate && moment(sdate, dateFormat)),
-                endDate || (sdate && moment(sdate, dateFormat).add(1, "days")),
-              ]}
-              format={dateFormat}
-              onChange={(dates) => {
-                setStartDate(dates[0]);
-                setEndDate(dates[1]);
-              }}
+              disabled={!pegId && true}
+              className="rangepicker_row2"
+              //value={hackValue || value}
+              disabledDate={disabledDate}
+              //onCalendarChange={(val) => setDates(val)}
+              //onChange={(val) => setValue(val)}
+              //onOpenChange={onOpenChange}
             />
             {/* </Form.Item> */}
           </div>
@@ -251,8 +283,3 @@ const CalendarCSS = styled.div`
 `;
 
 export default Reservation;
-
-/* <Option value="1">1 stanowisko</Option>
-                <Option value="2">2 stanowisko</Option>
-                <Option value="3">3 stanowisko</Option>
-                <Option value="4">4 stanowisko</Option> */

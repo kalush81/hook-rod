@@ -25,11 +25,11 @@ export const query = graphql`
       nodes {
         voivodeship
         voivodeshipSlug
-        fishOnLake {
-          name
-          weight
-          length
-        }
+        # fishOnLake {
+        #   name
+        #   weight
+        #   length
+        # }
 
         name
         nameSlug

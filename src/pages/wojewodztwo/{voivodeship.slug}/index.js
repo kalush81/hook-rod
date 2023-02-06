@@ -26,11 +26,11 @@ export const query = graphql`
   query QueryAllFisheriesByVoiv($slug: String) {
     voivodeship(slug: { eq: $slug }) {
       fisheries {
-        fishOnLake {
-          name
-          weight
-          length
-        }
+        # fishOnLake {
+        #   name
+        #   weight
+        #   length
+        # }
 
         city
         citySlug

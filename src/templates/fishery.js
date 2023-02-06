@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
-//import axios from "axios";
 import plPL from "antd/lib/locale/pl_PL";
 import "moment/locale/pl";
 import { ConfigProvider, Breadcrumb } from "antd";
@@ -11,7 +10,6 @@ import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import TimeTable from "../components/TimeTable";
 import Reservation from "../components/Reservation.js";
 import { DatesReservedContext } from "../components/datesReservationContext";
-import moment from "moment";
 
 const FisheryPage = ({ pageContext: fishery }) => {
   const {
@@ -28,7 +26,6 @@ const FisheryPage = ({ pageContext: fishery }) => {
   } = fishery;
 
   const [opened, setOpened] = useState(false);
-
   const [value, setValue] = useState(null);
 
   const toggleOpened = () => setOpened((value) => !value);
@@ -74,7 +71,7 @@ const FisheryPage = ({ pageContext: fishery }) => {
               </div>
 
               <DatesReservedContext.Provider value={{ value, setValue }}>
-                <Reservation />
+                <Reservation pegs={value} />
                 <section>
                   <TimeTable
                     id={id}

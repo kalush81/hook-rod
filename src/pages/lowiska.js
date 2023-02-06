@@ -175,11 +175,11 @@ export const query = graphql`
         numberOfPegs
         priceLow
 
-        fishOnLake {
-          name
-          weight
-          length
-        }
+        # fishOnLake {
+        #   name
+        #   weight
+        #   length
+        # }
         voivodeship
         voivodeshipSlug
       }
