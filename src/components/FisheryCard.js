@@ -10,6 +10,7 @@ const listSpecies = (species) => {
 
 //prettier-ignore
 function FisheryCard({ data }) {
+  console.log("fishery data", data);
   return (
     <div key={data.id}>
       <li className="lowi_itm">

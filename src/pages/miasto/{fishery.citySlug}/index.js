@@ -8,6 +8,7 @@ function City({
     allFishery: { nodes: fisheries },
   },
 }) {
+  console.log("fisheries", fisheries);
   return (
     <Map wasSelected={true} disabled={true}>
       <div className="lowiskadiv">
@@ -25,12 +26,11 @@ export const query = graphql`
       nodes {
         voivodeship
         voivodeshipSlug
-        # fishOnLake {
-        #   name
-        #   weight
-        #   length
-        # }
-
+        fishOnLake {
+          name
+          weight
+          length
+        }
         name
         nameSlug
         id

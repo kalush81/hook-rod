@@ -1,6 +1,8 @@
 import React from "react";
 
 function DateSquare({ day, bookingData }) {
+  //console.log("day", day);
+  //console.log("bookingData", bookingData);
   if (bookingData.isBooked) {
     return (
       <span
@@ -15,7 +17,7 @@ function DateSquare({ day, bookingData }) {
   return (
     <span
       className="calendar_lowisko_day_box small free"
-      onClick={(e) => handleClick(day)}
+      //onClick={(e) => handleClick(day)}
     >
       {/* {day} */}
       <img src="../../V.svg" alt="" />

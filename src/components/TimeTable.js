@@ -12,11 +12,11 @@ const TimeTable = function ({ id, maxPegs, maxDays }) {
   const [lastIdx, setLastIdx] = useState(maxPegs);
   const [otherDays, setOtherDays] = useState(0);
   const [pegs, setPegsData] = useState();
-  const { value, setValue } = useContext(DatesReservedContext);
+  //const { value, setValue } = useContext(DatesReservedContext);
 
-  const setPegsDataForReservationComponent = (data) => {
-    setValue(data);
-  };
+  // const setPegsDataForReservationComponent = (data) => {
+  //   setValue(data);
+  // };
 
   useEffect(() => {
     const getLakeReservsById = async () => {
@@ -36,7 +36,8 @@ const TimeTable = function ({ id, maxPegs, maxDays }) {
           }
         );
         setPegsData(response.data.pegs);
-        setPegsDataForReservationComponent(response.data.pegs);
+        //setPegsDataForReservationComponent(response.data.pegs);
+        //console.log("response rezerwacje", response);
       } catch (error) {
         console.error("error while fetching reservations data", error);
       }
@@ -135,6 +136,7 @@ const TimeTable = function ({ id, maxPegs, maxDays }) {
                 />
               );
             }
+            return null;
           })}
 
         <button

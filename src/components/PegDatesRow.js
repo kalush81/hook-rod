@@ -10,7 +10,7 @@ function PegDatesRow({ peg, daysArr }) {
       status,
     };
   });
-
+  //console.log("bookings", bookings);
   return (
     <div className="calendar_lowisko_num">
       <span key={peg.id} className="calendar_lowisko_day_box_num">
