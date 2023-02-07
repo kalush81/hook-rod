@@ -1,3 +1,5 @@
+const { createRemoteFileNode } = require("gatsby-source-filesystem");
+
 let polishLetters = ["ą", "ć", "ę", "ł", "ń", "ó", "ś", "ż", "ź", " "];
 let englishLetter = ["a", "c", "e", "l", "n", "o", "s", "z", "z", "-"];
 
@@ -56,7 +58,9 @@ const getStaticDataFromApi = async () => {
 
 exports.sourceNodes = async ({
   reporter,
-  actions: { createNode },
+  createNodeId,
+  cache,
+  actions: { createNode, createNodeField },
   createContentDigest,
 }) => {
   try {
@@ -76,6 +80,7 @@ exports.sourceNodes = async ({
           `https://hookrod.s3.eu-central-1.amazonaws.com/${fishery.imagePath}` ||
           "",
         fishOnLake: fishery.fishOnLake || [{ name: "", weight: 0, length: 0 }],
+        facilities: fishery.facilities || [{ name: "" }],
         regulations: voivData.regulations || "zbiór przepisów",
         citySlug: translate(fishery.city),
         nameSlug: translate(fishery.name),
@@ -104,7 +109,7 @@ exports.sourceNodes = async ({
       data.fisheries.forEach((fishery) => {
         const required = {
           id: String(fishery.id),
-          path: `wojewodztwo/${fishery.voivodeshipSlug}/${fishery.nameSlug}`,
+          myPath: `wojewodztwo/${fishery.voivodeshipSlug}/${fishery.nameSlug}`,
           slug: fishery.nameSlug,
         };
         const rest = { ...fishery };
@@ -137,7 +142,7 @@ exports.createPages = async function ({ actions, graphql }) {
           citySlug
           name
           nameSlug
-          path
+          myPath
           regulations
           voivodeship
           voivodeshipSlug
@@ -151,19 +156,63 @@ exports.createPages = async function ({ actions, graphql }) {
           numberOfPegs
           latitude
           longitude
-          # facilities {
-          #   name
-          # }
+          facilities {
+            name
+          }
+          fields {
+            localFile
+          }
         }
       }
     }
   `);
   data.allFishery.nodes.forEach((node) => {
-    const myPath = node.path;
+    const myPath = node.myPath;
     actions.createPage({
       path: myPath,
       component: require.resolve(`./src/templates/fishery.js`),
       context: { ...node },
     });
   });
+};
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  createTypes(`
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter
+      featuredImg: File @link(from: "fields.localFile")
+    }
+
+    type Frontmatter {
+      title: String!
+      featuredImgUrl: String
+      featuredImgAlt: String
+    }
+  `);
+};
+
+exports.onCreateNode = async ({
+  node,
+  actions: { createNode, createNodeField },
+  createNodeId,
+  getCache,
+}) => {
+  if (node.internal.type === "Fishery" && node.imagePath !== "") {
+    // console.warn("WATCH FROM HERE ###########");
+    // console.log(node.imagePath);
+    // console.warn("WATCHTO HERE ###########");
+    const fileNode = await createRemoteFileNode({
+      url: node.imagePath, // string that points to the URL of the image
+      parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
+      createNode, // helper function in gatsby-node to generate the node
+      createNodeId, // helper function in gatsby-node to generate the node id
+      getCache,
+    });
+
+    // if the file was created, extend the node with "localFile"
+    if (fileNode) {
+      createNodeField({ node, name: "localFile", value: fileNode.id });
+    }
+  }
 };

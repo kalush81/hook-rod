@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "gatsby";
-import { Pin, Fish, Trophy, Silhouette, Dollar } from "../assets/icons";
+import { graphql, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
+import { Pin, Fish, Silhouette, Dollar } from "../assets/icons";
 
 const listSpecies = (species) => {
   return species.map((fish) => {
@@ -9,36 +11,59 @@ const listSpecies = (species) => {
 };
 
 //prettier-ignore
-function FisheryCard({ data }) {
-  console.log("fishery data", data);
+function FisheryCard( {fisheryCardData: fCD,  } ) {
+  const nodes = fCD.allFishery.nodes;
+  const nameToLookUp = fCD.name;
+  const found = nodes.find( node => node.name === nameToLookUp);
+
+  const data = useStaticQuery(graphql`
+    query {
+      allFile {
+        edges {
+          node {
+            id
+            childImageSharp {
+              fluid(maxWidth: 200) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+    const imageData = data.allFile.edges.find(edge => edge.node.id === found.fields.localFile)
+    console.log("imageData", imageData)
+
   return (
-    <div key={data.id}>
+    <div key={fCD.id}>
       <li className="lowi_itm">
-        <Link to={`/wojewodztwo/${data.voivodeshipSlug}/${data.nameSlug}`}>
-          <div className="lowisko_img">
-            <img alt="fish" src={ data.imagePath || "https://i.ibb.co/H76PLN1/received-301554618657421.jpg" }/>
-          </div>
-          <h2 className="lowi_itm_header">{data.name}</h2>
+        <Link to={`/wojewodztwo/${fCD.voivodeshipSlug}/${fCD.nameSlug}`}>
+          {/* <div className="lowisko_img"> */}
+          <Img fluid={imageData.node.childImageSharp.fluid} alt="Gatsby Docs are awesome" /> 
+          {/* </div> */}
+          <h2 className="lowi_itm_header">{fCD.name}</h2>
           <div className="lowi_itm_amnt lokalizacja">
             <img className="pin" alt="pin" src={Pin}></img>
             <b>Lokalizacja: </b>
-            {data.city}
+            {fCD.city}
           </div>
           <div className="lowi_itm_amnt">
             <img className="fish" alt="fishsvg" src={Fish}></img>
             <b>Odmiany: </b>
-            <b>{data.fishOnLake && listSpecies(data.fishOnLake)}</b>
+            <b>{fCD.fishOnLake && listSpecies(fCD.fishOnLake)}</b>
           </div>
           <div className="lowi_itm_amnt">
-            <img className="trophy" alt="trophy" src={Trophy}></img>
+            {/* <Img fluid={image}/> */}
             <b>Rekord: </b>
-            {data.fishOnLake && data.fishOnLake.length > 0 && (
+            {fCD.fishOnLake && fCD.fishOnLake.length > 0 && (
               <>
               <b>
 
-              <span style={{ color: "red" }}>{data.fishOnLake[0].name} </span>
-              <span style={{ color: "red" }}>{data.fishOnLake[0].weight} kg </span>
-              <span style={{ color: "red" }}>{data.fishOnLake[0].length}cm</span>
+              <span style={{ color: "red" }}>{fCD.fishOnLake[0].name} </span>
+              <span style={{ color: "red" }}>{fCD.fishOnLake[0].weight} kg </span>
+              <span style={{ color: "red" }}>{fCD.fishOnLake[0].length}cm</span>
               </b>
               </>
               
@@ -47,22 +72,22 @@ function FisheryCard({ data }) {
           <div className="lowi_itm_amnt stanowiska">
             <img className="silhouette" alt="silhouette" src={Silhouette}></img>
             <b>Liczba stanowisk: </b>
-            {data.numberOfPegs}
+            {fCD.numberOfPegs}
           </div>
-          {data.freePegs && (
+          {fCD.freePegs && (
               <div>
               <b>Wolnych stanowisk: </b>
-              {data.freePegs}
+              {fCD.freePegs}
               </div>
             )}
           <div className="lowi_itm_amnt cena">
             <img className="dollar" alt="dollar" src={Dollar}></img>
-            <b>Od {data.priceLow} zł / osoba</b>
+            <b>Od {fCD.priceLow} zł / osoba</b>
           </div>
-          {data.distance && (
+          {fCD.distance && (
             <div className="lowi_itm_distance">
               <b>Odległość: </b>
-              {data.distance} km
+              {fCD.distance} km
             </div>
           )}
         </Link>

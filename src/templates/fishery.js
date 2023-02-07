@@ -17,7 +17,6 @@ const FisheryPage = ({ pageContext: fishery }) => {
     city,
     citySlug,
     name,
-    nameSlug,
     numberOfPegs,
     regulations,
     imagePath = "https://i.ibb.co/H76PLN1/received-301554618657421.jpg",
@@ -29,7 +28,7 @@ const FisheryPage = ({ pageContext: fishery }) => {
   const [value, setValue] = useState(null);
 
   const toggleOpened = () => setOpened((value) => !value);
-
+  console.log("pageContext", fishery);
   return (
     <>
       <ConfigProvider locale={plPL}>
