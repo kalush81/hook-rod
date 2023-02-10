@@ -14,7 +14,7 @@ const listSpecies = (species) => {
 function FisheryCard( {fisheryCardData: fCD,  } ) {
   const nodes = fCD.allFishery.nodes;
   const nameToLookUp = fCD.name;
-  const found = nodes.find( node => node.name === nameToLookUp);
+  const found = nodes?.find( node => node.name === nameToLookUp);
 
   const data = useStaticQuery(graphql`
     query {
@@ -33,7 +33,7 @@ function FisheryCard( {fisheryCardData: fCD,  } ) {
     }
   `)
 
-    const imageData = data.allFile.edges.find(edge => edge.node.id === found.fields.localFile)
+    const imageData = data.allFile.edges.find(edge => edge.node.id === found?.fields.localFile)
     console.log("imageData", imageData)
 
   return (
@@ -41,7 +41,7 @@ function FisheryCard( {fisheryCardData: fCD,  } ) {
       <li className="lowi_itm">
         <Link to={`/wojewodztwo/${fCD.voivodeshipSlug}/${fCD.nameSlug}`}>
           {/* <div className="lowisko_img"> */}
-          <Img fluid={imageData.node.childImageSharp.fluid} alt="Gatsby Docs are awesome" /> 
+          <Img fluid={imageData?.node.childImageSharp.fluid} alt="Gatsby Docs are awesome" /> 
           {/* </div> */}
           <h2 className="lowi_itm_header">{fCD.name}</h2>
           <div className="lowi_itm_amnt lokalizacja">

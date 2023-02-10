@@ -9,11 +9,14 @@ function City({
   },
 }) {
   console.log("fisheries", fisheries);
+  const allFishery = fisheries;
   return (
     <Map wasSelected={true} disabled={true}>
       <div className="lowiskadiv">
         {fisheries.map((fisheryCardData) => {
-          return <FisheryCard data={{ ...fisheryCardData }} />;
+          return (
+            <FisheryCard fisheryCardData={{ ...fisheryCardData, allFishery }} />
+          );
         })}
       </div>
     </Map>
@@ -30,6 +33,9 @@ export const query = graphql`
           name
           weight
           length
+        }
+        fields {
+          localFile
         }
         name
         nameSlug

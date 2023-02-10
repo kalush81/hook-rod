@@ -23,17 +23,6 @@ function FisheryListByVoivodeship({ data: { voivodeship: { fisheries }, allFishe
 
 export const query = graphql`
   query QueryAllFisheriesByVoiv($slug: String) {
-    allFishery {
-      nodes {
-        fields {
-          localFile
-        }
-        fishOnLake {
-          name
-        }
-        name
-      }
-    }
     voivodeship(slug: { eq: $slug }) {
       fisheries {
         fishOnLake {
@@ -54,6 +43,17 @@ export const query = graphql`
         voivodeshipSlug
       }
       id
+    }
+    allFishery {
+      nodes {
+        fields {
+          localFile
+        }
+        fishOnLake {
+          name
+        }
+        name
+      }
     }
   }
 `;
