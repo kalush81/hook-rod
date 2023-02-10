@@ -57,6 +57,7 @@ function sortData(data) {
     result.cities.push({
       name: city,
       items: data.filter((item) => item.city === city),
+      voivodeship: data.find((item) => item.city === city).voivodeship,
     });
   });
 
@@ -84,13 +85,43 @@ const getStaticDataFromApi = async () => {
   return await result.json();
 };
 
-const createPages = async () => {
+exports.createPages = async ({ actions: { createPage } }) => {
   const data = await getStaticDataFromApi();
-  const sortedData = sortData(data);
-  console.log("sorted data, ready to be served for createPage()", sortedData);
+  const sortedData = sortData(data); //data sorted by voivodeship and city
+  const allLakes = data; // unsorted raw data of all lakes
+  sortedData.voivodeships.forEach((voiv) => {
+    // console.log("##### voivodeships paths");
+    // console.log(`path: /${v.name}`);
+    // console.log(`context: ${v.items}`);
+    createPage({
+      path: `/test/${voiv.name}`,
+      component: require.resolve("./src/templates/voivodeships"),
+      context: { voivodeships: voiv.items },
+    });
+  });
+  sortedData.cities.forEach((city) => {
+    // console.log("##### cities paths");
+    // console.log(`path: /${c.voivodeship}/${c.name}`);
+    // console.log(`context: ${c.items}`);
+    createPage({
+      path: `/test/${city.voivodeship}/${city.name}`,
+      component: require.resolve("./src/templates/cities"),
+      context: { cities: city.items },
+    });
+  });
+  allLakes.forEach((lake) => {
+    // console.log("all lakes unsorted");
+    // console.log(`path: /${l.voivodeship}/${l.city}/${l.name}`);
+    // console.log("context", l);
+    createPage({
+      path: `/test/${lake.voivodeship}/${lake.city}/${lake.name}`,
+      component: require.resolve("./src/templates/lake"),
+      context: { lake },
+    });
+  });
 };
 
-createPages();
+//createPages();
 // exports.sourceNodes = async ({
 //   reporter,
 //   actions: { createNode },
