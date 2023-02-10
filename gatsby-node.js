@@ -31,6 +31,38 @@
 //   { id: "opolskie", voiv: "opolskie", fisheries: [] },
 //   { id: "małopolskie", voiv: "małopolskie", fisheries: [] },
 // ];
+
+function sortData(data) {
+  const result = {
+    voivodeships: [],
+    cities: [],
+  };
+
+  const voivodeships = new Set();
+  const cities = new Set();
+
+  data.forEach((item) => {
+    voivodeships.add(item.voivodeship);
+    cities.add(item.city);
+  });
+
+  voivodeships.forEach((voivodeship) => {
+    result.voivodeships.push({
+      name: voivodeship,
+      items: data.filter((item) => item.voivodeship === voivodeship),
+    });
+  });
+
+  cities.forEach((city) => {
+    result.cities.push({
+      name: city,
+      items: data.filter((item) => item.city === city),
+    });
+  });
+
+  return result;
+}
+
 const fetch = (...args) =>
   import(`node-fetch`).then(({ default: fetch }) => fetch(...args));
 
@@ -54,8 +86,10 @@ const getStaticDataFromApi = async () => {
 
 const createPages = async () => {
   const data = await getStaticDataFromApi();
-  console.log("data", data);
+  const sortedData = sortData(data);
+  console.log("sorted data, ready to be served for createPage()", sortedData);
 };
+
 createPages();
 // exports.sourceNodes = async ({
 //   reporter,
