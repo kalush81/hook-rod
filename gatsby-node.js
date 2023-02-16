@@ -91,14 +91,7 @@ const getStaticDataFromApi = async () => {
   }
 };
 
-exports.createPages = async ({
-  node,
-  createNodeId,
-  createContentDigest,
-  actions: { createPage, createNode, createNodeField },
-  reporter,
-  getCache,
-}) => {
+exports.createPages = async ({ actions: { createPage }, createNodeId }) => {
   const data = await getStaticDataFromApi();
   const sortedData = sortData(data); //data sorted by voivodeship and city
   const allLakes = data; // unsorted raw data of all lakes
@@ -125,7 +118,7 @@ exports.createPages = async ({
       path: `/test/${lake.voivodeship}/${lake.city}/${lake.name}`,
       component: require.resolve("./src/templates/lake"),
       context: {
-        lake,
+        id: String(lake.id),
       },
     });
   });
@@ -136,15 +129,15 @@ exports.sourceNodes = async ({
   createNodeId,
   createContentDigest,
 }) => {
-  const data = await getStaticDataFromApi();
-  data.forEach((data) => {
+  const lakes = await getStaticDataFromApi();
+  lakes.forEach((lake) => {
     actions.createNode({
-      ...data,
-      imagePath: `https://hookrod.s3.eu-central-1.amazonaws.com/${data.imagePath}`,
-      id: createNodeId(data.id),
+      ...lake,
+      imagePath: `https://hookrod.s3.eu-central-1.amazonaws.com/${lake.imagePath}`,
+      id: String(lake.id),
       internal: {
         type: "Lake",
-        contentDigest: createContentDigest(data),
+        contentDigest: createContentDigest(lake),
       },
     });
   });

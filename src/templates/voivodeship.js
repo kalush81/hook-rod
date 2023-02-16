@@ -1,17 +1,21 @@
 import React from "react";
-import TestLakeCard from "../components/TestLakeCard";
+import styled from "styled-components";
 import { graphql } from "gatsby";
 import FisheryCard from "../components/FisheryCard";
+import Map from "../components/MapCss";
 
 function Voivodeship(props) {
   console.log("props", props);
   return (
     <>
-      <h1>here I am going to loop through</h1>
-      <h1>all lakes within the voivodeship specified by pageContext </h1>
-      {props.data.allLake.nodes.map((node) => {
-        return <FisheryCard data={node} />;
-      })}
+      <Header>Lista Łowisk w : </Header>
+      <Map>
+        <div className="lowiskadiv">
+          {props.data.allLake.nodes.map((node) => {
+            return <FisheryCard data={node} />;
+          })}
+        </div>
+      </Map>
     </>
   );
 }
@@ -45,3 +49,70 @@ export const query = graphql`
     }
   }
 `;
+const Header = styled.h1`
+  margin-top: 80px;
+  text-align: center;
+`;
+
+// eslint-disable-next-line no-lone-blocks
+{
+  /* import * as React from "react";
+import { graphql } from "gatsby";
+import styled from "styled-components";
+import Map from "../../../components/MapCss";
+import FisheryCard from "../../../components/FisheryCard";
+
+//prettier-ignore
+function FisheryListByVoivodeship({ data: { voivodeship: { fisheries }, allFishery } }) {
+  
+  return (
+    <>
+      <Header>lista łowisk w : {fisheries && fisheries.length > 0 ? fisheries[0].voivodeship :  "not found"}</Header>
+      <Map wasSelected={true}>
+        <div className="lowiskadiv">
+          {fisheries && fisheries.length > 0 && fisheries.map((fisheryCardData) => {
+            return <FisheryCard fisheryCardData={{ ...fisheryCardData, allFishery }} />;
+          })}
+        </div>
+      </Map>
+    </>
+  );
+}
+
+export const query = graphql`
+  query QueryAllFisheriesByVoiv($slug: String) {
+    allFishery {
+      nodes {
+        fields {
+          localFile
+        }
+        fishOnLake {
+          name
+        }
+        name
+      }
+    }
+    voivodeship(slug: { eq: $slug }) {
+      fisheries {
+        fishOnLake {
+          name
+          weight
+          length
+        }
+        city
+        citySlug
+        id
+        imagePath
+        regulations
+        name
+        nameSlug
+        numberOfPegs
+        priceLow
+        voivodeship
+        voivodeshipSlug
+      }
+      id
+    }
+  }
+`; */
+}
