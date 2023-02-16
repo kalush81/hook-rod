@@ -1,7 +1,6 @@
 import React from "react";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
-import { graphql, useStaticQuery } from "gatsby";
-import Img from "gatsby-image";
 import { Pin, Fish, Silhouette, Dollar } from "../assets/icons";
 
 const listSpecies = (species) => {
@@ -11,59 +10,37 @@ const listSpecies = (species) => {
 };
 
 //prettier-ignore
-function FisheryCard( {fisheryCardData: fCD,  } ) {
-  const nodes = fCD.allFishery.nodes;
-  const nameToLookUp = fCD.name;
-  const found = nodes?.find( node => node.name === nameToLookUp);
-
-  const data = useStaticQuery(graphql`
-    query {
-      allFile {
-        edges {
-          node {
-            id
-            childImageSharp {
-              fluid(maxWidth: 200) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
-    const imageData = data.allFile.edges.find(edge => edge.node.id === found?.fields.localFile)
-    console.log("imageData", imageData)
+function FisheryCard({ data }) {
+  const { id, city, voivodeship, name:lakeName, lakeImageFile, fishOnLake, priceLow } = data
 
   return (
-    <div key={fCD.id}>
+    <div key={id}>
       <li className="lowi_itm">
-        <Link to={`/wojewodztwo/${fCD.voivodeshipSlug}/${fCD.nameSlug}`}>
+        <Link to={`/test/${voivodeship}/${city}/${lakeName}`}>
           {/* <div className="lowisko_img"> */}
-          <Img fluid={imageData?.node.childImageSharp.fluid} alt="Gatsby Docs are awesome" /> 
+          <GatsbyImage image={getImage(lakeImageFile)}></GatsbyImage>
           {/* </div> */}
-          <h2 className="lowi_itm_header">{fCD.name}</h2>
+          <h2 className="lowi_itm_header">{lakeName}</h2>
           <div className="lowi_itm_amnt lokalizacja">
             <img className="pin" alt="pin" src={Pin}></img>
             <b>Lokalizacja: </b>
-            {fCD.city}
+            {city}
           </div>
           <div className="lowi_itm_amnt">
             <img className="fish" alt="fishsvg" src={Fish}></img>
             <b>Odmiany: </b>
-            <b>{fCD.fishOnLake && listSpecies(fCD.fishOnLake)}</b>
+            <b>{fishOnLake && listSpecies(fishOnLake)}</b>
           </div>
           <div className="lowi_itm_amnt">
             {/* <Img fluid={image}/> */}
             <b>Rekord: </b>
-            {fCD.fishOnLake && fCD.fishOnLake.length > 0 && (
+            {fishOnLake && fishOnLake.length > 0 && (
               <>
               <b>
 
-              <span style={{ color: "red" }}>{fCD.fishOnLake[0].name} </span>
-              <span style={{ color: "red" }}>{fCD.fishOnLake[0].weight} kg </span>
-              <span style={{ color: "red" }}>{fCD.fishOnLake[0].length}cm</span>
+              <span style={{ color: "red" }}>{fishOnLake[0].name} </span>
+              <span style={{ color: "red" }}>{fishOnLake[0].weight} kg </span>
+              <span style={{ color: "red" }}>{fishOnLake[0].length}cm</span>
               </b>
               </>
               
@@ -72,24 +49,24 @@ function FisheryCard( {fisheryCardData: fCD,  } ) {
           <div className="lowi_itm_amnt stanowiska">
             <img className="silhouette" alt="silhouette" src={Silhouette}></img>
             <b>Liczba stanowisk: </b>
-            {fCD.numberOfPegs}
+            {/*numberOfPegs*/}
           </div>
-          {fCD.freePegs && (
+          {/* {freePegs && (
               <div>
               <b>Wolnych stanowisk: </b>
-              {fCD.freePegs}
+              {freePegs}
               </div>
-            )}
+            )} */}
           <div className="lowi_itm_amnt cena">
             <img className="dollar" alt="dollar" src={Dollar}></img>
-            <b>Od {fCD.priceLow} zł / osoba</b>
+            <b>Od {priceLow} zł / osoba</b>
           </div>
-          {fCD.distance && (
+          {/* {distance && (
             <div className="lowi_itm_distance">
               <b>Odległość: </b>
-              {fCD.distance} km
+              {distance} km
             </div>
-          )}
+          )} */}
         </Link>
       </li>
     </div>

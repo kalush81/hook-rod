@@ -1,4 +1,7 @@
-// const { createRemoteFileNode } = require("gatsby-source-filesystem");
+const { createRemoteFileNode } = require("gatsby-source-filesystem");
+//const { createNodeId } = require("gatsby");
+//const { createNodeId } = require("gatsby");
+//const { cache } = require("gatsby");
 // let polishLetters = ["ą", "ć", "ę", "ł", "ń", "ó", "ś", "ż", "ź", " "];
 // let englishLetter = ["a", "c", "e", "l", "n", "o", "s", "z", "z", "-"];
 // function translate(word) {
@@ -60,7 +63,6 @@ function sortData(data) {
       voivodeship: data.find((item) => item.city === city).voivodeship,
     });
   });
-
   return result;
 }
 
@@ -68,212 +70,82 @@ const fetch = (...args) =>
   import(`node-fetch`).then(({ default: fetch }) => fetch(...args));
 
 const getStaticDataFromApi = async () => {
-  const result = await fetch(
-    `https://hookandrod.herokuapp.com/api/lakes/static`,
-    {
-      mode: "cors",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      withCredentials: false,
-      credentials: "same-origin",
-      crossdomain: true,
-    }
-  );
-  return await result.json();
+  try {
+    const result = await fetch(
+      `https://hookandrod.herokuapp.com/api/lakes/static`,
+      {
+        mode: "cors",
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        withCredentials: false,
+        credentials: "same-origin",
+        crossdomain: true,
+      }
+    );
+    return await result.json();
+  } catch (error) {
+    console.error("error while fetchoing from API", error);
+  }
 };
 
-exports.createPages = async ({ actions: { createPage } }) => {
+exports.createPages = async ({
+  node,
+  createNodeId,
+  createContentDigest,
+  actions: { createPage, createNode, createNodeField },
+  reporter,
+  getCache,
+}) => {
   const data = await getStaticDataFromApi();
   const sortedData = sortData(data); //data sorted by voivodeship and city
   const allLakes = data; // unsorted raw data of all lakes
   sortedData.voivodeships.forEach((voiv) => {
-    // console.log("##### voivodeships paths");
-    // console.log(`path: /${v.name}`);
-    // console.log(`context: ${v.items}`);
     createPage({
       path: `/test/${voiv.name}`,
-      component: require.resolve("./src/templates/voivodeships"),
-      context: { voivodeships: voiv.items },
+      component: require.resolve("./src/templates/voivodeship"),
+      context: { voivodeship: voiv.name },
     });
   });
   sortedData.cities.forEach((city) => {
-    // console.log("##### cities paths");
-    // console.log(`path: /${c.voivodeship}/${c.name}`);
-    // console.log(`context: ${c.items}`);
     createPage({
       path: `/test/${city.voivodeship}/${city.name}`,
-      component: require.resolve("./src/templates/cities"),
-      context: { cities: city.items },
+      component: require.resolve("./src/templates/city"),
+      context: { city: city.name },
     });
   });
-  allLakes.forEach((lake) => {
-    // console.log("all lakes unsorted");
-    // console.log(`path: /${l.voivodeship}/${l.city}/${l.name}`);
-    // console.log("context", l);
+  allLakes.forEach(async (item) => {
+    const lake = {
+      ...item,
+      imagePath: `https://hookrod.s3.eu-central-1.amazonaws.com/${item.imagePath}`,
+    };
     createPage({
       path: `/test/${lake.voivodeship}/${lake.city}/${lake.name}`,
       component: require.resolve("./src/templates/lake"),
-      context: { lake },
+      context: {
+        lake,
+      },
     });
   });
 };
 
-//createPages();
-// exports.sourceNodes = async ({
-//   reporter,
-//   actions: { createNode },
-//   createContentDigest,
-// }) => {
-//   try {
-//     const allLakesFromApi = await getStaticDataFromApi();
-//     allLakesFromApi.forEach((lake) => {
-//       voivodeshipsData.forEach((v) => {
-//         if (v.voiv === lake.voivodeship.toLowerCase()) {
-//           v.fisheries.push(lake);
-//         }
-//       });
-//     });
-
-//     const slugifiedData = voivodeshipsData.map((voivData) => {
-//       const slugifiedFisheries = voivData.fisheries.map((fishery) => ({
-//         ...fishery,
-//         imagePath:
-//           `https://hookrod.s3.eu-central-1.amazonaws.com/${fishery.imagePath}` ||
-//           "",
-//         fishOnLake: fishery.fishOnLake || [{ name: "", weight: 0, length: 0 }],
-//         facilities: fishery.facilities || [{ name: "" }],
-//         regulations: voivData.regulations || "zbiór przepisów",
-//         citySlug: translate(fishery.city),
-//         nameSlug: translate(fishery.name),
-//         voivodeshipSlug: translate(fishery.voivodeship),
-//         priceLow: fishery.priceLow || 1,
-//       }));
-//       return {
-//         ...voivData,
-//         fisheries: slugifiedFisheries,
-//         voiv: translate(voivData.voiv),
-//       };
-//     });
-
-//     slugifiedData.forEach((data) => {
-//       createNode({
-//         id: String(data.id),
-//         fisheries: data.fisheries,
-//         slug: data.voiv,
-//         parent: null,
-//         children: [],
-//         internal: {
-//           type: `Voivodeship`,
-//           contentDigest: createContentDigest(data),
-//         },
-//       });
-//       data.fisheries.forEach((fishery) => {
-//         const required = {
-//           id: String(fishery.id),
-//           myPath: `wojewodztwo/${fishery.voivodeshipSlug}/${fishery.nameSlug}`,
-//           slug: fishery.nameSlug,
-//         };
-//         const rest = { ...fishery };
-//         const node = Object.assign({}, rest, required, {
-//           parent: null,
-//           children: [],
-//           internal: {
-//             type: `Fishery`,
-//             contentDigest: createContentDigest(fishery),
-//           },
-//         });
-//         createNode(node);
-//       });
-//     });
-//   } catch (err) {
-//     console.log("err...", err);
-//     reporter.info(
-//       `there was a problem while fetching data for nodes creation from fishery api`
-//     );
-//   }
-// };
-
-// exports.createPages = async function ({ actions, graphql }) {
-//   const { data } = await graphql(`
-//     query FisheryQueryNode {
-//       allFishery {
-//         nodes {
-//           id
-//           city
-//           citySlug
-//           name
-//           nameSlug
-//           myPath
-//           regulations
-//           voivodeship
-//           voivodeshipSlug
-//           priceLow
-//           fishOnLake {
-//             name
-//             weight
-//             length
-//           }
-//           imagePath
-//           numberOfPegs
-//           latitude
-//           longitude
-//           facilities {
-//             name
-//           }
-//           fields {
-//             localFile
-//           }
-//         }
-//       }
-//     }
-//   `);
-//   data.allFishery.nodes.forEach((node) => {
-//     const myPath = node.myPath;
-//     actions.createPage({
-//       path: myPath,
-//       component: require.resolve(`./src/templates/fishery.js`),
-//       context: { ...node },
-//     });
-//   });
-// };
-
-// exports.createSchemaCustomization = ({ actions }) => {
-//   const { createTypes } = actions;
-//   createTypes(`
-//     type MarkdownRemark implements Node {
-//       frontmatter: Frontmatter
-//       featuredImg: File @link(from: "fields.localFile")
-//     }
-
-//     type Frontmatter {
-//       title: String!
-//       featuredImgUrl: String
-//       featuredImgAlt: String
-//     }
-//   `);
-// };
-
-// exports.onCreateNode = async ({
-//   node,
-//   actions: { createNode, createNodeField },
-//   createNodeId,
-//   getCache,
-// }) => {
-//   if (node.internal.type === "Fishery" && node.imagePath !== "") {
-//     const fileNode = await createRemoteFileNode({
-//       url: node.imagePath, // string that points to the URL of the image
-//       parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
-//       createNode, // helper function in gatsby-node to generate the node
-//       createNodeId, // helper function in gatsby-node to generate the node id
-//       getCache,
-//     });
-
-//     // if the file was created, extend the node with "localFile"
-//     if (fileNode) {
-//       createNodeField({ node, name: "localFile", value: fileNode.id });
-//     }
-//   }
-// };
+exports.sourceNodes = async ({
+  actions,
+  createNodeId,
+  createContentDigest,
+}) => {
+  const data = await getStaticDataFromApi();
+  data.forEach((data) => {
+    actions.createNode({
+      ...data,
+      imagePath: `https://hookrod.s3.eu-central-1.amazonaws.com/${data.imagePath}`,
+      id: createNodeId(data.id),
+      internal: {
+        type: "Lake",
+        contentDigest: createContentDigest(data),
+      },
+    });
+  });
+};
