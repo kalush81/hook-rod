@@ -11,7 +11,7 @@ export default function FourOhFour(props) {
       <h2>
         na te chwile w naszej bazie danych nie ma łowisk w tym województwie
       </h2>
-      <Link to={"/wojewodztwa"}>
+      <Link to={"/wybierz-województwo"}>
         <Button
           className="search_button_small"
           type="primary"
