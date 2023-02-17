@@ -42,6 +42,7 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
+          // eslint-disable-next-line prettier/prettier
           include: /\.inline\.svg$/,
         },
       },
@@ -50,6 +51,14 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-netlify",
+    {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: "Lake",
+        imagePath: "imagePath",
+        name: "lakeImageFile",
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

@@ -18,7 +18,7 @@ const Nav = () => {
       <div className="navbar_middle">
         <ul className="navbar_middle">
           <li>
-            <Link to="/wojewodztwo">Zobacz wszystkie łowiska</Link>
+            <Link to="/wybierz-województwo">Zobacz wszystkie łowiska</Link>
           </li>
           <li>
             <Link to="/onas">O nas</Link>

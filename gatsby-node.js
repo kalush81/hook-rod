@@ -1,218 +1,166 @@
-const { createRemoteFileNode } = require("gatsby-source-filesystem");
+function sortData(data) {
+  const result = {
+    voivodeships: [],
+    cities: [],
+  };
 
-let polishLetters = ["ą", "ć", "ę", "ł", "ń", "ó", "ś", "ż", "ź", " "];
-let englishLetter = ["a", "c", "e", "l", "n", "o", "s", "z", "z", "-"];
+  const voivodeships = new Set();
+  const cities = new Set();
 
-function translate(word) {
-  let arr = word.toLowerCase().split("");
-  return arr
-    .map((currentLetter) => {
-      let idx = polishLetters.indexOf(currentLetter);
-      if (idx >= 0) {
-        return englishLetter[idx];
-      }
-      return currentLetter;
-    })
-    .join("");
+  data.forEach((item) => {
+    voivodeships.add(item.voivodeship);
+    cities.add(item.city);
+  });
+
+  voivodeships.forEach((voivodeship) => {
+    result.voivodeships.push({
+      name: voivodeship,
+      items: data.filter((item) => item.voivodeship === voivodeship),
+    });
+  });
+
+  cities.forEach((city) => {
+    result.cities.push({
+      name: city,
+      items: data.filter((item) => item.city === city),
+      voivodeship: data.find((item) => item.city === city).voivodeship,
+    });
+  });
+  return result;
 }
-
-const voivodeshipsData = [
-  { id: "zachodnio-pomorskie", voiv: "zachodnio-pomorskie", fisheries: [] },
-  { id: "pomorskie", voiv: "pomorskie", fisheries: [] },
-  { id: "warmińsko-mazurskie", voiv: "warmińsko-mazurskie", fisheries: [] },
-  { id: "dolnośląskie", voiv: "dolnośląskie", fisheries: [] },
-  { id: "lubuskie", voiv: "lubuskie", fisheries: [] },
-  { id: "wielkopolskie", voiv: "wielkopolskie", fisheries: [] },
-  { id: "kujawsko-pomorskie", voiv: "kujawsko-pomorskie", fisheries: [] },
-  { id: "śląskie", voiv: "śląskie", fisheries: [] },
-  { id: "łódzkie", voiv: "łódzkie", fisheries: [] },
-  { id: "mazowieckie", voiv: "mazowieckie", fisheries: [] },
-  { id: "świętokrzyskie", voiv: "świętokrzyskie", fisheries: [] },
-  { id: "podlaskie", voiv: "podlaskie", fisheries: [] },
-  { id: "lubelskie", voiv: "lubelskie", fisheries: [] },
-  { id: "podkarpackie", voiv: "podkarpackie", fisheries: [] },
-  { id: "opolskie", voiv: "opolskie", fisheries: [] },
-  { id: "małopolskie", voiv: "małopolskie", fisheries: [] },
-];
 
 const fetch = (...args) =>
   import(`node-fetch`).then(({ default: fetch }) => fetch(...args));
 
 const getStaticDataFromApi = async () => {
-  const result = await fetch(
-    `https://hookandrod.herokuapp.com/api/lakes/static`,
-    {
-      mode: "cors",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      withCredentials: false,
-      credentials: "same-origin",
-      crossdomain: true,
-    }
-  );
-  return await result.json();
-};
-
-exports.sourceNodes = async ({
-  reporter,
-  createNodeId,
-  cache,
-  actions: { createNode, createNodeField },
-  createContentDigest,
-}) => {
   try {
-    const allLakesFromApi = await getStaticDataFromApi();
-    allLakesFromApi.forEach((lake) => {
-      voivodeshipsData.forEach((v) => {
-        if (v.voiv === lake.voivodeship.toLowerCase()) {
-          v.fisheries.push(lake);
-        }
-      });
-    });
-
-    const slugifiedData = voivodeshipsData.map((voivData) => {
-      const slugifiedFisheries = voivData.fisheries.map((fishery) => ({
-        ...fishery,
-        imagePath:
-          `https://hookrod.s3.eu-central-1.amazonaws.com/${fishery.imagePath}` ||
-          "",
-        fishOnLake: fishery.fishOnLake || [{ name: "", weight: 0, length: 0 }],
-        facilities: fishery.facilities || [{ name: "" }],
-        regulations: voivData.regulations || "zbiór przepisów",
-        citySlug: translate(fishery.city),
-        nameSlug: translate(fishery.name),
-        voivodeshipSlug: translate(fishery.voivodeship),
-        priceLow: fishery.priceLow || 1,
-      }));
-      return {
-        ...voivData,
-        fisheries: slugifiedFisheries,
-        voiv: translate(voivData.voiv),
-      };
-    });
-
-    slugifiedData.forEach((data) => {
-      createNode({
-        id: String(data.id),
-        fisheries: data.fisheries,
-        slug: data.voiv,
-        parent: null,
-        children: [],
-        internal: {
-          type: `Voivodeship`,
-          contentDigest: createContentDigest(data),
+    const result = await fetch(
+      `https://hookandrod.herokuapp.com/api/lakes/static`,
+      {
+        mode: "cors",
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
-      });
-      data.fisheries.forEach((fishery) => {
-        const required = {
-          id: String(fishery.id),
-          myPath: `wojewodztwo/${fishery.voivodeshipSlug}/${fishery.nameSlug}`,
-          slug: fishery.nameSlug,
-        };
-        const rest = { ...fishery };
-        const node = Object.assign({}, rest, required, {
-          parent: null,
-          children: [],
-          internal: {
-            type: `Fishery`,
-            contentDigest: createContentDigest(fishery),
-          },
-        });
-        createNode(node);
-      });
-    });
-  } catch (err) {
-    console.log("err...", err);
-    reporter.info(
-      `there was a problem while fetching data for nodes creation from fishery api`
+        withCredentials: false,
+        credentials: "same-origin",
+        crossdomain: true,
+      }
     );
+    return await result.json();
+  } catch (error) {
+    console.error("error while fetchoing from API", error);
   }
 };
 
-exports.createPages = async function ({ actions, graphql }) {
-  const { data } = await graphql(`
-    query FisheryQueryNode {
-      allFishery {
-        nodes {
-          id
-          city
-          citySlug
-          name
-          nameSlug
-          myPath
-          regulations
-          voivodeship
-          voivodeshipSlug
-          priceLow
-          fishOnLake {
-            name
-            weight
-            length
-          }
-          imagePath
-          numberOfPegs
-          latitude
-          longitude
-          facilities {
-            name
-          }
-          fields {
-            localFile
-          }
-        }
-      }
-    }
-  `);
-  data.allFishery.nodes.forEach((node) => {
-    const myPath = node.myPath;
-    actions.createPage({
-      path: myPath,
-      component: require.resolve(`./src/templates/fishery.js`),
-      context: { ...node },
+exports.createPages = async ({ actions: { createPage }, createNodeId }) => {
+  const data = await getStaticDataFromApi();
+  const sortedData = sortData(data); //data sorted by voivodeship and city
+  const allLakes = data; // unsorted raw data of all lakes
+  sortedData.voivodeships.forEach((voiv) => {
+    createPage({
+      path: `${voiv.name}`,
+      component: require.resolve("./src/templates/voivodeship"),
+      context: { voivodeship: voiv.name },
+    });
+  });
+  sortedData.cities.forEach((city) => {
+    createPage({
+      path: `${city.voivodeship}/${city.name}`,
+      component: require.resolve("./src/templates/city"),
+      context: { city: city.name },
+    });
+  });
+  allLakes.forEach(async (item) => {
+    const lake = {
+      ...item,
+      imagePath: `https://hookrod.s3.eu-central-1.amazonaws.com/${item.imagePath}`,
+    };
+    createPage({
+      path: `${lake.voivodeship}/${lake.city}/${lake.name}`,
+      component: require.resolve("./src/templates/lake"),
+      context: {
+        id: String(lake.id),
+      },
     });
   });
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
+
   createTypes(`
-    type MarkdownRemark implements Node {
-      frontmatter: Frontmatter
-      featuredImg: File @link(from: "fields.localFile")
+    type Lake implements Node {
+      id: ID!
+      name: String!
+      imagePath: String
+      city: String!
+      voivodeship: String!
+      numberOfPegs: Int!
+      priceLow: Float!
+      regulations: String
+      latitude: Float!
+      longitude: Float!
+      fishOnLake: [FishOnLake]
+      facilities: [Facility]
     }
 
-    type Frontmatter {
-      title: String!
-      featuredImgUrl: String
-      featuredImgAlt: String
+    type FishOnLake {
+      name: String
+      weight: Float,
+      length: Float
+    }
+
+    type Facility {
+      name: String
     }
   `);
 };
 
-exports.onCreateNode = async ({
-  node,
-  actions: { createNode, createNodeField },
+exports.sourceNodes = async ({
+  actions,
   createNodeId,
-  getCache,
+  createContentDigest,
 }) => {
-  if (node.internal.type === "Fishery" && node.imagePath !== "") {
-    // console.warn("WATCH FROM HERE ###########");
-    // console.log(node.imagePath);
-    // console.warn("WATCHTO HERE ###########");
-    const fileNode = await createRemoteFileNode({
-      url: node.imagePath, // string that points to the URL of the image
-      parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
-      createNode, // helper function in gatsby-node to generate the node
-      createNodeId, // helper function in gatsby-node to generate the node id
-      getCache,
-    });
-
-    // if the file was created, extend the node with "localFile"
-    if (fileNode) {
-      createNodeField({ node, name: "localFile", value: fileNode.id });
+  const lakes = await getStaticDataFromApi();
+  lakes.forEach((item) => {
+    const node = {
+      id: `${item.id}`,
+      name: item.name,
+      city: item.city,
+      voivodeship: item.voivodeship,
+      numberOfPegs: item.numberOfPegs,
+      priceLow: item.priceLow,
+      latitude: item.latitude,
+      longitude: item.longitude,
+      parent: null,
+      children: [],
+      internal: {
+        type: "Lake",
+        contentDigest: createContentDigest(item),
+      },
+    };
+    if (item.imagePath) {
+      node.imagePath = `https://hookrod.s3.eu-central-1.amazonaws.com/${item.imagePath}`;
+    } else {
+      node.imagePath =
+        "https://hookrod.s3.eu-central-1.amazonaws.com/Extra+Carp+Radymno/1675710309282-117714995_3471086599610855_7441530922398424970_o.jpg";
     }
-  }
+    if (
+      item.fishOnLake &&
+      Array.isArray(item.fishOnLake) &&
+      item.fishOnLake.length > 0
+    ) {
+      node.fishOnLake = item.fishOnLake;
+    }
+    if (
+      item.facilities &&
+      Array.isArray(item.facilities) &&
+      item.facilities.length > 0
+    ) {
+      node.facilities = item.facilities;
+    }
+    actions.createNode(node);
+  });
 };
