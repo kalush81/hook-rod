@@ -1,5 +1,4 @@
 // This file is empty, but some people were reporting that it would not start unless they had an empty file. So here it is! You can delete the comment. Or replace it with your favourite shania twain lyrics.
-const path = require(`path`);
 
 module.exports = {
   siteMetadata: {
@@ -43,7 +42,7 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          //include: /assets/
+          // eslint-disable-next-line prettier/prettier
           include: /\.inline\.svg$/,
         },
       },
@@ -53,12 +52,19 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-netlify",
     {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: "Lake",
+        imagePath: "imagePath",
+        name: "lakeImageFile",
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/assets/images`,
       },
-      __key: "images",
     },
   ],
 };

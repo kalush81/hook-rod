@@ -1,24 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-
 import { graphql, useStaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Helmet } from "react-helmet";
-
-// import { CompassOutlined, SearchOutlined } from '@ant-design/icons';
-
-// import 'moment/locale/pl';
-// import plPL from 'antd/lib/locale/pl_PL';
-// import { Input, Select, DatePicker, ConfigProvider, Button } from 'antd';
-// import cities from 'cities.json';
-// import vectormobile from '../assets/images/vectormobile.png';
-// import pattern from '../assets/images/pattern.svg';
-
-// import ClientOnly from '../components/ClientOnly';
+import "moment/locale/pl";
+import { Input, Select, DatePicker, ConfigProvider, Button } from "antd";
 import SearchBox from "../components/SearchBox";
 
-// const { Option } = Select;
-// const { RangePicker } = DatePicker;
+const { Option } = Select;
+const { RangePicker } = DatePicker;
 
 // const handleChange = (value) => {
 //   console.log(`selected ${value}`);

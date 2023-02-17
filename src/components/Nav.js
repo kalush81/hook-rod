@@ -18,7 +18,7 @@ const Nav = () => {
       <div className="navbar_middle">
         <ul className="navbar_middle">
           <li>
-            <Link to="/map">Łowiska</Link>
+            <Link to="/wybierz-województwo">Zobacz wszystkie łowiska</Link>
           </li>
           <li>
             <Link to="/onas">O nas</Link>
@@ -52,7 +52,7 @@ const Nav = () => {
       </div>
       {isToggled && (
         <div className="collapse_navbar">
-          <Link to="/map">
+          <Link to="/wojewodztwo">
             <h1 onClick={hide}>Łowiska</h1>
           </Link>
           <Link to="/onas">

@@ -208,7 +208,7 @@ const SearchBox = () => {
                 size="large"
                 ref={buttonRef}
                 style={{
-                  width: 180,
+                  width: 150,
                 }}
               >
                 SZUKAJ
