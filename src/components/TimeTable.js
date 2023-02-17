@@ -5,6 +5,7 @@ import axios from "axios";
 import moment from "moment";
 import { getCallendarString } from "../utils/get-date-string";
 import { useContext } from "react";
+import { Pin, Fish, Silhouette, Dollar, Left } from "../assets/icons";
 import { DatesReservedContext } from "./datesReservationContext";
 
 const TimeTable = function ({ id, maxPegs, maxDays }) {
@@ -82,15 +83,12 @@ const TimeTable = function ({ id, maxPegs, maxDays }) {
       </header>
 
       <div className="flex">
+        <img src={Left} alt="" />
         <button
           className="calendar_lowisko_day_box noStyle"
           onClick={() => setOtherDays(otherDays - maxDays)}
         >
-          <img
-            className="svgBigger"
-            src="../../left.svg"
-            alt="sprawdz poprzednie dni"
-          />
+          {/* <Left /> */}
         </button>
         <span>wcześniej</span>
         <span>{getCallendarString(daysArr)}</span>

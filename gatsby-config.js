@@ -42,6 +42,7 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
+          // eslint-disable-next-line prettier/prettier
           include: /\.inline\.svg$/,
         },
       },

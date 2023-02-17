@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "styled-components";
@@ -10,6 +10,7 @@ import { Collapse } from "react-collapse";
 import Reservation from "../components/Reservation.js";
 import { DatesReservedContext } from "../components/datesReservationContext";
 import TimeTable from "../components/TimeTable";
+import axios from "axios";
 
 function Lake(props) {
   console.log("props", props);
@@ -23,8 +24,44 @@ function Lake(props) {
   } = props.data.lake;
   const [opened, setOpened] = useState(false);
   const [value, setValue] = useState(null);
+  const [lakeData, setLakeData] = useState(null);
+  const [isError, setIsError] = useState(false);
 
   const toggleOpened = () => setOpened((value) => !value);
+
+  useEffect(() => {
+    const loadLakeDynamicData = async () => {
+      try {
+        const response = await axios.get(
+          `https://hookandrod.herokuapp.com/api/lakes/${id}`,
+          {
+            mode: "cors",
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            withCredentials: false,
+            credentials: "same-origin",
+            crossdomain: true,
+          }
+        );
+        setLakeData(response.data);
+      } catch (error) {
+        if (error.response) {
+          if (error.response.status === 404) {
+            setIsError(error.response.data.message);
+          } else {
+            setIsError(
+              ` ${error.status} \n Za wszelkie niedogodności przepraszamy. `
+            );
+          }
+        }
+      }
+    };
+    loadLakeDynamicData();
+    // get data from API
+  }, [id]);
   return (
     <>
       <ConfigProvider locale={plPL}>
@@ -58,10 +95,11 @@ function Lake(props) {
               </div>
 
               <DatesReservedContext.Provider value={{ value, setValue }}>
-                <Reservation pegs={value} />
+                <Reservation pegs={lakeData && lakeData.pegs} />
                 <section>
                   <TimeTable
                     id={id}
+                    lowiskoData={lakeData}
                     maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
                     maxDays={14}
                   />
