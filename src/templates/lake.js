@@ -73,10 +73,10 @@ function Lake(props) {
                   <Link to="/">{}</Link>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>
-                  <Link to={`/test/${voivodeship}`}>{voivodeship}</Link>
+                  <Link to={`/${voivodeship}`}>{voivodeship}</Link>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>
-                  <Link to={`/test/${voivodeship}/${city}`}>{city}</Link>
+                  <Link to={`/${voivodeship}/${city}`}>{city}</Link>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>{lakeName}</Breadcrumb.Item>
               </Breadcrumb>
