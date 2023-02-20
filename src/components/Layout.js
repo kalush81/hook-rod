@@ -7,13 +7,12 @@ import "normalize.css";
 import GlobalStyles from "../styles/GlobalStyles";
 
 const Layout = ({ children }) => (
-  <GridDiv>
-    <GlobalStyles />
+  <div>
+    {/* <GlobalStyles /> */}
     <Nav />
-    <div></div>
     {children}
-    <Footer />
-  </GridDiv>
+    {/* <Footer /> */}
+  </div>
 );
 
 export default Layout;

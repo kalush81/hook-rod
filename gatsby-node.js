@@ -93,6 +93,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(`
     type Lake implements Node {
       id: ID!
+      pegs: [Peg!]!
       name: String!
       imagePath: String
       city: String!
@@ -106,9 +107,15 @@ exports.createSchemaCustomization = ({ actions }) => {
       facilities: [Facility]
     }
 
+    type Peg {
+      pegId: Int
+      pegName: String
+      pegNumber: Int
+    }
+    
     type FishOnLake {
       name: String
-      weight: Float,
+      weight: Float
       length: Float
     }
 

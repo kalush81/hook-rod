@@ -24,7 +24,7 @@ function Lake(props) {
   } = props.data.lake;
   const [opened, setOpened] = useState(false);
   const [value, setValue] = useState(null);
-  const [lakeData, setLakeData] = useState(null);
+  const [reservations, setReservations] = useState(null);
   const [isError, setIsError] = useState(false);
 
   const toggleOpened = () => setOpened((value) => !value);
@@ -33,7 +33,7 @@ function Lake(props) {
     const loadLakeDynamicData = async () => {
       try {
         const response = await axios.get(
-          `https://hookandrod.herokuapp.com/api/lakes/${id}`,
+          `https://hookandrod.herokuapp.com/api/lakes/lakeReservations/${id}`,
           {
             mode: "cors",
             headers: {
@@ -46,7 +46,7 @@ function Lake(props) {
             crossdomain: true,
           }
         );
-        setLakeData(response.data);
+        setReservations(response.data);
       } catch (error) {
         if (error.response) {
           if (error.response.status === 404) {
@@ -62,6 +62,7 @@ function Lake(props) {
     loadLakeDynamicData();
     // get data from API
   }, [id]);
+  console.log("lakeData.pegs? on lake page:", reservations);
   return (
     <>
       <ConfigProvider locale={plPL}>
@@ -94,17 +95,20 @@ function Lake(props) {
                 </div>
               </div>
 
-              <DatesReservedContext.Provider value={{ value, setValue }}>
-                <Reservation pegs={lakeData && lakeData.pegs} />
-                <section>
-                  <TimeTable
-                    id={id}
-                    lowiskoData={lakeData}
-                    maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
-                    maxDays={14}
-                  />
-                </section>
-              </DatesReservedContext.Provider>
+              {reservations && (
+                <DatesReservedContext.Provider value={{ value, setValue }}>
+                  <Reservation pegs={reservations} />
+                  <section>
+                    <TimeTable
+                      id={id}
+                      pegs={reservations}
+                      maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
+                      maxDays={14}
+                      numberOfPegs={numberOfPegs}
+                    />
+                  </section>
+                </DatesReservedContext.Provider>
+              )}
 
               <div className="lowisko_udogo"></div>
               <div className="lowisko_regu">
@@ -162,7 +166,7 @@ export const query = graphql`
 
 const LowiskoCss = styled.div`
   scroll-behavior: smooth;
-  height: calc(100vh - 120px);
+  margin-bottom: 500px;
   overflow-x: hidden;
   font-size: 16px;
 

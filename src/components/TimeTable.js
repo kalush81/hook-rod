@@ -1,55 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import PegDatesRow from "./PegDatesRow";
-import axios from "axios";
+//import axios from "axios";
 import moment from "moment";
 import { getCallendarString } from "../utils/get-date-string";
-import { useContext } from "react";
+// import { useContext } from "react";
 import { Pin, Fish, Silhouette, Dollar, Left } from "../assets/icons";
-import { DatesReservedContext } from "./datesReservationContext";
+// import { DatesReservedContext } from "./datesReservationContext";
 
-const TimeTable = function ({ id, maxPegs, maxDays }) {
+const TimeTable = function ({ id, maxPegs, maxDays, pegs, numberOfPegs }) {
+  console.log("pegs", pegs);
   const [firstIdx, setFirstIdx] = useState(0);
   const [lastIdx, setLastIdx] = useState(maxPegs);
   const [otherDays, setOtherDays] = useState(0);
-  const [pegs, setPegsData] = useState();
-  //const { value, setValue } = useContext(DatesReservedContext);
 
-  // const setPegsDataForReservationComponent = (data) => {
-  //   setValue(data);
-  // };
-
-  useEffect(() => {
-    const getLakeReservsById = async () => {
-      try {
-        const response = await axios.get(
-          `https://hookandrod.herokuapp.com/api/lakes/${id}`,
-          {
-            mode: "cors",
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            withCredentials: false,
-            credentials: "same-origin",
-            crossdomain: true,
-          }
-        );
-        setPegsData(response.data.pegs);
-        //setPegsDataForReservationComponent(response.data.pegs);
-        //console.log("response rezerwacje", response);
-      } catch (error) {
-        console.error("error while fetching reservations data", error);
-      }
-    };
-    getLakeReservsById();
-  }, [id]);
-
-  const resetQueue = () => {
+  function resetQueue() {
     setFirstIdx(0);
     setLastIdx(maxPegs);
-  };
+  }
 
   const handleNext = (first, last) => {
     if (last >= pegs.length) {

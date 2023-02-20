@@ -4,7 +4,7 @@ import { Form, Select, DatePicker, Checkbox, Button } from "antd";
 import "antd/dist/antd.css";
 import moment from "moment";
 
-const dateFormat = "DD.MM.YYYY";
+const dateFormat = "YYYY-MM-DD";
 
 function getDates(startDate, stopDate) {
   var dateArray = [];
@@ -30,33 +30,73 @@ const { Option } = Select;
 
 const Reservation = ({ pegs }) => {
   const [form] = Form.useForm();
-  const [pegId, setPegId] = useState(null);
-  const [dates, setDates] = useState(null);
-  const [hackValue, setHackValue] = useState(null);
-  const [value, setValue] = useState(null);
+  const [selectedRange, setSelectedRange] = useState([]);
+  //const [pegId, setPegId] = useState(null);
+  const [pegReservs, setPegReservs] = useState([]);
+  // const [dates, setDates] = useState(null);
+  // const [hackValue, setHackValue] = useState(null);
+  // const [value, setValue] = useState(null);
 
-  const handleSelectChange = (id) => {
-    setPegId(id);
+  const handleSelectChange = (pegId) => {
+    console.log("pegId", pegId);
+    setPegReservs(() => {
+      return pegs.find((peg) => peg.id === pegId);
+    });
+    //setPegId(id);
   };
+
+  const dateRanges = [
+    { startDate: new Date("2023-02-10"), endDate: new Date("2023-02-12") },
+    { startDate: new Date("2023-02-14"), endDate: new Date("2023-02-15") },
+  ];
+  const ranges = pegReservs?.map((res) => {
+    console.log("reservations by peg id", pegReservs);
+    return {
+      startDate: new Date(res.startDate),
+      endDate: new Date(res.endDate),
+    };
+  });
 
   const disabledDate = (current) => {
-    const pegById = pegs.find((peg) => peg.id === pegId);
-    const reservedDates = getAllDates(pegById.reservation);
-    return !!reservedDates.find(
-      (date) =>
-        moment(current).format(dateFormat) ===
-        moment(date, dateFormat).format(dateFormat)
-    );
-  };
-
-  const onOpenChange = (open) => {
-    if (open) {
-      setHackValue([null, null]);
-      setDates([null, null]);
-    } else {
-      setHackValue(null);
+    for (let i = 0; i < ranges.length; i++) {
+      const { startDate, endDate } = ranges[i];
+      if (current >= startDate && current <= endDate) {
+        return true;
+      }
     }
+    return false;
   };
+  const onSelect = (value) => {
+    const [start, end] = value;
+    for (let i = 0; i < dateRanges.length; i++) {
+      const { startDate, endDate } = dateRanges[i];
+      if (
+        (start >= startDate && start <= endDate) ||
+        (end >= startDate && end <= endDate)
+      ) {
+        return;
+      }
+    }
+    setSelectedRange(value);
+  };
+  // const disabledDate = (current) => {
+  //   const pegById = pegs.find((peg) => peg.id === pegId);
+  //   const reservedDates = getAllDates(pegById.reservation);
+  //   return !!reservedDates.find(
+  //     (date) =>
+  //       moment(current).format(dateFormat) ===
+  //       moment(date, dateFormat).format(dateFormat)
+  //   );
+  // };
+
+  // const onOpenChange = (open) => {
+  //   if (open) {
+  //     setHackValue([null, null]);
+  //     setDates([null, null]);
+  //   } else {
+  //     setHackValue(null);
+  //   }
+  // };
 
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
@@ -112,10 +152,11 @@ const Reservation = ({ pegs }) => {
           <div className="row row2">
             {/* <Form.Item name="daty"> */}
             <RangePicker
-              disabled={!pegId && true}
+              // disabled={!pegId && true}
               className="rangepicker_row2"
               //value={hackValue || value}
               disabledDate={disabledDate}
+              onSelect={onSelect}
               //onCalendarChange={(val) => setDates(val)}
               //onChange={(val) => setValue(val)}
               //onOpenChange={onOpenChange}
