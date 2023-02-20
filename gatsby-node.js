@@ -112,7 +112,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       pegName: String
       pegNumber: Int
     }
-    
+
     type FishOnLake {
       name: String
       weight: Float
@@ -141,6 +141,7 @@ exports.sourceNodes = async ({
       priceLow: item.priceLow,
       latitude: item.latitude,
       longitude: item.longitude,
+      pegs: item.pegs,
       parent: null,
       children: [],
       internal: {
