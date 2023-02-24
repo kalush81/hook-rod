@@ -7,13 +7,12 @@ import plPL from "antd/lib/locale/pl_PL";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { Collapse } from "react-collapse";
-import Reservation from "../components/Reservation.js";
+import Reservator from "../components/Reservator.js";
 import { DatesReservedContext } from "../components/datesReservationContext";
 import TimeTable from "../components/TimeTable";
 import axios from "axios";
 
 function Lake(props) {
-  console.log("props", props);
   const {
     voivodeship,
     city,
@@ -21,10 +20,11 @@ function Lake(props) {
     id,
     numberOfPegs,
     lakeImageFile,
+    pegs,
   } = props.data.lake;
   const [opened, setOpened] = useState(false);
   const [value, setValue] = useState(null);
-  const [reservations, setReservations] = useState(null);
+  const [pegsWithReservations, setPegWithReservations] = useState(null);
   const [isError, setIsError] = useState(false);
 
   const toggleOpened = () => setOpened((value) => !value);
@@ -46,7 +46,7 @@ function Lake(props) {
             crossdomain: true,
           }
         );
-        setReservations(response.data);
+        setPegWithReservations(response.data);
       } catch (error) {
         if (error.response) {
           if (error.response.status === 404) {
@@ -62,7 +62,18 @@ function Lake(props) {
     loadLakeDynamicData();
     // get data from API
   }, [id]);
-  console.log("lakeData.pegs? on lake page:", reservations);
+  let pegsWithReservationsMap;
+
+  if (pegsWithReservations) {
+    pegsWithReservationsMap = pegs.map((peg) => {
+      const pegWithReservations = pegsWithReservations.find(
+        (pr) => pr.pegId === peg.pegId
+      );
+      return pegWithReservations
+        ? { ...peg, reservations: pegWithReservations.reservations }
+        : { ...peg, reservations: [] };
+    });
+  }
   return (
     <>
       <ConfigProvider locale={plPL}>
@@ -91,17 +102,20 @@ function Lake(props) {
                   <span> {lakeName}</span>
                 </div>
                 <div className="lowisko_image">
-                  <GatsbyImage image={getImage(lakeImageFile)}></GatsbyImage>
+                  <GatsbyImage
+                    image={getImage(lakeImageFile)}
+                    alt=""
+                  ></GatsbyImage>
                 </div>
               </div>
 
-              {reservations && (
+              {pegsWithReservationsMap && (
                 <DatesReservedContext.Provider value={{ value, setValue }}>
-                  <Reservation pegs={reservations} />
-                  <section>
+                  <Reservator pegs={pegsWithReservationsMap} />
+                  <section style={{ marginTop: "300px" }}>
                     <TimeTable
                       id={id}
-                      pegs={reservations}
+                      pegs={pegsWithReservationsMap}
                       maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
                       maxDays={14}
                       numberOfPegs={numberOfPegs}
@@ -151,6 +165,11 @@ export const query = graphql`
         length
         name
         weight
+      }
+      pegs {
+        pegId
+        pegName
+        pegNumber
       }
       imagePath
       id

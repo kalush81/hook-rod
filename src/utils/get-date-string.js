@@ -14,7 +14,7 @@ export const getCallendarString = (daysArr) => {
     "grudzien",
   ];
   const mpd = daysArr.map(
-    (date) => months[Number(date.split(".")[1]) - 1] + "/" + date.split(".")[2]
+    (date) => months[Number(date.split("/")[0]) - 1] + "/" + date.split("/")[2]
   );
   let arr = [mpd[0].split("/"), mpd[mpd.length - 1].split("/")];
   let str = "";

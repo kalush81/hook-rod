@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import PegDatesRow from "./PegDatesRow";
-//import axios from "axios";
 import moment from "moment";
 import { getCallendarString } from "../utils/get-date-string";
-// import { useContext } from "react";
-import { Pin, Fish, Silhouette, Dollar, Left } from "../assets/icons";
-// import { DatesReservedContext } from "./datesReservationContext";
+import { Left } from "../assets/icons";
 
-const TimeTable = function ({ id, maxPegs, maxDays, pegs, numberOfPegs }) {
-  console.log("pegs", pegs);
+const TimeTable = function ({
+  id,
+  maxPegs,
+  maxDays,
+  pegs,
+  numberOfPegs,
+  pegsWithReservationsMap,
+}) {
   const [firstIdx, setFirstIdx] = useState(0);
   const [lastIdx, setLastIdx] = useState(maxPegs);
   const [otherDays, setOtherDays] = useState(0);
@@ -96,7 +99,8 @@ const TimeTable = function ({ id, maxPegs, maxDays, pegs, numberOfPegs }) {
                 <PegDatesRow
                   key={peg.pegNumber}
                   peg={peg}
-                  currentDay={moment().add(otherDays, "day").format()}
+                  //reservations={reservations}
+                  // currentDay={moment().add(otherDays, "day").format()}
                   maxDays={maxDays}
                   daysArr={daysArr}
                 />

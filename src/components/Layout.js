@@ -8,7 +8,7 @@ import GlobalStyles from "../styles/GlobalStyles";
 
 const Layout = ({ children }) => (
   <div>
-    {/* <GlobalStyles /> */}
+    <GlobalStyles />
     <Nav />
     {children}
     {/* <Footer /> */}

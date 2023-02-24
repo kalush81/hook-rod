@@ -3,7 +3,6 @@ import { unify } from "./dates-unificator";
 export const getBookingDataOnDay = (date, bookings) => {
   const bookingData = {};
   let day = unify(date);
-
   bookings?.forEach((bkng) => {
     let s = bkng.startDate?.split(/[.-]/).join("");
     let e = bkng.endDate?.split(/[.-]/).join("");
