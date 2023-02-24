@@ -7,7 +7,7 @@ import { Left } from "../assets/icons";
 
 const TimeTable = function ({ maxPegs, maxDays, pegs }) {
   console.log("data from API", pegs);
-  console.log("is moment now? ", moment);
+  console.log("is moment now? ", moment().format("L"));
   const [firstIdx, setFirstIdx] = useState(0);
   const [lastIdx, setLastIdx] = useState(maxPegs);
   const [otherDays, setOtherDays] = useState(0);
@@ -38,7 +38,7 @@ const TimeTable = function ({ maxPegs, maxDays, pegs }) {
   let daysArr = new Array(maxDays)
     .fill(undefined)
     .map((el, i) =>
-      moment(moment().add(otherDays, "day").format()).add(i, "day").format("L")
+      moment(moment().add(otherDays, "day")).add(i, "day").format("DD/MM/YYYY")
     );
 
   return (
@@ -96,7 +96,7 @@ const TimeTable = function ({ maxPegs, maxDays, pegs }) {
                   key={peg.pegNumber}
                   peg={peg}
                   //reservations={reservations}
-                  currentDay={moment().add(otherDays, "day").format()}
+                  // currentDay={moment().add(otherDays, "day").format()}
                   maxDays={maxDays}
                   daysArr={daysArr}
                 />
