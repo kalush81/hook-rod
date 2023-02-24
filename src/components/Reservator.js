@@ -101,7 +101,6 @@ const Reservator = ({ pegs }) => {
     if (current < moment()) {
       return true;
     }
-    console.log("date ranges from API", dateRanges);
     for (let i = 0; i < dateRanges.length; i++) {
       const { startDate, endDate } = dateRanges[i];
       if (current >= startDate && current <= endDate) {

@@ -5,14 +5,9 @@ import moment from "moment";
 import { getCallendarString } from "../utils/get-date-string";
 import { Left } from "../assets/icons";
 
-const TimeTable = function ({
-  id,
-  maxPegs,
-  maxDays,
-  pegs,
-  numberOfPegs,
-  pegsWithReservationsMap,
-}) {
+const TimeTable = function ({ maxPegs, maxDays, pegs }) {
+  console.log("data from API", pegs);
+  console.log("is moment now? ", moment);
   const [firstIdx, setFirstIdx] = useState(0);
   const [lastIdx, setLastIdx] = useState(maxPegs);
   const [otherDays, setOtherDays] = useState(0);
@@ -93,6 +88,7 @@ const TimeTable = function ({
 
       <div className="calendar_lowiska_list border">
         {pegs &&
+          pegs.length &&
           pegs.map((peg, i) => {
             if (i >= firstIdx && i < lastIdx) {
               return (
@@ -100,7 +96,7 @@ const TimeTable = function ({
                   key={peg.pegNumber}
                   peg={peg}
                   //reservations={reservations}
-                  // currentDay={moment().add(otherDays, "day").format()}
+                  currentDay={moment().add(otherDays, "day").format()}
                   maxDays={maxDays}
                   daysArr={daysArr}
                 />

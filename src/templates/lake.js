@@ -62,7 +62,7 @@ function Lake(props) {
     loadLakeDynamicData();
     // get data from API
   }, [id]);
-  let pegsWithReservationsMap;
+  let pegsWithReservationsMap = [];
 
   if (pegsWithReservations) {
     pegsWithReservationsMap = pegs.map((peg) => {
@@ -110,7 +110,7 @@ function Lake(props) {
               </div>
 
               {pegsWithReservationsMap && (
-                <DatesReservedContext.Provider value={{ value, setValue }}>
+                <div>
                   <Reservator pegs={pegsWithReservationsMap} />
                   <section style={{ marginTop: "300px" }}>
                     <TimeTable
@@ -121,7 +121,7 @@ function Lake(props) {
                       numberOfPegs={numberOfPegs}
                     />
                   </section>
-                </DatesReservedContext.Provider>
+                </div>
               )}
 
               <div className="lowisko_udogo"></div>
