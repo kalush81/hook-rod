@@ -43,19 +43,15 @@ const TimeTable = function ({ maxPegs, maxDays, pegs }) {
 
   return (
     <CalendarCss>
-      {/* <div>{id}</div> */}
       <header className="calendar_header">
         <h3 style={{ textAlign: "center" }}>Terminarz rezerwacji</h3>
       </header>
-
       <div className="flex">
         <img src={Left} alt="" />
         <button
           className="calendar_lowisko_day_box noStyle"
           onClick={() => setOtherDays(otherDays - maxDays)}
-        >
-          {/* <Left /> */}
-        </button>
+        ></button>
         <span>wcześniej</span>
         <span>{getCallendarString(daysArr)}</span>
         <span>później</span>
@@ -76,7 +72,6 @@ const TimeTable = function ({ maxPegs, maxDays, pegs }) {
             alt="sprawdz dostepnosc na poprzednich stanowiska"
           />
         </button>
-
         {daysArr.map((day) => {
           return (
             <span key={day} className="calendar_lowisko_day_box small noStyle">
@@ -95,8 +90,6 @@ const TimeTable = function ({ maxPegs, maxDays, pegs }) {
                 <PegDatesRow
                   key={peg.pegNumber}
                   peg={peg}
-                  //reservations={reservations}
-                  // currentDay={moment().add(otherDays, "day").format()}
                   maxDays={maxDays}
                   daysArr={daysArr}
                 />
