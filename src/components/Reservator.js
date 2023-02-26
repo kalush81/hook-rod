@@ -86,36 +86,65 @@ const Reservator = ({ pegs }) => {
   //   }
   //   console.log("onSelect in RangePicker", value);
   // };
-
   const disabledDate = (current) => {
     const [startSelected, endSelected] = selectedRange;
-    if (startSelected) {
-      for (let i = 0; i < dateRanges.length; i++) {
-        const { startDate } = dateRanges[i];
-        if (startDate > startSelected && current > startDate) {
-          return true;
-        }
-      }
-    }
-    if (endSelected && !startSelected) {
-      for (let i = 0; i < dateRanges.length; i++) {
-        const { endDate } = dateRanges[i];
-        if (endDate < endSelected && current < endDate) {
-          return true;
-        }
-      }
-    }
+
     if (current < moment()) {
       return true;
     }
+
     for (let i = 0; i < dateRanges.length; i++) {
       const { startDate, endDate } = dateRanges[i];
+
       if (current >= startDate && current <= endDate) {
         return true;
       }
+
+      if (startSelected && startDate > startSelected && current > startDate) {
+        return true;
+      }
+
+      if (
+        endSelected &&
+        !startSelected &&
+        endDate < endSelected &&
+        current < endDate
+      ) {
+        return true;
+      }
     }
+
     return false;
   };
+  // const disabledDate = (current) => {
+  //   const [startSelected, endSelected] = selectedRange;
+  //   if (startSelected) {
+  //     for (let i = 0; i < dateRanges.length; i++) {
+  //       const { startDate } = dateRanges[i];
+  //       if (startDate > startSelected && current > startDate) {
+  //         return true;
+  //       }
+  //     }
+  //   }
+  //   if (endSelected && !startSelected) {
+  //     for (let i = 0; i < dateRanges.length; i++) {
+  //       const { endDate } = dateRanges[i];
+  //       if (endDate < endSelected && current < endDate) {
+  //         return true;
+  //       }
+  //     }
+  //   }
+  //   if (current < moment()) {
+  //     return true;
+  //   }
+  //   for (let i = 0; i < dateRanges.length; i++) {
+  //     const { startDate, endDate } = dateRanges[i];
+  //     if (current >= startDate && current <= endDate) {
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // };
 
   const rangePickerOnChange = (moments, stringDates) => {
     //console.log("moments arr on onChange", moments);
