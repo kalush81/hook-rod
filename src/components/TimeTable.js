@@ -6,8 +6,8 @@ import { getCallendarString } from "../utils/get-date-string";
 import { Left } from "../assets/icons";
 
 const TimeTable = function ({ maxPegs, maxDays, pegs }) {
-  console.log("data from API", pegs);
-  console.log("is moment now? ", moment().format("L"));
+  //console.log("data from API", pegs);
+  //console.log("is moment now? ", moment().format("L"));
   const [firstIdx, setFirstIdx] = useState(0);
   const [lastIdx, setLastIdx] = useState(maxPegs);
   const [otherDays, setOtherDays] = useState(0);

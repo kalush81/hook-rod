@@ -1,8 +1,8 @@
 import { unify } from "./dates-unificator";
 
 export const getBookingDataOnDate = (date, bookings) => {
-  console.log("date", date);
-  console.log("bookings", bookings);
+  //console.log("date", date);
+  //console.log("bookings", bookings);
   const bookingData = {};
   let day = unify(date);
   bookings?.forEach((bkng) => {

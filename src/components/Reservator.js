@@ -33,7 +33,6 @@ const Reservator = ({ pegs }) => {
   const [reservations, setReservations] = useState([]);
   const [isPegSelected, setIsPegSelected] = useState(false);
   const [selectedRange, setSelectedRange] = useState([]);
-  //const [disabledDates, setDisabledDates] = useState([]);
 
   const handleSelectChange = (pegId) => {
     if (pegId) {
@@ -53,40 +52,40 @@ const Reservator = ({ pegs }) => {
     };
   });
   //console.log("date ranges on lake", dateRanges);
-  const onSelect = (value) => {
-    const [start, end] = value || [];
-    // If end date is not selected yet, return
-    if (!end) {
-      setSelectedRange(value);
-      return;
-    }
+  // const onSelect = (value) => {
+  //   const [start, end] = value || [];
+  //   // If end date is not selected yet, return
+  //   if (!end) {
+  //     setSelectedRange(value);
+  //     return;
+  //   }
 
-    let invalidSelection = false;
-    // Check if end date is after any disabled date range
-    for (let i = 0; i < dateRanges.length; i++) {
-      const { startDate, endDate } = dateRanges[i];
-      if (end > endDate) {
-        invalidSelection = true;
-        break;
-      }
-    }
+  //   let invalidSelection = false;
+  //   // Check if end date is after any disabled date range
+  //   for (let i = 0; i < dateRanges.length; i++) {
+  //     const { startDate, endDate } = dateRanges[i];
+  //     if (end > endDate) {
+  //       invalidSelection = true;
+  //       break;
+  //     }
+  //   }
 
-    // Check if start date is inside a disabled range
-    for (let i = 0; i < dateRanges.length; i++) {
-      const { startDate, endDate } = dateRanges[i];
-      if (start >= startDate && start <= endDate) {
-        invalidSelection = true;
-        break;
-      }
-    }
+  //   // Check if start date is inside a disabled range
+  //   for (let i = 0; i < dateRanges.length; i++) {
+  //     const { startDate, endDate } = dateRanges[i];
+  //     if (start >= startDate && start <= endDate) {
+  //       invalidSelection = true;
+  //       break;
+  //     }
+  //   }
 
-    if (invalidSelection) {
-      setSelectedRange([]);
-    } else {
-      setSelectedRange(value);
-    }
-    console.log("onSelect in RangePicker", value);
-  };
+  //   if (invalidSelection) {
+  //     setSelectedRange([]);
+  //   } else {
+  //     setSelectedRange(value);
+  //   }
+  //   console.log("onSelect in RangePicker", value);
+  // };
 
   const disabledDate = (current) => {
     const [startSelected, endSelected] = selectedRange;
@@ -94,6 +93,14 @@ const Reservator = ({ pegs }) => {
       for (let i = 0; i < dateRanges.length; i++) {
         const { startDate } = dateRanges[i];
         if (startDate > startSelected && current > startDate) {
+          return true;
+        }
+      }
+    }
+    if (endSelected && !startSelected) {
+      for (let i = 0; i < dateRanges.length; i++) {
+        const { endDate } = dateRanges[i];
+        if (endDate < endSelected && current < endDate) {
           return true;
         }
       }
@@ -111,11 +118,25 @@ const Reservator = ({ pegs }) => {
   };
 
   const rangePickerOnChange = (moments, stringDates) => {
-    console.log("moments arr on onChange", moments);
+    //console.log("moments arr on onChange", moments);
     console.log("stringDates arr on onChange", stringDates);
     setSelectedRange(moments || []);
   };
 
+  const onOpenChange = (open) => {
+    console.log("opened picker open?", open);
+    console.log("selectedRange", selectedRange);
+    if ((open && selectedRange[1]) || (open && selectedRange[0])) {
+      console.log("now you should clear inputs");
+      setSelectedRange([]);
+      const nameList = form.getFieldsValue();
+      console.log("nameList", nameList);
+      if (nameList.daty) {
+        form.resetFields(["daty"]);
+      }
+    }
+  };
+  console.log("selected Range", selectedRange);
   const onChangeCheckBoxes = (checkedValues) => {
     console.log("checked = ", checkedValues);
     form.setFieldsValue("options", checkedValues);
@@ -124,6 +145,7 @@ const Reservator = ({ pegs }) => {
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
     console.log("form: ", form.getFieldsValue());
+    form.resetFields(["daty", "options"]);
   };
 
   return (
@@ -138,7 +160,7 @@ const Reservator = ({ pegs }) => {
               rules={[
                 {
                   required: true,
-                  message: "Please input your peg name!",
+                  message: "wybierz stanowisko",
                 },
               ]}
             >
@@ -147,7 +169,7 @@ const Reservator = ({ pegs }) => {
                 showArrow="true"
                 className="select_row1"
                 size="medium"
-                placeholder="Stanowisko"
+                placeholder="wybierz stanowisko"
                 showAction="focus"
                 onChange={handleSelectChange}
               >
@@ -176,7 +198,7 @@ const Reservator = ({ pegs }) => {
                 size="medium"
                 placeholder="Osoby"
                 showAction="focus"
-                defaultValue={"1"}
+                // defaultValue={"1"}
                 required
               >
                 <Option value="1">1 osoba</Option>
@@ -197,12 +219,12 @@ const Reservator = ({ pegs }) => {
               ]}
             >
               <RangePicker
+                initialValues={["", ""]}
                 disabled={!isPegSelected}
                 className="rangepicker_row2"
                 disabledDate={disabledDate}
-                //value={selectedRange}
                 onCalendarChange={rangePickerOnChange}
-                // onChange={onChange}
+                onOpenChange={onOpenChange}
               />
             </Form.Item>
           </div>

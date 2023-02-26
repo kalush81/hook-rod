@@ -5,7 +5,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Link } from "gatsby";
 
 export default function FourOhFour(props) {
-  console.log(props);
+  console.log("props in 404", props);
   return (
     <Div>
       <h2>

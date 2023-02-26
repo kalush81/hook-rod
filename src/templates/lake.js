@@ -23,7 +23,6 @@ function Lake(props) {
     pegs,
   } = props.data.lake;
   const [opened, setOpened] = useState(false);
-  const [value, setValue] = useState(null);
   const [pegsWithReservations, setPegWithReservations] = useState(null);
   const [isError, setIsError] = useState(false);
 

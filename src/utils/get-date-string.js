@@ -1,5 +1,5 @@
 export const getCallendarString = (daysArr) => {
-  console.log("daysArr", daysArr);
+  //console.log("daysArr", daysArr);
   const months = [
     "styczen",
     "luty",
@@ -19,7 +19,7 @@ export const getCallendarString = (daysArr) => {
       months[Number(date.split(/[./]/)[1]) - 1] + "/" + date.split(/[./]/)[2]
   );
 
-  console.log("mpd", mpd);
+  //console.log("mpd", mpd);
 
   let arr = [mpd[0].split(/[./]/), mpd[mpd.length - 1].split(/[./]/)];
   let str = "";
