@@ -1,29 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Form, Select, DatePicker, Checkbox, Button } from "antd";
-import "antd/dist/antd.css";
+//import "antd/dist/antd.css";
 import moment from "moment";
-
-const dateFormat = "YYYY-MM-DD";
-
-// function getDates(startDate, stopDate) {
-//   var dateArray = [];
-//   var currentDate = moment(startDate, dateFormat);
-//   var stopDate = moment(stopDate, dateFormat);
-//   while (currentDate <= stopDate) {
-//     dateArray.push(moment(currentDate, dateFormat).format(dateFormat));
-//     currentDate = moment(currentDate, dateFormat).add(1, "days");
-//   }
-//   return dateArray;
-// }
-
-// const getAllDates = (reservations) => {
-//   return reservations
-//     .map((r) => {
-//       return getDates(r.startDate, r.endDate);
-//     })
-//     .flat();
-// };
 
 const { RangePicker } = DatePicker;
 const { Option } = Select;
@@ -88,22 +67,17 @@ const Reservator = ({ pegs }) => {
   // };
   const disabledDate = (current) => {
     const [startSelected, endSelected] = selectedRange;
-
     if (current < moment()) {
       return true;
     }
-
     for (let i = 0; i < dateRanges.length; i++) {
       const { startDate, endDate } = dateRanges[i];
-
       if (current >= startDate && current <= endDate) {
         return true;
       }
-
       if (startSelected && startDate > startSelected && current > startDate) {
         return true;
       }
-
       if (
         endSelected &&
         !startSelected &&
@@ -113,7 +87,6 @@ const Reservator = ({ pegs }) => {
         return true;
       }
     }
-
     return false;
   };
   // const disabledDate = (current) => {
@@ -147,7 +120,6 @@ const Reservator = ({ pegs }) => {
   // };
 
   const rangePickerOnChange = (moments, stringDates) => {
-    //console.log("moments arr on onChange", moments);
     console.log("stringDates arr on onChange", stringDates);
     setSelectedRange(moments || []);
   };

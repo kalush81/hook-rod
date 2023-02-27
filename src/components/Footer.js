@@ -45,9 +45,9 @@ const Footer = () => (
 );
 
 const FooterCss = styled.footer`
-  position: fixed;
-  left: 0;
-  bottom: 0;
+  // position: fixed;
+  // left: 0;
+  // bottom: 0;
   width: 100%;
   background: rgba(22, 56, 50);
   height: 120px;

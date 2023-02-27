@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+//import "antd/dist/antd.css";
 
 import lato300 from "../assets/fonts/Lato-Thin.woff";
 import lato400 from "../assets/fonts/Lato-Regular.woff";
@@ -67,6 +68,8 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-size: 1.6rem;
     scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
   }
 
   /* Scrollbar Styles */
@@ -117,6 +120,10 @@ const GlobalStyles = createGlobalStyle`
   .ant-btn-primary {
     background-color: var(--yellow) !important;
     border-color: var(--yellow) !important  ;
+  }
+
+  a.ant-anchor-link-title {
+    color: white;
   }
 `;
 

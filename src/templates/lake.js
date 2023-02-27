@@ -111,16 +111,18 @@ function Lake(props) {
               {pegsWithReservationsMap && (
                 <div>
                   <Reservator pegs={pegsWithReservationsMap} />
-                  <section style={{ marginTop: "300px" }}>
-                    <TimeTable
-                      id={id}
-                      pegs={pegsWithReservationsMap}
-                      maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
-                      maxDays={14}
-                      numberOfPegs={numberOfPegs}
-                    />
-                  </section>
                 </div>
+              )}
+              {pegsWithReservationsMap && (
+                <section className="time-table">
+                  <TimeTable
+                    id={id}
+                    pegs={pegsWithReservationsMap}
+                    maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
+                    maxDays={14}
+                    numberOfPegs={numberOfPegs}
+                  />
+                </section>
               )}
 
               <div className="lowisko_udogo"></div>
@@ -185,12 +187,12 @@ export const query = graphql`
 const LowiskoCss = styled.div`
   scroll-behavior: smooth;
   margin-bottom: 500px;
-  overflow-x: hidden;
+  //overflow-x: hidden;
   font-size: 16px;
 
   .lowisko {
     background: var(--white);
-    width: 100vw;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: flex-start;
@@ -202,7 +204,7 @@ const LowiskoCss = styled.div`
   .lowisko_body {
     display: grid;
     grid-template-rows: auto auto auto auto auto;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 50% 50%;
     grid-gap: 12px;
     /* margin-top: 132px; */
     width: 100vw;
@@ -210,7 +212,12 @@ const LowiskoCss = styled.div`
     /* padding-top: 121px; */
     overflow: hidden;
     max-width: 1340px;
+    min-width: 782px;
     overflow: visible;
+    .time-table {
+      grid-column: 1 / 3;
+      max-width: 920px;
+    }
   }
   .lowisko_card {
     grid-row: 1;
@@ -386,6 +393,7 @@ const LowiskoCss = styled.div`
 
   .lowisko_regu_body {
     font-size: 16px;
+    margin-bottom: 200px;
   }
 
   .lowisko_pricing {

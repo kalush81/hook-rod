@@ -3,7 +3,8 @@ import styled from "styled-components";
 
 import "moment/locale/pl";
 import plPL from "antd/lib/locale/pl_PL";
-import { AutoComplete, Select, DatePicker, ConfigProvider, Button } from "antd";
+import { Select, DatePicker, ConfigProvider, Button } from "antd";
+import { AutoComplete } from "antd/lib";
 import moment from "moment";
 
 // import cities from 'cities.json';
@@ -77,29 +78,30 @@ const SearchBox = () => {
   };
 
   const handleChangeFinish = (datka) => {
+    console.log("what the fuck is datka", datka);
     let datki;
     if (datka) {
       datki = {
-        s: `${datka[0]._d.toLocaleDateString("en-US", {
+        s: `${datka[0].$d.toLocaleDateString("en-US", {
           year: "numeric",
         })}-${(
           0 +
-          datka[0]._d.toLocaleDateString("en-US", {
+          datka[0].$d.toLocaleDateString("en-US", {
             month: "numeric",
           })
         ).slice(-2)}-${(
-          0 + datka[0]._d.toLocaleDateString("en-US", { day: "numeric" })
+          0 + datka[0].$d.toLocaleDateString("en-US", { day: "numeric" })
         ).slice(-2)}`,
-        e: `${datka[1]._d.toLocaleDateString("en-US", {
+        e: `${datka[1].$d.toLocaleDateString("en-US", {
           year: "numeric",
         })}-${(
           0 +
-          datka[1]._d.toLocaleDateString("en-US", {
+          datka[1].$d.toLocaleDateString("en-US", {
             month: "numeric",
           })
         ).slice(-2)}-${(
           0 +
-          datka[1]._d.toLocaleDateString("en-US", {
+          datka[1].$d.toLocaleDateString("en-US", {
             day: "numeric",
           })
         ).slice(-2)}`,
