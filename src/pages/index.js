@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import axios from "axios";
 import styled from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";

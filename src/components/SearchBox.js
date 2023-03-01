@@ -24,11 +24,11 @@ const UseFocus = () => {
   const setFocus = () => {
     if (htmlElRef.current) htmlElRef.current.focus();
   };
-
   return [htmlElRef, setFocus];
 };
 
 const SearchBox = () => {
+  const [citySelected, setCitySelected] = useState(null);
   const [value, setValue] = useState("");
   const [cityQueryArr, setCityQueryArr] = useState([]);
   const [input1Ref, setInput1Focus] = UseFocus();
@@ -60,6 +60,7 @@ const SearchBox = () => {
 
   const onSelect = (location) => {
     console.log("onSelect", location);
+    setCitySelected(location[0]);
     setValue(location[0]); //Set string of city selected
     setLatLng({
       lat: location[1],
@@ -138,7 +139,11 @@ const SearchBox = () => {
 
     return !(todayDay.isSameOrBefore(current) && todayPlysTen.isAfter(current));
   }
-
+  const onBlur = (param) => {
+    console.log("param on blur", param);
+    console.log("value - city selected?", value);
+    console.log("city selected?", citySelected);
+  };
   return (
     <ConfigProvider locale={plPL}>
       <SearchBoxCss>
@@ -147,6 +152,8 @@ const SearchBox = () => {
           <h2 className="home_cover_header">Znajdź łowiska blisko Ciebie</h2>
           <div className="home_cover_search">
             <AutoComplete
+              backfill={true}
+              onBlur={onBlur}
               className="home_cover_search_input"
               size="large"
               placeholder="Wpisz nazwę miejscowości"
@@ -157,6 +164,7 @@ const SearchBox = () => {
             >
               {cityQueryArr.map((citki, i) => (
                 <Option
+                  //   label={`${citki.name}-${i}`}
                   key={`${citki.name}-${i}`}
                   value={[citki.name, citki.lat, citki.lng]}
                 >
@@ -265,6 +273,7 @@ const SearchBoxCss = styled.div`
     width: 200px;
     margin-right: 9px;
     font-size: 16px;
+    border-radius: 40px;
   }
 
   .home_cover_search_range {
