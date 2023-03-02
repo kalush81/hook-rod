@@ -1,3 +1,6 @@
+//TODO
+// Wrap all inputs into ANT's Form
+
 import React, { useRef, useState } from "react";
 import "moment/locale/pl";
 import { Select, DatePicker, Button } from "antd";

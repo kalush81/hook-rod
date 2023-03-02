@@ -10,6 +10,7 @@ import FisheryCard from "../components/FisheryCard";
 import { graphql, navigate, useStaticQuery } from "gatsby";
 import ErrorList from "antd/lib/form/ErrorList";
 import SearchBox from "../components/SearchBox";
+import { load } from "dotenv";
 const { Option } = Select;
 const handleChange = (value) => {
   console.log(`selected ${value}`);
@@ -91,31 +92,6 @@ const Lowiska = function () {
         setServerError(null);
         setClientError(null);
         setMergedLakes(combined);
-        //console.log("response data", response.data)
-        // const combined = foundLakes.map((lake) => {
-        //     let lakeFromEdge = data.allLake.edges.find(edge => edge.node.id === String(lake.id));
-        //     if (lakeFromEdge) {
-        //         return {...lake, ...lakeFromEdge.node}
-        //     }
-        //     return lake
-        // })
-        // setMerged(combined);
-        // const ids = response.data.map((lake) => lake.id);
-        // const idsStrings = ids.map(id => String(id));
-        // setMyIds(idsStrings);
-        // console.log('inside effect idsString', idsStrings);
-        //const filtered = nodes.filter(node => ids.includes(Number(node.id)))
-        // const combinedNode = response.data.map((fishery) => {
-        //   let foundNode = nodes.find((node) => Number(node.id) === fishery.id)
-        //   if (foundNode) {
-        //     return {...foundNode, ...fishery}
-        //   }
-        // });
-        // setLowiskaArr(combinedNode)
-        // if (clientError || serverError) {
-        //     setServerError(null)
-        //     setClientError(null)
-        // }
       } catch (error) {
         setMergedLakes([]);
         if (error.response.status >= 500 && error.response.status <= 599) {
@@ -134,6 +110,8 @@ const Lowiska = function () {
 
     if (location.search === "") {
       return navigate("/");
+    } else {
+      loadLowiska();
     }
 
     return () => {
@@ -147,18 +125,6 @@ const Lowiska = function () {
       <LowiskaCss>
         <div className="lowi">
           <SearchBar />
-          {/* {location.state ? (
-            <SearchBar
-              cityName={location.state.srchdCity}
-              rangeProp={location.state.dist}
-              datesProp={location.state.fullDates}
-              ulat={ulat}
-              ulng={ulng}
-            />
-          ) : (
-            <SearchBar />
-          )} */}
-          {/* <SearchBox /> */}
           <div className="lowi_body">
             <div className="lowi_filters">
               <div className="filtruj">
@@ -227,29 +193,6 @@ const Lowiska = function () {
     </ConfigProvider>
   );
 };
-// export const query = graphql`
-//   query QueryFisheriesBySearchBar {
-//     allFishery {
-//       nodes {
-//         city
-//         id
-//         imagePath
-//         regulations
-//         name
-//         nameSlug
-//         numberOfPegs
-//         priceLow
-//         fishOnLake {
-//           name
-//           weight
-//           length
-//         }
-//         voivodeship
-//         voivodeshipSlug
-//       }
-//     }
-//   }
-// `;
 const LowiskaCss = styled.div`
   scroll-behavior: smooth;
   //height: 100vh;

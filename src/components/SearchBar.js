@@ -1,11 +1,11 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import "moment/locale/pl";
 import plPL from "antd/lib/locale/pl_PL";
 import { ConfigProvider } from "antd";
 import { SearchForm } from "./SearchForm";
 
-const SearchBar = ({ cityName, rangeProp, datesProp, ulat, ulng }) => {
+const SearchBar = () => {
   return (
     <ConfigProvider locale={plPL}>
       <SearchBarCss>
