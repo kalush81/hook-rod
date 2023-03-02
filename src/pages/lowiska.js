@@ -7,7 +7,7 @@ import plPL from "antd/lib/locale/pl_PL";
 import "moment/locale/pl";
 import SearchBar from "../components/SearchBar";
 import FisheryCard from "../components/FisheryCard";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, navigate, useStaticQuery } from "gatsby";
 import ErrorList from "antd/lib/form/ErrorList";
 import SearchBox from "../components/SearchBox";
 const { Option } = Select;
@@ -20,7 +20,6 @@ const Lowiska = function () {
   const [clientError, setClientError] = useState(null);
   const [loading, setLoading] = useState(null);
   const [mergedLakes, setMergedLakes] = useState([]);
-
   const location = useLocation();
 
   const params = new URLSearchParams(location.search);
@@ -53,11 +52,8 @@ const Lowiska = function () {
   `);
 
   useEffect(() => {
-    console.log("running useEffect again");
-
     const loadLowiska = async () => {
       setLoading(true);
-
       try {
         const response = await axios.get(
           `https://hookandrod.herokuapp.com/api/lakes/checkLakesOnDate`,
@@ -135,7 +131,11 @@ const Lowiska = function () {
         );
       }
     };
-    loadLowiska();
+
+    if (location.search === "") {
+      return navigate("/");
+    }
+
     return () => {
       console.log("lowiska page component is unmounted");
       //setMergedLakes([]);

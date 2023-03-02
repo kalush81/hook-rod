@@ -8,7 +8,7 @@ import { Select, DatePicker, ConfigProvider, Button } from "antd";
 import { AutoComplete } from "antd/lib";
 import moment from "moment";
 import { Link } from "gatsby";
-import plCities from "../assets/data/cities.json";
+// import plCities from "../assets/data/cities.json";
 
 import { useGeoLocation } from "../hooks/useGeoLocation.js";
 
@@ -25,152 +25,150 @@ const UseFocus = () => {
 };
 
 const SearchBox = () => {
-  const [citySelected, setCitySelected] = useState(null);
-  const [value, setValue] = useState("");
-  const [cityQueryArr, setCityQueryArr] = useState([]);
-  const [input1Ref, setInput1Focus] = UseFocus();
-  const [input2Ref, setInput2Focus] = UseFocus();
-  const [buttonRef, setButtonFocus] = UseFocus();
+  //const [citySelected, setCitySelected] = useState(null);
+  //   const [value, setValue] = useState("");
+  //   const [cityQueryArr, setCityQueryArr] = useState([]);
+  //   const [input1Ref, setInput1Focus] = UseFocus();
+  //   const [input2Ref, setInput2Focus] = UseFocus();
+  //   const [buttonRef, setButtonFocus] = UseFocus();
   const [latLng, setLatLng] = useState({});
-  const [datkiFull, setDatkiFull] = useState([]);
-  const [sEDate, setSEDate] = useState({});
-  const [rangeVal, setRangeVal] = useState(50);
+  //   const [datkiFull, setDatkiFull] = useState([]);
+  //   const [sEDate, setSEDate] = useState({});
+  //   const [rangeVal, setRangeVal] = useState(50);
   const { latGeo, lngGeo, error } = useGeoLocation();
-  const [selectedStartDate, setSelectedStartDate] = useState("");
+  //   const [selectedStartDate, setSelectedStartDate] = useState("");
 
-  const handleSearch = (valueStr) => {
-    console.log("onSearch", valueStr);
-    let res = [];
-    if (!valueStr) {
-      res = [];
-    } else {
-      res = plCities.filter((place) => {
-        const regex = new RegExp("^" + valueStr, "i");
-        return place.name.match(regex);
-      });
-    }
-    setCityQueryArr(() =>
-      res.map((r) => {
-        return {
-          ...r,
-          value: r.name,
-        };
-      })
-    );
-  };
+  //   const handleSearch = (valueStr) => {
+  //     console.log("onSearch", valueStr);
+  //     let res = [];
+  //     if (!valueStr) {
+  //       res = [];
+  //     } else {
+  //       res = plCities.filter((place) => {
+  //         const regex = new RegExp("^" + valueStr, "i");
+  //         return place.name.match(regex);
+  //       });
+  //     }
+  //     setCityQueryArr(() =>
+  //       res.map((r) => {
+  //         return {
+  //           ...r,
+  //           value: r.name,
+  //         };
+  //       })
+  //     );
+  //   };
 
-  const onSelect = (value, option) => {
-    console.log("onSelect - value", value);
-    console.log("onSelect - option", option);
-    // setCitySelected(location[0]);
-    // setValue(location[0]); //Set string of city selected
-    setLatLng({
-      lat: option.lat,
-      lng: option.lng,
-    });
-    setValue(option.value);
-    //setInput1Focus();
-  };
+  //   const onSelect = (value, option) => {
+  //     console.log("onSelect - value", value);
+  //     console.log("onSelect - option", option);
+  //     // setCitySelected(location[0]);
+  //     // setValue(location[0]); //Set string of city selected
+  //     setLatLng({
+  //       lat: option.lat,
+  //       lng: option.lng,
+  //     });
+  //     setValue(option.value);
+  //     //setInput1Focus();
+  //   };
 
-  const onChange = (newchar) => {
-    console.log("onChange", newchar);
-    setValue((oldchar) => {
-      return newchar;
-    });
-  };
+  //   const onChange = (newchar) => {
+  //     console.log("onChange", newchar);
+  //     setValue((oldchar) => {
+  //       return newchar;
+  //     });
+  //   };
 
-  const onFocusDistanceSelect = (p) => {
-    console.log("on focus distance select p.target", p.target);
-    if (!latLng.lat || !latLng.lng) {
-      console.log("miasto nie zaznaczone prawidlowo");
-      setValue("");
-    }
-  };
+  //   const onFocusDistanceSelect = (p) => {
+  //     console.log("on focus distance select p.target", p.target);
+  //     if (!latLng.lat || !latLng.lng) {
+  //       console.log("miasto nie zaznaczone prawidlowo");
+  //       setValue("");
+  //     }
+  //   };
 
-  const onDropDown = (open) => {
-    console.log(open);
-    if (open) {
-      setLatLng({});
-    }
-  };
+  //   const onDropDown = (open) => {
+  //     console.log(open);
+  //     if (open) {
+  //       setLatLng({});
+  //     }
+  //   };
 
-  const onFocusAutoComplete = () => {
-    setLatLng({});
-  };
+  //   const onFocusAutoComplete = () => {
+  //     setLatLng({});
+  //   };
 
-  const handleSelectDistanceChange = (range) => {
-    setRangeVal(range);
-    setInput2Focus();
-  };
+  //   const handleSelectDistanceChange = (range) => {
+  //     setRangeVal(range);
+  //     setInput2Focus();
+  //   };
 
-  const handleChangeFinish = (datka) => {
-    console.log("what the fuck is datka", datka);
-    let datki;
-    if (datka) {
-      datki = {
-        s: `${datka[0].$d.toLocaleDateString("en-US", {
-          year: "numeric",
-        })}-${(
-          0 +
-          datka[0].$d.toLocaleDateString("en-US", {
-            month: "numeric",
-          })
-        ).slice(-2)}-${(
-          0 + datka[0].$d.toLocaleDateString("en-US", { day: "numeric" })
-        ).slice(-2)}`,
-        e: `${datka[1].$d.toLocaleDateString("en-US", {
-          year: "numeric",
-        })}-${(
-          0 +
-          datka[1].$d.toLocaleDateString("en-US", {
-            month: "numeric",
-          })
-        ).slice(-2)}-${(
-          0 +
-          datka[1].$d.toLocaleDateString("en-US", {
-            day: "numeric",
-          })
-        ).slice(-2)}`,
-      };
-    }
-    setDatkiFull(datka);
-    setSEDate(datki);
-    setButtonFocus();
-  };
+  //   const handleChangeFinish = (datka) => {
+  //     console.log("what the fuck is datka", datka);
+  //     let datki;
+  //     if (datka) {
+  //       datki = {
+  //         s: `${datka[0].$d.toLocaleDateString("en-US", {
+  //           year: "numeric",
+  //         })}-${(
+  //           0 +
+  //           datka[0].$d.toLocaleDateString("en-US", {
+  //             month: "numeric",
+  //           })
+  //         ).slice(-2)}-${(
+  //           0 + datka[0].$d.toLocaleDateString("en-US", { day: "numeric" })
+  //         ).slice(-2)}`,
+  //         e: `${datka[1].$d.toLocaleDateString("en-US", {
+  //           year: "numeric",
+  //         })}-${(
+  //           0 +
+  //           datka[1].$d.toLocaleDateString("en-US", {
+  //             month: "numeric",
+  //           })
+  //         ).slice(-2)}-${(
+  //           0 +
+  //           datka[1].$d.toLocaleDateString("en-US", {
+  //             day: "numeric",
+  //           })
+  //         ).slice(-2)}`,
+  //       };
+  //     }
+  //     setDatkiFull(datka);
+  //     setSEDate(datki);
+  //     setButtonFocus();
+  //   };
 
-  const handleCalendarCahnge = (dates) => {
-    if (!dates) setSelectedStartDate("");
-    if (dates && dates[0]) setSelectedStartDate(dates[0]);
+  //   const handleCalendarCahnge = (dates) => {
+  //     if (!dates) setSelectedStartDate("");
+  //     if (dates && dates[0]) setSelectedStartDate(dates[0]);
 
-    const todayDay = moment().add(-1, "days");
-    const todayPlysTen = moment().add(10, "days");
-    console.log("TODAY", todayDay);
-    console.log("selected START DATE", selectedStartDate);
-    console.log("TODAY = 10", todayPlysTen);
-  };
+  //     const todayDay = moment().add(-1, "days");
+  //     const todayPlysTen = moment().add(10, "days");
+  //     console.log("TODAY", todayDay);
+  //     console.log("selected START DATE", selectedStartDate);
+  //     console.log("TODAY = 10", todayPlysTen);
+  //   };
 
-  function disabledDate(current) {
-    // console.log("CURRA DATA >>>", current);
-    const todayDay = selectedStartDate
-      ? moment(selectedStartDate).add(-0, "days")
-      : moment().add(-1, "days");
-    const todayPlysTen = selectedStartDate
-      ? moment(selectedStartDate).add(10, "days")
-      : moment().add(10, "days");
+  //   function disabledDate(current) {
+  //     // console.log("CURRA DATA >>>", current);
+  //     const todayDay = selectedStartDate
+  //       ? moment(selectedStartDate).add(-0, "days")
+  //       : moment().add(-1, "days");
+  //     const todayPlysTen = selectedStartDate
+  //       ? moment(selectedStartDate).add(10, "days")
+  //       : moment().add(10, "days");
 
-    if (!selectedStartDate) {
-      return !todayDay.isSameOrBefore(current);
-    }
-
-    return !(todayDay.isSameOrBefore(current) && todayPlysTen.isAfter(current));
-  }
+  //     if (!selectedStartDate) {
+  //       return !todayDay.isSameOrBefore(current);
+  //     }
+  //     return !(todayDay.isSameOrBefore(current) && todayPlysTen.isAfter(current));
+  //   }
   //   const onBlur = (param) => {
   //     console.log("param on blur", param);
   //     console.log("value - city selected?", value);
   //     console.log("city selected?", citySelected);
   //   };
-  console.log("cityQueryArr", cityQueryArr);
-  console.log("value", value);
+
   return (
     <ConfigProvider locale={plPL}>
       <SearchBoxCss>
@@ -178,17 +176,7 @@ const SearchBox = () => {
           <h1 className="home_cover_header--big">HOOK&ROD</h1>
           <h2 className="home_cover_header">Znajdź łowiska blisko Ciebie</h2>
           <div className="home_cover_search">
-            <SearchForm
-              onDropDown={onDropDown}
-              onFocusAutoComplete={onFocusAutoComplete}
-              className={"home_cover_search_input"}
-              handleSearch={handleSearch}
-              onSelect={onSelect}
-              onChange={onChange}
-              cityQueryArr={cityQueryArr}
-              value={value}
-              onFocusDistanceSelect={onFocusDistanceSelect}
-            />
+            <SearchForm className={"home_cover_search_input"} />
             {/* <AutoComplete
               onDropdownVisibleChange={onDropDown}
               onFocus={onFocusAutoComplete}
