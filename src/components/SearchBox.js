@@ -6,14 +6,10 @@ import plPL from "antd/lib/locale/pl_PL";
 import { Select, DatePicker, ConfigProvider, Button } from "antd";
 import { AutoComplete } from "antd/lib";
 import moment from "moment";
-
-// import cities from 'cities.json';
 import { Link } from "gatsby";
-
-// const plCities = cities.filter((citx) => citx.country === 'PL');
 import plCities from "../assets/data/cities.json";
 
-import { useLocation } from "../hooks/useLocation.js";
+import { useGeoLocation } from "../hooks/useGeoLocation.js";
 
 // const { Option } = Select;
 const { RangePicker } = DatePicker;
@@ -38,39 +34,47 @@ const SearchBox = () => {
   const [datkiFull, setDatkiFull] = useState([]);
   const [sEDate, setSEDate] = useState({});
   const [rangeVal, setRangeVal] = useState(50);
-  const { latGeo, lngGeo, error } = useLocation();
+  const { latGeo, lngGeo, error } = useGeoLocation();
   const [selectedStartDate, setSelectedStartDate] = useState("");
 
   const handleSearch = (valueStr) => {
+    console.log("onSearch", valueStr);
     let res = [];
-
     if (!valueStr) {
       res = [];
     } else {
       res = plCities.filter((place) => {
-        /* prettier-ignore */
-        const regex = new RegExp('^' + valueStr, 'i');
-        // const regex = /^[a-zA-Z]/;
+        const regex = new RegExp("^" + valueStr, "i");
         return place.name.match(regex);
       });
     }
-
-    setCityQueryArr(res);
+    setCityQueryArr(() =>
+      res.map((r) => {
+        return {
+          ...r,
+          value: r.name,
+        };
+      })
+    );
   };
 
-  const onSelect = (location) => {
-    console.log("onSelect", location);
-    setCitySelected(location[0]);
-    setValue(location[0]); //Set string of city selected
+  const onSelect = (value, option) => {
+    console.log("onSelect - value", value);
+    console.log("onSelect - option", option);
+    // setCitySelected(location[0]);
+    // setValue(location[0]); //Set string of city selected
     setLatLng({
-      lat: location[1],
-      lng: location[2],
+      lat: option.lat,
+      lng: option.lng,
     });
     setInput1Focus();
   };
 
-  const onChange = (data) => {
-    setValue(data);
+  const onChange = (newchar) => {
+    console.log("onChange", newchar);
+    setValue((oldchar) => {
+      return newchar;
+    });
   };
 
   const handleChange = (range) => {
@@ -139,11 +143,13 @@ const SearchBox = () => {
 
     return !(todayDay.isSameOrBefore(current) && todayPlysTen.isAfter(current));
   }
-  const onBlur = (param) => {
-    console.log("param on blur", param);
-    console.log("value - city selected?", value);
-    console.log("city selected?", citySelected);
-  };
+  //   const onBlur = (param) => {
+  //     console.log("param on blur", param);
+  //     console.log("value - city selected?", value);
+  //     console.log("city selected?", citySelected);
+  //   };
+  console.log("cityQueryArr", cityQueryArr);
+  console.log("value", value);
   return (
     <ConfigProvider locale={plPL}>
       <SearchBoxCss>
@@ -152,17 +158,18 @@ const SearchBox = () => {
           <h2 className="home_cover_header">Znajdź łowiska blisko Ciebie</h2>
           <div className="home_cover_search">
             <AutoComplete
-              backfill={true}
-              onBlur={onBlur}
+              //   backfill={true}
+              //   onBlur={onBlur}
               className="home_cover_search_input"
               size="large"
               placeholder="Wpisz nazwę miejscowości"
-              value={latGeo && lngGeo ? "Twoja Lokalizacja" : value}
+              //value={latGeo && lngGeo ? "Twoja Lokalizacja" : value}
               onSearch={handleSearch}
               onSelect={onSelect}
-              onChange={onChange}
+              //onChange={onChange}
+              options={cityQueryArr}
             >
-              {cityQueryArr.map((citki, i) => (
+              {/* {cityQueryArr.map((citki, i) => (
                 <Option
                   //   label={`${citki.name}-${i}`}
                   key={`${citki.name}-${i}`}
@@ -170,7 +177,7 @@ const SearchBox = () => {
                 >
                   {citki.name}
                 </Option>
-              ))}
+              ))} */}
             </AutoComplete>
             <Select
               className="home_cover_search_range"

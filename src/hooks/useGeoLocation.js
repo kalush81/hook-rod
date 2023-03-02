@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const useLocation = () => {
+export const useGeoLocation = () => {
   const [location, setLocation] = useState({});
   const [error, setError] = useState(null);
 

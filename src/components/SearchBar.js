@@ -5,9 +5,7 @@ import plPL from "antd/lib/locale/pl_PL";
 import { Select, DatePicker, ConfigProvider, Button } from "antd";
 import { AutoComplete } from "antd/lib";
 import { Link } from "gatsby";
-import cities from "cities.json";
-
-const plCities = cities.filter((city) => city.country === "PL");
+import plCities from "../assets/data/cities.json";
 
 const { RangePicker } = DatePicker;
 const { Option } = AutoComplete;

@@ -9,6 +9,7 @@ import SearchBar from "../components/SearchBar";
 import FisheryCard from "../components/FisheryCard";
 import { graphql, useStaticQuery } from "gatsby";
 import ErrorList from "antd/lib/form/ErrorList";
+import SearchBox from "../components/SearchBox";
 const { Option } = Select;
 const handleChange = (value) => {
   console.log(`selected ${value}`);
@@ -18,9 +19,10 @@ const Lowiska = function () {
   const [serverError, setServerError] = useState(null);
   const [clientError, setClientError] = useState(null);
   const [loading, setLoading] = useState(null);
-  const [merged, setMerged] = useState([]);
+  const [mergedLakes, setMergedLakes] = useState([]);
 
   const location = useLocation();
+
   const params = new URLSearchParams(location.search);
   const distance = params.get("distance");
   const eday = params.get("eday");
@@ -55,6 +57,7 @@ const Lowiska = function () {
 
     const loadLowiska = async () => {
       setLoading(true);
+
       try {
         const response = await axios.get(
           `https://hookandrod.herokuapp.com/api/lakes/checkLakesOnDate`,
@@ -91,7 +94,7 @@ const Lowiska = function () {
         setLoading(false);
         setServerError(null);
         setClientError(null);
-        setMerged(combined);
+        setMergedLakes(combined);
         //console.log("response data", response.data)
         // const combined = foundLakes.map((lake) => {
         //     let lakeFromEdge = data.allLake.edges.find(edge => edge.node.id === String(lake.id));
@@ -118,7 +121,7 @@ const Lowiska = function () {
         //     setClientError(null)
         // }
       } catch (error) {
-        setMerged([]);
+        setMergedLakes([]);
         if (error.response.status >= 500 && error.response.status <= 599) {
           setServerError("Problem z serwerem");
           //setMerged([])
@@ -134,18 +137,17 @@ const Lowiska = function () {
     };
     loadLowiska();
     return () => {
-      setMerged([]);
+      console.log("lowiska page component is unmounted");
+      //setMergedLakes([]);
     };
   }, [ulat, ulng, distance, sday, eday]);
 
-  console.log("data from qgl", data);
-  console.log("merged", merged);
   return (
-    // <p style={{ padding: 100 }}> content in development</p>
     <ConfigProvider locale={plPL}>
       <LowiskaCss>
         <div className="lowi">
-          {location.state ? (
+          <SearchBar />
+          {/* {location.state ? (
             <SearchBar
               cityName={location.state.srchdCity}
               rangeProp={location.state.dist}
@@ -155,7 +157,8 @@ const Lowiska = function () {
             />
           ) : (
             <SearchBar />
-          )}
+          )} */}
+          {/* <SearchBox /> */}
           <div className="lowi_body">
             <div className="lowi_filters">
               <div className="filtruj">
@@ -205,14 +208,15 @@ const Lowiska = function () {
               {serverError}
               {clientError}
               <ul className="lowi_list_ul">
-                {merged.length === 0 &&
+                {mergedLakes.length === 0 &&
                   clientError === null &&
                   serverError === null &&
+                  !loading &&
                   "not found"}
-                {merged.length > 0 &&
+                {mergedLakes.length > 0 &&
                   //.filter((lowisk) => lowisk.freePegs !== 0)
                   //.sort((a, b) => (a.distance > b.distance ? 1 : -1))
-                  merged.map((node) => (
+                  mergedLakes.map((node) => (
                     <FisheryCard key={node.id} data={node} />
                   ))}
               </ul>
