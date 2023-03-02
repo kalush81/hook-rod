@@ -9,20 +9,26 @@ import {
   UserOutlined,
   VideoCameraOutlined,
 } from "@ant-design/icons";
-import { Anchor, Layout, Menu } from "antd";
-
 import "normalize.css";
 import GlobalStyles from "../styles/GlobalStyles";
-const { Header, Sider, Content } = Layout;
-const { Link } = Anchor;
 
-const PageLayout = ({ children }) => {
+const Layout = ({ children }) => {
   //const [collapsed, setCollapsed] = useState(false);
   // const {
   //   token: { colorBgContainer },
   // } = theme.useToken();
   return (
-    <>
+    <div
+      style={
+        {
+          // border: "4px solid red",
+          // minWidth: "100vw",
+          // // boxSizing: "border-box",
+          // margin: 0,
+          // padding: 0,
+        }
+      }
+    >
       {/* <Sider trigger={null} collapsible collapsed={true} /> */}
       <GlobalStyles />
       <Nav />
@@ -30,7 +36,7 @@ const PageLayout = ({ children }) => {
       <Footer style={{ textAlign: "center" }}>
         Ant Design ©2023 Created by Ant UED
       </Footer>
-    </>
+    </div>
   );
   // return (
   //   <>
@@ -93,6 +99,6 @@ const PageLayout = ({ children }) => {
   // );
 };
 
-export default PageLayout;
+export default Layout;
 
 export const GridDiv = styled.div``;

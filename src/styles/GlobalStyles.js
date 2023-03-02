@@ -73,9 +73,9 @@ const GlobalStyles = createGlobalStyle`
   }
 
   /* Scrollbar Styles */
-  body::-webkit-scrollbar {
-    width: 9px;
-  }
+  // body::-webkit-scrollbar {
+  //   width: 9px;
+  // }
   html {
     scrollbar-width: thin;
     scrollbar-color: var(--red) var(--white);

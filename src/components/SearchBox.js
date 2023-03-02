@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
+import { SearchForm } from "./SearchForm";
 
 import "moment/locale/pl";
 import plPL from "antd/lib/locale/pl_PL";
@@ -67,7 +68,8 @@ const SearchBox = () => {
       lat: option.lat,
       lng: option.lng,
     });
-    setInput1Focus();
+    setValue(option.value);
+    //setInput1Focus();
   };
 
   const onChange = (newchar) => {
@@ -77,7 +79,26 @@ const SearchBox = () => {
     });
   };
 
-  const handleChange = (range) => {
+  const onFocusDistanceSelect = (p) => {
+    console.log("on focus distance select p.target", p.target);
+    if (!latLng.lat || !latLng.lng) {
+      console.log("miasto nie zaznaczone prawidlowo");
+      setValue("");
+    }
+  };
+
+  const onDropDown = (open) => {
+    console.log(open);
+    if (open) {
+      setLatLng({});
+    }
+  };
+
+  const onFocusAutoComplete = () => {
+    setLatLng({});
+  };
+
+  const handleSelectDistanceChange = (range) => {
     setRangeVal(range);
     setInput2Focus();
   };
@@ -157,16 +178,31 @@ const SearchBox = () => {
           <h1 className="home_cover_header--big">HOOK&ROD</h1>
           <h2 className="home_cover_header">Znajdź łowiska blisko Ciebie</h2>
           <div className="home_cover_search">
-            <AutoComplete
+            <SearchForm
+              onDropDown={onDropDown}
+              onFocusAutoComplete={onFocusAutoComplete}
+              className={"home_cover_search_input"}
+              handleSearch={handleSearch}
+              onSelect={onSelect}
+              onChange={onChange}
+              cityQueryArr={cityQueryArr}
+              value={value}
+              onFocusDistanceSelect={onFocusDistanceSelect}
+            />
+            {/* <AutoComplete
+              onDropdownVisibleChange={onDropDown}
+              onFocus={onFocusAutoComplete}
               //   backfill={true}
               //   onBlur={onBlur}
               className="home_cover_search_input"
               size="large"
               placeholder="Wpisz nazwę miejscowości"
               //value={latGeo && lngGeo ? "Twoja Lokalizacja" : value}
+              value={value}
               onSearch={handleSearch}
               onSelect={onSelect}
-              //onChange={onChange}
+              //   onBlur={onBlur}
+              onChange={onChange}
               options={cityQueryArr}
             >
               {/* {cityQueryArr.map((citki, i) => (
@@ -178,13 +214,14 @@ const SearchBox = () => {
                   {citki.name}
                 </Option>
               ))} */}
-            </AutoComplete>
-            <Select
+            {/* </AutoComplete> */}
+            {/* <Select
+              onFocus={onFocusDistanceSelect}
               className="home_cover_search_range"
               size="large"
               placeholder="+km  "
               showAction="focus"
-              onChange={handleChange}
+              onChange={handleSelectDistanceChange}
               ref={input1Ref}
             >
               <Option value="50">&lt; 50km</Option>
@@ -230,7 +267,7 @@ const SearchBox = () => {
               >
                 SZUKAJ
               </Button>
-            </Link>
+            </Link>{" "} */}
           </div>
         </div>
       </SearchBoxCss>
