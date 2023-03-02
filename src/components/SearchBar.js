@@ -11,7 +11,7 @@ const SearchBar = () => {
       <SearchBarCss>
         <div className="lowi_search_bar">
           <div className="lowi_search">
-            <SearchForm className="lowi_search_bar" />
+            <SearchForm className="lowi_search" />
           </div>
         </div>
       </SearchBarCss>

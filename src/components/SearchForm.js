@@ -7,8 +7,6 @@ import { Select, DatePicker, Button } from "antd";
 import { AutoComplete } from "antd/lib";
 import moment from "moment";
 import plCities from "../assets/data/cities.json";
-//import { useGeoLocation } from "../hooks/useGeoLocation.js";
-
 const { RangePicker } = DatePicker;
 const { Option } = AutoComplete;
 
@@ -24,16 +22,15 @@ export const SearchForm = ({ className }) => {
   const [cityQueryArr, setCityQueryArr] = useState([]);
   const [latLng, setLatLng] = useState({});
   const [value, setValue] = useState("");
-  const [rangeVal, setRangeVal] = useState(50);
-  const [input1Ref, setInput1Focus] = UseFocus();
-  const [input2Ref, setInput2Focus] = UseFocus();
+  //const [rangeVal, setRangeVal] = useState(50);
   const [datkiFull, setDatkiFull] = useState([]);
-  const [sEDate, setSEDate] = useState({});
-  const [buttonRef, setButtonFocus] = UseFocus();
+  //const [sEDate, setSEDate] = useState({});
   const [selectedStartDate, setSelectedStartDate] = useState("");
+  //const [input1Ref, setInput1Focus] = UseFocus();
+  const [input2Ref, setInput2Focus] = UseFocus();
+  const [buttonRef, setButtonFocus] = UseFocus();
 
-  const handleSearch = (valueStr) => {
-    console.log("onSearch", valueStr);
+  const handleAutoCompleteSearch = (valueStr) => {
     let res = [];
     if (!valueStr) {
       res = [];
@@ -52,11 +49,7 @@ export const SearchForm = ({ className }) => {
       })
     );
   };
-  const onSelectSearch = (value, option) => {
-    console.log("onSelect - value", value);
-    console.log("onSelect - option", option);
-    // setCitySelected(location[0]);
-    // setValue(location[0]); //Set string of city selected
+  const handleAutoCompleteSelect = (value, option) => {
     setLatLng({
       lat: option.lat,
       lng: option.lng,
@@ -64,34 +57,31 @@ export const SearchForm = ({ className }) => {
     setValue(option.value);
     //setInput1Focus();
   };
-  const onChangeSearch = (newchar) => {
-    console.log("onChange", newchar);
+  const handleAutoCompleteChange = (newchar) => {
     setValue((oldchar) => {
       return newchar;
     });
   };
-  const onDropDownSearch = (open) => {
-    console.log(open);
+  const handleAutoCompleteDropDown = (open) => {
     if (open) {
       setLatLng({});
     }
   };
-  const onFocusDistanceSelect = (p) => {
-    console.log("on focus distance select p.target", p.target);
+  const handleAutoCompleteFocus = () => {
+    setLatLng({});
+  };
+
+  const handleSelectDistanceFocus = (p) => {
     if (!latLng.lat || !latLng.lng) {
-      console.log("miasto nie zaznaczone prawidlowo");
       setValue("");
     }
   };
-  const onFocusAutoComplete = () => {
-    setLatLng({});
-  };
   const handleSelectDistanceChange = (range) => {
-    setRangeVal(range);
+    //setRangeVal(range);
     setInput2Focus();
   };
-  const handleChangeFinish = (datka) => {
-    console.log("what the fuck is datka", datka);
+
+  const handleRangePickerChange = (datka) => {
     let datki;
     if (datka) {
       datki = {
@@ -121,18 +111,15 @@ export const SearchForm = ({ className }) => {
       };
     }
     setDatkiFull(datka);
-    setSEDate(datki);
+    //setSEDate(datki);
     setButtonFocus();
   };
   const handleCalendarChange = (dates) => {
     if (!dates) setSelectedStartDate("");
     if (dates && dates[0]) setSelectedStartDate(dates[0]);
 
-    const todayDay = moment().add(-1, "days");
-    const todayPlysTen = moment().add(10, "days");
-    console.log("TODAY", todayDay);
-    console.log("selected START DATE", selectedStartDate);
-    console.log("TODAY = 10", todayPlysTen);
+    //const todayDay = moment().add(-1, "days");
+    //const todayPlysTen = moment().add(10, "days");
   };
   function disabledDate(current) {
     const todayDay = selectedStartDate
@@ -150,24 +137,25 @@ export const SearchForm = ({ className }) => {
   return (
     <>
       <AutoComplete
-        onDropdownVisibleChange={onDropDownSearch}
-        onFocus={onFocusAutoComplete}
+        className={className}
+        onDropdownVisibleChange={handleAutoCompleteDropDown}
+        onFocus={handleAutoCompleteFocus}
         size="large"
         placeholder="Wpisz nazwę miejscowości"
         value={value}
-        onSearch={handleSearch}
-        onSelect={onSelectSearch}
-        onChange={onChangeSearch}
+        onSearch={handleAutoCompleteSearch}
+        onSelect={handleAutoCompleteSelect}
+        onChange={handleAutoCompleteChange}
         options={cityQueryArr}
       ></AutoComplete>
       <Select
-        onFocus={onFocusDistanceSelect}
+        onFocus={handleSelectDistanceFocus}
         className="home_cover_search_range"
         size="large"
         placeholder="zasięg"
         showAction="focus"
         onChange={handleSelectDistanceChange}
-        ref={input1Ref}
+        // ref={input1Ref}
       >
         <Option value="50">&lt; 50km</Option>
         <Option value="100">&lt; 100km</Option>
@@ -181,7 +169,7 @@ export const SearchForm = ({ className }) => {
         format="DD.MM.YY"
         showAction="focus"
         value={datkiFull}
-        onChange={handleChangeFinish}
+        onChange={handleRangePickerChange}
         onCalendarChange={handleCalendarChange}
         ref={input2Ref}
         disabledDate={disabledDate}

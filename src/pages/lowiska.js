@@ -8,9 +8,8 @@ import "moment/locale/pl";
 import SearchBar from "../components/SearchBar";
 import FisheryCard from "../components/FisheryCard";
 import { graphql, navigate, useStaticQuery } from "gatsby";
-import ErrorList from "antd/lib/form/ErrorList";
-import SearchBox from "../components/SearchBox";
-import { load } from "dotenv";
+//import ErrorList from "antd/lib/form/ErrorList";
+//import SearchBox from "../components/SearchBox";
 const { Option } = Select;
 const handleChange = (value) => {
   console.log(`selected ${value}`);
