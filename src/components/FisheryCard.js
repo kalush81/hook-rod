@@ -18,7 +18,7 @@ function FisheryCard({ data }) {
       <li className="lowi_itm">
         <Link to={`/${voivodeship}/${city}/${lakeName}`}>
           {/* <div className="lowisko_img"> */}
-          <GatsbyImage image={getImage(lakeImageFile)}></GatsbyImage>
+          <GatsbyImage image={getImage(lakeImageFile)} alt=""></GatsbyImage>
           {/* </div> */}
           <h2 className="lowi_itm_header">{lakeName}</h2>
           <div className="lowi_itm_amnt lokalizacja">
