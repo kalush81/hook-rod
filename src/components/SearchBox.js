@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { SearchForm } from "./SearchForm";
 import "moment/locale/pl";
@@ -6,11 +6,17 @@ import plPL from "antd/lib/locale/pl_PL";
 import { ConfigProvider } from "antd";
 
 const SearchBox = () => {
+  const header = useRef(null);
+  useEffect(() => {
+    console.log("header", header);
+  });
   return (
     <ConfigProvider locale={plPL}>
       <SearchBoxCss>
         <div className="home_search_box">
-          <h1 className="home_cover_header--big">HOOK&ROD</h1>
+          <h1 ref={header} className="home_cover_header--big">
+            HOOK&ROD
+          </h1>
           <h2 className="home_cover_header">Znajdź łowiska blisko Ciebie</h2>
           <div className="home_cover_search">
             <SearchForm className={"home_cover_search_input"} />
@@ -28,7 +34,6 @@ const SearchBoxCss = styled.div`
     border-radius: 19px;
     width: 100%;
     max-width: 920px;
-    height: 221px;
     background: rgba(22, 56, 50, 0.9);
   }
   .home_cover_header {
@@ -58,6 +63,7 @@ const SearchBoxCss = styled.div`
     position: relative;
     display: flex;
     margin-bottom: 5px;
+    align-items: baseline;
   }
   .home_cover_search_input {
     width: 200px;

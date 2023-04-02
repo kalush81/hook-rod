@@ -39,7 +39,12 @@ const Lowiska = function () {
             voivodeship
             city
             numberOfPegs
-            priceLow
+            priceMin
+            lakeImageFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
             fishOnLake {
               length
               name
@@ -181,9 +186,9 @@ const Lowiska = function () {
                 {mergedLakes.length > 0 &&
                   //.filter((lowisk) => lowisk.freePegs !== 0)
                   //.sort((a, b) => (a.distance > b.distance ? 1 : -1))
-                  mergedLakes.map((node) => (
-                    <FisheryCard key={node.id} data={node} />
-                  ))}
+                  mergedLakes.map((node) => {
+                    return <FisheryCard key={node.id} data={node} />;
+                  })}
               </ul>
             </section>
           </div>

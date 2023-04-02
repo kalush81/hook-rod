@@ -3,7 +3,7 @@
 
 import React, { useRef, useState } from "react";
 import "moment/locale/pl";
-import { Select, DatePicker, Button } from "antd";
+import { Select, DatePicker, Button, Form } from "antd";
 import { AutoComplete } from "antd/lib";
 import moment from "moment";
 import plCities from "../assets/data/cities.json";
@@ -19,9 +19,10 @@ const UseFocus = () => {
 };
 
 export const SearchForm = ({ className }) => {
+  const [form] = Form.useForm();
   const [cityQueryArr, setCityQueryArr] = useState([]);
   const [latLng, setLatLng] = useState({});
-  const [value, setValue] = useState("");
+  const [autoCompleteValue, setAutoCompleteValue] = useState("");
   //const [rangeVal, setRangeVal] = useState(50);
   const [datkiFull, setDatkiFull] = useState([]);
   //const [sEDate, setSEDate] = useState({});
@@ -29,6 +30,23 @@ export const SearchForm = ({ className }) => {
   //const [input1Ref, setInput1Focus] = UseFocus();
   const [input2Ref, setInput2Focus] = UseFocus();
   const [buttonRef, setButtonFocus] = UseFocus();
+
+  const handleFinishForm = (param) => {
+    console.log("finish form ok", param);
+    console.log(form.getFieldsValue(["city", "distance"]));
+    console.log("form", form);
+  };
+  const handleFinishFailed = (param) => {
+    console.log("finish form failed", param);
+  };
+
+  const autoCompleteValidator = (rule, value, callback) => {
+    if (!value) {
+      callback("Please select a city");
+    } else {
+      callback();
+    }
+  };
 
   const handleAutoCompleteSearch = (valueStr) => {
     let res = [];
@@ -54,11 +72,11 @@ export const SearchForm = ({ className }) => {
       lat: option.lat,
       lng: option.lng,
     });
-    setValue(option.value);
+    setAutoCompleteValue(option.value);
     //setInput1Focus();
   };
   const handleAutoCompleteChange = (newchar) => {
-    setValue((oldchar) => {
+    setAutoCompleteValue((oldchar) => {
       return newchar;
     });
   };
@@ -73,7 +91,7 @@ export const SearchForm = ({ className }) => {
 
   const handleSelectDistanceFocus = (p) => {
     if (!latLng.lat || !latLng.lng) {
-      setValue("");
+      setAutoCompleteValue("");
     }
   };
   const handleSelectDistanceChange = (range) => {
@@ -135,33 +153,49 @@ export const SearchForm = ({ className }) => {
   }
 
   return (
-    <>
-      <AutoComplete
-        className={className}
-        onDropdownVisibleChange={handleAutoCompleteDropDown}
-        onFocus={handleAutoCompleteFocus}
-        size="large"
-        placeholder="Wpisz nazwę miejscowości"
-        value={value}
-        onSearch={handleAutoCompleteSearch}
-        onSelect={handleAutoCompleteSelect}
-        onChange={handleAutoCompleteChange}
-        options={cityQueryArr}
-      ></AutoComplete>
-      <Select
-        onFocus={handleSelectDistanceFocus}
-        className="home_cover_search_range"
-        size="large"
-        placeholder="zasięg"
-        showAction="focus"
-        onChange={handleSelectDistanceChange}
-        // ref={input1Ref}
+    <Form
+      form={form}
+      onFinish={handleFinishForm}
+      onFinishFailed={handleFinishFailed}
+      className="home_cover_search"
+    >
+      <Form.Item
+        //className={className}
+        name="city"
+        rules={[{ validator: autoCompleteValidator }]}
       >
-        <Option value="50">&lt; 50km</Option>
-        <Option value="100">&lt; 100km</Option>
-        <Option value="200">&lt; 200km</Option>
-        <Option value="1000">&gt; 200km</Option>
-      </Select>
+        <AutoComplete
+          className={className}
+          onDropdownVisibleChange={handleAutoCompleteDropDown}
+          onFocus={handleAutoCompleteFocus}
+          size="large"
+          placeholder="Wpisz nazwę miejscowości"
+          value={autoCompleteValue}
+          onSearch={handleAutoCompleteSearch}
+          onSelect={handleAutoCompleteSelect}
+          onChange={handleAutoCompleteChange}
+          options={cityQueryArr}
+        ></AutoComplete>
+      </Form.Item>
+      <Form.Item
+        className="home_cover_search_range"
+        name="distance"
+        rules={[{ validator: autoCompleteValidator }]}
+      >
+        <Select
+          onFocus={handleSelectDistanceFocus}
+          size="large"
+          placeholder="zasięg"
+          showAction="focus"
+          onChange={handleSelectDistanceChange}
+          // ref={input1Ref}
+        >
+          <Option value="50">&lt; 50km</Option>
+          <Option value="100">&lt; 100km</Option>
+          <Option value="200">&lt; 200km</Option>
+          <Option value="1000">&gt; 200km</Option>
+        </Select>
+      </Form.Item>
       <RangePicker
         className="home_cover_search_date"
         size="large"
@@ -188,6 +222,7 @@ export const SearchForm = ({ className }) => {
         }}
       > */}
       <Button
+        htmlType="submit"
         className="home_cover_search_btn"
         type="primary"
         size="large"
@@ -199,6 +234,6 @@ export const SearchForm = ({ className }) => {
         SZUKAJ
       </Button>
       {/* </Link> */}
-    </>
+    </Form>
   );
 };

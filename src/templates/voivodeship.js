@@ -44,7 +44,7 @@ export const query = graphql`
           weight
         }
         voivodeship
-        priceLow
+        priceMin
       }
     }
   }
@@ -107,7 +107,7 @@ export const query = graphql`
         name
         nameSlug
         numberOfPegs
-        priceLow
+        priceMin
         voivodeship
         voivodeshipSlug
       }

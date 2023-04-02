@@ -5,13 +5,13 @@ import { Pin, Fish, Silhouette, Dollar } from "../assets/icons";
 
 const listSpecies = (species) => {
   return species.map((fish) => {
-    return <span>{fish.name + " "}</span>;
+    return <span key={fish.name}>{fish.name + " "}</span>;
   });
 };
 
 //prettier-ignore
 function FisheryCard({ data }) {
-  const { id, city, voivodeship, name:lakeName, lakeImageFile, fishOnLake, priceLow } = data
+  const { id, city, voivodeship, name:lakeName, lakeImageFile, fishOnLake, priceMin } = data
 
   return (
     <div key={id}>
@@ -59,7 +59,7 @@ function FisheryCard({ data }) {
             )} */}
           <div className="lowi_itm_amnt cena">
             <img className="dollar" alt="dollar" src={Dollar}></img>
-            <b>Od {priceLow} zł / osoba</b>
+            <b>Od {priceMin} zł / osoba</b>
           </div>
           {/* {distance && (
             <div className="lowi_itm_distance">

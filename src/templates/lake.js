@@ -45,6 +45,7 @@ function Lake(props) {
             crossdomain: true,
           }
         );
+        console.log("rezerwcje na całym łowisku", response.data);
         setPegWithReservations(response.data);
       } catch (error) {
         if (error.response) {
@@ -156,7 +157,7 @@ export const query = graphql`
   query ($id: String) {
     lake(id: { eq: $id }) {
       voivodeship
-      priceLow
+      priceMin
       name
       city
       facilities {

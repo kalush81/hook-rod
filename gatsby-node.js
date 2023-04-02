@@ -99,12 +99,13 @@ exports.createSchemaCustomization = ({ actions }) => {
       city: String!
       voivodeship: String!
       numberOfPegs: Int!
-      priceLow: Float!
+      priceMin: Float!
       regulations: String
       latitude: Float!
       longitude: Float!
       fishOnLake: [FishOnLake]
       facilities: [Facility]
+      pegBasePrice:  Float!
     }
 
     type Peg {
@@ -121,7 +122,9 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type Facility {
       name: String
+      basePrice: Int
     }
+
   `);
 };
 
@@ -138,7 +141,7 @@ exports.sourceNodes = async ({
       city: item.city,
       voivodeship: item.voivodeship,
       numberOfPegs: item.numberOfPegs,
-      priceLow: item.priceLow,
+      priceMin: item.priceMin,
       latitude: item.latitude,
       longitude: item.longitude,
       pegs: item.pegs,
