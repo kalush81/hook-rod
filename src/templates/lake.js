@@ -18,9 +18,11 @@ function Lake(props) {
     city,
     name: lakeName,
     id,
+    facilities,
     numberOfPegs,
     lakeImageFile,
     pegs,
+    pegBasePrice,
   } = props.data.lake;
   const [opened, setOpened] = useState(false);
   const [pegsWithReservations, setPegWithReservations] = useState(null);
@@ -111,7 +113,11 @@ function Lake(props) {
 
               {pegsWithReservationsMap && (
                 <div>
-                  <Reservator pegs={pegsWithReservationsMap} />
+                  <Reservator
+                    pegs={pegsWithReservationsMap}
+                    pegBasePrice={pegBasePrice}
+                    facilities={facilities}
+                  />
                 </div>
               )}
               {pegsWithReservationsMap && (
@@ -162,6 +168,7 @@ export const query = graphql`
       city
       facilities {
         name
+        basePrice
       }
       fishOnLake {
         length
@@ -173,6 +180,7 @@ export const query = graphql`
         pegName
         pegNumber
       }
+      pegBasePrice
       imagePath
       id
       lakeImageFile {

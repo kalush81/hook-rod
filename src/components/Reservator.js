@@ -7,7 +7,10 @@ import moment from "moment";
 const { RangePicker } = DatePicker;
 const { Option } = Select;
 
-const Reservator = ({ pegs }) => {
+const Reservator = ({ pegs, pegBasePrice, facilities }) => {
+  console.log("pegBasePrice in reservator", pegBasePrice);
+  console.log("faciliteis in reservator", facilities);
+
   const [form] = Form.useForm();
   const [reservations, setReservations] = useState([]);
   const [isPegSelected, setIsPegSelected] = useState(false);
@@ -30,41 +33,7 @@ const Reservator = ({ pegs }) => {
       endDate: new Date(res.endDate),
     };
   });
-  //console.log("date ranges on lake", dateRanges);
-  // const onSelect = (value) => {
-  //   const [start, end] = value || [];
-  //   // If end date is not selected yet, return
-  //   if (!end) {
-  //     setSelectedRange(value);
-  //     return;
-  //   }
 
-  //   let invalidSelection = false;
-  //   // Check if end date is after any disabled date range
-  //   for (let i = 0; i < dateRanges.length; i++) {
-  //     const { startDate, endDate } = dateRanges[i];
-  //     if (end > endDate) {
-  //       invalidSelection = true;
-  //       break;
-  //     }
-  //   }
-
-  //   // Check if start date is inside a disabled range
-  //   for (let i = 0; i < dateRanges.length; i++) {
-  //     const { startDate, endDate } = dateRanges[i];
-  //     if (start >= startDate && start <= endDate) {
-  //       invalidSelection = true;
-  //       break;
-  //     }
-  //   }
-
-  //   if (invalidSelection) {
-  //     setSelectedRange([]);
-  //   } else {
-  //     setSelectedRange(value);
-  //   }
-  //   console.log("onSelect in RangePicker", value);
-  // };
   const disabledDate = (current) => {
     const [startSelected, endSelected] = selectedRange;
     if (current < moment()) {

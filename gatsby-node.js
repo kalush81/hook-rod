@@ -103,8 +103,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       regulations: String
       latitude: Float!
       longitude: Float!
-      fishOnLake: [FishOnLake]
-      facilities: [Facility]
+      fishOnLake: [FishOnLake]!
+      facilities: [Facility]!
       pegBasePrice:  Float!
     }
 
@@ -145,6 +145,7 @@ exports.sourceNodes = async ({
       latitude: item.latitude,
       longitude: item.longitude,
       pegs: item.pegs,
+      pegBasePrice: item.pegBasePrice,
       parent: null,
       children: [],
       internal: {
@@ -164,6 +165,8 @@ exports.sourceNodes = async ({
       item.fishOnLake.length > 0
     ) {
       node.fishOnLake = item.fishOnLake;
+    } else {
+      node.fishOnLake = [];
     }
     if (
       item.facilities &&
@@ -171,6 +174,8 @@ exports.sourceNodes = async ({
       item.facilities.length > 0
     ) {
       node.facilities = item.facilities;
+    } else {
+      node.facilities = [];
     }
     actions.createNode(node);
   });
