@@ -5,14 +5,13 @@ import FisheryCard from "../components/FisheryCard";
 import Map from "../components/MapCss";
 
 function Voivodeship(props) {
-  console.log("props", props);
   return (
     <>
       <Header>Lista Łowisk w : </Header>
       <Map>
         <div className="lowiskadiv">
           {props.data.allLake.nodes.map((node) => {
-            return <FisheryCard data={node} />;
+            return <FisheryCard key={node.id} data={node} />;
           })}
         </div>
       </Map>

@@ -7,9 +7,7 @@ import { ConfigProvider } from "antd";
 
 const SearchBox = () => {
   const header = useRef(null);
-  useEffect(() => {
-    console.log("header", header);
-  });
+
   return (
     <ConfigProvider locale={plPL}>
       <SearchBoxCss>

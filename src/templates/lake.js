@@ -47,7 +47,6 @@ function Lake(props) {
             crossdomain: true,
           }
         );
-        console.log("rezerwcje na całym łowisku", response.data);
         setPegWithReservations(response.data);
       } catch (error) {
         if (error.response) {

@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Form, Select, DatePicker, Checkbox, Button } from "antd";
-//import "antd/dist/antd.css";
 import moment from "moment";
-
 const { RangePicker } = DatePicker;
 const { Option } = Select;
 
@@ -13,20 +11,41 @@ const Reservator = ({ pegs, pegBasePrice, facilities }) => {
 
   const [form] = Form.useForm();
   const [reservations, setReservations] = useState([]);
-  const [isPegSelected, setIsPegSelected] = useState(false);
+  const [selectedPegId, setSelectedPegId] = useState(null);
   const [selectedRange, setSelectedRange] = useState([]);
+  const [usersQuantity, setUsersQuantity] = useState(null);
+  const [extraOptions, setExtraOptions] = useState([]);
+  const [daysNumber, setDaysNumber] = useState(0);
 
-  const handleSelectChange = (pegId) => {
+  const calculateDays = (p1, p2) => {
+    setDaysNumber(moment.duration(p2.diff(p1)).asDays());
+  };
+
+  useEffect(() => {
+    const values = form.getFieldsValue();
+    console.log("Form values updated:", values);
+    //console.log("selected range", selectedRange);
+    if (selectedRange[0] && selectedRange[1]) {
+      calculateDays(selectedRange[0], selectedRange[1]);
+    }
+  }, [form.getFieldsValue()]);
+
+  const handleSelectPegChange = (pegId) => {
     if (pegId) {
       setReservations(() => {
         return pegs.find((peg) => peg.pegId === pegId).reservations;
       });
-      setIsPegSelected(true);
+      setSelectedPegId(pegId);
     } else {
-      setIsPegSelected(false);
+      setSelectedPegId(null);
       setReservations([]);
     }
   };
+  const handleSelectUserQuantity = (param) => {
+    console.log("ilosc osob", param);
+    setUsersQuantity(param);
+  };
+
   const dateRanges = reservations.map((res) => {
     return {
       startDate: new Date(res.startDate),
@@ -58,47 +77,15 @@ const Reservator = ({ pegs, pegBasePrice, facilities }) => {
     }
     return false;
   };
-  // const disabledDate = (current) => {
-  //   const [startSelected, endSelected] = selectedRange;
-  //   if (startSelected) {
-  //     for (let i = 0; i < dateRanges.length; i++) {
-  //       const { startDate } = dateRanges[i];
-  //       if (startDate > startSelected && current > startDate) {
-  //         return true;
-  //       }
-  //     }
-  //   }
-  //   if (endSelected && !startSelected) {
-  //     for (let i = 0; i < dateRanges.length; i++) {
-  //       const { endDate } = dateRanges[i];
-  //       if (endDate < endSelected && current < endDate) {
-  //         return true;
-  //       }
-  //     }
-  //   }
-  //   if (current < moment()) {
-  //     return true;
-  //   }
-  //   for (let i = 0; i < dateRanges.length; i++) {
-  //     const { startDate, endDate } = dateRanges[i];
-  //     if (current >= startDate && current <= endDate) {
-  //       return true;
-  //     }
-  //   }
-  //   return false;
-  // };
 
   const rangePickerOnChange = (moments, stringDates) => {
-    console.log("stringDates arr on onChange", stringDates);
     setSelectedRange(moments || []);
   };
 
   const onOpenChange = (open) => {
-    console.log("opened picker open?", open);
-    console.log("selectedRange", selectedRange);
     if ((open && selectedRange[1]) || (open && selectedRange[0])) {
-      console.log("now you should clear inputs");
       setSelectedRange([]);
+      setDaysNumber(0);
       const nameList = form.getFieldsValue();
       console.log("nameList", nameList);
       if (nameList.daty) {
@@ -106,16 +93,24 @@ const Reservator = ({ pegs, pegBasePrice, facilities }) => {
       }
     }
   };
-  console.log("selected Range", selectedRange);
+
   const onChangeCheckBoxes = (checkedValues) => {
-    console.log("checked = ", checkedValues);
-    form.setFieldsValue("options", checkedValues);
+    console.log("wybrano opcje", checkedValues);
+    //form.setFieldsValue("options", checkedValues);
+    setExtraOptions(checkedValues);
   };
 
   const onFinish = (values) => {
-    console.log("Received values of form: ", values);
-    console.log("form: ", form.getFieldsValue());
     form.resetFields(["daty", "options"]);
+  };
+
+  const getPegNumber = (pegId) => {
+    let peg = pegs.find((peg) => peg.pegId === pegId);
+    if (peg) {
+      console.log("getPegNumber", peg.pegNumber);
+      return peg.pegNumber;
+    }
+    return null;
   };
 
   return (
@@ -123,7 +118,7 @@ const Reservator = ({ pegs, pegBasePrice, facilities }) => {
       <CalendarCSS>
         <div className="container">
           <h1>Rezerwacja</h1>
-          <h3>Cennik: 1 stanowisko / doba - 30zł</h3>
+          <h3>Cennik: 1 stanowisko / doba - {pegBasePrice}</h3>
           <div className="row row1">
             <Form.Item
               name="stanowisko"
@@ -141,7 +136,7 @@ const Reservator = ({ pegs, pegBasePrice, facilities }) => {
                 size="medium"
                 placeholder="wybierz stanowisko"
                 showAction="focus"
-                onChange={handleSelectChange}
+                onChange={handleSelectPegChange}
               >
                 {pegs.map((peg) => {
                   return (
@@ -168,8 +163,8 @@ const Reservator = ({ pegs, pegBasePrice, facilities }) => {
                 size="medium"
                 placeholder="Osoby"
                 showAction="focus"
-                // defaultValue={"1"}
-                required
+                //defaultValue={"1"}
+                onChange={handleSelectUserQuantity}
               >
                 <Option value="1">1 osoba</Option>
                 <Option value="2">2 osoby</Option>
@@ -190,7 +185,7 @@ const Reservator = ({ pegs, pegBasePrice, facilities }) => {
             >
               <RangePicker
                 initialValues={["", ""]}
-                disabled={!isPegSelected}
+                disabled={!selectedPegId}
                 className="rangepicker_row2"
                 disabledDate={disabledDate}
                 onCalendarChange={rangePickerOnChange}
@@ -198,42 +193,54 @@ const Reservator = ({ pegs, pegBasePrice, facilities }) => {
               />
             </Form.Item>
           </div>
-          <h2>Opcje dodatkowe</h2>
-          <div className="options">
-            <Form.Item name="options">
-              <Checkbox.Group onChange={onChangeCheckBoxes}>
-                <div className="options_row">
-                  <Checkbox className="checkbox" value="opcja 1"></Checkbox>
+          {facilities.length > 0 && (
+            <>
+              <h2>Opcje dodatkowe</h2>
+              <div className="options">
+                <Form.Item name="options">
+                  <Checkbox.Group
+                    style={{ display: "block" }}
+                    onChange={onChangeCheckBoxes}
+                  >
+                    {facilities.map((f) => {
+                      return (
+                        <div key={f.name} className="options_row">
+                          <Checkbox className="checkbox" value={f}></Checkbox>
+                          <h3 style={{ margin: 0 }}>
+                            {f.name} {f.basePrice}zł/doba
+                          </h3>
+                        </div>
+                      );
+                    })}
+                  </Checkbox.Group>
+                </Form.Item>
+              </div>
+            </>
+          )}
 
-                  <h3>Opcja 1</h3>
-                </div>
-                <div className="options_row">
-                  <Checkbox className="checkbox" value="opcja 2"></Checkbox>
-
-                  <h3>Opcja 2</h3>
-                </div>
-                <div className="options_row">
-                  <Checkbox className="checkbox" value="opcja 3"></Checkbox>
-
-                  <h3>Opcja 3</h3>
-                </div>
-                <div className="options_row">
-                  <Checkbox className="checkbox" value="opcja 4"></Checkbox>
-
-                  <h3>Opcja 4</h3>
-                </div>
-              </Checkbox.Group>
-            </Form.Item>
-          </div>
           <h2>Podsumowanie</h2>
-          <h3>30zł x 10dni</h3>
+          {/* <h3>{pegBasePrice} x ...dni</h3> */}
           <div className="podsumowanie">
-            <h3>2 stanowiska</h3>
-            <h3>300zł x 2 = 600zł</h3>
-            <h3>Ponton x 10 dni</h3>
-            <h3>500zł</h3>
+            <h3>
+              stanowisko nr {selectedPegId && getPegNumber(selectedPegId)}
+            </h3>
+            <h3>
+              {usersQuantity && pegBasePrice * usersQuantity * daysNumber} zł
+            </h3>
+            {/* <h3>Ponton x 10 dni</h3> */}
+            {extraOptions.map((extra) => {
+              return (
+                <>
+                  <h3 style={{ display: "block" }}>
+                    {extra.name} x {daysNumber} dni
+                  </h3>
+                  <h3>{extra.basePrice * daysNumber} zł</h3>
+                </>
+              );
+            })}
+
             <h2>Łącznie</h2>
-            <h2>1100zł</h2>
+            <h2>łączna suma</h2>
           </div>
           <div className="checkbox checkbox_regulamin">
             <Form.Item name="checkbox_required">
@@ -315,6 +322,7 @@ const CalendarCSS = styled.div`
   .options_row {
     display: flex;
     align-items: center;
+    padding: 1rem 0;
   }
   .ant-form-item {
     margin-bottom: 0px !important;
