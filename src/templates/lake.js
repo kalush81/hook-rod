@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { Collapse } from "react-collapse";
 import Reservator from "../components/Reservator.js";
-import { DatesReservedContext } from "../components/datesReservationContext";
 import TimeTable from "../components/TimeTable";
 import axios from "axios";
 
