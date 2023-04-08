@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Input, Button } from "antd";
 import styled from "styled-components";
 import moment from "moment";
-import { navigate } from "gatsby";
+//import { navigate } from "gatsby";
 //import "moment/locale/pl";
 //moment.locale("pl");
 
@@ -120,7 +120,7 @@ const ReservationForm = () => {
 const ReservationDetails = (props) => {
   const [sD, eD] = props.location.state.newReservationData.daty;
   const { daysNumber, pegBasePrice, osoby, options } =
-    props.location.state.newReservationData;
+    props.location?.state.newReservationData;
   const startDate = moment(sD.$d).locale("pl").format("DD MMMM YYYY");
   const endDate = moment(eD.$d).locale("pl").format("DD MMMM YYYY");
   console.log(props);
