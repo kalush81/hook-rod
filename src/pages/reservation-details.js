@@ -1,26 +1,68 @@
 import React from "react";
 import { Form, Input, Button } from "antd";
 import styled from "styled-components";
+import moment from "moment";
+import { navigate } from "gatsby";
+//import "moment/locale/pl";
+//moment.locale("pl");
 
-const ReservatorSummary = () => {
+const ReservatorSummary = ({
+  startDatePL,
+  endDatePL,
+  daysNumber,
+  userNumber,
+  pegBasePrice,
+  options,
+}) => {
+  const getTotalOfextras = () => {
+    return (
+      options.reduce((acc, curr) => {
+        return acc + curr.basePrice;
+      }, 0) * daysNumber
+    );
+  };
   return (
     <div className="reservation-summary-card">
       <h2>Podsumowanie Rezerwacji</h2>
       <div>Nazwa Łowiska</div>
-      <div>Całkowita długość pobytu : </div>
-      <div>17 stycznia 2022 - 27 stycznia 2022</div>
-      <div>10 x 30 zł</div>
-      <div>Liczba osób :</div>
-      <div>2 x 300 zł {"---------"} 600zł</div>
+      <div>Całkowita długość pobytu : {daysNumber}</div>
+      <div>
+        {startDatePL} - {endDatePL}
+      </div>
+      <div>
+        {daysNumber} x {pegBasePrice} zł
+      </div>
+      <div>Liczba osób : {userNumber}</div>
+      <div>
+        {userNumber} x {daysNumber * pegBasePrice} zł {"---------"}{" "}
+        {userNumber * daysNumber * pegBasePrice}zł
+      </div>
       <div>Opcje dodatkowe: </div>
       <ul>
-        <li>
+        {options.map((option) => {
+          return (
+            <li>
+              <div>
+                <p>{option.name}</p>
+                <div>
+                  {daysNumber} x {option.basePrice} zł ----{" "}
+                  {daysNumber * option.basePrice} zł
+                </div>
+              </div>
+            </li>
+          );
+        })}
+        {/* <li>
           <div>
             <p>Ponton</p>
             <div>10 x 50,00 zł ------- 500 zł</div>
           </div>
-        </li>
+        </li> */}
       </ul>
+      <div>
+        Łączna kwota:{" "}
+        {pegBasePrice * userNumber * daysNumber + getTotalOfextras()}
+      </div>
     </div>
   );
 };
@@ -75,11 +117,28 @@ const ReservationForm = () => {
 };
 
 //entire page
-const ReservationDetails = () => {
+const ReservationDetails = (props) => {
+  const [sD, eD] = props.location.state.newReservationData.daty;
+  const { daysNumber, pegBasePrice, osoby, options } =
+    props.location.state.newReservationData;
+  const startDate = moment(sD.$d).locale("pl").format("DD MMMM YYYY");
+  const endDate = moment(eD.$d).locale("pl").format("DD MMMM YYYY");
+  console.log(props);
+
   return (
     <WrapperWithGrid>
-      <ReservatorSummary />
+      <ReservatorSummary
+        startDatePL={startDate}
+        endDatePL={endDate}
+        daysNumber={daysNumber}
+        pegBasePrice={pegBasePrice}
+        userNumber={osoby}
+        options={options}
+      />
       <ReservationForm />
+      <Button onClick={() => window.history.back()}>
+        powrot do rezerwacji
+      </Button>
     </WrapperWithGrid>
   );
 };
