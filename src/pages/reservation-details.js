@@ -119,8 +119,12 @@ const ReservationForm = () => {
 //entire page
 const ReservationDetails = (props) => {
   const [sD, eD] = props.location.state?.newReservationData?.daty || [];
-  const { daysNumber, pegBasePrice, osoby, options } =
-    props.location.state?.newReservationData || {};
+  const {
+    daysNumber,
+    pegBasePrice,
+    osoby,
+    options = [],
+  } = props.location.state?.newReservationData || {};
   const startDate = moment(sD?.$d).locale("pl").format("DD MMMM YYYY");
   const endDate = moment(eD?.$d).locale("pl").format("DD MMMM YYYY");
   //console.log(props);
