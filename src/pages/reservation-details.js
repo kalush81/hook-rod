@@ -83,7 +83,6 @@ const ReservationDetails = () => {
     </WrapperWithGrid>
   );
 };
-//export default ReservationForm;
 
 const WrapperWithGrid = styled.div`
   display: grid;

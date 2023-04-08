@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { navigate } from "gatsby";
 import styled from "styled-components";
 import { Form, Select, DatePicker, Checkbox, Button } from "antd";
 import moment from "moment";
@@ -92,8 +93,16 @@ const Reservator = ({ pegs, pegBasePrice, facilities }) => {
     setExtraOptions(checkedValues);
   };
 
-  const onFinish = (values) => {
-    form.resetFields(["daty", "options"]);
+  const onFinish = (formValues) => {
+    console.log("values", formValues);
+    let newReservationData = {
+      ...formValues,
+      lakeName: "Extra Carp Radymno",
+      daysNumber,
+      pegBasePrice,
+    };
+    console.log("newReservationData", newReservationData);
+    navigate("/reservation-details", { state: { newReservationData } });
   };
 
   const getPegNumber = (pegId) => {
@@ -119,7 +128,7 @@ const Reservator = ({ pegs, pegBasePrice, facilities }) => {
           <h3>Cennik: 1 stanowisko / doba - {pegBasePrice}</h3>
           <div className="row row1">
             <Form.Item
-              name="stanowisko"
+              name="pegId"
               rules={[
                 {
                   required: true,
@@ -161,7 +170,6 @@ const Reservator = ({ pegs, pegBasePrice, facilities }) => {
                 size="medium"
                 placeholder="Osoby"
                 showAction="focus"
-                //defaultValue={"1"}
                 onChange={handleSelectUserQuantity}
               >
                 <Option value="1">1 osoba</Option>
@@ -243,8 +251,13 @@ const Reservator = ({ pegs, pegBasePrice, facilities }) => {
             </h2>
           </div>
           <div className="checkbox checkbox_regulamin">
-            <Form.Item name="checkbox_required">
-              <Checkbox />
+            <Form.Item
+              label=""
+              name="agree"
+              valuePropName="checked"
+              rules={[{ required: true, message: "Please agree to the terms" }]}
+            >
+              <Checkbox></Checkbox>
             </Form.Item>
             <p>
               Oświadczam, że zapoznałem/am się z Regulaminem Łowiska i akceptuję
