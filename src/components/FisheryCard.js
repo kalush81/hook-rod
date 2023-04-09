@@ -1,9 +1,10 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
-import { Pin, Fish, Silhouette, Dollar } from "../assets/icons";
+import { Dollar, Fish, Silhouette, Pin, Trophy } from "../assets/icons";
 
 const listSpecies = (species) => {
+  console.log("Fish svg compo", Fish);
   return species.map((fish) => {
     return <span key={fish.name}>{fish.name + " "}</span>;
   });
@@ -18,21 +19,21 @@ function FisheryCard({ data }) {
       <li className="lowi_itm">
         <Link to={`/${voivodeship}/${city}/${lakeName}`}>
           {/* <div className="lowisko_img"> */}
-          <GatsbyImage image={getImage(lakeImageFile)} alt=""></GatsbyImage>
+          <GatsbyImage style={{height: '170px'}} image={getImage(lakeImageFile)} alt=""></GatsbyImage>
           {/* </div> */}
           <h2 className="lowi_itm_header">{lakeName}</h2>
           <div className="lowi_itm_amnt lokalizacja">
-            <img className="pin" alt="pin" src={Pin}></img>
+            <Pin />
             <b>Lokalizacja: </b>
             {city}
           </div>
           <div className="lowi_itm_amnt">
-            <img className="fish" alt="fishsvg" src={Fish}></img>
+            <Fish />
             <b>Odmiany: </b>
             <b>{fishOnLake && listSpecies(fishOnLake)}</b>
           </div>
           <div className="lowi_itm_amnt">
-            {/* <Img fluid={image}/> */}
+            <Trophy />
             <b>Rekord: </b>
             {fishOnLake && fishOnLake.length > 0 && (
               <>
@@ -47,7 +48,7 @@ function FisheryCard({ data }) {
             )}
           </div>
           <div className="lowi_itm_amnt stanowiska">
-            <img className="silhouette" alt="silhouette" src={Silhouette}></img>
+            <Silhouette />
             <b>Liczba stanowisk: </b>
             {/*numberOfPegs*/}
           </div>
@@ -58,7 +59,7 @@ function FisheryCard({ data }) {
               </div>
             )} */}
           <div className="lowi_itm_amnt cena">
-            <img className="dollar" alt="dollar" src={Dollar}></img>
+            <Dollar />
             <b>Od {priceMin} zł / osoba</b>
           </div>
           {/* {distance && (

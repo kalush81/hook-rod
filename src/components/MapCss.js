@@ -230,8 +230,8 @@ export const MapCss = styled.div`
     margin-bottom: 0px;
   }
   svg {
-    height: 625px;
-    width: 625px;
+    // height: 625px;
+    // width: 625px;
     path {
       fill: var(--yellow);
       stroke: #fff;
@@ -290,6 +290,9 @@ export const MapCss = styled.div`
     width: 325px;
     height: 471px;
     background: rgba(237, 237, 237);
+    svg {
+      width: 40px;
+    }
   }
   .lowi_itm:hover {
     transform: translate3d(1px, -1px, -1px);
@@ -309,6 +312,7 @@ export const MapCss = styled.div`
     white-space: pre-wrap;
     font-weight: initial !important;
     margin-top: 3px;
+    margin-bottom: 0.567em;
   }
   .lowi_itm_amnt img {
     margin-right: 3px;
@@ -341,10 +345,6 @@ export const MapCss = styled.div`
     h1 {
       font-size: 30px;
       margin-top: 60px;
-    }
-    svg {
-      height: 100%;
-      width: 100%;
     }
   }
   @media screen and (max-width: 330px) {

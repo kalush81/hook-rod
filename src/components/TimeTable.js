@@ -3,7 +3,7 @@ import styled from "styled-components";
 import PegDatesRow from "./PegDatesRow";
 import moment from "moment";
 import { getCallendarString } from "../utils/get-date-string";
-import { Left, Right } from "../assets/icons";
+import { Left, Right, Up, Down } from "../assets/icons";
 //import { ReactComponent as Left } from "../assets/images/left.svg";
 
 const TimeTable = function ({ maxPegs, maxDays, pegs }) {
@@ -69,10 +69,7 @@ const TimeTable = function ({ maxPegs, maxDays, pegs }) {
           className="calendar_lowisko_day_box block noStyle"
           onClick={() => handlePrev(firstIdx, lastIdx)}
         >
-          <img
-            src="../../up.svg"
-            alt="sprawdz dostepnosc na poprzednich stanowiska"
-          />
+          <Up />
         </button>
         {daysArr.map((day) => {
           return (
@@ -104,10 +101,7 @@ const TimeTable = function ({ maxPegs, maxDays, pegs }) {
           className="calendar_lowisko_day_box block noStyle"
           onClick={() => handleNext(firstIdx, lastIdx)}
         >
-          <img
-            src="../../down.svg"
-            alt="sprawdz dostepnosc na nastepnych stanowiskach"
-          />
+          <Down />
         </button>
       </div>
     </CalendarCss>
