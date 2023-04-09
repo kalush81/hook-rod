@@ -285,7 +285,7 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
                   console.log(form.getFieldsValue("agreement").agreement);
                 }}
               >
-                PRZEJDŹ DO PŁATNOŚCI
+                PRZEJDŹ DO PODSUMOWANIA
               </Button>
             </Form.Item>
           </div>

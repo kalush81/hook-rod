@@ -7,5 +7,19 @@ import { ReactComponent as Left } from "../images/left.svg";
 import { ReactComponent as Right } from "../images/right.svg";
 import { ReactComponent as Up } from "../images/up.svg";
 import { ReactComponent as Down } from "../images/down.svg";
+import { ReactComponent as Logo } from "../images/logo.svg";
+import { ReactComponent as LoginIcon } from "../images/login-icon.svg";
 
-export { Pin, Fish, Trophy, Silhouette, Dollar, Left, Right, Up, Down };
+export {
+  Pin,
+  Fish,
+  Trophy,
+  Silhouette,
+  Dollar,
+  Left,
+  Right,
+  Up,
+  Down,
+  Logo,
+  LoginIcon,
+};

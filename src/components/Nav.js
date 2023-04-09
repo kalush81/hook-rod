@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import hookrod_logo from "../assets/images/hookrod_logo.svg";
-import login_icon from "../assets/images/login-icon.svg";
 import { Squeeze as Hamburger } from "hamburger-react";
+import { Logo, LoginIcon } from "../assets/icons";
 import "animate.css";
 
 const Nav = () => {
@@ -13,7 +13,9 @@ const Nav = () => {
   return (
     <NavCss className="nav">
       <Link to="/">
-        <div className="nav_logo"></div>
+        <div className="nav_logo">
+          <Logo />
+        </div>
       </Link>
       <div className="navbar_middle">
         <ul className="navbar_middle">
@@ -33,8 +35,8 @@ const Nav = () => {
           <div className="login">
             <li>
               <Link to="/login">Zaloguj</Link>
+              <LoginIcon />
             </li>
-            <img className="login_icon" alt="login" src={login_icon}></img>
           </div>
           <li>
             <Link to="/registration">Zarejestruj</Link>
@@ -64,7 +66,7 @@ const Nav = () => {
           <Link to="/login">
             <div className="login">
               <h1 onClick={hide}>Zaloguj</h1>
-              <img className="login_icon" alt="login" src={login_icon}></img>
+              <LoginIcon />
             </div>
           </Link>
           <Link to="/registration">
@@ -119,7 +121,7 @@ const NavCss = styled.nav`
     margin-right: 22px;
   }
   .nav_logo {
-    background: url(${hookrod_logo});
+    //background: url(${hookrod_logo});
     position: relative;
     width: 220px;
     background-size: cover;
