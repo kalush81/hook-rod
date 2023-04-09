@@ -103,6 +103,7 @@ function Lake(props) {
                 </div>
                 <div className="lowisko_image">
                   <GatsbyImage
+                    style={{ height: "400px" }}
                     image={getImage(lakeImageFile)}
                     alt=""
                   ></GatsbyImage>
