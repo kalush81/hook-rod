@@ -3,7 +3,8 @@ import styled from "styled-components";
 import PegDatesRow from "./PegDatesRow";
 import moment from "moment";
 import { getCallendarString } from "../utils/get-date-string";
-import { Left } from "../assets/icons";
+import { Left, Right } from "../assets/icons";
+//import { ReactComponent as Left } from "../assets/images/left.svg";
 
 const TimeTable = function ({ maxPegs, maxDays, pegs }) {
   //console.log("data from API", pegs);
@@ -47,11 +48,12 @@ const TimeTable = function ({ maxPegs, maxDays, pegs }) {
         <h3 style={{ textAlign: "center" }}>Terminarz rezerwacji</h3>
       </header>
       <div className="flex">
-        <img src={Left} alt="" />
         <button
           className="calendar_lowisko_day_box noStyle"
           onClick={() => setOtherDays(otherDays - maxDays)}
-        ></button>
+        >
+          <Left />
+        </button>
         <span>wcześniej</span>
         <span>{getCallendarString(daysArr)}</span>
         <span>później</span>
@@ -59,7 +61,7 @@ const TimeTable = function ({ maxPegs, maxDays, pegs }) {
           className="calendar_lowisko_day_box noStyle"
           onClick={() => setOtherDays(otherDays + maxDays)}
         >
-          <img src="../../right.svg" alt="sprawdz kolejne dni" />
+          <Right />
         </button>
       </div>
       <div className="wrapper">
@@ -238,9 +240,9 @@ export const CalendarCss = styled.div`
     margin-right: 1.5rem;
     font-size: 12px;
   }
-  .flex span:nth-child(3) {
-    font-size: 22px;
-  }
+  // .flex span:nth-child(3) {
+  //   font-size: 22px;
+  // }
 
   button img {
     width: 16px;

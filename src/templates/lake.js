@@ -112,6 +112,7 @@ function Lake(props) {
               {pegsWithReservationsMap && (
                 <div>
                   <Reservator
+                    lakeName={lakeName}
                     pegs={pegsWithReservationsMap}
                     pegBasePrice={pegBasePrice}
                     facilities={facilities}

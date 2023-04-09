@@ -12,7 +12,7 @@ module.exports = {
       options: {
         fonts: [
           `lato`,
-          `lato\:300,400,400,700`, // you can also specify font weights and styles
+          `lato:300,400,400,700`, // you can also specify font weights and styles
         ],
         display: "swap",
       },
@@ -47,6 +47,7 @@ module.exports = {
         },
       },
     },
+    "gatsby-plugin-svgr",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",

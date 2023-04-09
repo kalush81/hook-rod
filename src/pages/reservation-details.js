@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, Space, ConfigProvider } from "antd";
 import styled from "styled-components";
 import moment from "moment";
 //import { navigate } from "gatsby";
@@ -12,6 +12,7 @@ const ReservatorSummary = ({
   daysNumber,
   userNumber,
   pegBasePrice,
+  lakeName,
   options,
 }) => {
   const getTotalOfextras = () => {
@@ -24,7 +25,7 @@ const ReservatorSummary = ({
   return (
     <div className="reservation-summary-card">
       <h2>Podsumowanie Rezerwacji</h2>
-      <div>Nazwa Łowiska</div>
+      <div>{lakeName}</div>
       <div>Całkowita długość pobytu : {daysNumber}</div>
       <div>
         {startDatePL} - {endDatePL}
@@ -123,27 +124,39 @@ const ReservationDetails = (props) => {
     daysNumber,
     pegBasePrice,
     osoby,
+    lakeName,
     options = [],
   } = props.location.state?.newReservationData || {};
   const startDate = moment(sD?.$d).locale("pl").format("DD MMMM YYYY");
   const endDate = moment(eD?.$d).locale("pl").format("DD MMMM YYYY");
-  //console.log(props);
+  console.log(props);
 
   return (
-    <WrapperWithGrid>
-      <ReservatorSummary
-        startDatePL={startDate}
-        endDatePL={endDate}
-        daysNumber={daysNumber}
-        pegBasePrice={pegBasePrice}
-        userNumber={osoby}
-        options={options}
-      />
-      <ReservationForm />
-      <Button onClick={() => window.history.back()}>
-        powrot do rezerwacji
-      </Button>
-    </WrapperWithGrid>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: "#00b96b",
+        },
+      }}
+    >
+      <WrapperWithGrid>
+        <ReservatorSummary
+          startDatePL={startDate}
+          endDatePL={endDate}
+          daysNumber={daysNumber}
+          pegBasePrice={pegBasePrice}
+          userNumber={osoby}
+          options={options}
+          lakeName={lakeName}
+        />
+        <ReservationForm />
+        <Space className="site-button-ghost-wrapper" wrap>
+          <Button type="primary" ghost onClick={() => window.history.back()}>
+            powrot do rezerwacji
+          </Button>
+        </Space>
+      </WrapperWithGrid>
+    </ConfigProvider>
   );
 };
 

@@ -180,3 +180,16 @@ exports.sourceNodes = async ({
     actions.createNode(node);
   });
 };
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: /\.svg$/,
+          use: ["@svgr/webpack"],
+        },
+      ],
+    },
+  });
+};

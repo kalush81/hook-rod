@@ -6,7 +6,7 @@ import moment from "moment";
 const { RangePicker } = DatePicker;
 const { Option } = Select;
 
-const Reservator = ({ pegs, pegBasePrice, facilities }) => {
+const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
   const [form] = Form.useForm();
   const [reservations, setReservations] = useState([]);
   const [selectedPegId, setSelectedPegId] = useState(null);
@@ -14,6 +14,7 @@ const Reservator = ({ pegs, pegBasePrice, facilities }) => {
   const [usersQuantity, setUsersQuantity] = useState(null);
   const [extraOptions, setExtraOptions] = useState([]);
   const [daysNumber, setDaysNumber] = useState(0);
+  const [agreement, setAgreement] = useState(false);
 
   const calculateDays = (p1, p2) => {
     setDaysNumber(moment.duration(p2.diff(p1)).asDays());
@@ -97,7 +98,7 @@ const Reservator = ({ pegs, pegBasePrice, facilities }) => {
     console.log("values", formValues);
     let newReservationData = {
       ...formValues,
-      lakeName: "Extra Carp Radymno",
+      lakeName,
       daysNumber,
       pegBasePrice,
     };
@@ -119,6 +120,10 @@ const Reservator = ({ pegs, pegBasePrice, facilities }) => {
         return acc + curr.basePrice;
       }, 0) * daysNumber
     );
+  };
+
+  const handleCheckboxChange = (e) => {
+    setAgreement(e.target.checked);
   };
   return (
     <Form form={form} name="register" onFinish={onFinish} scrollToFirstError>
@@ -253,11 +258,14 @@ const Reservator = ({ pegs, pegBasePrice, facilities }) => {
           <div className="checkbox checkbox_regulamin">
             <Form.Item
               label=""
-              name="agree"
+              name="agreement"
               valuePropName="checked"
               rules={[{ required: true, message: "Please agree to the terms" }]}
             >
-              <Checkbox></Checkbox>
+              <Checkbox
+                checked={agreement}
+                onChange={handleCheckboxChange}
+              ></Checkbox>
             </Form.Item>
             <p>
               Oświadczam, że zapoznałem/am się z Regulaminem Łowiska i akceptuję
@@ -271,7 +279,11 @@ const Reservator = ({ pegs, pegBasePrice, facilities }) => {
                 size="large"
                 type="primary"
                 htmlType="submit"
-                onClick={console.log("form", form.getFieldError())}
+                disabled={!agreement}
+                onClick={() => {
+                  console.log("form", form.getFieldsError());
+                  console.log(form.getFieldsValue("agreement").agreement);
+                }}
               >
                 PRZEJDŹ DO PŁATNOŚCI
               </Button>

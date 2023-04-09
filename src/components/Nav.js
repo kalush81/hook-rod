@@ -52,7 +52,7 @@ const Nav = () => {
       </div>
       {isToggled && (
         <div className="collapse_navbar">
-          <Link to="/wojewodztwo">
+          <Link to="/wybierz-województwo">
             <h1 onClick={hide}>Łowiska</h1>
           </Link>
           <Link to="/onas">

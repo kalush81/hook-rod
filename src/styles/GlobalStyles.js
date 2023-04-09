@@ -117,10 +117,19 @@ const GlobalStyles = createGlobalStyle`
   .container {
     max-width: 1340px;
   }
-  .ant-btn-primary {
-    background-color: var(--yellow) !important;
-    border-color: var(--yellow) !important  ;
-  }
+  
+  // .ant-btn-primary {
+  //   background-color: var(--yellow);
+  //   border-color: var(--yellow) !important  ;
+  // }
+  // .ant-btn-primar-ghost {
+  //   background-color: transparent !important;
+  //   border-color: var(--yellow) !important;
+  //   color: var(--yellow) !important;
+  // }
+  // .ant-btn-primary.ant-btn-primary-ghost {
+  //   color: var(--yellow) !important;
+  // }
 
   a.ant-anchor-link-title {
     color: white;
