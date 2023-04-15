@@ -128,8 +128,8 @@ const ReservationDetails = (props) => {
     options = [],
     totalPrice,
   } = props.location.state?.newReservationData || {};
-  const startDateUI = dayjs(sD.$d).locale("pl").format("DD MMMM YYYY");
-  const endDateUI = dayjs(eD.$d).locale("pl").format("DD MMMM YYYY");
+  const startDateUI = dayjs(sD?.$d).locale("pl").format("DD MMMM YYYY");
+  const endDateUI = dayjs(eD?.$d).locale("pl").format("DD MMMM YYYY");
   //console.log(props);
 
   return (
