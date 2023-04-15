@@ -52,9 +52,40 @@ const ReservatorSummary = ({
 };
 
 const ReservationForm = (props) => {
-  const onFinish = (values) => {
-    console.log("Form values:", values);
-    console.log({ ...props });
+  const onFinish = async (values) => {
+    console.log("Form values to be sent to api:", values);
+    console.log("props to be added to form to send", { ...props });
+    const reservationData = {
+      ...values,
+      ...props,
+    };
+    console.log("reservationData", reservationData);
+    const sendForm = async () => {
+      try {
+        const result = await fetch(
+          `https://hookandrod.herokuapp.com/api/reservation`,
+          {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            withCredentials: false,
+            credentials: "same-origin",
+            crossdomain: true,
+            body: JSON.stringify(reservationData),
+          }
+        );
+        return await result.json();
+      } catch (error) {
+        console.error("error while fetching from API", error);
+      }
+    };
+
+    const res = await sendForm();
+    console.log("res after sent body", res);
   };
 
   return (
@@ -103,6 +134,7 @@ const ReservationForm = (props) => {
 
 //entire page
 const ReservationDetails = (props) => {
+  console.log("props in  ReservationDetails", props);
   const [sD, eD] = props.location.state?.newReservationData?.dates || [];
   const {
     pegId,
@@ -139,8 +171,8 @@ const ReservationDetails = (props) => {
           pegId={pegId}
           options={options}
           numGuests={numGuests}
-          startDate={dayjs(sD).format("YYYY-MM-DD")}
-          endDate={dayjs(eD).format("YYYY-MM-DD")}
+          startDate={dayjs(sD?.$d).format("YYYY-MM-DD")}
+          endDate={dayjs(eD?.$d).format("YYYY-MM-DD")}
           numDays={numDays}
           totalPrice={totalPrice}
         />

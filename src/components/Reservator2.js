@@ -58,6 +58,7 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
   }, [form, range]);
 
   const onFinish = (formValues) => {
+    console.log("form reservation values", formValues);
     let newReservationData = {
       ...formValues,
       lakeName,
