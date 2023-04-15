@@ -2,20 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import { graphql } from "gatsby";
 import FisheryCard from "../components/FisheryCard";
-import Map from "../components/MapCss";
+import Map from "../components/Map";
+import { Div } from "../pages/wybierz-województwo";
 
 function Voivodeship(props) {
   return (
-    <>
+    <Div>
       <Header>Lista Łowisk w : </Header>
-      <Map>
-        <div className="lowiskadiv">
-          {props.data.allLake.nodes.map((node) => {
-            return <FisheryCard key={node.id} data={node} />;
-          })}
-        </div>
-      </Map>
-    </>
+      <Map />
+      <div>
+        {props.data.allLake.nodes.map((node) => {
+          return <FisheryCard key={node.id} data={node} />;
+        })}
+      </div>
+    </Div>
   );
 }
 
@@ -49,8 +49,8 @@ export const query = graphql`
   }
 `;
 const Header = styled.h1`
-  margin-top: 80px;
   text-align: center;
+  margin: 0;
 `;
 
 // eslint-disable-next-line no-lone-blocks

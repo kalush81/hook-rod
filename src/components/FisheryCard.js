@@ -2,6 +2,7 @@ import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import { Dollar, Fish, Silhouette, Pin, Trophy } from "../assets/icons";
+import styled from "styled-components";
 
 const listSpecies = (species) => {
   console.log("Fish svg compo", Fish);
@@ -15,7 +16,7 @@ function FisheryCard({ data }) {
   const { id, city, voivodeship, name:lakeName, lakeImageFile, fishOnLake, priceMin } = data
 
   return (
-    <div key={id}>
+    <Div key={id}>
       <li className="lowi_itm">
         <Link to={`/${voivodeship}/${city}/${lakeName}`}>
           {/* <div className="lowisko_img"> */}
@@ -70,8 +71,66 @@ function FisheryCard({ data }) {
           )} */}
         </Link>
       </li>
-    </div>
+    </Div>
   );
 }
+const Div = styled.div`
+  .lowi_itm {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 12px;
+    margin: 5px;
+    box-shadow: 1px 2px 9px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    position: relative;
+    width: 325px;
+    height: 471px;
+    background: rgba(237, 237, 237);
+    svg {
+      width: 40px;
+    }
+  }
+  .lowi_itm:hover {
+    transform: translate3d(1px, -1px, -1px);
+    opacity: 0.8;
+  }
+  .lowi_itm *,
+  .lowi_itm:hover * {
+    color: var(--black) !important;
+  }
 
+  .lowi_itm_header {
+    font-size: 28px;
+  }
+
+  .lowi_itm_amnt {
+    display: flex;
+    white-space: pre-wrap;
+    font-weight: initial !important;
+    margin-top: 3px;
+    margin-bottom: 0.567em;
+  }
+  .lowi_itm_amnt img {
+    margin-right: 3px;
+  }
+  .lokalizacja {
+    margin-left: 3px;
+  }
+  .stanowiska {
+    margin-left: 1px;
+  }
+  .cena {
+    margin-left: 5px;
+  }
+  .lowisko_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+  }
+`;
 export default FisheryCard;

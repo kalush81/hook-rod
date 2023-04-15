@@ -85,7 +85,7 @@ const HomeCss = styled.div`
   .home_cover {
     background-size: cover;
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,13 +96,6 @@ const HomeCss = styled.div`
   .home_cover:before,
   .home_cover:after {
     background-position: right bottom !important;
-  }
-
-  @media screen and (max-width: 510px) {
-    height: 100vh;
-  }
-  @media screen and (max-height: 692px) {
-    height: 100vh;
   }
 `;
 

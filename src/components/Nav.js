@@ -12,45 +12,47 @@ const Nav = () => {
 
   return (
     <NavCss className="nav">
-      <Link to="/">
-        <div className="nav_logo">
-          <Logo />
-        </div>
-      </Link>
-      <div className="navbar_middle">
-        <ul className="navbar_middle">
-          <li>
-            <Link to="/wybierz-województwo">Zobacz wszystkie łowiska</Link>
-          </li>
-          <li>
-            <Link to="/onas">O nas</Link>
-          </li>
-          <li>
-            <Link to="/faq">FAQ</Link>
-          </li>
-        </ul>
-      </div>
-      <div className="navbar_right">
-        <ul className="navbar_right">
-          <div className="login">
-            <li>
-              <Link to="/login">Zaloguj</Link>
-              <LoginIcon />
-            </li>
+      <div className="container">
+        <Link to="/">
+          <div className="nav_logo">
+            <Logo />
           </div>
-          <li>
-            <Link to="/registration">Zarejestruj</Link>
-          </li>
-        </ul>
-      </div>
-      <div className="hamburger">
-        <Hamburger
-          duration={0.6}
-          toggled={isToggled}
-          toggle={setIsToggled}
-          size={27}
-          color="#fff"
-        />
+        </Link>
+        <div className="navbar_middle">
+          <ul className="navbar_middle">
+            <li>
+              <Link to="/wybierz-województwo">Zobacz wszystkie łowiska</Link>
+            </li>
+            <li>
+              <Link to="/onas">O nas</Link>
+            </li>
+            <li>
+              <Link to="/faq">FAQ</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="navbar_right">
+          <ul className="navbar_right">
+            <div className="login">
+              <li>
+                <Link to="/login">Zaloguj</Link>
+                <LoginIcon />
+              </li>
+            </div>
+            <li>
+              <Link to="/registration">Zarejestruj</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="hamburger">
+          <Hamburger
+            duration={0.6}
+            toggled={isToggled}
+            toggle={setIsToggled}
+            size={27}
+            color="#fff"
+          />
+        </div>
       </div>
       {isToggled && (
         <div className="collapse_navbar">
@@ -81,8 +83,6 @@ const Nav = () => {
 const NavCss = styled.nav`
   display: flex;
   height: 60px;
-  padding: 3px 0;
-  justify-content: space-between;
   align-items: center;
   position: fixed;
   width: 100%;
@@ -91,6 +91,16 @@ const NavCss = styled.nav`
   z-index: 111;
   transition: background 0.3s ease-out;
   background: rgba(22, 56, 50, 0.9);
+
+  .container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    //border: 2px solid red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   ul {
     display: flex;

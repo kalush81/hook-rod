@@ -113,6 +113,7 @@ export const CalendarCss = styled.div`
   padding: 19px 21px;
   background: #e4f4ca;
   border-radius: 9px;
+  max-width: 400px;
 
   .calendar_header {
     display: flex;
@@ -143,7 +144,7 @@ export const CalendarCss = styled.div`
     width: 100%;
     display: flex;
     margin-bottom: 9px;
-    /* justify-content: space-around; */
+    justify-content: space-around;
   }
 
   .calendar_lowisko_day_box {
@@ -181,6 +182,9 @@ export const CalendarCss = styled.div`
     justify-content: space-between;
     align-items: end;
     padding-bottom: 8px;
+    span {
+      aspect-ratio: 1/1;
+    }
   }
 
   .offset-right {

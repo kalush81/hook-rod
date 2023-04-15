@@ -15,12 +15,9 @@ function Map({ children, disabled }) {
   };
 
   return (
-    <MapCss disabled={disabled}>
-      <div className="mapdiv">
+    <MapCssNew disabled={disabled}>
+      <div>
         <h1>{name}</h1>
-        {/* <h3 className={`errordiv ${error ? "" : "hidden"}`}>
-          Brak łowisk w tym województwie.
-        </h3> */}
         <svg viewBox="0 0 1000 948" xmlns="http://www.w3.org/2000/svg">
           <Link to={"/warmińsko-mazurskie"}>
             <path
@@ -188,50 +185,14 @@ function Map({ children, disabled }) {
         </svg>
       </div>
       {children}
-    </MapCss>
+    </MapCssNew>
   );
 }
 
-export const MapCss = styled.div`
-  overflow-x: hidden;
-  overflow-y: scroll;
-  height: calc(100vh - 120px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  .mapdiv {
-    display: ${(props) => (props.disabled ? "none" : "flex")};
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 180px);
-    width: 100%;
-    padding-top: 30px;
-  }
-  .lowiskadiv {
-    max-width: 1430px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: calc(100vh - 160px);
-    scroll-margin: 60px;
-  }
-  .errordiv {
-    color: red;
-  }
-  .hidden {
-    visibility: hidden;
-  }
-  h1 {
-    margin-top: 40px;
-    font-size: 40px;
-    margin-bottom: 0px;
-  }
+const MapCssNew = styled.div`
   svg {
-    // height: 625px;
-    // width: 625px;
+    width: 90%;
+    max-width: 400px;
     path {
       fill: var(--yellow);
       stroke: #fff;
@@ -242,131 +203,170 @@ export const MapCss = styled.div`
       fill: #003600;
     }
   }
-
-  // .lowiskadiv {
-  //   max-width: 1430px;
-  //   display: flex;
-  //   flex-wrap: wrap;
-  //   justify-content: center;
-  //   align-items: center;
-  //   width: 100%;
-  //   height: calc(100vh - 160px);
-  //   scroll-margin: 60px;
-  // }
-  // .errordiv {
-  //   color: red;
-  // }
-  // .hidden {
-  //   //visibility: hidden;
-  // }
-  // h1 {
-  //   margin-top: 40px;
-  //   font-size: 40px;
-  //   margin-bottom: 0px;
-  // }
-  // svg {
-  //   height: 625px;
-  //   width: 625px;
-  //   path {
-  //     fill: var(--yellow);
-  //     stroke: #fff;
-  //     stroke-width: 2px;
-  //     transition: fill 0.3s;
-  //   }
-  //   path:hover {
-  //     fill: #003600;
-  //   }
-  // }
-  .lowi_itm {
-    display: flex;
-    flex-direction: column;
-    border-radius: 20px;
-    padding: 12px;
-    margin: 5px;
-    box-shadow: 1px 2px 9px rgba(0, 0, 0, 0.4);
-    cursor: pointer;
-    transition: all 0.3s ease-out;
-    position: relative;
-    width: 325px;
-    height: 471px;
-    background: rgba(237, 237, 237);
-    svg {
-      width: 40px;
-    }
-  }
-  .lowi_itm:hover {
-    transform: translate3d(1px, -1px, -1px);
-    opacity: 0.8;
-  }
-  .lowi_itm *,
-  .lowi_itm:hover * {
-    color: var(--black) !important;
-  }
-
-  .lowi_itm_header {
-    font-size: 28px;
-  }
-
-  .lowi_itm_amnt {
-    display: flex;
-    white-space: pre-wrap;
-    font-weight: initial !important;
-    margin-top: 3px;
-    margin-bottom: 0.567em;
-  }
-  .lowi_itm_amnt img {
-    margin-right: 3px;
-  }
-  .lokalizacja {
-    margin-left: 3px;
-  }
-  .stanowiska {
-    margin-left: 1px;
-  }
-  .cena {
-    margin-left: 5px;
-  }
-  .lowisko_img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-    width: 100%;
-    overflow: hidden;
-  }
-  @media screen and (max-height: 692px) {
-    .mapdiv {
-      height: 90vh;
-    }
-  }
-  @media screen and (max-width: 625px) {
-    .mapdiv {
-    }
-    h1 {
-      font-size: 30px;
-      margin-top: 60px;
-    }
-  }
-  @media screen and (max-width: 330px) {
-    h1 {
-      font-size: 25px;
-    }
-  }
-  @media screen and (max-height: 692px) {
-    height: 100%;
-    .lowiskadiv {
-      height: 100vh;
-    }
-  }
-  @media screen and (min-width: 1420px) {
-    flex-direction: row;
-    overflow-y: hidden;
-
-    .lowiskadiv {
-      padding-top: 60px;
-      overflow-y: scroll;
-    }
-  }
 `;
+
+// const MapCss = styled.div`
+//   overflow-x: hidden;
+//   overflow-y: scroll;
+//   height: calc(100vh - 120px);
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   .mapdiv {
+//     // display: ${(props) => (props.disabled ? "none" : "flex")};
+//     // flex-direction: column;
+//     // justify-content: center;
+//     // align-items: center;
+//     // height: calc(100vh - 180px);
+//     // width: 100%;
+//     // padding-top: 30px;
+//   }
+//   .lowiskadiv {
+//     max-width: 1430px;
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: center;
+//     align-items: center;
+//     width: 100%;
+//     height: calc(100vh - 160px);
+//     scroll-margin: 60px;
+//   }
+//   .errordiv {
+//     color: red;
+//   }
+//   .hidden {
+//     visibility: hidden;
+//   }
+//   h1 {
+//     margin-top: 40px;
+//     font-size: 40px;
+//     margin-bottom: 0px;
+//   }
+
+//   // .lowiskadiv {
+//   //   max-width: 1430px;
+//   //   display: flex;
+//   //   flex-wrap: wrap;
+//   //   justify-content: center;
+//   //   align-items: center;
+//   //   width: 100%;
+//   //   height: calc(100vh - 160px);
+//   //   scroll-margin: 60px;
+//   // }
+//   // .errordiv {
+//   //   color: red;
+//   // }
+//   // .hidden {
+//   //   //visibility: hidden;
+//   // }
+//   // h1 {
+//   //   margin-top: 40px;
+//   //   font-size: 40px;
+//   //   margin-bottom: 0px;
+//   // }
+//   // svg {
+//   //   height: 625px;
+//   //   width: 625px;
+//   //   path {
+//   //     fill: var(--yellow);
+//   //     stroke: #fff;
+//   //     stroke-width: 2px;
+//   //     transition: fill 0.3s;
+//   //   }
+//   //   path:hover {
+//   //     fill: #003600;
+//   //   }
+//   // }
+//   .lowi_itm {
+//     display: flex;
+//     flex-direction: column;
+//     border-radius: 20px;
+//     padding: 12px;
+//     margin: 5px;
+//     box-shadow: 1px 2px 9px rgba(0, 0, 0, 0.4);
+//     cursor: pointer;
+//     transition: all 0.3s ease-out;
+//     position: relative;
+//     width: 325px;
+//     height: 471px;
+//     background: rgba(237, 237, 237);
+//     svg {
+//       width: 40px;
+//     }
+//   }
+//   .lowi_itm:hover {
+//     transform: translate3d(1px, -1px, -1px);
+//     opacity: 0.8;
+//   }
+//   .lowi_itm *,
+//   .lowi_itm:hover * {
+//     color: var(--black) !important;
+//   }
+
+//   .lowi_itm_header {
+//     font-size: 28px;
+//   }
+
+//   .lowi_itm_amnt {
+//     display: flex;
+//     white-space: pre-wrap;
+//     font-weight: initial !important;
+//     margin-top: 3px;
+//     margin-bottom: 0.567em;
+//   }
+//   .lowi_itm_amnt img {
+//     margin-right: 3px;
+//   }
+//   .lokalizacja {
+//     margin-left: 3px;
+//   }
+//   .stanowiska {
+//     margin-left: 1px;
+//   }
+//   .cena {
+//     margin-left: 5px;
+//   }
+//   .lowisko_img {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 200px;
+//     width: 100%;
+//     overflow: hidden;
+//   }
+//   @media screen and (max-height: 692px) {
+//     .mapdiv {
+//       height: 90vh;
+//     }
+//   }
+//   @media screen and (max-width: 625px) {
+//     .mapdiv {
+//     }
+//     h1 {
+//       font-size: 30px;
+//       margin-top: 60px;
+//     }
+//   }
+//   @media screen and (max-width: 330px) {
+//     h1 {
+//       font-size: 25px;
+//     }
+//   }
+//   @media screen and (max-height: 692px) {
+//     height: 100%;
+//     .lowiskadiv {
+//       height: 100vh;
+//     }
+//   }
+//   @media screen and (min-width: 1420px) {
+//     flex-direction: row;
+//     overflow-y: hidden;
+
+//     .lowiskadiv {
+//       padding-top: 60px;
+//       overflow-y: scroll;
+//     }
+//   }
+// `;
 
 export default Map;

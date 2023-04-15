@@ -72,6 +72,15 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
   }
 
+  .ant-picker-panels {
+    flex-direction: column;
+  } 
+  @media (min-width: 567px) {
+    .ant-picker-panels {
+      flex-direction: row;
+    }
+  } 
+
   /* Scrollbar Styles */
   // body::-webkit-scrollbar {
   //   width: 9px;
@@ -114,9 +123,9 @@ const GlobalStyles = createGlobalStyle`
     list-style: none;
   }
 
-  .container {
-    max-width: 1340px;
-  }
+  // .container {
+  //   max-width: 1340px;
+  // }
   
   // .ant-btn-primary {
   //   background-color: var(--yellow);

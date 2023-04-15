@@ -1,53 +1,52 @@
 import React from "react";
 import { Form, Input, Button, Space, ConfigProvider } from "antd";
 import styled from "styled-components";
-import moment from "moment";
-//import { navigate } from "gatsby";
-//import "moment/locale/pl";
-//moment.locale("pl");
+import dayjs from "dayjs";
+import "dayjs/locale/pl";
 
 const ReservatorSummary = ({
-  startDatePL,
-  endDatePL,
-  daysNumber,
-  userNumber,
+  startDateUI,
+  endDateUI,
+  numDays,
+  numGuests,
   pegBasePrice,
   lakeName,
   options,
+  totalPrice,
 }) => {
   const getTotalOfextras = () => {
     return (
       options.reduce((acc, curr) => {
         return acc + curr.basePrice;
-      }, 0) * daysNumber
+      }, 0) * numDays
     );
   };
   return (
     <div className="reservation-summary-card">
       <h2>Podsumowanie Rezerwacji</h2>
       <div>{lakeName}</div>
-      <div>Całkowita długość pobytu : {daysNumber}</div>
+      <div>Całkowita długość pobytu : {numDays}</div>
       <div>
-        {startDatePL} - {endDatePL}
+        {startDateUI} - {endDateUI}
       </div>
       <div>
-        {daysNumber} x {pegBasePrice} zł
+        {numDays} x {pegBasePrice} zł
       </div>
-      <div>Liczba osób : {userNumber}</div>
+      <div>Liczba osób : {numGuests}</div>
       <div>
-        {userNumber} x {daysNumber * pegBasePrice} zł {"---------"}{" "}
-        {userNumber * daysNumber * pegBasePrice}zł
+        {numGuests} x {numDays * pegBasePrice} zł {"---------"}{" "}
+        {numGuests * numDays * pegBasePrice}zł
       </div>
       <div>Opcje dodatkowe: </div>
       <ul>
         {options.map((option) => {
           return (
-            <li>
+            <li key={option.name}>
               <div>
                 <p>{option.name}</p>
                 <div>
-                  {daysNumber} x {option.basePrice} zł ----{" "}
-                  {daysNumber * option.basePrice} zł
+                  {numDays} x {option.basePrice} zł ----{" "}
+                  {numDays * option.basePrice} zł
                 </div>
               </div>
             </li>
@@ -61,16 +60,16 @@ const ReservatorSummary = ({
         </li> */}
       </ul>
       <div>
-        Łączna kwota:{" "}
-        {pegBasePrice * userNumber * daysNumber + getTotalOfextras()}
+        Łączna kwota: {pegBasePrice * numGuests * numDays + getTotalOfextras()}
       </div>
     </div>
   );
 };
 
-const ReservationForm = () => {
+const ReservationForm = (props) => {
   const onFinish = (values) => {
     console.log("Form values:", values);
+    console.log({ ...props });
   };
 
   return (
@@ -119,17 +118,19 @@ const ReservationForm = () => {
 
 //entire page
 const ReservationDetails = (props) => {
-  const [sD, eD] = props.location.state?.newReservationData?.daty || [];
+  const [sD, eD] = props.location.state?.newReservationData?.dates || [];
   const {
-    daysNumber,
+    pegId,
+    numDays,
     pegBasePrice,
-    osoby,
+    numGuests,
     lakeName,
     options = [],
+    totalPrice,
   } = props.location.state?.newReservationData || {};
-  const startDate = moment(sD?.$d).locale("pl").format("DD MMMM YYYY");
-  const endDate = moment(eD?.$d).locale("pl").format("DD MMMM YYYY");
-  console.log(props);
+  const startDateUI = dayjs(sD.$d).locale("pl").format("DD MMMM YYYY");
+  const endDateUI = dayjs(eD.$d).locale("pl").format("DD MMMM YYYY");
+  //console.log(props);
 
   return (
     <ConfigProvider
@@ -141,15 +142,23 @@ const ReservationDetails = (props) => {
     >
       <WrapperWithGrid>
         <ReservatorSummary
-          startDatePL={startDate}
-          endDatePL={endDate}
-          daysNumber={daysNumber}
+          startDateUI={startDateUI}
+          endDateUI={endDateUI}
+          numDays={numDays}
           pegBasePrice={pegBasePrice}
-          userNumber={osoby}
+          numGuests={numGuests}
           options={options}
           lakeName={lakeName}
         />
-        <ReservationForm />
+        <ReservationForm
+          pegId={pegId}
+          options={options}
+          numGuests={numGuests}
+          startDate={dayjs(sD).format("YYYY-MM-DD")}
+          endDate={dayjs(eD).format("YYYY-MM-DD")}
+          numDays={numDays}
+          totalPrice={totalPrice}
+        />
         <Space className="site-button-ghost-wrapper" wrap>
           <Button type="primary" ghost onClick={() => window.history.back()}>
             powrot do rezerwacji
@@ -165,20 +174,20 @@ const WrapperWithGrid = styled.div`
   gap: 3em;
   width: 90%;
   max-width: 1000px;
-  margin: 5em auto;
+  margin: 6em auto 8em;
   @media (min-width: 890px) {
-    grid-template-columns: 1fr 1fr
+    grid-template-columns: 1fr 1fr;
   }
 
   .reservation-summary-card {
     border-radius: 5px;
     padding: 2em;
-    background: #C4C4C440;
+    background: #c4c4c440;
     max-width: 476px;
     & > div {
-      background: #6750A40D;
-        // opacity: 0.05;
-      margin 1em 0;
+      background: #6750a40d;
+      // opacity: 0.05;
+      margin: 1em 0;
       padding: 1em 0.5em;
       border-radius: 5px;
     }

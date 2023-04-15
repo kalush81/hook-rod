@@ -1,118 +1,227 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { navigate } from "gatsby";
 import styled from "styled-components";
 import { Form, Select, DatePicker, Checkbox, Button } from "antd";
-import moment from "moment";
+
 import dayjs from "dayjs";
+import "dayjs/locale/pl";
+import isBetween from "dayjs/plugin/isBetween";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+import objectSupport from "dayjs/plugin/objectSupport";
+
 const { RangePicker } = DatePicker;
 const { Option } = Select;
 
+dayjs.extend(objectSupport);
+dayjs.extend(isBetween);
+dayjs.extend(customParseFormat);
+
+dayjs().format("YYYY-MM-DDTHH-mm-ss");
+const noon = {
+  hour: 12,
+  minute: 0,
+  second: 0,
+};
+
+const getTotalOfextras = (extraOptions, numDays) => {
+  return (
+    extraOptions.reduce((acc, curr) => {
+      return acc + curr.basePrice;
+    }, 0) * numDays
+  );
+};
+
 const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
+  const startDateInputRef = useRef(null);
+  const agreementRef = useRef(null);
+
   const [form] = Form.useForm();
   const [reservations, setReservations] = useState([]);
-  const [selectedPegId, setSelectedPegId] = useState(null);
-  const [datesToBeDisabled, setDatesToBeDisabled] = useState([]);
-  const [selectedRange, setSelectedRange] = useState([]);
-  const [usersQuantity, setUsersQuantity] = useState(null);
+  const [pegId, setPegId] = useState(null);
+  const [range, setRange] = useState([]);
+  const [numGuests, setNumGuests] = useState(0);
   const [extraOptions, setExtraOptions] = useState([]);
   const [numDays, setNumDays] = useState(0);
-  const [agreement, setAgreement] = useState(false);
 
   const calculateDays = (p1, p2) => {
-    setNumDays(moment.duration(p2.diff(p1)).asDays());
+    const start = dayjs(p1);
+    const end = dayjs(p2);
+    const numDays = end.diff(start, "day");
+    setNumDays(numDays);
   };
 
   useEffect(() => {
-    // console.log("selectedRange changed", selectedRange);
-    // if (selectedRange[0] && selectedRange[1]) {
-    //   calculateDays(selectedRange[0], selectedRange[1]);
-    // }
-  }, [form, selectedRange]);
-
-  const dateRangesToBeDisabled = reservations.map((res) => {
-    return {
-      startDate: new Date(res.startDate),
-      endDate: new Date(res.endDate),
-    };
-  });
-
-  useEffect(() => {
-    if (reservations.length) {
-      setDatesToBeDisabled(dateRangesToBeDisabled);
+    console.log("selectedRange changed", range);
+    if (range[0] && range[1]) {
+      calculateDays(range[0], range[1]);
     }
-  }, [form, datesToBeDisabled, reservations.length, dateRangesToBeDisabled]);
-
-  const handleSelectPegChange = (pegId) => {
-    if (pegId) {
-      setReservations(() => {
-        return pegs.find((peg) => peg.pegId === pegId).reservations;
-      });
-      setSelectedPegId(pegId);
-    } else {
-      setSelectedPegId(null);
-      setReservations([]);
-    }
-  };
-  const handleSelectUserQuantity = (param) => {
-    setUsersQuantity(param);
-  };
-
-  function disableDate(current) {
-    if (current < dayjs()) {
-      return true;
-    }
-    for (const { startDate, endDate } of dateRanges) {
-      if (current > startDate && current < endDate) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  // const rangePickerOnChange = (moments, formatString, info) => {
-  //   if (info.range === "start") {
-  //     for (const { startDate, endDate } of dateRanges) {
-  //       if (
-  //         dayjs(startDate).format("YYYY-MM-DD") ===
-  //         dayjs(formatString[0]).add(1, "day").format("YYYY-MM-DD")
-  //       ) {
-  //         console.log("you should allow user to select next date");
-  //         return setSelectedRange([
-  //           dayjs(formatString[0]),
-  //           dayjs(formatString[0]).add(1, "day"),
-  //         ]);
-  //       }
-  //     }
-  //   }
-  //   setSelectedRange(moments || []);
-  // };
-
-  // const onOpenChange = (open) => {
-  //   if ((open && selectedRange[1]) || (open && selectedRange[0])) {
-  //     setSelectedRange([]);
-  //     setNumDays(0);
-  //     const nameList = form.getFieldsValue();
-  //     if (nameList.daty) {
-  //       setNumDays(0);
-  //       form.resetFields(["daty"]);
-  //     }
-  //   }
-  // };
-
-  const onChangeCheckBoxes = (checkedValues) => {
-    setExtraOptions(checkedValues);
-  };
+  }, [form, range]);
 
   const onFinish = (formValues) => {
-    console.log("values", formValues);
+    //console.log("formValues", formValues);
     let newReservationData = {
       ...formValues,
       lakeName,
       numDays,
       pegBasePrice,
+      totalPrice:
+        pegBasePrice * numGuests * numDays +
+        getTotalOfextras(extraOptions, numDays),
     };
     console.log("newReservationData", newReservationData);
     navigate("/reservation-details", { state: { newReservationData } });
+  };
+
+  const handleSetNumGuests = (num) => {
+    setNumGuests(parseInt(num));
+  };
+
+  const handleSelectPeg = (pegId) => {
+    if (pegId) {
+      setReservations(() => {
+        return pegs.find((peg) => peg.pegId === pegId).reservations;
+      });
+      setPegId(pegId);
+    } else {
+      setPegId(null);
+      setReservations([]);
+    }
+  };
+
+  const handleRangeChange = (_, stringDates) => {
+    setRange(stringDates || []);
+    if (stringDates[0] && !stringDates[1]) {
+      let closestReservation = reservations.find(
+        (reservation) => reservation.startDate > stringDates[0]
+      );
+      if (closestReservation) {
+        setReservations([closestReservation]);
+      }
+    }
+  };
+
+  function disableDate(current) {
+    const now = dayjs();
+
+    if (range[0] && !range[1] && reservations.length === 1) {
+      const reservedEnd = dayjs(reservations[0].startDate).add(1, "day");
+      return current.set(noon) > reservedEnd || current < dayjs(range[0]);
+    } else {
+      for (const { startDate, endDate } of reservations) {
+        const reservedStart = dayjs(startDate);
+        const reservedEnd = dayjs(endDate);
+
+        if (
+          current.set(noon).isBetween(reservedStart, reservedEnd, null, "[]")
+        ) {
+          return true;
+        }
+      }
+      return current.set(noon).diff(now) < 0;
+    }
+  }
+
+  //   function disableDate(current) {
+  //     if (reservations.length === 1) {
+  //       if (
+  //         current.set("hour", 12).set("minute", 0).set("second", 0) >
+  //           dayjs(reservations[0].startDate).add(1, "day") ||
+  //         current < dayjs(range[0])
+  //       ) {
+  //         return true;
+  //       }
+  //       return false;
+  //     } else {
+  //       for (const { startDate, endDate } of reservations) {
+  //         const reservedStart = dayjs(startDate);
+  //         const reservedEnd = dayjs(endDate);
+  //         if (
+  //           current
+  //             .set("hour", 12)
+  //             .set("minute", 0)
+  //             .set("second", 0)
+  //             .diff(reservedStart) > 0 &&
+  //           current
+  //             .set("hour", 11)
+  //             .set("minute", 59)
+  //             .set("second", 0)
+  //             .diff(reservedEnd) < 0
+  //         ) {
+  //           return true;
+  //         }
+  //       }
+  //       if (
+  //         current
+  //           .set("hour", 12)
+  //           .set("minute", 0)
+  //           .set("second", 0)
+  //           .diff(dayjs()) < 0
+  //       ) {
+  //         return true;
+  //       } else {
+  //         return false;
+  //       }
+  //     }
+  //   }
+
+  const onOpenChange = (open) => {
+    console.log("onopenchage worked");
+    if (open && range[0] && open && range[1]) {
+      setReservations(() => {
+        return pegs.find((peg) => peg.pegId === pegId).reservations;
+      });
+      form.resetFields(["dates"]);
+      setRange([]);
+      setNumDays(0);
+      // if (open && !range[0] && open && range[1]) {
+      //   form.resetFields(["daty"]);
+      //   setRange([]);
+      // }
+      //
+    }
+    // if ((open && range[0]) || (open && range[1])) {
+    //   console.log("serRange([]) worked");
+    //   console.log("serReservations(allReservations) worked");
+    //   setRange([]);
+    //   form.resetFields(["daty"]);
+    //   // setReservations(() => {
+    //   //   return pegs.find((peg) => peg.pegId === pegId).reservations;
+    //   // });
+    //   //setNumDays(0);
+    //   const nameList = form.getFieldsValue();
+    //   if (nameList.daty) {
+    //     console.log("resetfileds(daty) worked");
+    //     setRange([]);
+    //     //setNumDays(0);
+    //     form.resetFields(["daty"]);
+    //   }
+    // }
+  };
+
+  const handleRangePickerFocus = (e) => {
+    if (e.target.placeholder === "Data końcowa") {
+      if (!range[0]) {
+        // setReservations(() => {
+        //   return pegs.find((peg) => peg.pegId === pegId).reservations;
+        // });
+        startDateInputRef.current.focus();
+      }
+    }
+  };
+
+  const onChangeCheckBoxes = (checkedValues) => {
+    setExtraOptions(checkedValues);
+  };
+
+  const handleOnBlur = () => {
+    // if (range[0] && range[1]) {
+    //   setReservations(() => {
+    //     return pegs.find((peg) => peg.pegId === pegId).reservations;
+    //   });
+    //   //form.resetFields(["daty"]);
+    //   //setRange([]);
+    //   agreementRef.current.focus();
+    // }
   };
 
   const getPegNumber = (pegId) => {
@@ -122,30 +231,6 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
     }
     return null;
   };
-
-  const getTotalOfextras = () => {
-    return (
-      extraOptions.reduce((acc, curr) => {
-        return acc + curr.basePrice;
-      }, 0) * numDays
-    );
-  };
-
-  const handleCheckboxChange = (e) => {
-    setAgreement(e.target.checked);
-  };
-
-  // const handleCalendarChange = (dates, dateString) => {
-  //   if (dates && dates.length === 1) {
-  //     // User has selected the start date
-  //     setStartDate(dates[0]);
-  //     setEndDate(dayjs(dates[0]).add(1, "day")); // Set end date to be 1 day after start date
-  //   } else if (dates && dates.length === 2) {
-  //     // User has selected both start and end dates
-  //     setStartDate(dates[0]);
-  //     setEndDate(dates[1]);
-  //   }
-  // };
 
   return (
     <Form form={form} name="register" onFinish={onFinish} scrollToFirstError>
@@ -170,7 +255,7 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
                 size="medium"
                 placeholder="wybierz stanowisko"
                 showAction="focus"
-                onChange={handleSelectPegChange}
+                onChange={handleSelectPeg}
               >
                 {pegs.map((peg) => {
                   return (
@@ -182,7 +267,7 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
               </Select>
             </Form.Item>
             <Form.Item
-              name="osoby"
+              name="numGuests"
               rules={[
                 {
                   required: true,
@@ -197,35 +282,33 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
                 size="medium"
                 placeholder="Osoby"
                 showAction="focus"
-                onChange={handleSelectUserQuantity}
+                onChange={handleSetNumGuests}
               >
-                <Option value="1">1 osoba</Option>
-                <Option value="2">2 osoby</Option>
-                <Option value="3">3 osoby</Option>
-                <Option value="4">4 osoby</Option>
+                <Option value={1}>1 osoba</Option>
+                <Option value={2}>2 osoby</Option>
+                <Option value={3}>3 osoby</Option>
+                <Option value={4}>4 osoby</Option>
               </Select>
             </Form.Item>
           </div>
           <div className="row row2">
             <Form.Item
-              name="daty"
+              name="dates"
               rules={[
                 {
-                  required: false,
+                  required: true,
                   message: "Prosze podaj daty!",
                 },
               ]}
             >
               <RangePicker
-                format="YYYY-MM-DD"
-                defaultValues={[startDate, endDate]}
-                onChange={handleCalendarChange}
-                popupClassName="popupPicker"
-                disabled={!selectedPegId}
+                ref={startDateInputRef}
                 disabledDate={disableDate}
-                onCalendarChange={rangePickerOnChange}
+                onCalendarChange={handleRangeChange}
+                onBlur={handleOnBlur}
                 onOpenChange={onOpenChange}
-                allowClear={true}
+                onFocus={handleRangePickerFocus}
+                allowClear={false}
               />
             </Form.Item>
           </div>
@@ -256,12 +339,8 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
 
           <h2>Podsumowanie</h2>
           <div className="podsumowanie">
-            <h3>
-              stanowisko nr {selectedPegId && getPegNumber(selectedPegId)}
-            </h3>
-            <h3>
-              {usersQuantity && pegBasePrice * usersQuantity * numDays} zł
-            </h3>
+            <h3>stanowisko nr {pegId && getPegNumber(pegId)}</h3>
+            <h3>{numGuests && pegBasePrice * numGuests * numDays} zł</h3>
             {extraOptions.map((extra) => {
               return (
                 <>
@@ -276,7 +355,8 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
             <h2>Łącznie</h2>
             <h2>
               łączna suma:{" "}
-              {pegBasePrice * usersQuantity * numDays + getTotalOfextras()}
+              {pegBasePrice * numGuests * numDays +
+                getTotalOfextras(extraOptions, numDays)}
             </h2>
           </div>
           <div className="checkbox checkbox_regulamin">
@@ -287,8 +367,9 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
               rules={[{ required: true, message: "Please agree to the terms" }]}
             >
               <Checkbox
-                checked={agreement}
-                onChange={handleCheckboxChange}
+                ref={agreementRef}
+                // checked={agreement}
+                // onChange={handleCheckboxChange}
               ></Checkbox>
             </Form.Item>
             <p>
@@ -303,10 +384,10 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
                 size="large"
                 type="primary"
                 htmlType="submit"
-                disabled={!agreement}
+                // disabled={!agreement}
                 onClick={() => {
-                  console.log("form", form.getFieldsError());
-                  console.log(form.getFieldsValue("agreement").agreement);
+                  //console.log("form", form.getFieldsError());
+                  //console.log(form.getFieldsValue("agreement").agreement);
                 }}
               >
                 PRZEJDŹ DO PODSUMOWANIA

@@ -9,7 +9,7 @@ import {
   UserOutlined,
   VideoCameraOutlined,
 } from "@ant-design/icons";
-import "normalize.css";
+//import "normalize.css";
 import GlobalStyles from "../styles/GlobalStyles";
 
 const Layout = ({ children }) => {
@@ -18,21 +18,12 @@ const Layout = ({ children }) => {
   //   token: { colorBgContainer },
   // } = theme.useToken();
   return (
-    <div
-      style={
-        {
-          // border: "4px solid red",
-          // minWidth: "100vw",
-          // // boxSizing: "border-box",
-          // margin: 0,
-          // padding: 0,
-        }
-      }
-    >
+    <div>
       {/* <Sider trigger={null} collapsible collapsed={true} /> */}
       <GlobalStyles />
       <Nav />
-      {children}
+      <div>{children}</div>
+
       <Footer style={{ textAlign: "center" }}>
         Ant Design ©2023 Created by Ant UED
       </Footer>
@@ -100,5 +91,3 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
-
-export const GridDiv = styled.div``;
