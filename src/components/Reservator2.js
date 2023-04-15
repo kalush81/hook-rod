@@ -17,6 +17,7 @@ dayjs.extend(isBetween);
 dayjs.extend(customParseFormat);
 
 dayjs().format("YYYY-MM-DDTHH-mm-ss");
+
 const noon = {
   hour: 12,
   minute: 0,
@@ -34,8 +35,8 @@ const getTotalOfextras = (extraOptions, numDays) => {
 const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
   const startDateInputRef = useRef(null);
   const agreementRef = useRef(null);
-
   const [form] = Form.useForm();
+
   const [reservations, setReservations] = useState([]);
   const [pegId, setPegId] = useState(null);
   const [range, setRange] = useState([]);
@@ -51,14 +52,12 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
   };
 
   useEffect(() => {
-    console.log("selectedRange changed", range);
     if (range[0] && range[1]) {
       calculateDays(range[0], range[1]);
     }
   }, [form, range]);
 
   const onFinish = (formValues) => {
-    //console.log("formValues", formValues);
     let newReservationData = {
       ...formValues,
       lakeName,
@@ -102,7 +101,6 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
 
   function disableDate(current) {
     const now = dayjs();
-
     if (range[0] && !range[1] && reservations.length === 1) {
       const reservedEnd = dayjs(reservations[0].startDate).add(1, "day");
       return current.set(noon) > reservedEnd || current < dayjs(range[0]);
@@ -110,7 +108,6 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
       for (const { startDate, endDate } of reservations) {
         const reservedStart = dayjs(startDate);
         const reservedEnd = dayjs(endDate);
-
         if (
           current.set(noon).isBetween(reservedStart, reservedEnd, null, "[]")
         ) {
@@ -121,51 +118,7 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
     }
   }
 
-  //   function disableDate(current) {
-  //     if (reservations.length === 1) {
-  //       if (
-  //         current.set("hour", 12).set("minute", 0).set("second", 0) >
-  //           dayjs(reservations[0].startDate).add(1, "day") ||
-  //         current < dayjs(range[0])
-  //       ) {
-  //         return true;
-  //       }
-  //       return false;
-  //     } else {
-  //       for (const { startDate, endDate } of reservations) {
-  //         const reservedStart = dayjs(startDate);
-  //         const reservedEnd = dayjs(endDate);
-  //         if (
-  //           current
-  //             .set("hour", 12)
-  //             .set("minute", 0)
-  //             .set("second", 0)
-  //             .diff(reservedStart) > 0 &&
-  //           current
-  //             .set("hour", 11)
-  //             .set("minute", 59)
-  //             .set("second", 0)
-  //             .diff(reservedEnd) < 0
-  //         ) {
-  //           return true;
-  //         }
-  //       }
-  //       if (
-  //         current
-  //           .set("hour", 12)
-  //           .set("minute", 0)
-  //           .set("second", 0)
-  //           .diff(dayjs()) < 0
-  //       ) {
-  //         return true;
-  //       } else {
-  //         return false;
-  //       }
-  //     }
-  //   }
-
   const onOpenChange = (open) => {
-    console.log("onopenchage worked");
     if (open && range[0] && open && range[1]) {
       setReservations(() => {
         return pegs.find((peg) => peg.pegId === pegId).reservations;
@@ -173,37 +126,12 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
       form.resetFields(["dates"]);
       setRange([]);
       setNumDays(0);
-      // if (open && !range[0] && open && range[1]) {
-      //   form.resetFields(["daty"]);
-      //   setRange([]);
-      // }
-      //
     }
-    // if ((open && range[0]) || (open && range[1])) {
-    //   console.log("serRange([]) worked");
-    //   console.log("serReservations(allReservations) worked");
-    //   setRange([]);
-    //   form.resetFields(["daty"]);
-    //   // setReservations(() => {
-    //   //   return pegs.find((peg) => peg.pegId === pegId).reservations;
-    //   // });
-    //   //setNumDays(0);
-    //   const nameList = form.getFieldsValue();
-    //   if (nameList.daty) {
-    //     console.log("resetfileds(daty) worked");
-    //     setRange([]);
-    //     //setNumDays(0);
-    //     form.resetFields(["daty"]);
-    //   }
-    // }
   };
 
   const handleRangePickerFocus = (e) => {
     if (e.target.placeholder === "Data końcowa") {
       if (!range[0]) {
-        // setReservations(() => {
-        //   return pegs.find((peg) => peg.pegId === pegId).reservations;
-        // });
         startDateInputRef.current.focus();
       }
     }
@@ -211,17 +139,6 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
 
   const onChangeCheckBoxes = (checkedValues) => {
     setExtraOptions(checkedValues);
-  };
-
-  const handleOnBlur = () => {
-    // if (range[0] && range[1]) {
-    //   setReservations(() => {
-    //     return pegs.find((peg) => peg.pegId === pegId).reservations;
-    //   });
-    //   //form.resetFields(["daty"]);
-    //   //setRange([]);
-    //   agreementRef.current.focus();
-    // }
   };
 
   const getPegNumber = (pegId) => {
@@ -305,7 +222,6 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
                 ref={startDateInputRef}
                 disabledDate={disableDate}
                 onCalendarChange={handleRangeChange}
-                onBlur={handleOnBlur}
                 onOpenChange={onOpenChange}
                 onFocus={handleRangePickerFocus}
                 allowClear={false}
@@ -366,11 +282,7 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
               valuePropName="checked"
               rules={[{ required: true, message: "Please agree to the terms" }]}
             >
-              <Checkbox
-                ref={agreementRef}
-                // checked={agreement}
-                // onChange={handleCheckboxChange}
-              ></Checkbox>
+              <Checkbox ref={agreementRef}></Checkbox>
             </Form.Item>
             <p>
               Oświadczam, że zapoznałem/am się z Regulaminem Łowiska i akceptuję

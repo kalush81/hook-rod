@@ -14,13 +14,6 @@ const ReservatorSummary = ({
   options,
   totalPrice,
 }) => {
-  const getTotalOfextras = () => {
-    return (
-      options.reduce((acc, curr) => {
-        return acc + curr.basePrice;
-      }, 0) * numDays
-    );
-  };
   return (
     <div className="reservation-summary-card">
       <h2>Podsumowanie Rezerwacji</h2>
@@ -52,16 +45,8 @@ const ReservatorSummary = ({
             </li>
           );
         })}
-        {/* <li>
-          <div>
-            <p>Ponton</p>
-            <div>10 x 50,00 zł ------- 500 zł</div>
-          </div>
-        </li> */}
       </ul>
-      <div>
-        Łączna kwota: {pegBasePrice * numGuests * numDays + getTotalOfextras()}
-      </div>
+      <div>Łączna kwota: {totalPrice}</div>
     </div>
   );
 };
@@ -130,7 +115,6 @@ const ReservationDetails = (props) => {
   } = props.location.state?.newReservationData || {};
   const startDateUI = dayjs(sD?.$d).locale("pl").format("DD MMMM YYYY");
   const endDateUI = dayjs(eD?.$d).locale("pl").format("DD MMMM YYYY");
-  //console.log(props);
 
   return (
     <ConfigProvider
@@ -149,6 +133,7 @@ const ReservationDetails = (props) => {
           numGuests={numGuests}
           options={options}
           lakeName={lakeName}
+          totalPrice={totalPrice}
         />
         <ReservationForm
           pegId={pegId}
