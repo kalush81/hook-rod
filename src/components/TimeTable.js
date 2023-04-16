@@ -4,6 +4,7 @@ import PegDatesRow from "./PegDatesRow";
 import moment from "moment";
 import { getCallendarString } from "../utils/get-date-string";
 import { Left, Right, Up, Down } from "../assets/icons";
+import { Skeleton, Spin } from "antd";
 //import { ReactComponent as Left } from "../assets/images/left.svg";
 
 const TimeTable = function ({ maxPegs, maxDays, pegs }) {
@@ -81,8 +82,7 @@ const TimeTable = function ({ maxPegs, maxDays, pegs }) {
       </div>
 
       <div className="calendar_lowiska_list border">
-        {pegs &&
-          pegs.length &&
+        {pegs && pegs.length ? (
           pegs.map((peg, i) => {
             if (i >= firstIdx && i < lastIdx) {
               return (
@@ -95,7 +95,10 @@ const TimeTable = function ({ maxPegs, maxDays, pegs }) {
               );
             }
             return null;
-          })}
+          })
+        ) : (
+          <Skeleton active />
+        )}
 
         <button
           className="calendar_lowisko_day_box block noStyle"

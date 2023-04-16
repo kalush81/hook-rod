@@ -1,7 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import { navigate } from "gatsby";
 import styled from "styled-components";
-import { Form, Select, DatePicker, Checkbox, Button } from "antd";
+import {
+  Form,
+  Select,
+  DatePicker,
+  Checkbox,
+  Button,
+  Spin,
+  Skeleton,
+} from "antd";
+import { calculateDays } from "../utils/calculate-days";
+import { getTotalOfextras } from "../utils/get-total-of-extras";
 
 import dayjs from "dayjs";
 import "dayjs/locale/pl";
@@ -24,14 +34,6 @@ const noon = {
   second: 0,
 };
 
-const getTotalOfextras = (extraOptions, numDays) => {
-  return (
-    extraOptions.reduce((acc, curr) => {
-      return acc + curr.basePrice;
-    }, 0) * numDays
-  );
-};
-
 const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
   const startDateInputRef = useRef(null);
   const agreementRef = useRef(null);
@@ -43,13 +45,6 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
   const [numGuests, setNumGuests] = useState(0);
   const [extraOptions, setExtraOptions] = useState([]);
   const [numDays, setNumDays] = useState(0);
-
-  const calculateDays = (p1, p2) => {
-    const start = dayjs(p1);
-    const end = dayjs(p2);
-    const numDays = end.diff(start, "day");
-    setNumDays(numDays);
-  };
 
   useEffect(() => {
     if (range[0] && range[1]) {
@@ -167,6 +162,7 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
               ]}
             >
               <Select
+                loading={!pegs.length}
                 allowClear
                 showArrow="true"
                 className="select_row1"
@@ -175,13 +171,14 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
                 showAction="focus"
                 onChange={handleSelectPeg}
               >
-                {pegs.map((peg) => {
-                  return (
-                    <Option key={peg.pegId} value={peg.pegId}>
-                      {peg.pegName}
-                    </Option>
-                  );
-                })}
+                {pegs.length &&
+                  pegs.map((peg) => {
+                    return (
+                      <Option key={peg.pegId} value={peg.pegId}>
+                        {peg.pegName}
+                      </Option>
+                    );
+                  })}
               </Select>
             </Form.Item>
             <Form.Item

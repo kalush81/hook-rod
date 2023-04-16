@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { graphql } from "gatsby";
 import FisheryCard from "../components/FisheryCard";
 import Map from "../components/Map";
-import { Div } from "../pages/wybierz-województwo";
+import { Div } from "../components/cssComponents";
 
 function Voivodeship(props) {
   return (

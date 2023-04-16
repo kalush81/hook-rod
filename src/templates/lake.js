@@ -10,7 +10,7 @@ import { Collapse } from "react-collapse";
 import Reservator2 from "../components/Reservator2.js";
 import TimeTable from "../components/TimeTable";
 import axios from "axios";
-import { Div } from "../pages/wybierz-województwo";
+import { Div } from "../components/cssComponents";
 
 function Lake(props) {
   const {
