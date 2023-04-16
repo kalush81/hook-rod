@@ -65,47 +65,53 @@ const TimeTable = function ({ maxPegs, maxDays, pegs }) {
           <Right />
         </button>
       </div>
+
       <div className="wrapper">
-        <button
-          className="calendar_lowisko_day_box block noStyle"
-          onClick={() => handlePrev(firstIdx, lastIdx)}
-        >
-          <Up />
-        </button>
-        {daysArr.map((day) => {
-          return (
-            <span key={day} className="calendar_lowisko_day_box small noStyle">
-              {day.substring(0, 5)}
-            </span>
-          );
-        })}
-      </div>
+        <div className="grid">
+          <button
+            // className="calendar_lowisko_day_box block noStyle"
+            onClick={() => handlePrev(firstIdx, lastIdx)}
+          >
+            <Up />
+          </button>
 
-      <div className="calendar_lowiska_list border">
-        {pegs && pegs.length ? (
-          pegs.map((peg, i) => {
-            if (i >= firstIdx && i < lastIdx) {
-              return (
-                <PegDatesRow
-                  key={peg.pegNumber}
-                  peg={peg}
-                  maxDays={maxDays}
-                  daysArr={daysArr}
-                />
-              );
-            }
-            return null;
-          })
-        ) : (
-          <Skeleton active />
-        )}
+          {daysArr.map((day) => {
+            return (
+              <span
+                key={
+                  day
+                } /*className="calendar_lowisko_day_box small noStyle" */
+              >
+                {day.substring(0, 5)}
+              </span>
+            );
+          })}
 
-        <button
-          className="calendar_lowisko_day_box block noStyle"
-          onClick={() => handleNext(firstIdx, lastIdx)}
-        >
-          <Down />
-        </button>
+          {pegs && pegs.length ? (
+            pegs.map((peg, i) => {
+              if (i >= firstIdx && i < lastIdx) {
+                return (
+                  <PegDatesRow
+                    key={peg.pegNumber}
+                    peg={peg}
+                    maxDays={maxDays}
+                    daysArr={daysArr}
+                  />
+                );
+              }
+              return null;
+            })
+          ) : (
+            <Skeleton active />
+          )}
+
+          <button
+            // className="calendar_lowisko_day_box block noStyle"
+            onClick={() => handleNext(firstIdx, lastIdx)}
+          >
+            <Down />
+          </button>
+        </div>
       </div>
     </CalendarCss>
   );
@@ -113,10 +119,10 @@ const TimeTable = function ({ maxPegs, maxDays, pegs }) {
 
 export const CalendarCss = styled.div`
   scroll-behavior: smooth;
-  padding: 19px 21px;
-  background: #e4f4ca;
+  padding: 13px 13px;
+  //background: #64b5f6;
   border-radius: 9px;
-  max-width: 400px;
+  margin-bottom: 100px;
 
   .calendar_header {
     display: flex;
@@ -181,12 +187,39 @@ export const CalendarCss = styled.div`
   }
 
   .wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    padding-bottom: 8px;
-    span {
-      aspect-ratio: 1/1;
+    max-width: 900px;
+    min-width: 200px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 2em;
+    //padding-bottom: 100%; /* Create a square element */
+    //position: relative;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-auto-rows: 1fr; /* Allow the rows to resize dynamically */
+      //position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      gap: 0.4em;
+      //aspect-ratio: 1/1;
+      span,
+      button {
+        background-color: #ccc; /* Set the background color of each cell */
+        padding: 0;
+        //padding-bottom: 100%; /* Create a perfect square */
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 7px;
+        aspect-ratio: 1/1;
+        /* img {
+          width: 20px;
+          height: 20px;
+        } */
+      }
     }
   }
 

@@ -1,5 +1,5 @@
-import React from "react";
-import { Form, Input, Button, Space, ConfigProvider } from "antd";
+import React, { useState } from "react";
+import { Form, Input, Button, Space, ConfigProvider, Checkbox } from "antd";
 import styled from "styled-components";
 import dayjs from "dayjs";
 import "dayjs/locale/pl";
@@ -51,13 +51,15 @@ const ReservatorSummary = ({
   );
 };
 
-const ReservationForm = (props) => {
-  const onFinish = async (values) => {
-    console.log("Form values to be sent to api:", values);
-    console.log("props to be added to form to send", { ...props });
+const ReservationForm = (reservationDetails) => {
+  const [agreement, setAgreement] = useState(false);
+  const onFinish = async (personalData) => {
+    // console.log("Form values to be sent to api:", personalData);
+    // console.log("props to be added to form to send", { ...reservationDetails });
     const reservationData = {
-      ...values,
-      ...props,
+      ...personalData,
+      ...reservationDetails,
+      agreement,
     };
     console.log("reservationData", reservationData);
     const sendForm = async () => {
@@ -86,6 +88,10 @@ const ReservationForm = (props) => {
 
     const res = await sendForm();
     console.log("res after sent body", res);
+  };
+
+  const handleCheckboxChange = (e) => {
+    setAgreement(e.target.checked);
   };
 
   return (
@@ -122,8 +128,28 @@ const ReservationForm = (props) => {
           <Input placeholder="000-000-000" />
         </Form.Item>
 
+        <div className="checkbox checkbox_regulamin">
+          <Form.Item
+            label="Oświadczam, że zapoznałem/am się z Regulaminem Łowiska i akceptuję
+            wszystkie zawarte w nim warunki.*"
+            name="agreement"
+            valuePropName="checked"
+            rules={[
+              {
+                required: true,
+                message: "Potwierdz ze zapoznales sie z regulaminem",
+              },
+            ]}
+          >
+            <Checkbox
+              checked={agreement}
+              onChange={handleCheckboxChange}
+            ></Checkbox>
+          </Form.Item>
+        </div>
+
         <Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" disabled={!agreement}>
             rezerwuję i płacę
           </Button>
         </Form.Item>

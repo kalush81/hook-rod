@@ -36,7 +36,7 @@ const noon = {
 
 const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
   const startDateInputRef = useRef(null);
-  const agreementRef = useRef(null);
+  //const agreementRef = useRef(null);
   const [form] = Form.useForm();
 
   const [reservations, setReservations] = useState([]);
@@ -48,12 +48,12 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
 
   useEffect(() => {
     if (range[0] && range[1]) {
-      calculateDays(range[0], range[1]);
+      calculateDays(setNumDays, range[0], range[1]);
     }
   }, [form, range]);
 
   const onFinish = (formValues) => {
-    console.log("form reservation values", formValues);
+    //console.log("form reservation values", formValues);
     let newReservationData = {
       ...formValues,
       lakeName,
@@ -63,7 +63,7 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
         pegBasePrice * numGuests * numDays +
         getTotalOfextras(extraOptions, numDays),
     };
-    console.log("newReservationData", newReservationData);
+    //console.log("newReservationData", newReservationData);
     navigate("/reservation-details", { state: { newReservationData } });
   };
 
@@ -273,20 +273,7 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
                 getTotalOfextras(extraOptions, numDays)}
             </h2>
           </div>
-          <div className="checkbox checkbox_regulamin">
-            <Form.Item
-              label=""
-              name="agreement"
-              valuePropName="checked"
-              rules={[{ required: true, message: "Please agree to the terms" }]}
-            >
-              <Checkbox ref={agreementRef}></Checkbox>
-            </Form.Item>
-            <p>
-              Oświadczam, że zapoznałem/am się z Regulaminem Łowiska i akceptuję
-              wszystkie zawarte w nim warunki.*
-            </p>
-          </div>
+
           <div className="button_container">
             <Form.Item>
               <Button

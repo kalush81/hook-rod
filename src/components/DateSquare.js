@@ -1,24 +1,26 @@
 import React from "react";
+import { V, X } from "../assets/icons";
 
 function DateSquare({ day, bookingData }) {
   if (bookingData.isBooked) {
     return (
       <span
-        className={`calendar_lowisko_day_box small ${
+        className={` ${
           bookingData.status === "PENDING" ? "pending" : "reserved"
         }`}
       >
-        {bookingData.status === "PAID" && <img src="../../X.svg" alt="" />}
+        {bookingData.status === "PAID" && <X />}
       </span>
     );
   }
   return (
     <span
-      className="calendar_lowisko_day_box small free"
-      //onClick={(e) => handleClick(day)}
+      className="free"
+      style={{ background: "#4DB6AC" }} /*onClick={(e) => handleClick(day)}*/
     >
       {/* {day} */}
-      <img src="../../V.svg" alt="" />
+      {/* <img src="../../V.svg" alt="" /> */}
+      <V />
     </span>
   );
 }

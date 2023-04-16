@@ -12,8 +12,8 @@ function PegDatesRow({ peg, daysArr }) {
   });
   //console.log("bookings in PegDatesRow", bookings);
   return (
-    <div className="/*calendar_lowisko_num*/ wrapper">
-      <span key={peg.id} className="calendar_lowisko_day_box_num">
+    <>
+      <span key={peg.id} /*className="calendar_lowisko_day_box_num" */>
         {peg.pegNumber}
       </span>
 
@@ -21,7 +21,7 @@ function PegDatesRow({ peg, daysArr }) {
         let bookingData = getBookingDataOnDate(date, bookings); //returns { isBooked: true, status: "PENDING" | "PAID" }
         return <DateSquare key={date} day={date} bookingData={bookingData} />;
       })}
-    </div>
+    </>
   );
 }
 
