@@ -111,7 +111,7 @@ function Lake(props) {
             </div>
 
             {pegsWithReservationsMap && (
-              <div>
+              <div style={{ marginTop: "2em" }}>
                 <Reservator2
                   lakeName={lakeName}
                   pegs={pegsWithReservationsMap}

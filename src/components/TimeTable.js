@@ -69,6 +69,7 @@ const TimeTable = function ({ maxPegs, maxDays, pegs }) {
       <div className="wrapper">
         <div className="grid">
           <button
+            className="up"
             // className="calendar_lowisko_day_box block noStyle"
             onClick={() => handlePrev(firstIdx, lastIdx)}
           >
@@ -106,6 +107,7 @@ const TimeTable = function ({ maxPegs, maxDays, pegs }) {
           )}
 
           <button
+            className="down"
             // className="calendar_lowisko_day_box block noStyle"
             onClick={() => handleNext(firstIdx, lastIdx)}
           >
@@ -220,6 +222,17 @@ export const CalendarCss = styled.div`
           height: 20px;
         } */
       }
+      button.up,
+      button.down {
+        background: none;
+        border: none;
+      }
+      span.reserved {
+        background-color: #ff5722;
+      }
+      span.pending {
+        background-color: #757575;
+      }
     }
   }
 
@@ -235,7 +248,7 @@ export const CalendarCss = styled.div`
   }
 
   .reserved {
-    background-color: #e70000;
+    background-color: #ff5722;
     cursor: not-allowed;
   }
 
