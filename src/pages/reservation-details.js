@@ -3,6 +3,8 @@ import { Form, Input, Button, Space, ConfigProvider, Checkbox } from "antd";
 import styled from "styled-components";
 import dayjs from "dayjs";
 import "dayjs/locale/pl";
+import { navigate } from "gatsby";
+//dayjs().set("hour", 12).set("minutes", 0).format("YYYY-MM-DD HH:MM");
 
 const ReservatorSummary = ({
   startDateUI,
@@ -59,7 +61,7 @@ const ReservationForm = (reservationDetails) => {
     const reservationData = {
       ...personalData,
       ...reservationDetails,
-      agreement,
+      agreement: Boolean(agreement).toString(),
     };
     console.log("reservationData", reservationData);
     const sendForm = async () => {
@@ -68,10 +70,10 @@ const ReservationForm = (reservationDetails) => {
           `https://hookandrod.herokuapp.com/api/reservation`,
           {
             method: "POST",
-            mode: "no-cors",
+            mode: "cors",
             headers: {
               "Access-Control-Allow-Origin": "*",
-              Accept: "application/json",
+              Accept: "*/*",
               "Content-Type": "application/json",
             },
             withCredentials: false,
@@ -80,14 +82,14 @@ const ReservationForm = (reservationDetails) => {
             body: JSON.stringify(reservationData),
           }
         );
-        return await result.json();
+        return await result.text();
       } catch (error) {
         console.error("error while fetching from API", error);
       }
     };
 
     const res = await sendForm();
-    console.log("res after sent body", res);
+    navigate(res);
   };
 
   const handleCheckboxChange = (e) => {
@@ -195,12 +197,18 @@ const ReservationDetails = (props) => {
         />
         <ReservationForm
           pegId={pegId}
-          options={options}
-          numGuests={numGuests}
-          startDate={dayjs(sD?.$d).format("YYYY-MM-DD")}
-          endDate={dayjs(eD?.$d).format("YYYY-MM-DD")}
-          numDays={numDays}
-          totalPrice={totalPrice}
+          // options={options}
+          // numGuests={numGuests}
+          startDate={dayjs(sD?.$d)
+            .set("hour", 12)
+            .set("minute", 0)
+            .format("YYYY-MM-DD hh:mm")}
+          endDate={dayjs(eD?.$d)
+            .set("hour", 12)
+            .set("minute", 0)
+            .format("YYYY-MM-DD hh:mm")}
+          // numDays={numDays}
+          cost={parseFloat(Number(totalPrice).toFixed(2)).toString()}
         />
         <Space className="site-button-ghost-wrapper" wrap>
           <Button type="primary" ghost onClick={() => window.history.back()}>

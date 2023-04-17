@@ -1,15 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { navigate } from "gatsby";
 import styled from "styled-components";
-import {
-  Form,
-  Select,
-  DatePicker,
-  Checkbox,
-  Button,
-  Spin,
-  Skeleton,
-} from "antd";
+import { Form, Select, DatePicker, Checkbox, Button } from "antd";
 import { calculateDays } from "../utils/calculate-days";
 import { getTotalOfextras } from "../utils/get-total-of-extras";
 
@@ -74,7 +66,10 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
   const handleSelectPeg = (pegId) => {
     if (pegId) {
       setReservations(() => {
-        return pegs.find((peg) => peg.pegId === pegId).reservations;
+        let foundPeg = pegs.find((peg) => peg.pegId === pegId);
+        return foundPeg.reservations.sort(
+          (a, b) => new Date(a.startDate) - new Date(b.startDate)
+        );
       });
       setPegId(pegId);
     } else {

@@ -10,15 +10,15 @@ function PegDatesRow({ peg, daysArr }) {
       status,
     };
   });
-  //console.log("bookings in PegDatesRow", bookings);
+  //console.log("peg id in pegDatesRow", peg.pegId);
   return (
     <>
-      <span key={peg.id} /*className="calendar_lowisko_day_box_num" */>
+      <span key={peg.pegId} /*className="calendar_lowisko_day_box_num" */>
         {peg.pegNumber}
       </span>
 
       {daysArr.map((date) => {
-        let bookingData = getBookingDataOnDate(date, bookings); //returns { isBooked: true, status: "PENDING" | "PAID" }
+        let bookingData = getBookingDataOnDate(date, bookings, peg.pegId); //returns { isBooked: true, status: "PENDING" | "PAID" }
         return <DateSquare key={date} day={date} bookingData={bookingData} />;
       })}
     </>
