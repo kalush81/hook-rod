@@ -2,14 +2,18 @@
 
 aplikacja sluzaca do dokonywania rezerwacji poszczegolnych stanowisk na wybranuch lowiskach prywatnych
 
-Rezerwujący widząc "transakcja oczekująca" powinien wiedziez , ze ten czas trwa jedyne 15 minut w celu aby go zachecic do poczekania. 
+# Wazne !!!
+-Rezerwujący widząc "transakcja oczekująca" powinien wiedziez , ze ten czas trwa jedyne 15 minut w celu aby go zachecic do poczekania. 
+- Rezerwujący mogą rządać faktury.
 
-Wlasciecolom łowisk trzeba dobrze przedstawic korzysci płynace z korzystania 
+# Na kiedyś... 
+Wlascicielom łowisk trzeba dobrze przedstawic korzysci płynace z korzystania 
 rezerwatora. 
-- Organizacja
+- Organizacja 
 - Odpowiedzialnosc za prawidlowy przebieg rezerwacji
-- Dokumentacja
+- Prowadzenie dokumentacja zwiazanej z rezerwacjami
 - Spadek kosztow zwiazany z niezatrudnianiem osob 
+
 
 - Dac odczuć wlascicielowi łowiska ze platnosc 100% online  jest najbezpieczniejsza, klient wówczas musi przyjechac albo traci pieniądze..
  Ale zdrugiej strony potencjalnym klientom tez trzeba dac jakiś gwarant, zdobyć ich zaufanie. Na przykłąd łowiska powinny zachęcac klientow do korzystania z naszej aplikacji, dając im tym poczucie gwarancji. 
@@ -41,3 +45,11 @@ Oplacic reklamę na google-ach w celu lepszego pozycjonowania aplikacji; Wykupic
 
 
 #############################################################
+
+
+# wazne TODO , na juz
+- po kliknieciu w przycisk "rezerwuje i place" uzytkwonik powinien otrzymac info
+ ze "za chwile nastąpi przekierowanie do strony platniczej". Mozna dac jakiegoś spina.
+ przycisk "rezerwuje i place powinien zostac zdezaktywowany aby uniemozliwic wielokrotne nacisniecia . Albo debouncer albo zwykly prop na butonie "disabled". Odbieranie multirequesta czyli ten wywolany nacisnieciem przycisku powinno byc zablokowane przwede wszystkim na backendzie.
+-  wykonac dwie podstrony dla success i failed. Linki przekazac Dawidowi na backend.
+- przebudowac blokowanie dat w TimeTable w ten sposob aby korzystalo z biblioteki dayjs.

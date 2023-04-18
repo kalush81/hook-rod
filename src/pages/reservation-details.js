@@ -55,6 +55,7 @@ const ReservatorSummary = ({
 
 const ReservationForm = (reservationDetails) => {
   const [agreement, setAgreement] = useState(false);
+  const [willRedirect, setWillRedirect] = useState(false);
   const onFinish = async (personalData) => {
     // console.log("Form values to be sent to api:", personalData);
     // console.log("props to be added to form to send", { ...reservationDetails });
@@ -63,8 +64,10 @@ const ReservationForm = (reservationDetails) => {
       ...reservationDetails,
       agreement: Boolean(agreement).toString(),
     };
-    console.log("reservationData", reservationData);
+
+    //console.log("reservationData", reservationData);
     const sendForm = async () => {
+      //setWillRedirect(true);
       try {
         const result = await fetch(
           `https://hookandrod.herokuapp.com/api/reservation`,
@@ -82,14 +85,16 @@ const ReservationForm = (reservationDetails) => {
             body: JSON.stringify(reservationData),
           }
         );
+        console.log("result", result);
         return await result.text();
       } catch (error) {
+        //setWillRedirect(false);
         console.error("error while fetching from API", error);
       }
     };
 
     const res = await sendForm();
-    navigate(res);
+    return navigate(res);
   };
 
   const handleCheckboxChange = (e) => {
@@ -149,12 +154,19 @@ const ReservationForm = (reservationDetails) => {
             ></Checkbox>
           </Form.Item>
         </div>
-
-        <Form.Item>
-          <Button type="primary" htmlType="submit" disabled={!agreement}>
-            rezerwuję i płacę
-          </Button>
-        </Form.Item>
+        {willRedirect ? (
+          <>
+            <h2>Gratulacje !</h2>
+            <h3>Twoja rezerwacja została zaakceptowana </h3>
+            <h3>za chwile nastąpi przekierowanie do strony płatności</h3>
+          </>
+        ) : (
+          <Form.Item>
+            <Button type="primary" htmlType="submit" disabled={!agreement}>
+              rezerwuję i płacę
+            </Button>
+          </Form.Item>
+        )}
       </Form>
     </div>
   );
@@ -162,7 +174,7 @@ const ReservationForm = (reservationDetails) => {
 
 //entire page
 const ReservationDetails = (props) => {
-  console.log("props in  ReservationDetails", props);
+  //console.log("props in  ReservationDetails", props);
   const [sD, eD] = props.location.state?.newReservationData?.dates || [];
   const {
     pegId,
