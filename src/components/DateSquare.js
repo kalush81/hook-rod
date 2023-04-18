@@ -1,5 +1,5 @@
 import React from "react";
-import { V, X } from "../assets/icons";
+import { V, X, QuestionMark } from "../assets/icons";
 
 function DateSquare({ day, bookingData }) {
   if (bookingData.isBooked) {
@@ -9,6 +9,7 @@ function DateSquare({ day, bookingData }) {
           bookingData.status === "PENDING" ? "pending" : "reserved"
         }`}
       >
+        {bookingData.status === "PENDING" && <QuestionMark />}
         {bookingData.status === "PAID" && <X />}
       </span>
     );

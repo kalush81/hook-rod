@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import { ConfigProvider, Breadcrumb, Skeleton } from "antd";
 import plPL from "antd/lib/locale/pl_PL";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import { LocationDot } from "../assets/icons";
 import { Collapse } from "react-collapse";
 import Reservator2 from "../components/Reservator2.js";
 import TimeTable from "../components/TimeTable";
-import axios from "axios";
+//import axios from "axios";
 import { Div } from "../components/cssComponents";
 import useFetch from "../hooks/useFetch.js";
 
@@ -33,6 +34,19 @@ function Lake(props) {
   const { get, loading } = useFetch(
     `https://hookandrod.herokuapp.com/api/lakes/lakeReservations/`
   );
+
+  const fetchData = useCallback(async () => {
+    try {
+      const data = await get(id);
+      setPegWithReservations(data);
+    } catch (error) {
+      setIsError(true);
+      console.error(
+        "error while fetching dynamic data related to a lake, pegs reservations etc",
+        error
+      );
+    }
+  }, [get, id]);
 
   useEffect(() => {
     // const loadLakeDynamicData = async () => {
@@ -67,17 +81,9 @@ function Lake(props) {
     // loadLakeDynamicData();
     // get data from API
 
-    const getData = async () => {
-      try {
-        const data = await get(id);
-        console.log("data", data);
-        setPegWithReservations(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getData();
-  }, [id]);
+    fetchData();
+  }, [fetchData]);
+
   let pegsWithReservationsMap = [];
 
   if (pegsWithReservations) {
@@ -113,7 +119,7 @@ function Lake(props) {
             <div className="lowisko_card">
               <h1 className="lowisko_name">{lakeName}</h1>
               <div className="lowisko_city">
-                <FontAwesomeIcon icon={faMapMarkerAlt} />
+                <LocationDot />
                 <span> {lakeName}</span>
               </div>
               <div className="lowisko_image">
@@ -141,13 +147,15 @@ function Lake(props) {
                   id={id}
                   pegs={pegsWithReservationsMap}
                   maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
-                  maxDays={7}
+                  maxDays={12}
                   numberOfPegs={numberOfPegs}
                 />
               </Section>
             ) : (
               <Skeleton active />
             )}
+
+            {isError && <p>Cos poszlo nie tak podczas ladowania rezerwacji</p>}
 
             <div className="lowisko_udogo"></div>
             <div className="lowisko_regu">

@@ -4,7 +4,7 @@ import PegDatesRow from "./PegDatesRow";
 import moment from "moment";
 import { getCallendarString } from "../utils/get-date-string";
 import { Left, Right, Up, Down } from "../assets/icons";
-import { Skeleton, Spin } from "antd";
+//import { Skeleton, Spin } from "antd";
 //import { ReactComponent as Left } from "../assets/images/left.svg";
 
 const TimeTable = function ({ maxPegs, maxDays, pegs }) {
@@ -196,7 +196,7 @@ export const CalendarCss = styled.div`
     //position: relative;
     .grid {
       display: grid;
-      grid-template-columns: repeat(8, 1fr);
+      grid-template-columns: repeat(13, 1fr);
       grid-auto-rows: 1fr; /* Allow the rows to resize dynamically */
       //position: absolute;
       top: 0;
@@ -257,17 +257,17 @@ export const CalendarCss = styled.div`
     cursor: not-allowed;
   }
   span.pending::after {
-    position: absolute;
+    /* position: absolute;
     bottom: 50%;
     left: -2px;
     display: block;
     width: 50px;
     height: 12px;
-    content: "rezerwacja oczekująca";
+    content: "";
     z-index: -1;
     font-size: 7px;
     text-align: center;
-    color: white;
+    color: white; */
   }
 
   .noStyle {
