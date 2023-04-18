@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import meus from "../assets/images/partner-meus.png";
 import bg from "../assets/images/partnerzy-cover.jpg";
 import { StaticImage } from "gatsby-plugin-image";
 

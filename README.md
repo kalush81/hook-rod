@@ -53,3 +53,5 @@ Oplacic reklamę na google-ach w celu lepszego pozycjonowania aplikacji; Wykupic
  przycisk "rezerwuje i place powinien zostac zdezaktywowany aby uniemozliwic wielokrotne nacisniecia . Albo debouncer albo zwykly prop na butonie "disabled". Odbieranie multirequesta czyli ten wywolany nacisnieciem przycisku powinno byc zablokowane przwede wszystkim na backendzie.
 -  wykonac dwie podstrony dla success i failed. Linki przekazac Dawidowi na backend.
 - przebudowac blokowanie dat w TimeTable w ten sposob aby korzystalo z biblioteki dayjs.
+- zoptymalizowac grafiki/zdjecia na homepage i partnerzy
+- usunac icony z fontawesome and react-icons

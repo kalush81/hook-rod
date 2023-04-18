@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "styled-components";
-import { ConfigProvider, Breadcrumb } from "antd";
+import { ConfigProvider, Breadcrumb, Skeleton } from "antd";
 import plPL from "antd/lib/locale/pl_PL";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
@@ -11,6 +11,7 @@ import Reservator2 from "../components/Reservator2.js";
 import TimeTable from "../components/TimeTable";
 import axios from "axios";
 import { Div } from "../components/cssComponents";
+import useFetch from "../hooks/useFetch.js";
 
 function Lake(props) {
   const {
@@ -29,39 +30,53 @@ function Lake(props) {
   const [isError, setIsError] = useState(false);
 
   const toggleOpened = () => setOpened((value) => !value);
+  const { get, loading } = useFetch(
+    `https://hookandrod.herokuapp.com/api/lakes/lakeReservations/`
+  );
 
   useEffect(() => {
-    const loadLakeDynamicData = async () => {
+    // const loadLakeDynamicData = async () => {
+    //   try {
+    //     const response = await axios.get(
+    //       `https://hookandrod.herokuapp.com/api/lakes/lakeReservations/${id}`,
+    //       {
+    //         mode: "cors",
+    //         headers: {
+    //           "Access-Control-Allow-Origin": "*",
+    //           Accept: "application/json",
+    //           "Content-Type": "application/json",
+    //         },
+    //         withCredentials: false,
+    //         credentials: "same-origin",
+    //         crossdomain: true,
+    //       }
+    //     );
+    //     setPegWithReservations(response.data);
+    //   } catch (error) {
+    //     if (error.response) {
+    //       if (error.response.status === 404) {
+    //         setIsError(error.response.data.message);
+    //       } else {
+    //         setIsError(
+    //           ` ${error.status} \n Za wszelkie niedogodności przepraszamy. `
+    //         );
+    //       }
+    //     }
+    //   }
+    // };
+    // loadLakeDynamicData();
+    // get data from API
+
+    const getData = async () => {
       try {
-        const response = await axios.get(
-          `https://hookandrod.herokuapp.com/api/lakes/lakeReservations/${id}`,
-          {
-            mode: "cors",
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            withCredentials: false,
-            credentials: "same-origin",
-            crossdomain: true,
-          }
-        );
-        setPegWithReservations(response.data);
+        const data = await get(id);
+        console.log("data", data);
+        setPegWithReservations(data);
       } catch (error) {
-        if (error.response) {
-          if (error.response.status === 404) {
-            setIsError(error.response.data.message);
-          } else {
-            setIsError(
-              ` ${error.status} \n Za wszelkie niedogodności przepraszamy. `
-            );
-          }
-        }
+        console.log(error);
       }
     };
-    loadLakeDynamicData();
-    // get data from API
+    getData();
   }, [id]);
   let pegsWithReservationsMap = [];
 
@@ -120,7 +135,7 @@ function Lake(props) {
                 />
               </div>
             )}
-            {pegsWithReservationsMap && (
+            {!loading ? (
               <Section className="time-table">
                 <TimeTable
                   id={id}
@@ -130,6 +145,8 @@ function Lake(props) {
                   numberOfPegs={numberOfPegs}
                 />
               </Section>
+            ) : (
+              <Skeleton active />
             )}
 
             <div className="lowisko_udogo"></div>

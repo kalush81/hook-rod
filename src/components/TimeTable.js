@@ -88,7 +88,8 @@ const TimeTable = function ({ maxPegs, maxDays, pegs }) {
             );
           })}
 
-          {pegs && pegs.length ? (
+          {pegs &&
+            pegs.length &&
             pegs.map((peg, i) => {
               if (i >= firstIdx && i < lastIdx) {
                 return (
@@ -101,10 +102,7 @@ const TimeTable = function ({ maxPegs, maxDays, pegs }) {
                 );
               }
               return null;
-            })
-          ) : (
-            <Skeleton active />
-          )}
+            })}
 
           <button
             className="down"
