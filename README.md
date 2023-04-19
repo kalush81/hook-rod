@@ -48,10 +48,12 @@ Pomysly na modernizacje aplikacji ale dopiero gdy juz bedzie "dobrze" dzialac i 
 
 -Zlecic wykonania PRO design-u, uwzgledniajac konkretny UX;
 
--mMze zatrudnic na krotki czas jakiegos przedstawiciela
+-moze zatrudnic na krotki czas jakiegos przedstawiciela
 ktory pomoze zdobyc wiecej klientow wykorzystujac ich te sztuczki psychologiczno - marketingowe;
 
-Oplacic reklamę na google-ach w celu lepszego pozycjonowania aplikacji; Wykupic na jakis okres Facebook Adds w celach promocyjnych
+-Oplacic reklamę na google-ach w celu lepszego pozycjonowania aplikacji; Wykupic na jakis okres Facebook Adds w celach promocyjnych
+
+-implementacja openAI api do generowania inteligentnego bota czy ogolnie kontentu zwiazanego z branza.
 
 #############################################################
 
