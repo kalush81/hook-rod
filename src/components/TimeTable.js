@@ -109,7 +109,7 @@ const TimeTable = function ({ maxPegs, maxDays, pegs }) {
             // className="calendar_lowisko_day_box block noStyle"
             onClick={() => handleNext(firstIdx, lastIdx)}
           >
-            <Down />
+            <Down className="bounce" />
           </button>
         </div>
       </div>
@@ -220,10 +220,45 @@ export const CalendarCss = styled.div`
           height: 20px;
         } */
       }
+      button.down {
+        position: relative;
+
+        &::after {
+          position: absolute;
+          bottom: -50%;
+          left: -2px;
+          display: block;
+          width: 100%;
+          height: auto;
+          content: "więcej stanowisk";
+          //z-index: 1;
+          font-size: 7px;
+          text-align: center;
+          border-bottom: 1px solid gray;
+          padding-bottom: 4px;
+        }
+      }
       button.up,
       button.down {
+        cursor: pointer;
         background: none;
         border: none;
+        position: relative;
+        svg.bounce {
+          transition: transform 0.3s ease-in-out;
+          animation: bounce 1s ease-in-out infinite;
+        }
+      }
+      @keyframes bounce {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(5px);
+        }
+        100% {
+          transform: translateY(0);
+        }
       }
       span.reserved {
         background-color: #ff5722;
