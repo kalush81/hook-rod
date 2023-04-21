@@ -13,6 +13,7 @@ import TimeTable from "../components/TimeTable";
 //import axios from "axios";
 import { Div } from "../components/cssComponents";
 import useFetch from "../hooks/useFetch.js";
+import useWindowSize from "../hooks/useWindowSize";
 
 function Lake(props) {
   const {
@@ -29,6 +30,7 @@ function Lake(props) {
   const [opened, setOpened] = useState(false);
   const [pegsWithReservations, setPegWithReservations] = useState(null);
   const [isError, setIsError] = useState(false);
+  const size = useWindowSize();
 
   const toggleOpened = () => setOpened((value) => !value);
   const { get, loading } = useFetch(
@@ -147,7 +149,7 @@ function Lake(props) {
                   id={id}
                   pegs={pegsWithReservationsMap}
                   maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
-                  maxDays={12}
+                  maxDays={size}
                   numberOfPegs={numberOfPegs}
                 />
               </Section>

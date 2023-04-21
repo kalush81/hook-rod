@@ -7,7 +7,8 @@ import { Left, Right, Up, Down } from "../assets/icons";
 //import { Skeleton, Spin } from "antd";
 //import { ReactComponent as Left } from "../assets/images/left.svg";
 
-const TimeTable = function ({ maxPegs, maxDays, pegs }) {
+const TimeTable = function (props) {
+  const { maxPegs, maxDays, pegs } = props;
   //console.log("data from API", pegs);
   //console.log("is moment now? ", moment().format("L"));
   const [firstIdx, setFirstIdx] = useState(0);
@@ -44,7 +45,7 @@ const TimeTable = function ({ maxPegs, maxDays, pegs }) {
     );
 
   return (
-    <CalendarCss>
+    <CalendarCss columns={maxDays + 1}>
       <header className="calendar_header">
         <h3 style={{ textAlign: "center" }}>Terminarz rezerwacji</h3>
       </header>
@@ -196,7 +197,7 @@ export const CalendarCss = styled.div`
     //position: relative;
     .grid {
       display: grid;
-      grid-template-columns: repeat(13, 1fr);
+      grid-template-columns: repeat(${(props) => props.columns}, 1fr);
       grid-auto-rows: 1fr; /* Allow the rows to resize dynamically */
       //position: absolute;
       top: 0;
