@@ -26,9 +26,14 @@ const noon = {
   second: 0,
 };
 
-const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
+const Reservator = ({
+  pegs,
+  pegBasePrice,
+  facilities,
+  lakeName,
+  currentPath,
+}) => {
   const startDateInputRef = useRef(null);
-  //const agreementRef = useRef(null);
   const [form] = Form.useForm();
 
   const [reservations, setReservations] = useState([]);
@@ -51,6 +56,7 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
       lakeName,
       numDays,
       pegBasePrice,
+      currentPath,
       totalPrice:
         pegBasePrice * numGuests * numDays +
         getTotalOfextras(extraOptions, numDays),
@@ -62,7 +68,7 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
   const handleSetNumGuests = (num) => {
     setNumGuests(parseInt(num));
   };
-
+  console.log("reservations", reservations);
   const handleSelectPeg = (pegId) => {
     if (pegId) {
       setReservations(() => {
@@ -86,6 +92,8 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
       );
       if (closestReservation) {
         setReservations([closestReservation]);
+      } else {
+        setReservations([]);
       }
     }
   };
@@ -110,13 +118,18 @@ const Reservator = ({ pegs, pegBasePrice, facilities, lakeName }) => {
   }
 
   const onOpenChange = (open) => {
-    if (open && range[0] && open && range[1]) {
+    if ((open && range[0]) || (open && range[1])) {
       setReservations(() => {
+        // console.log("reservations in onOpenChange time", reservations);
         return pegs.find((peg) => peg.pegId === pegId).reservations;
       });
       form.resetFields(["dates"]);
       setRange([]);
       setNumDays(0);
+    } else {
+      setReservations(() => {
+        return pegs.find((peg) => peg.pegId === pegId).reservations;
+      });
     }
   };
 

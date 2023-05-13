@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Div } from "../components/cssComponents";
-import Link from "antd/es/typography/Link";
+import { Link } from "gatsby";
 
-const ReservationDatesUnavailable = () => {
+const ReservationDatesUnavailable = ({ location }) => {
+  const [from, setFrom] = useState("");
+  useEffect(() => {
+    console.log("location", location);
+    console.log("component Mounted");
+    setFrom(location.state?.fromUrl);
+    return () => {
+      console.log("component will unmount");
+    };
+  }, []);
+  // console.log("location?", location);
+  // if (location.state && !location.state.fromURL) {
+  //   return (
+  //     <Div>
+  //       <h2>Upss cos poszlo nie tak</h2>
+  //       <p>za chwile nastapie przekierowanie do strony glownej</p>
+  //     </Div>
+  //   );
+  // }
   return (
     <>
       <Div>
@@ -17,9 +35,9 @@ const ReservationDatesUnavailable = () => {
         </span>
       </Div>
       <Div>
-        <Link>Przejdz do łowiska</Link>{" "}
+        <Link to={from}>Przejdz do łowiska</Link>{" "}
         <span style={{ fontSize: "0.7em" }}>
-          "tu nastapi przekierwoanie do tego samego łowisko"
+          "tu nastapi przekierwoanie do tego samego łowiska"
         </span>
       </Div>
     </>

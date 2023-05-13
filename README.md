@@ -16,6 +16,7 @@ aplikacja sluzaca do dokonywania rezerwacji poszczegolnych stanowisk na wybranuc
 - przebudowac blokowanie dat w TimeTable w ten sposob aby korzystalo z biblioteki dayjs.
 - zoptymalizowac grafiki/zdjecia na homepage i partnerzy
 - usunac icony z fontawesome and react-icons
+- chcę zapewnic indywidualne SEO dla kazego łowiska/podstrony. Zwiazane to jest ze api/static Potrzebujemy dodac cos typu "description" i "keywords" obok wlasciwosci tj "pegBasePrice", "imagePath" itd..
 
 # Na kiedyś... 
 Wlascicielom łowisk trzeba dobrze przedstawic korzysci płynace z korzystania 
@@ -56,4 +57,8 @@ ktory pomoze zdobyc wiecej klientow wykorzystujac ich te sztuczki psychologiczno
 -implementacja openAI api do generowania inteligentnego bota czy ogolnie kontentu zwiazanego z branza.
 
 #############################################################
+ NA DZISIAJ:
+## bierzace pytania:
+- Jak sie ma ilosc lodek czy pontonow do stanowisk ? Jak chcemy kontrolowac ich ilosc ? Moj pomysl jest taki aby ilosci tych pontonow czy lodek byly kontrolowane na backendzie. W przypadku kiedy rezerwujacy sie nie pojawi to warto umozliwic lowiskowi "zresetowanie danych" , Odblokowanie dat i uwolnienie tych dodatkowych opcji, np lodek czy pontonow. Mozna narysowac mini-dashboard dla lowiska, gdzie sie chlop loguje i resetuje jakas rezerwacje albo jej część.
+- chcę zapewnic indywidualne SEO dla kazego łowiska/podstrony. Zwiazane to jest ze api/static Potrzebujemy dodac cos typu "description" i "keywords" obok wlasciwosci tj "pegBasePrice", "imagePath" itd..
 

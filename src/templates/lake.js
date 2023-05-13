@@ -4,16 +4,14 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import { ConfigProvider, Breadcrumb, Skeleton } from "antd";
 import plPL from "antd/lib/locale/pl_PL";
-//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-//import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { LocationDot } from "../assets/icons";
 import { Collapse } from "react-collapse";
 import Reservator2 from "../components/Reservator2.js";
 import TimeTable from "../components/TimeTable";
-//import axios from "axios";
 import { Div } from "../components/cssComponents";
 import useFetch from "../hooks/useFetch.js";
 import useWindowSize from "../hooks/useWindowSize";
+import { useLocation } from "@reach/router";
 
 function Lake(props) {
   const {
@@ -30,6 +28,8 @@ function Lake(props) {
   const [opened, setOpened] = useState(false);
   const [pegsWithReservations, setPegWithReservations] = useState(null);
   const [isError, setIsError] = useState(false);
+  const location = useLocation();
+  const currentPath = location.pathname;
   const size = useWindowSize();
 
   const toggleOpened = () => setOpened((value) => !value);
@@ -84,6 +84,9 @@ function Lake(props) {
     // get data from API
 
     fetchData();
+    return () => {
+      setPegWithReservations(null);
+    };
   }, [fetchData]);
 
   let pegsWithReservationsMap = [];
@@ -140,6 +143,7 @@ function Lake(props) {
                   pegs={pegsWithReservationsMap}
                   pegBasePrice={pegBasePrice}
                   facilities={facilities}
+                  currentPath={currentPath}
                 />
               </div>
             )}

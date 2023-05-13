@@ -89,7 +89,7 @@ exports.createPages = async ({ actions: { createPage }, createNodeId }) => {
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
-
+  //todo : Add properties for SEO such as description and keywords
   createTypes(`
     type Lake implements Node {
       id: ID!
