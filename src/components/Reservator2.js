@@ -33,6 +33,7 @@ const Reservator = ({
   lakeName,
   currentPath,
 }) => {
+  //console.log(pegs);
   const startDateInputRef = useRef(null);
   const [form] = Form.useForm();
 
@@ -120,7 +121,6 @@ const Reservator = ({
   const onOpenChange = (open) => {
     if ((open && range[0]) || (open && range[1])) {
       setReservations(() => {
-        // console.log("reservations in onOpenChange time", reservations);
         return pegs.find((peg) => peg.pegId === pegId).reservations;
       });
       form.resetFields(["dates"]);

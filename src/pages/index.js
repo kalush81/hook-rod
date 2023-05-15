@@ -1,19 +1,14 @@
-import React, { useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import styled from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Helmet } from "react-helmet";
-import "moment/locale/pl";
-import { Input, Select, DatePicker, ConfigProvider, Button } from "antd";
+//import "moment/locale/pl";
+import { Select, DatePicker } from "antd";
 import SearchBox from "../components/SearchBox";
 
-const { Option } = Select;
-const { RangePicker } = DatePicker;
-
-// const handleChange = (value) => {
-//   console.log(`selected ${value}`);
-// };
+// const { Option } = Select;
+// const { RangePicker } = DatePicker;
 
 const HomePg = () => {
   const data = useStaticQuery(
@@ -53,6 +48,8 @@ const HomePg = () => {
 
   // Set ImageData.
   const imageData = data.desktop_m.childImageSharp.fluid;
+
+  //console.log("imageData", imageData);
 
   // const imageDataP1 = data.ite.childImageSharp.fluid;
   // const imageDataP2 = data.itee.childImageSharp.fluid;

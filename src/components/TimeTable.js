@@ -4,13 +4,10 @@ import PegDatesRow from "./PegDatesRow";
 import moment from "moment";
 import { getCallendarString } from "../utils/get-date-string";
 import { Left, Right, Up, Down } from "../assets/icons";
-//import { Skeleton, Spin } from "antd";
-//import { ReactComponent as Left } from "../assets/images/left.svg";
 
 const TimeTable = function (props) {
   const { maxPegs, maxDays, pegs } = props;
-  //console.log("data from API", pegs);
-  //console.log("is moment now? ", moment().format("L"));
+
   const [firstIdx, setFirstIdx] = useState(0);
   const [lastIdx, setLastIdx] = useState(maxPegs);
   const [otherDays, setOtherDays] = useState(0);
@@ -69,24 +66,12 @@ const TimeTable = function (props) {
 
       <div className="wrapper">
         <div className="grid">
-          <button
-            className="up"
-            // className="calendar_lowisko_day_box block noStyle"
-            onClick={() => handlePrev(firstIdx, lastIdx)}
-          >
+          <button className="up" onClick={() => handlePrev(firstIdx, lastIdx)}>
             <Up />
           </button>
 
           {daysArr.map((day) => {
-            return (
-              <span
-                key={
-                  day
-                } /*className="calendar_lowisko_day_box small noStyle" */
-              >
-                {day.substring(0, 5)}
-              </span>
-            );
+            return <span key={day}>{day.substring(0, 5)}</span>;
           })}
 
           {pegs &&
@@ -107,7 +92,6 @@ const TimeTable = function (props) {
 
           <button
             className="down"
-            // className="calendar_lowisko_day_box block noStyle"
             onClick={() => handleNext(firstIdx, lastIdx)}
           >
             <Down className="bounce" />
@@ -121,9 +105,7 @@ const TimeTable = function (props) {
 export const CalendarCss = styled.div`
   scroll-behavior: smooth;
   padding: 13px 13px;
-  //background: #64b5f6;
   border-radius: 9px;
-  margin-bottom: 100px;
 
   .calendar_header {
     display: flex;
@@ -193,33 +175,24 @@ export const CalendarCss = styled.div`
     width: 100%;
     margin: auto;
     margin-bottom: 2em;
-    //padding-bottom: 100%; /* Create a square element */
-    //position: relative;
+
     .grid {
       display: grid;
       grid-template-columns: repeat(${(props) => props.columns}, 1fr);
       grid-auto-rows: 1fr; /* Allow the rows to resize dynamically */
-      //position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       gap: 0.4em;
-      //aspect-ratio: 1/1;
       span,
       button {
         background-color: #ccc; /* Set the background color of each cell */
         padding: 0;
-        //padding-bottom: 100%; /* Create a perfect square */
-
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 7px;
         aspect-ratio: 1/1;
-        /* img {
-          width: 20px;
-          height: 20px;
-        } */
       }
       button.down {
         position: relative;
@@ -232,7 +205,7 @@ export const CalendarCss = styled.div`
           width: 100%;
           height: auto;
           content: "więcej stanowisk";
-          //z-index: 1;
+
           font-size: 7px;
           text-align: center;
           border-bottom: 1px solid gray;
@@ -293,17 +266,6 @@ export const CalendarCss = styled.div`
     cursor: not-allowed;
   }
   span.pending::after {
-    /* position: absolute;
-    bottom: 50%;
-    left: -2px;
-    display: block;
-    width: 50px;
-    height: 12px;
-    content: "";
-    z-index: -1;
-    font-size: 7px;
-    text-align: center;
-    color: white; */
   }
 
   .noStyle {
@@ -321,9 +283,6 @@ export const CalendarCss = styled.div`
     margin-right: 1.5rem;
     font-size: 12px;
   }
-  // .flex span:nth-child(3) {
-  //   font-size: 22px;
-  // }
 
   button img {
     width: 16px;

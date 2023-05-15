@@ -1,23 +1,37 @@
 import React, { useState } from "react";
 import { navigate } from "gatsby";
-import { Form, Input, Checkbox, Button } from "antd";
+import { Form, Input, Checkbox, Button, Modal } from "antd";
 
 export const ReservationForm = (reservationDetails) => {
   const [agreement, setAgreement] = useState(false);
-  const [willRedirect, setWillRedirect] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const onFinish = async (personalData) => {
+  const [linkToPaymentPage, setLinkToPayment] = useState("");
+
+  console.log("link to payment", linkToPaymentPage);
+
+  /* modal states*/
+  const [openModal, setOpenModal] = useState(false);
+  const [confirmLoading, setConfirmLoading] = useState(false);
+
+  const handleCancelModal = () => {
+    setOpenModal(false);
+  };
+  const handleGoToPaymentPage = () => {
+    setOpenModal(false);
+    navigate(linkToPaymentPage);
+  };
+  /* modal states*/
+
+  const onRequestReservation = async (personalData) => {
     const reservationData = {
       ...personalData,
       ...reservationDetails,
-      // startDate: "2023-05-12 12:00",
-      // endDate: "2023-05-13 12:00",
       agreement: Boolean(agreement).toString(),
     };
 
     const sendForm = async () => {
+      setOpenModal(true);
+      setConfirmLoading(true);
       try {
-        setLoading(true);
         const result = await fetch(
           `https://hookandrod.herokuapp.com/api/reservation`,
           {
@@ -38,17 +52,23 @@ export const ReservationForm = (reservationDetails) => {
           const response = await result.json();
           throw new Error(response.message);
         }
+        console.log("result", result);
         return await result.text();
       } catch (error) {
         console.error("error while fetching from API", error);
-        navigate("/rezerwacja-niedostepna", {
-          state: { fromUrl: reservationDetails.currentPath },
+        setOpenModal(false);
+        return Modal.error({
+          title: "Error",
+          content: error.message,
+          onOk: () => navigate(-1),
+          okText: "wróć do rezerwacji",
         });
       }
     };
-
-    const res = await sendForm();
-    return navigate(res);
+    const linkToPaymentPage = await sendForm();
+    setConfirmLoading(false);
+    setLinkToPayment(linkToPaymentPage);
+    //return navigate(linkToPaymentPage);
   };
 
   const handleCheckboxChange = (e) => {
@@ -57,8 +77,28 @@ export const ReservationForm = (reservationDetails) => {
 
   return (
     <div className="reservation-form-card">
+      <Modal
+        title="Title"
+        open={openModal}
+        onOk={handleGoToPaymentPage}
+        confirmLoading={confirmLoading}
+        onCancel={handleCancelModal}
+        okText={
+          linkToPaymentPage
+            ? "przechodzę do płatności"
+            : "sprawdzanie dostępności dat"
+        }
+      >
+        {linkToPaymentPage
+          ? "rezerwacja jest mozliwa, mozesz przejść do platności"
+          : "czekaj, sprawdzamy dostępność dat na wybranym przez Ciebie stanowisku"}
+      </Modal>
       <h2>Dane kontaktowe</h2>
-      <Form name="reservation-form" onFinish={onFinish} layout="vertical">
+      <Form
+        name="reservation-form"
+        onFinish={onRequestReservation}
+        layout="vertical"
+      >
         <Form.Item
           label="IMIĘ I NAZWISKO"
           name="name"
@@ -66,7 +106,6 @@ export const ReservationForm = (reservationDetails) => {
         >
           <Input placeholder="Imię i nazwisko" />
         </Form.Item>
-
         <Form.Item
           label="ADRES E-MAIL"
           name="email"
@@ -77,7 +116,6 @@ export const ReservationForm = (reservationDetails) => {
         >
           <Input placeholder="adres@email.com" />
         </Form.Item>
-
         <Form.Item
           label="TELEFON"
           name="phone"
@@ -88,7 +126,6 @@ export const ReservationForm = (reservationDetails) => {
         >
           <Input placeholder="000-000-000" />
         </Form.Item>
-
         <div className="checkbox checkbox_regulamin">
           <Form.Item
             label="Oświadczam, że zapoznałem/am się z Regulaminem Łowiska i akceptuję
@@ -108,23 +145,11 @@ export const ReservationForm = (reservationDetails) => {
             ></Checkbox>
           </Form.Item>
         </div>
-        {willRedirect ? (
-          <>
-            <h2>Gratulacje !</h2>
-            <h3>Twoja rezerwacja została zaakceptowana </h3>
-            <h3>za chwile nastąpi przekierowanie do strony płatności</h3>
-          </>
-        ) : (
-          <Form.Item>
-            <Button
-              type="primary"
-              htmlType="submit"
-              disabled={!agreement || loading}
-            >
-              {loading ? "sprawdzdzanie rezerwacji" : "rezerwuję i płacę"}
-            </Button>
-          </Form.Item>
-        )}
+        <Form.Item>
+          <Button type="primary" htmlType="submit" disabled={!agreement}>
+            Zarezerwuj
+          </Button>
+        </Form.Item>
       </Form>
     </div>
   );

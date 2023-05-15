@@ -68,7 +68,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-size: 1.6rem;
     scroll-behavior: smooth;
-    padding: 0;
+    padding: 70px 0 100px 0;
     margin: 0;
   }
 
@@ -122,23 +122,6 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     list-style: none;
   }
-
-  // .container {
-  //   max-width: 1340px;
-  // }
-  
-  // .ant-btn-primary {
-  //   background-color: var(--yellow);
-  //   border-color: var(--yellow) !important  ;
-  // }
-  // .ant-btn-primar-ghost {
-  //   background-color: transparent !important;
-  //   border-color: var(--yellow) !important;
-  //   color: var(--yellow) !important;
-  // }
-  // .ant-btn-primary.ant-btn-primary-ghost {
-  //   color: var(--yellow) !important;
-  // }
 
   a.ant-anchor-link-title {
     color: white;

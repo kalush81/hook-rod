@@ -5,13 +5,13 @@ export function wrapPageElement({ element, props }) {
   return <Layout {...props}>{element}</Layout>;
 }
 
-export const shouldUpdateScroll = ({
-  routerProps: { location },
-  getSavedScrollPosition,
-}) => {
-  if (location.pathname === "/rezerwacja-niedostepna") {
-    return false;
-  } else {
-    return true;
-  }
-};
+// export const shouldUpdateScroll = ({
+//   routerProps: { location },
+//   getSavedScrollPosition,
+// }) => {
+//   if (location.pathname === "/rezerwacja-niedostepna") {
+//     return false;
+//   } else {
+//     return true;
+//   }
+// };
