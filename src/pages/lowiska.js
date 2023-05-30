@@ -18,15 +18,14 @@ const handleChange = (value) => {
 
 const Lowiska = function ({ location }) {
   const {
-    state: { city, dates, distance },
+    state: { city: coords, dates, distance },
   } = location;
-  console.log(city);
-  console.log(dates);
+
   const formatedDates = dates.map((date) =>
     dayjs(date.$d).format("YYYY-MM-DD")
   );
-  console.log(formatedDates);
-  console.log(distance);
+  //console.log(formatedDates);
+  //console.log(distance);
   const [serverError, setServerError] = useState(null);
   const [clientError, setClientError] = useState(null);
   const [loading, setLoading] = useState(null);
@@ -87,12 +86,12 @@ const Lowiska = function ({ location }) {
               distance: parseInt(distance),
               eday: formatedDates[1],
               sday: formatedDates[0],
-              ulat: city.lat,
-              ulng: city.long,
+              ulat: coords?.lat,
+              ulng: coords?.long,
             },
           }
         );
-        console.log("response.data", response.data);
+        //console.log("response.data", response.data);
         const combined = response.data.map((lake) => {
           let lakeFromEdge = data.allLake.edges.find(
             (edge) => edge.node.id === String(lake.id)
@@ -102,7 +101,7 @@ const Lowiska = function ({ location }) {
           }
           return lake;
         });
-        console.log("combined in effect", combined);
+        //console.log("combined in effect", combined);
         setLoading(false);
         setServerError(null);
         setClientError(null);
