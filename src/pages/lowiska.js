@@ -1,25 +1,19 @@
 import React, { useEffect, useState } from "react";
-//import { useLocation } from "@reach/router";
 import styled from "styled-components";
 import { PageContainer } from "../components/cssComponents";
 import axios from "axios";
 import { Select, ConfigProvider, Skeleton } from "antd";
 import plPL from "antd/lib/locale/pl_PL";
 import dayjs from "dayjs";
-//import "moment/locale/pl";
-//import SearchBar from "../components/SearchBar";
 import FisheryCard from "../components/FisheryCard";
 import { graphql, useStaticQuery } from "gatsby";
-
 const { Option } = Select;
-const handleChange = (value) => {
-  console.log(`selected ${value}`);
-};
 
 const Lowiska = function ({ location = {} }) {
   let coords = {};
   let dates = [];
   let distance = null;
+
   if (location && location.state && location.state.city) {
     coords = location.state.city;
     dates = location.state.dates;
@@ -29,20 +23,11 @@ const Lowiska = function ({ location = {} }) {
   const formatedDates = dates.map((date) =>
     dayjs(date.$d).format("YYYY-MM-DD")
   );
-  //console.log(formatedDates);
-  //console.log(distance);
+
   const [serverError, setServerError] = useState(null);
   const [clientError, setClientError] = useState(null);
   const [loading, setLoading] = useState(null);
   const [mergedLakes, setMergedLakes] = useState([]);
-  //const location = useLocation();
-
-  // const params = new URLSearchParams(location.search);
-  // //const distance = params.get("distance");
-  // const eday = params.get("eday");
-  // const sday = params.get("sday");
-  // const ulat = params.get("ulat");
-  // const ulng = params.get("ulng");
 
   const data = useStaticQuery(graphql`
     query QueryLakesForSearchResuslt {
@@ -96,7 +81,6 @@ const Lowiska = function ({ location = {} }) {
             },
           }
         );
-        //console.log("response.data", response.data);
         const combined = response.data.map((lake) => {
           let lakeFromEdge = data.allLake.edges.find(
             (edge) => edge.node.id === String(lake.id)
@@ -106,7 +90,6 @@ const Lowiska = function ({ location = {} }) {
           }
           return lake;
         });
-        //console.log("combined in effect", combined);
         setLoading(false);
         setServerError(null);
         setClientError(null);
@@ -115,11 +98,9 @@ const Lowiska = function ({ location = {} }) {
         setMergedLakes([]);
         if (error.response.status >= 500 && error.response.status <= 599) {
           setServerError("Problem z serwerem");
-          //setMerged([])
         }
         if (error.response.status >= 400 && error.response.status <= 499) {
           setClientError("Coś poszło nietak, spróbuj ponownie");
-          //setMerged([])
         }
         console.log(
           "couldnt fetch from https://hookandrod.herokuapp.com/api/lakes/checkLakesOnDate"
@@ -131,9 +112,8 @@ const Lowiska = function ({ location = {} }) {
 
     return () => {
       console.log("lowiska page component is unmounted");
-      //setMergedLakes([]);
     };
-  }, []);
+  }, [coords?.lat, coords?.long, data.allLake.edges, distance, formatedDates]);
 
   return (
     <ConfigProvider locale={plPL}>
@@ -154,7 +134,6 @@ const Lowiska = function ({ location = {} }) {
                     className="lowi_filter"
                     size="large"
                     placeholder="Odmiana  "
-                    onChange={handleChange}
                   >
                     <Option value="10">Karp</Option>
                     <Option value="101">Rekin</Option>
@@ -169,7 +148,6 @@ const Lowiska = function ({ location = {} }) {
                     className="lowi_filter"
                     size="large"
                     placeholder="Udogodnienia  "
-                    onChange={handleChange}
                   >
                     <Option value="10">WC</Option>
                     <Option value="101">Namiot</Option>
@@ -196,8 +174,6 @@ const Lowiska = function ({ location = {} }) {
                     !loading &&
                     "not found"}
                   {mergedLakes.length > 0 &&
-                    //.filter((lowisk) => lowisk.freePegs !== 0)
-                    //.sort((a, b) => (a.distance > b.distance ? 1 : -1))
                     mergedLakes.map((node) => {
                       return <FisheryCard key={node.id} data={node} />;
                     })}
