@@ -20,7 +20,7 @@ const Lowiska = function ({ location }) {
   console.log("Location:", location);
 
   const {
-    state: { city: coords, dates, distance },
+    state: { city: coords = { lat: "", long: "" }, dates, distance },
   } = location || {};
 
   console.log("Coords:", coords);
