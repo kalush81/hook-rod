@@ -17,15 +17,14 @@ const handleChange = (value) => {
 };
 
 const Lowiska = function ({ location = {} }) {
-  console.log("Location:", location);
-
-  const {
-    state: { city: coords = { lat: "", long: "" }, dates, distance },
-  } = location || {};
-
-  console.log("Coords:", coords);
-  console.log("Dates:", dates);
-  console.log("Distance:", distance);
+  let coords = {};
+  let dates = [];
+  let distance = null;
+  if (location && location.state && location.state.city) {
+    coords = location.state.city;
+    dates = location.state.dates;
+    distance = location.state.distance;
+  }
 
   const formatedDates = dates.map((date) =>
     dayjs(date.$d).format("YYYY-MM-DD")
@@ -38,12 +37,12 @@ const Lowiska = function ({ location = {} }) {
   const [mergedLakes, setMergedLakes] = useState([]);
   //const location = useLocation();
 
-  const params = new URLSearchParams(location.search);
-  //const distance = params.get("distance");
-  const eday = params.get("eday");
-  const sday = params.get("sday");
-  const ulat = params.get("ulat");
-  const ulng = params.get("ulng");
+  // const params = new URLSearchParams(location.search);
+  // //const distance = params.get("distance");
+  // const eday = params.get("eday");
+  // const sday = params.get("sday");
+  // const ulat = params.get("ulat");
+  // const ulng = params.get("ulng");
 
   const data = useStaticQuery(graphql`
     query QueryLakesForSearchResuslt {
@@ -89,7 +88,7 @@ const Lowiska = function ({ location = {} }) {
             credentials: "same-origin",
             crossdomain: true,
             params: {
-              distance: parseInt(distance),
+              distance: parseInt(distance) || null,
               eday: formatedDates[1],
               sday: formatedDates[0],
               ulat: coords?.lat,
@@ -134,7 +133,7 @@ const Lowiska = function ({ location = {} }) {
       console.log("lowiska page component is unmounted");
       //setMergedLakes([]);
     };
-  }, [ulat, ulng, distance, sday, eday]);
+  }, []);
 
   return (
     <ConfigProvider locale={plPL}>
@@ -211,6 +210,7 @@ const Lowiska = function ({ location = {} }) {
     </ConfigProvider>
   );
 };
+
 const LowiskaCss = styled.div`
   scroll-behavior: smooth;
   //height: 100vh;
