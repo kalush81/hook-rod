@@ -23,6 +23,8 @@ const Lowiska = function ({ location = {} }) {
   const formatedDates = dates.map((date) =>
     dayjs(date.$d).format("YYYY-MM-DD")
   );
+  const sday = formatedDates[0];
+  const eday = formatedDates[1];
 
   const [serverError, setServerError] = useState(null);
   const [clientError, setClientError] = useState(null);
@@ -74,8 +76,8 @@ const Lowiska = function ({ location = {} }) {
             crossdomain: true,
             params: {
               distance: parseInt(distance) || null,
-              eday: formatedDates[1],
-              sday: formatedDates[0],
+              eday,
+              sday,
               ulat: coords?.lat,
               ulng: coords?.long,
             },
@@ -113,7 +115,7 @@ const Lowiska = function ({ location = {} }) {
     return () => {
       console.log("lowiska page component is unmounted");
     };
-  }, [coords?.lat, coords?.long, data.allLake.edges, distance, formatedDates]);
+  }, [eday, sday, distance, coords?.lat, coords?.long, data.allLake.edges]);
 
   return (
     <ConfigProvider locale={plPL}>

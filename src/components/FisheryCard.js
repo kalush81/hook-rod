@@ -5,7 +5,6 @@ import { Dollar, Fish, Silhouette, Pin, Trophy } from "../assets/icons";
 import styled from "styled-components";
 
 const listSpecies = (species) => {
-  console.log("Fish svg compo", Fish);
   return species.map((fish) => {
     return <span key={fish.name}>{fish.name + " "}</span>;
   });
@@ -13,15 +12,15 @@ const listSpecies = (species) => {
 
 //prettier-ignore
 function FisheryCard({ data }) {
-  const { id, city, voivodeship, name:lakeName, lakeImageFile, fishOnLake, priceMin } = data
+  const { id, city, voivodeship, name:lakeName, lakeImageFile, fishOnLake, priceMin, numberOfPegs } = data
 
   return (
     <Div key={id}>
       <li className="lowi_itm">
         <Link to={`/${voivodeship}/${city}/${lakeName}`}>
-          {/* <div className="lowisko_img"> */}
+          
           <GatsbyImage style={{height: '170px'}} image={getImage(lakeImageFile)} alt=""></GatsbyImage>
-          {/* </div> */}
+          
           <h2 className="lowi_itm_header">{lakeName}</h2>
           <div className="lowi_itm_amnt lokalizacja">
             <Pin />
@@ -51,7 +50,7 @@ function FisheryCard({ data }) {
           <div className="lowi_itm_amnt stanowiska">
             <Silhouette />
             <b>Liczba stanowisk: </b>
-            {/*numberOfPegs*/}
+            {numberOfPegs}
           </div>
           {/* {freePegs && (
               <div>
