@@ -17,9 +17,15 @@ const handleChange = (value) => {
 };
 
 const Lowiska = function ({ location }) {
+  console.log("Location:", location);
+
   const {
     state: { city: coords, dates, distance },
   } = location || {};
+
+  console.log("Coords:", coords);
+  console.log("Dates:", dates);
+  console.log("Distance:", distance);
 
   const formatedDates = dates.map((date) =>
     dayjs(date.$d).format("YYYY-MM-DD")
