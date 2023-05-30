@@ -16,7 +16,7 @@ const handleChange = (value) => {
   console.log(`selected ${value}`);
 };
 
-const Lowiska = function ({ location }) {
+const Lowiska = function ({ location = {} }) {
   console.log("Location:", location);
 
   const {
