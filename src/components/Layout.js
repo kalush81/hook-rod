@@ -18,11 +18,11 @@ const Layout = ({ children }) => {
   //   token: { colorBgContainer },
   // } = theme.useToken();
   return (
-    <div>
+    <div /*style={{ padding: "60px 0 120px 0" }} */>
       {/* <Sider trigger={null} collapsible collapsed={true} /> */}
       <GlobalStyles />
       <Nav />
-      <div>{children}</div>
+      {children}
 
       <Footer style={{ textAlign: "center" }}>
         Ant Design ©2023 Created by Ant UED

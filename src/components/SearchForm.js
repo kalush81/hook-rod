@@ -1,156 +1,49 @@
-//TODO
-// Wrap all inputs into ANT's Form
-
-import React, { useRef, useState } from "react";
-import "moment/locale/pl";
+import React, { useState } from "react";
+import { navigate } from "gatsby";
 import { Select, DatePicker, Button, Form } from "antd";
 import { AutoComplete } from "antd/lib";
-import moment from "moment";
-import plCities from "../assets/data/cities.json";
+import plCities from "../assets/data/only-cities.json";
 const { RangePicker } = DatePicker;
-const { Option } = AutoComplete;
+const { Option } = Select;
 
-const UseFocus = () => {
-  const htmlElRef = useRef(null);
-  const setFocus = () => {
-    if (htmlElRef.current) htmlElRef.current.focus();
-  };
-  return [htmlElRef, setFocus];
-};
+// const UseFocus = () => {
+//   const htmlElRef = useRef(null);
+//   const setFocus = () => {
+//     if (htmlElRef.current) htmlElRef.current.focus();
+//   };
+//   return [htmlElRef, setFocus];
+// };
 
 export const SearchForm = ({ className }) => {
   const [form] = Form.useForm();
-  const [cityQueryArr, setCityQueryArr] = useState([]);
-  const [latLng, setLatLng] = useState({});
-  const [autoCompleteValue, setAutoCompleteValue] = useState("");
-  //const [rangeVal, setRangeVal] = useState(50);
-  const [datkiFull, setDatkiFull] = useState([]);
-  //const [sEDate, setSEDate] = useState({});
-  const [selectedStartDate, setSelectedStartDate] = useState("");
-  //const [input1Ref, setInput1Focus] = UseFocus();
-  const [input2Ref, setInput2Focus] = UseFocus();
-  const [buttonRef, setButtonFocus] = UseFocus();
+  const [firstCharIsSet, setFirstCharIsSet] = useState(null);
+  const [cityWithCoords, setCityWithCoords] = useState(null);
 
   const handleFinishForm = (param) => {
     console.log("finish form ok", param);
-    console.log(form.getFieldsValue(["city", "distance"]));
-    console.log("form", form);
+    // console.log(form.getFieldsValue(["city", "distance", "dates"]));
+    // console.log("valid form", form);
+    // console.log(
+    //   "form ok , any errors? ",
+    //   form.getFieldsError().some((field) => field.warnings.length > 0)
+    // );
+    // console.log("przekieruj do strony§ ");
+    return navigate("/lowiska", { state: { ...param } });
   };
   const handleFinishFailed = (param) => {
-    console.log("finish form failed", param);
+    console.log("finish form failed param", param);
+    console.log("invali form errors", form.getFieldsError());
   };
 
-  const autoCompleteValidator = (rule, value, callback) => {
-    if (!value) {
-      callback("Please select a city");
-    } else {
-      callback();
-    }
-  };
-
-  const handleAutoCompleteSearch = (valueStr) => {
-    let res = [];
-    if (!valueStr) {
-      res = [];
-    } else {
-      res = plCities.filter((place) => {
-        const regex = new RegExp("^" + valueStr, "i");
-        return place.name.match(regex);
-      });
-    }
-    setCityQueryArr(() =>
-      res.map((r) => {
-        return {
-          ...r,
-          value: r.name,
-        };
-      })
-    );
-  };
-  const handleAutoCompleteSelect = (value, option) => {
-    setLatLng({
-      lat: option.lat,
-      lng: option.lng,
-    });
-    setAutoCompleteValue(option.value);
-    //setInput1Focus();
-  };
-  const handleAutoCompleteChange = (newchar) => {
-    setAutoCompleteValue((oldchar) => {
-      return newchar;
-    });
-  };
-  const handleAutoCompleteDropDown = (open) => {
-    if (open) {
-      setLatLng({});
-    }
-  };
-  const handleAutoCompleteFocus = () => {
-    setLatLng({});
-  };
-
-  const handleSelectDistanceFocus = (p) => {
-    if (!latLng.lat || !latLng.lng) {
-      setAutoCompleteValue("");
-    }
-  };
-  const handleSelectDistanceChange = (range) => {
-    //setRangeVal(range);
-    setInput2Focus();
-  };
-
-  const handleRangePickerChange = (datka) => {
-    let datki;
-    if (datka) {
-      datki = {
-        s: `${datka[0].$d.toLocaleDateString("en-US", {
-          year: "numeric",
-        })}-${(
-          0 +
-          datka[0].$d.toLocaleDateString("en-US", {
-            month: "numeric",
-          })
-        ).slice(-2)}-${(
-          0 + datka[0].$d.toLocaleDateString("en-US", { day: "numeric" })
-        ).slice(-2)}`,
-        e: `${datka[1].$d.toLocaleDateString("en-US", {
-          year: "numeric",
-        })}-${(
-          0 +
-          datka[1].$d.toLocaleDateString("en-US", {
-            month: "numeric",
-          })
-        ).slice(-2)}-${(
-          0 +
-          datka[1].$d.toLocaleDateString("en-US", {
-            day: "numeric",
-          })
-        ).slice(-2)}`,
+  const handleAutoCompleteSelect = (city, { coords }) => {
+    form.setFieldValue("city", coords);
+    setCityWithCoords(() => {
+      return {
+        city,
+        coords,
       };
-    }
-    setDatkiFull(datka);
-    //setSEDate(datki);
-    setButtonFocus();
+    });
   };
-  const handleCalendarChange = (dates) => {
-    if (!dates) setSelectedStartDate("");
-    if (dates && dates[0]) setSelectedStartDate(dates[0]);
-
-    //const todayDay = moment().add(-1, "days");
-    //const todayPlysTen = moment().add(10, "days");
-  };
-  function disabledDate(current) {
-    const todayDay = selectedStartDate
-      ? moment(selectedStartDate).add(-0, "days")
-      : moment().add(-1, "days");
-    const todayPlysTen = selectedStartDate
-      ? moment(selectedStartDate).add(10, "days")
-      : moment().add(10, "days");
-    if (!selectedStartDate) {
-      return !todayDay.isSameOrBefore(current);
-    }
-    return !(todayDay.isSameOrBefore(current) && todayPlysTen.isAfter(current));
-  }
 
   return (
     <Form
@@ -162,78 +55,85 @@ export const SearchForm = ({ className }) => {
       <Form.Item
         //className={className}
         name="city"
-        rules={[{ validator: autoCompleteValidator }]}
+        rules={[
+          {
+            required: true,
+            message: "Proszę wybrać miasto z listy!",
+          },
+        ]}
       >
         <AutoComplete
           className={className}
-          onDropdownVisibleChange={handleAutoCompleteDropDown}
-          onFocus={handleAutoCompleteFocus}
           size="large"
+          filterOption={(inputValue, option) =>
+            option.props.label.toUpperCase().includes(inputValue.toUpperCase())
+          }
           placeholder="Wpisz nazwę miejscowości"
-          value={autoCompleteValue}
-          onSearch={handleAutoCompleteSearch}
+          value={cityWithCoords ? cityWithCoords.city : ""}
           onSelect={handleAutoCompleteSelect}
-          onChange={handleAutoCompleteChange}
-          options={cityQueryArr}
-        ></AutoComplete>
+          onChange={(value) => setFirstCharIsSet(value)}
+        >
+          {firstCharIsSet &&
+            plCities.map((option) => (
+              <AutoComplete.Option
+                key={option.geonameid}
+                value={option.name}
+                label={option.name}
+                coords={{ lat: option.latitude, long: option.longitude }}
+              >
+                {/* {option.label} */}
+              </AutoComplete.Option>
+            ))}
+        </AutoComplete>
       </Form.Item>
       <Form.Item
         className="home_cover_search_range"
         name="distance"
-        rules={[{ validator: autoCompleteValidator }]}
+        rules={[
+          {
+            required: true,
+            message: "Proszę wybrać dystans z listy!",
+          },
+        ]}
       >
-        <Select
-          onFocus={handleSelectDistanceFocus}
-          size="large"
-          placeholder="zasięg"
-          showAction="focus"
-          onChange={handleSelectDistanceChange}
-          // ref={input1Ref}
-        >
+        <Select size="large" placeholder="zasięg" showAction="focus">
           <Option value="50">&lt; 50km</Option>
           <Option value="100">&lt; 100km</Option>
           <Option value="200">&lt; 200km</Option>
           <Option value="1000">&gt; 200km</Option>
         </Select>
       </Form.Item>
-      <RangePicker
-        className="home_cover_search_date"
-        size="large"
-        placeholder={["Kiedy?"]}
-        format="DD.MM.YY"
-        showAction="focus"
-        value={datkiFull}
-        onChange={handleRangePickerChange}
-        onCalendarChange={handleCalendarChange}
-        ref={input2Ref}
-        disabledDate={disabledDate}
-        allowClear={true}
-        separator
-      />
-      {/* <Link
-        to={`/lowiska?distance=${rangeVal}&eday=${sEDate && sEDate.e}&sday=${
-          sEDate && sEDate.s
-        }&ulat=${latGeo ?? latLng.lat}&ulng=${lngGeo ?? latLng.lng}`}
-        state={{
-          srchdCity: value,
-          cords: latLng,
-          dates: sEDate,
-          dist: rangeVal,
-        }}
-      > */}
-      <Button
-        htmlType="submit"
-        className="home_cover_search_btn"
-        type="primary"
-        size="large"
-        ref={buttonRef}
-        style={{
-          width: 150,
-        }}
+      <Form.Item
+        name="dates"
+        rules={[
+          {
+            required: true,
+            message: "Proszę wybrać daty!",
+          },
+        ]}
       >
-        SZUKAJ
-      </Button>
-      {/* </Link> */}
+        <RangePicker
+          className="home_cover_search_date"
+          size="large"
+          placeholder={["Kiedy?"]}
+          format="DD.MM.YY"
+          showAction="focus"
+          allowClear={true}
+          separator
+        />
+      </Form.Item>
+      <Form.Item>
+        <Button
+          type="primary"
+          htmlType="submit"
+          className="home_cover_search_btn"
+          style={{
+            width: 150,
+          }}
+        >
+          SZUKAJ
+        </Button>
+      </Form.Item>
     </Form>
   );
 };

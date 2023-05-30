@@ -1,28 +1,40 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "@reach/router";
+//import { useLocation } from "@reach/router";
 import styled from "styled-components";
+import { PageContainer } from "../components/cssComponents";
 import axios from "axios";
 import { Select, ConfigProvider, Skeleton } from "antd";
 import plPL from "antd/lib/locale/pl_PL";
-import "moment/locale/pl";
-import SearchBar from "../components/SearchBar";
+import dayjs from "dayjs";
+//import "moment/locale/pl";
+//import SearchBar from "../components/SearchBar";
 import FisheryCard from "../components/FisheryCard";
-import { graphql, navigate, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 
 const { Option } = Select;
 const handleChange = (value) => {
   console.log(`selected ${value}`);
 };
 
-const Lowiska = function () {
+const Lowiska = function ({ location }) {
+  const {
+    state: { city, dates, distance },
+  } = location;
+  console.log(city);
+  console.log(dates);
+  const formatedDates = dates.map((date) =>
+    dayjs(date.$d).format("YYYY-MM-DD")
+  );
+  console.log(formatedDates);
+  console.log(distance);
   const [serverError, setServerError] = useState(null);
   const [clientError, setClientError] = useState(null);
   const [loading, setLoading] = useState(null);
   const [mergedLakes, setMergedLakes] = useState([]);
-  const location = useLocation();
+  //const location = useLocation();
 
   const params = new URLSearchParams(location.search);
-  const distance = params.get("distance");
+  //const distance = params.get("distance");
   const eday = params.get("eday");
   const sday = params.get("sday");
   const ulat = params.get("ulat");
@@ -72,11 +84,11 @@ const Lowiska = function () {
             credentials: "same-origin",
             crossdomain: true,
             params: {
-              distance,
-              eday,
-              sday,
-              ulat,
-              ulng,
+              distance: parseInt(distance),
+              eday: formatedDates[1],
+              sday: formatedDates[0],
+              ulat: city.lat,
+              ulng: city.long,
             },
           }
         );
@@ -111,11 +123,7 @@ const Lowiska = function () {
       }
     };
 
-    if (location.search === "") {
-      return navigate("/");
-    } else {
-      loadLowiska();
-    }
+    loadLowiska();
 
     return () => {
       console.log("lowiska page component is unmounted");
@@ -125,74 +133,76 @@ const Lowiska = function () {
 
   return (
     <ConfigProvider locale={plPL}>
-      <LowiskaCss>
-        <div className="lowi">
-          <SearchBar />
-          <div className="lowi_body">
-            <div className="lowi_filters">
-              <div className="filtruj">
-                <h3>Filtruj</h3>
+      <PageContainer>
+        <LowiskaCss>
+          <div className="lowi">
+            {/* <SearchBar /> */}
+            <div className="lowi_body">
+              <div className="lowi_filters">
+                <div className="filtruj">
+                  <h3>Filtruj</h3>
+                </div>
+                <div className="lowi_select">
+                  <Select
+                    mode="multiple"
+                    allowClear
+                    showArrow="true"
+                    className="lowi_filter"
+                    size="large"
+                    placeholder="Odmiana  "
+                    onChange={handleChange}
+                  >
+                    <Option value="10">Karp</Option>
+                    <Option value="101">Rekin</Option>
+                    <Option value="50">Szczupak</Option>
+                    <Option value="100">Okoń</Option>
+                    <Option value="102">Śledź</Option>
+                  </Select>
+                  <Select
+                    mode="multiple"
+                    allowClear
+                    showArrow="true"
+                    className="lowi_filter"
+                    size="large"
+                    placeholder="Udogodnienia  "
+                    onChange={handleChange}
+                  >
+                    <Option value="10">WC</Option>
+                    <Option value="101">Namiot</Option>
+                    <Option value="50">Ponton</Option>
+                    <Option value="100">WiFi</Option>
+                  </Select>
+                </div>
               </div>
-              <div className="lowi_select">
-                <Select
-                  mode="multiple"
-                  allowClear
-                  showArrow="true"
-                  className="lowi_filter"
-                  size="large"
-                  placeholder="Odmiana  "
-                  onChange={handleChange}
-                >
-                  <Option value="10">Karp</Option>
-                  <Option value="101">Rekin</Option>
-                  <Option value="50">Szczupak</Option>
-                  <Option value="100">Okoń</Option>
-                  <Option value="102">Śledź</Option>
-                </Select>
-                <Select
-                  mode="multiple"
-                  allowClear
-                  showArrow="true"
-                  className="lowi_filter"
-                  size="large"
-                  placeholder="Udogodnienia  "
-                  onChange={handleChange}
-                >
-                  <Option value="10">WC</Option>
-                  <Option value="101">Namiot</Option>
-                  <Option value="50">Ponton</Option>
-                  <Option value="100">WiFi</Option>
-                </Select>
-              </div>
+              <section className="lowi_list">
+                {loading && (
+                  <>
+                    <Skeleton active />
+                    <br />
+                    <Skeleton active />
+                    <br />
+                  </>
+                )}
+                {serverError}
+                {clientError}
+                <ul className="lowi_list_ul">
+                  {mergedLakes.length === 0 &&
+                    clientError === null &&
+                    serverError === null &&
+                    !loading &&
+                    "not found"}
+                  {mergedLakes.length > 0 &&
+                    //.filter((lowisk) => lowisk.freePegs !== 0)
+                    //.sort((a, b) => (a.distance > b.distance ? 1 : -1))
+                    mergedLakes.map((node) => {
+                      return <FisheryCard key={node.id} data={node} />;
+                    })}
+                </ul>
+              </section>
             </div>
-            <section className="lowi_list">
-              {loading && (
-                <>
-                  <Skeleton active />
-                  <br />
-                  <Skeleton active />
-                  <br />
-                </>
-              )}
-              {serverError}
-              {clientError}
-              <ul className="lowi_list_ul">
-                {mergedLakes.length === 0 &&
-                  clientError === null &&
-                  serverError === null &&
-                  !loading &&
-                  "not found"}
-                {mergedLakes.length > 0 &&
-                  //.filter((lowisk) => lowisk.freePegs !== 0)
-                  //.sort((a, b) => (a.distance > b.distance ? 1 : -1))
-                  mergedLakes.map((node) => {
-                    return <FisheryCard key={node.id} data={node} />;
-                  })}
-              </ul>
-            </section>
           </div>
-        </div>
-      </LowiskaCss>
+        </LowiskaCss>
+      </PageContainer>
     </ConfigProvider>
   );
 };
@@ -241,9 +251,6 @@ const LowiskaCss = styled.div`
     font-weight: lighter;
   }
   .lowi_body {
-    position: absolute;
-    top: 120px;
-    bottom: 120px;
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: 250px auto;
@@ -342,8 +349,6 @@ const LowiskaCss = styled.div`
   }
   @media screen and (max-width: 965px) {
     .lowi_body {
-      position: absolute;
-      top: 120px;
       display: flex;
       flex-direction: column;
       width: 100vw;

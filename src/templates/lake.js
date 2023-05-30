@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { graphql, Link } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import { ConfigProvider, Breadcrumb, Skeleton } from "antd";
 import plPL from "antd/lib/locale/pl_PL";
@@ -8,10 +8,29 @@ import { LocationDot } from "../assets/icons";
 import { Collapse } from "react-collapse";
 import Reservator2 from "../components/Reservator2.js";
 import TimeTable from "../components/TimeTable";
-import { Div } from "../components/cssComponents";
+import { Div, PageContainer } from "../components/cssComponents";
 import useFetch from "../hooks/useFetch.js";
 import useWindowSize from "../hooks/useWindowSize";
 import { useLocation } from "@reach/router";
+import { Dog, Fish2 } from "../assets/icons";
+
+const mapTitleStyle = {
+  background: "var(--litegray)",
+  margin: 0,
+  borderRadius: "10px 10px 0 0",
+  padding: "5px",
+  fontWeight: 300,
+};
+const facilitiesStyle = {
+  width: "100%",
+  background: "var(--litegray)",
+  padding: "10px",
+  borderRadius: "10px",
+};
+
+const title = {
+  fontWeight: 300,
+};
 
 function Lake(props) {
   const {
@@ -72,68 +91,140 @@ function Lake(props) {
   return (
     <>
       <ConfigProvider locale={plPL}>
-        <Div>
-          <div className="breadcrumbs">
-            <Breadcrumb>
-              <Breadcrumb.Item>
-                <Link to="/">{}</Link>
-              </Breadcrumb.Item>
-              <Breadcrumb.Item>
-                <Link to={`/${voivodeship}`}>{voivodeship}</Link>
-              </Breadcrumb.Item>
-              <Breadcrumb.Item>
-                <Link to={`/${voivodeship}/${city}`}>{city}</Link>
-              </Breadcrumb.Item>
-              <Breadcrumb.Item>{lakeName}</Breadcrumb.Item>
-            </Breadcrumb>
+        <PageContainer>
+          <Div noBottomPadding>
+            <div className="breadcrumbs">
+              <Breadcrumb>
+                <Breadcrumb.Item>
+                  <Link to="/">{}</Link>
+                </Breadcrumb.Item>
+                <Breadcrumb.Item>
+                  <Link to={`/${voivodeship}`}>{voivodeship}</Link>
+                </Breadcrumb.Item>
+                <Breadcrumb.Item>
+                  <Link to={`/${voivodeship}/${city}`}>{city}</Link>
+                </Breadcrumb.Item>
+                <Breadcrumb.Item>{lakeName}</Breadcrumb.Item>
+              </Breadcrumb>
+            </div>
+
+            <div className="lowisko_card">
+              <h1 className="lowisko_name">{lakeName}</h1>
+              <div className="lowisko_city">
+                <LocationDot />
+                <span> {lakeName}</span>
+              </div>
+            </div>
+          </Div>
+          {/* TODO - create grid container from here to bttom */}
+          <div className="lowisko_image">
+            <GatsbyImage
+              style={{ maxHeight: "500px", width: "100%" }}
+              image={getImage(lakeImageFile)}
+              alt=""
+            ></GatsbyImage>
           </div>
 
-          <div className="lowisko_card">
-            <h1 className="lowisko_name">{lakeName}</h1>
-            <div className="lowisko_city">
-              <LocationDot />
-              <span> {lakeName}</span>
-            </div>
-          </div>
-        </Div>
-        <div className="lowisko_image">
-          <GatsbyImage
-            style={{ maxHeight: "500px", width: "100%" }}
-            image={getImage(lakeImageFile)}
-            alt=""
-          ></GatsbyImage>
-        </div>
+          <Div noBottomPadding>
+            {pegsWithReservationsMap && (
+              <div style={{ marginTop: "2em" }}>
+                <Reservator2
+                  lakeName={lakeName}
+                  pegs={pegsWithReservationsMap}
+                  pegBasePrice={pegBasePrice}
+                  facilities={facilities}
+                  currentPath={currentPath}
+                />
+              </div>
+            )}
+            {!loading ? (
+              <Section className="time-table">
+                <TimeTable
+                  id={id}
+                  pegs={pegsWithReservationsMap}
+                  maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
+                  maxDays={size}
+                  numberOfPegs={numberOfPegs}
+                />
+              </Section>
+            ) : (
+              <Skeleton active />
+            )}
 
-        <Div>
-          {pegsWithReservationsMap && (
-            <div style={{ marginTop: "2em" }}>
-              <Reservator2
-                lakeName={lakeName}
-                pegs={pegsWithReservationsMap}
-                pegBasePrice={pegBasePrice}
-                facilities={facilities}
-                currentPath={currentPath}
-              />
-            </div>
-          )}
-          {!loading ? (
-            <Section className="time-table">
-              <TimeTable
-                id={id}
-                pegs={pegsWithReservationsMap}
-                maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
-                maxDays={size}
-                numberOfPegs={numberOfPegs}
-              />
-            </Section>
-          ) : (
-            <Skeleton active />
-          )}
-
-          {isError && <p>Cos poszlo nie tak podczas ladowania rezerwacji</p>}
+            {isError && <p>Cos poszlo nie tak podczas ladowania rezerwacji</p>}
+          </Div>
           <Div>
+            <div className="map-container">
+              <h1 style={mapTitleStyle}>Mapa Stanowisk</h1>
+              <StaticImage
+                src={"../assets/images/mapa-stanowisk.jpg"}
+                placeholder="blurred"
+                layout="fullWidth"
+                style={{ borderRadius: "0 0 10 10" }}
+                // width={600}
+                // height={600}
+                formats={["auto", "webp", "avif"]}
+                alt="A Dog Image"
+                transformOptions={{ fit: "cover", cropFocus: "attention" }}
+              />
+            </div>
+          </Div>
+          <Div>
+            <div className="failities" style={facilitiesStyle}>
+              <h1 style={title}>Czego mozesz się spodziewać ?</h1>
+              <ul className="facilities-list">
+                <li>
+                  <Dog />
+                  <p>Parking</p>
+                </li>
+                <li>
+                  <Dog />
+                  <p>Psy mile widziane</p>
+                </li>
+                <li>
+                  <Dog />
+                  <p>Łódka do wynajęcia</p>
+                </li>
+                <li>
+                  <Dog />
+                  <>Parking</>
+                </li>
+                <li>
+                  <Dog />
+                  <p>Parking</p>
+                </li>
+              </ul>
+            </div>
+          </Div>
+          <Div>
+            <div className="failities" style={facilitiesStyle}>
+              <h1 style={title}>Jakie ryby występują na łowisku?</h1>
+              <ul className="facilities-list">
+                <li>
+                  <Fish2 />
+                  <p>Karaś</p>
+                </li>
+                <li>
+                  <Fish2 />
+                  <p>Szczupak</p>
+                </li>
+                <li>
+                  <Fish2 />
+                  <p>Lin</p>
+                </li>
+                <li>
+                  <Fish2 />
+                  <p>Karp</p>
+                </li>
+                <li>
+                  <Fish2 />
+                  <p>Rybka</p>
+                </li>
+              </ul>
+            </div>
+          </Div>
+          <Div noBottomPadding>
             <Section>
-              <div className="lowisko_udogo"></div>
               <div className="lowisko_regu">
                 <h2>Regulamin Łowiska</h2>
                 <div className="lowisko_regu_body">
@@ -152,7 +243,7 @@ function Lake(props) {
               </div>
             </Section>
           </Div>
-        </Div>
+        </PageContainer>
       </ConfigProvider>
     </>
   );

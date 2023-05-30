@@ -13,6 +13,8 @@ import { ReactComponent as V } from "../images/V.svg";
 import { ReactComponent as X } from "../images/X.svg";
 import { ReactComponent as LocationDot } from "../images/location-dot.svg";
 import { ReactComponent as QuestionMark } from "../images/question-mark.svg";
+import { ReactComponent as Dog } from "../images/dog.svg";
+import { ReactComponent as Fish2 } from "../images/fish2.svg";
 
 export {
   Pin,
@@ -30,4 +32,6 @@ export {
   X,
   LocationDot,
   QuestionMark,
+  Dog,
+  Fish2,
 };

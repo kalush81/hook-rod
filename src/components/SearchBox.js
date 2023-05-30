@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import { SearchForm } from "./SearchForm";
-import "moment/locale/pl";
+//import "moment/locale/pl";
 import plPL from "antd/lib/locale/pl_PL";
 import { ConfigProvider } from "antd";
 

@@ -3,19 +3,21 @@ import styled from "styled-components";
 import { graphql } from "gatsby";
 import FisheryCard from "../components/FisheryCard";
 import Map from "../components/Map";
-import { Div } from "../components/cssComponents";
+import { Div, PageContainer } from "../components/cssComponents";
 
 function Voivodeship(props) {
   return (
-    <Div>
-      <Header>Lista Łowisk w : </Header>
-      <Map />
-      <div>
-        {props.data.allLake.nodes.map((node) => {
-          return <FisheryCard key={node.id} data={node} />;
-        })}
-      </div>
-    </Div>
+    <PageContainer>
+      <Div>
+        <Header>Lista Łowisk w : </Header>
+        <Map />
+        <div>
+          {props.data.allLake.nodes.map((node) => {
+            return <FisheryCard key={node.id} data={node} />;
+          })}
+        </div>
+      </Div>
+    </PageContainer>
   );
 }
 

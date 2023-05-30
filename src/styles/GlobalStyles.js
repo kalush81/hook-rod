@@ -20,6 +20,7 @@ const GlobalStyles = createGlobalStyle`
     --white: #fff;
     --purple: #6750A4;
     --gray: #1A422B;
+    --litegray: #C4C4C4;
   }
   /* Lato-300 */
   @font-face {
@@ -68,7 +69,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-size: 1.6rem;
     scroll-behavior: smooth;
-    padding: 70px 0 100px 0;
+    // padding: 70px 0 100px 0;
     margin: 0;
   }
 
@@ -100,6 +101,7 @@ const GlobalStyles = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     color: var(---black)
+    padding: 0
   }
 
   img {

@@ -3,12 +3,7 @@ import styled from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Helmet } from "react-helmet";
-//import "moment/locale/pl";
-import { Select, DatePicker } from "antd";
 import SearchBox from "../components/SearchBox";
-
-// const { Option } = Select;
-// const { RangePicker } = DatePicker;
 
 const HomePg = () => {
   const data = useStaticQuery(
@@ -77,7 +72,7 @@ const HomePg = () => {
 
 const HomeCss = styled.div`
   scroll-behavior: smooth;
-  height: calc(100vh - 120px);
+  //height: calc(100vh - 120px);
 
   .home_cover {
     background-size: cover;

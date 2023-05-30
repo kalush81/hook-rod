@@ -33,7 +33,7 @@ const Reservator = ({
   lakeName,
   currentPath,
 }) => {
-  //console.log(pegs);
+  //console.log(pegs)
   const startDateInputRef = useRef(null);
   const [form] = Form.useForm();
 
@@ -328,7 +328,12 @@ const CalendarCSS = styled.div`
     border-radius: 19px;
     padding: 22px;
     max-width: 300px;
+    h1 {
+      font-weight: 200;
+      letter-spacing: 0.9;
+    }
   }
+
   h2 {
     font-size: 16px;
     margin-top: 5px;
