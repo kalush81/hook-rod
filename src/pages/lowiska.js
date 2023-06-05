@@ -6,10 +6,11 @@ import { Select, ConfigProvider, Skeleton } from "antd";
 import plPL from "antd/lib/locale/pl_PL";
 import dayjs from "dayjs";
 import FisheryCard from "../components/FisheryCard";
-import { graphql, useStaticQuery } from "gatsby";
+import { Link, graphql, navigate, useStaticQuery } from "gatsby";
 const { Option } = Select;
 
 const Lowiska = function ({ location = {} }) {
+  console.log("location", location);
   let coords = {};
   let dates = [];
   let distance = null;
@@ -102,6 +103,7 @@ const Lowiska = function ({ location = {} }) {
           setServerError("Problem z serwerem");
         }
         if (error.response.status >= 400 && error.response.status <= 499) {
+          console.log("error from server: ", error);
           setClientError("Coś poszło nietak, spróbuj ponownie");
         }
         console.log(
@@ -109,13 +111,22 @@ const Lowiska = function ({ location = {} }) {
         );
       }
     };
-
+    if (!location.state) return navigate("/");
     loadLowiska();
 
     return () => {
+      location.state = null;
       console.log("lowiska page component is unmounted");
     };
-  }, [eday, sday, distance, coords?.lat, coords?.long, data.allLake.edges]);
+  }, [
+    eday,
+    sday,
+    distance,
+    coords?.lat,
+    coords?.long,
+    data.allLake.edges,
+    location,
+  ]);
 
   return (
     <ConfigProvider locale={plPL}>
@@ -169,12 +180,18 @@ const Lowiska = function ({ location = {} }) {
                 )}
                 {serverError}
                 {clientError}
+                {mergedLakes.length < 1 && (
+                  <div>
+                    <p>"nie znaleziono łowisk spełniających podane kryteria"</p>
+                    <Link to="/">wróć do wyszukiwarki</Link>
+                  </div>
+                )}
                 <ul className="lowi_list_ul">
-                  {mergedLakes.length === 0 &&
+                  {/* {mergedLakes.length === 0 &&
                     clientError === null &&
                     serverError === null &&
                     !loading &&
-                    "not found"}
+                    "nie znaleziono łowisk s"} */}
                   {mergedLakes.length > 0 &&
                     mergedLakes.map((node) => {
                       return <FisheryCard key={node.id} data={node} />;
