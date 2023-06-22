@@ -12,9 +12,9 @@ function Voivodeship(props) {
         <Header>Lista Łowisk w : </Header>
         <Map />
         <div>
-          {props.data.allLake.nodes.map((node) => {
+          {/* {props.data.allLake.nodes.map((node) => {
             return <FisheryCard key={node.id} data={node} />;
-          })}
+          })} */}
         </div>
       </Div>
     </PageContainer>
@@ -27,8 +27,7 @@ export const query = graphql`
   query ($voivodeship: String) {
     allLake(filter: { voivodeship: { eq: $voivodeship } }) {
       nodes {
-        imagePath
-        lakeImageFile {
+        lakeMainImageFile {
           childImageSharp {
             gatsbyImageData
           }

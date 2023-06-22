@@ -40,7 +40,7 @@ function Lake(props) {
     id,
     facilities,
     numberOfPegs,
-    lakeImageFile,
+    //lakeMainImageFile,
     pegs,
     pegBasePrice,
   } = props.data.lake;
@@ -120,7 +120,7 @@ function Lake(props) {
           <div className="lowisko_image">
             <GatsbyImage
               style={{ maxHeight: "500px", width: "100%" }}
-              image={getImage(lakeImageFile)}
+              //image={getImage(lakeMainImageFile)}
               alt=""
             ></GatsbyImage>
           </div>
@@ -273,9 +273,8 @@ export const query = graphql`
         pegNumber
       }
       pegBasePrice
-      imagePath
       id
-      lakeImageFile {
+      lakeMainImageFile {
         childImageSharp {
           gatsbyImageData
         }

@@ -6,8 +6,6 @@ export const ReservationForm = (reservationDetails) => {
   const [agreement, setAgreement] = useState(false);
   const [linkToPaymentPage, setLinkToPayment] = useState("");
 
-  console.log("link to payment", linkToPaymentPage);
-
   /* modal states*/
   const [openModal, setOpenModal] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
@@ -52,7 +50,6 @@ export const ReservationForm = (reservationDetails) => {
           const response = await result.json();
           throw new Error(response.message);
         }
-        console.log("result", result);
         return await result.text();
       } catch (error) {
         console.error("error while fetching from API", error);

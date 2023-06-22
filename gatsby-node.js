@@ -73,9 +73,10 @@ exports.createPages = async ({ actions: { createPage }, createNodeId }) => {
     });
   });
   allLakes.forEach(async (item) => {
+    console.log("lake item", item);
     const lake = {
       ...item,
-      imagePath: `https://hookrod.s3.eu-central-1.amazonaws.com/${item.imagePath}`,
+      //mainImagePath: `https://hookrod.s3.eu-central-1.amazonaws.com/${item.mainImagePath}`,
     };
     createPage({
       path: `${lake.voivodeship}/${lake.city}/${lake.name}`,
@@ -86,7 +87,7 @@ exports.createPages = async ({ actions: { createPage }, createNodeId }) => {
     });
   });
 };
-
+// https://hookrod.s3.eu-central-1.amazonaws.com/Extra+Carp+Radymno/1675710309282-117714995_3471086599610855_7441530922398424970_o.jpg
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   //todo : Add properties for SEO such as description and keywords
@@ -95,7 +96,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       id: ID!
       pegs: [Peg!]!
       name: String!
-      imagePath: String
+      mainImagePath: String
+      images: [ImageUrl]
       city: String!
       voivodeship: String!
       numberOfPegs: Int!
@@ -112,6 +114,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       pegId: Int
       pegName: String
       pegNumber: Int
+    }
+
+    type ImageUrl {
+      path: String
     }
 
     type FishOnLake {
@@ -145,6 +151,7 @@ exports.sourceNodes = async ({
       latitude: item.latitude,
       longitude: item.longitude,
       pegs: item.pegs,
+      //images: item.images,
       pegBasePrice: item.pegBasePrice,
       parent: null,
       children: [],
@@ -153,10 +160,13 @@ exports.sourceNodes = async ({
         contentDigest: createContentDigest(item),
       },
     };
-    if (item.imagePath) {
-      node.imagePath = `https://hookrod.s3.eu-central-1.amazonaws.com/${item.imagePath}`;
+    if (item.images.length > 0) {
+      node.images = item.images;
+    }
+    if (item.mainImagePath) {
+      node.mainImagePath = `https://hookrod.s3.eu-central-1.amazonaws.com/${item.mainImagePath}`;
     } else {
-      node.imagePath =
+      node.mainImagePath =
         "https://hookrod.s3.eu-central-1.amazonaws.com/Extra+Carp+Radymno/1675710309282-117714995_3471086599610855_7441530922398424970_o.jpg";
     }
     if (

@@ -7,9 +7,9 @@ function City(props) {
   return (
     <div>
       <h1>list of all cities</h1>;
-      {props.data.allLake.nodes.map(({ lakeImageFile }) => {
-        return <TestLakeCard lakeImageFile={lakeImageFile} />;
-      })}
+      {/* {props.data.allLake.nodes.map(({ lakeMainImageFile }) => {
+        return <TestLakeCard lakeImageFile={lakeMainImageFile} />;
+      })} */}
     </div>
   );
 }
@@ -20,8 +20,7 @@ export const query = graphql`
   query ($city: String) {
     allLake(filter: { city: { eq: $city } }) {
       nodes {
-        imagePath
-        lakeImageFile {
+        lakeMainImageFile {
           childImageSharp {
             gatsbyImageData(width: 200)
           }

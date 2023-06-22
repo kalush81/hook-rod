@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Card, Select, Space, Form } from "antd";
+import { Card, Select, Space } from "antd";
 import plCities from "../assets/data/cities-with-county.json";
+import { Form } from "antd";
 const { Option } = Select;
+// eslint-disable-next-line react-hooks/rules-of-hooks
 
 let timeout;
 let currentValue;
@@ -14,7 +16,9 @@ const fetchCities = (value, callback) => {
   currentValue = value;
   const search = () => {
     if (currentValue === value) {
-      const data = plCities.filter((city) => city.name.includes(currentValue));
+      const data = plCities.filter((city) =>
+        city.name.toLowerCase().includes(currentValue.toLowerCase())
+      );
 
       const matchedCities = data.map((city) => {
         return {
@@ -39,18 +43,23 @@ const fetchCities = (value, callback) => {
 };
 
 export const SearchInput = (props) => {
+  //const [form] = Form.useForm();
   const [data, setData] = useState([]);
   const [value, setValue] = useState();
+  //const [isCitySelected, setIsCitySelected] = useState(false);
 
   const handleSearch = (newValue) => {
     fetchCities(newValue, setData);
   };
 
   const handleChange = (newValue, _) => {
-    //setValue(newValue);
+    setValue(newValue);
+    //setIsCitySelected(false);
   };
   const handleSelect = (_, option) => {
     props.setCoordsToForm(option.coords);
+    // setIsCitySelected(true);
+    // form.validateFields(["city"]);
   };
 
   useEffect(() => {

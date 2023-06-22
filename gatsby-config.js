@@ -56,8 +56,19 @@ module.exports = {
       resolve: `gatsby-plugin-remote-images`,
       options: {
         nodeType: "Lake",
-        imagePath: "imagePath",
-        name: "lakeImageFile",
+        imagePath: "mainImagePath",
+        name: "lakeMainImageFile",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: "Lake",
+        imagePath: "images[].path",
+        name: "lakeOtherImagesFiles",
+        type: "array",
+        prepareUrl: (url) =>
+          `https://hookrod.s3.eu-central-1.amazonaws.com/${url}`,
       },
     },
     {

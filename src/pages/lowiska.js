@@ -43,7 +43,7 @@ const Lowiska = function ({ location = {} }) {
             city
             numberOfPegs
             priceMin
-            lakeImageFile {
+            lakeMainImageFile {
               childImageSharp {
                 gatsbyImageData
               }
@@ -98,7 +98,7 @@ const Lowiska = function ({ location = {} }) {
         setClientError(null);
         setMergedLakes(combined);
       } catch (error) {
-        setMergedLakes([]);
+        setMergedLakes(null);
         if (error.response.status >= 500 && error.response.status <= 599) {
           setServerError("Problem z serwerem");
         }
@@ -180,7 +180,7 @@ const Lowiska = function ({ location = {} }) {
                 )}
                 {serverError}
                 {clientError}
-                {mergedLakes.length < 1 && (
+                {mergedLakes?.length < 1 && (
                   <div>
                     <p>"nie znaleziono łowisk spełniających podane kryteria"</p>
                     <Link to="/">wróć do wyszukiwarki</Link>
