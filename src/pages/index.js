@@ -11,32 +11,32 @@ const HomePg = () => {
       query {
         desktop_m: file(relativePath: { eq: "cover.jpeg" }) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 1920) {
+            fluid(quality: 50, maxWidth: 1000) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
-        ite: file(relativePath: { eq: "partner-meus.png" }) {
-          childImageSharp {
-            fluid(quality: 100, maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        itee: file(relativePath: { eq: "partner-pva.png" }) {
-          childImageSharp {
-            fluid(quality: 100, maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        iteee: file(relativePath: { eq: "partner-zwedka.png" }) {
-          childImageSharp {
-            fluid(quality: 100, maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
+        # ite: file(relativePath: { eq: "partner-meus.png" }) {
+        #   childImageSharp {
+        #     fluid(quality: 100, maxWidth: 1920) {
+        #       ...GatsbyImageSharpFluid_withWebp
+        #     }
+        #   }
+        # }
+        # itee: file(relativePath: { eq: "partner-pva.png" }) {
+        #   childImageSharp {
+        #     fluid(quality: 100, maxWidth: 1920) {
+        #       ...GatsbyImageSharpFluid_withWebp
+        #     }
+        #   }
+        # }
+        # iteee: file(relativePath: { eq: "partner-zwedka.png" }) {
+        #   childImageSharp {
+        #     fluid(quality: 100, maxWidth: 1920) {
+        #       ...GatsbyImageSharpFluid_withWebp
+        #     }
+        #   }
+        # }
       }
     `
   );

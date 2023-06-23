@@ -16,9 +16,25 @@ const fetchCities = (value, callback) => {
   currentValue = value;
   const search = () => {
     if (currentValue === value) {
-      const data = plCities.filter((city) =>
-        city.name.toLowerCase().includes(currentValue.toLowerCase())
-      );
+      const pattern = new RegExp(`\\b${currentValue}\\w*`, "i");
+      const data = plCities.filter((city) => pattern.test(city.name));
+
+      data.sort((city1, city2) => {
+        const startsWithCurrentValue1 = city1.name
+          .toLowerCase()
+          .startsWith(currentValue.toLowerCase());
+        const startsWithCurrentValue2 = city2.name
+          .toLowerCase()
+          .startsWith(currentValue.toLowerCase());
+
+        if (startsWithCurrentValue1 && !startsWithCurrentValue2) {
+          return -1;
+        } else if (!startsWithCurrentValue1 && startsWithCurrentValue2) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
 
       const matchedCities = data.map((city) => {
         return {

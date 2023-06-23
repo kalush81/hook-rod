@@ -41,9 +41,11 @@ function Lake(props) {
     facilities,
     numberOfPegs,
     lakeMainImageFile,
+    lakeOtherImagesFiles,
     pegs,
     pegBasePrice,
   } = props.data.lake;
+  console.log("lakeOtherImagesFiles", lakeOtherImagesFiles);
   const [opened, setOpened] = useState(false);
   const [pegsWithReservations, setPegWithReservations] = useState(null);
   const [isError, setIsError] = useState(false);
@@ -123,6 +125,11 @@ function Lake(props) {
               image={getImage(lakeMainImageFile)}
               alt=""
             ></GatsbyImage>
+          </div>
+          <div className="extra-images-wrapper">
+            {lakeOtherImagesFiles.map((image) => {
+              return <GatsbyImage image={getImage(image)} />;
+            })}
           </div>
 
           <Div noBottomPadding>
@@ -277,6 +284,11 @@ export const query = graphql`
       lakeMainImageFile {
         childImageSharp {
           gatsbyImageData
+        }
+      }
+      lakeOtherImagesFiles {
+        childImageSharp {
+          gatsbyImageData(width: 300, height: 100, quality: 10)
         }
       }
       numberOfPegs
