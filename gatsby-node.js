@@ -167,7 +167,7 @@ exports.sourceNodes = async ({
       node.mainImagePath = `https://hookrod.s3.eu-central-1.amazonaws.com/${item.mainImagePath}`;
     } else {
       node.mainImagePath =
-        "https://hookrod.s3.eu-central-1.amazonaws.com/Extra+Carp+Radymno/1675710309282-117714995_3471086599610855_7441530922398424970_o.jpg";
+        "https://res.cloudinary.com/dbzx3snkc/image/upload/v1687464590/misc/Screenshot_2023-06-22_at_22.07.15_oo2ypz.png";
     }
     if (
       item.fishOnLake &&

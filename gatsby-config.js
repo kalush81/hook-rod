@@ -58,6 +58,7 @@ module.exports = {
         nodeType: "Lake",
         imagePath: "mainImagePath",
         name: "lakeMainImageFile",
+        prepareUrl: (url) => encodeURI(url),
       },
     },
     {
@@ -68,7 +69,9 @@ module.exports = {
         name: "lakeOtherImagesFiles",
         type: "array",
         prepareUrl: (url) =>
-          `https://hookrod.s3.eu-central-1.amazonaws.com/${url}`,
+          `https://hookrod.s3.eu-central-1.amazonaws.com${encodeURI(
+            "/" + url
+          )}`,
       },
     },
     {

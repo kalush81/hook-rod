@@ -12,13 +12,14 @@ const listSpecies = (species) => {
 
 //prettier-ignore
 function FisheryCard({ data }) {
-  const { id, city, voivodeship, name:lakeName, lakeImageFile, fishOnLake, priceMin, numberOfPegs } = data
+  console.log('data on fishery card', data);
+  const { id, city, voivodeship, name:lakeName, lakeMainImageFile, fishOnLake, priceMin, numberOfPegs } = data
 
   return (
     <Div key={id}>
       <li className="lowi_itm">
         <Link to={`/${voivodeship}/${city}/${lakeName}`}>
-          <GatsbyImage style={{height: '170px'}} image={getImage(lakeImageFile)} alt=""></GatsbyImage>
+          <GatsbyImage style={{height: '170px'}} image={getImage(lakeMainImageFile)} alt=""></GatsbyImage>
           <h2 className="lowi_itm_header">{lakeName}</h2>
           <div className="lowi_itm_amnt lokalizacja">
             <Pin />

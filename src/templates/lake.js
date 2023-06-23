@@ -40,7 +40,7 @@ function Lake(props) {
     id,
     facilities,
     numberOfPegs,
-    //lakeMainImageFile,
+    lakeMainImageFile,
     pegs,
     pegBasePrice,
   } = props.data.lake;
@@ -120,7 +120,7 @@ function Lake(props) {
           <div className="lowisko_image">
             <GatsbyImage
               style={{ maxHeight: "500px", width: "100%" }}
-              //image={getImage(lakeMainImageFile)}
+              image={getImage(lakeMainImageFile)}
               alt=""
             ></GatsbyImage>
           </div>
