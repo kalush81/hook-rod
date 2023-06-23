@@ -67,7 +67,7 @@ module.exports = {
         nodeType: "Lake",
         imagePath: "images[].path",
         name: "lakeOtherImagesFiles",
-        type: "array",
+        //type: "array",
         prepareUrl: (url) =>
           `https://hookrod.s3.eu-central-1.amazonaws.com${encodeURI(
             "/" + url
