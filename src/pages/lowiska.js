@@ -84,6 +84,7 @@ const Lowiska = function ({ location = {} }) {
             },
           }
         );
+        console.log("response", response);
         const combined = response.data.map((lake) => {
           let lakeFromEdge = data.allLake.edges.find(
             (edge) => edge.node.id === String(lake.id)

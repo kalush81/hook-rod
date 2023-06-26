@@ -1,4 +1,11 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useRef,
+  useLayoutEffect,
+} from "react";
+import { flushSync } from "react-dom";
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
 import styled from "styled-components";
@@ -44,14 +51,23 @@ function Lake(props) {
     lakeOtherImagesFiles,
     pegs,
     pegBasePrice,
-  } = props.data.lake;
-  console.log("lakeOtherImagesFiles", lakeOtherImagesFiles);
+  } = props.data.a;
+  const {
+    lakeMainImageFile: firstThumbnail,
+    lakeOtherImagesFiles: restThumbnails,
+  } = props.data.b;
+
   const [opened, setOpened] = useState(false);
   const [pegsWithReservations, setPegWithReservations] = useState(null);
   const [isError, setIsError] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
   const size = useWindowSize();
+
+  const [index, setIndex] = useState(0);
+  const matchedRef = useRef(null);
+  const allImages = useRef(null);
+  const allThumbnails = useRef(null);
 
   const toggleOpened = () => setOpened((value) => !value);
   const { get, loading } = useFetch(
@@ -90,6 +106,23 @@ function Lake(props) {
         : { ...peg, reservations: [] };
     });
   }
+  useLayoutEffect(() => {
+    allImages.current = [lakeMainImageFile, ...lakeOtherImagesFiles];
+    allThumbnails.current = [firstThumbnail, ...restThumbnails];
+  }, []);
+
+  useEffect(() => {
+    if (matchedRef.current) {
+      matchedRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    }
+  }, [index]);
+
+  console.log("index", index);
+
   return (
     <>
       <ConfigProvider locale={plPL}>
@@ -115,22 +148,59 @@ function Lake(props) {
               <div className="lowisko_city">
                 <LocationDot />
                 <span> {lakeName}</span>
+                <button
+                  onClick={() => {
+                    flushSync(() => {
+                      if (index < allImages.current?.length - 1) {
+                        setIndex((index) => index + 1);
+                      } else {
+                        setIndex(0);
+                      }
+                    });
+                  }}
+                >
+                  scroll to next img
+                </button>
               </div>
             </div>
           </Div>
           {/* TODO - create grid container from here to bttom */}
-          <div className="lowisko_image">
-            <GatsbyImage
-              style={{ maxHeight: "500px", width: "100%" }}
-              image={getImage(lakeMainImageFile)}
-              alt=""
-            ></GatsbyImage>
-          </div>
-          <div className="extra-images-wrapper">
-            {lakeOtherImagesFiles.map((image) => {
-              return <GatsbyImage image={getImage(image)} />;
+
+          <BigImagesWrapper>
+            {allImages.current?.map((imageFile, i) => {
+              return (
+                <div ref={index === i ? matchedRef : null}>
+                  <GatsbyImage
+                    image={getImage(imageFile)}
+                    alt=""
+                    style={{ minWidth: "100vw", maxHeight: "495px" }}
+                  ></GatsbyImage>
+                </div>
+              );
             })}
-          </div>
+            {/* <div>
+              <GatsbyImage
+                image={getImage(lakeMainImageFile)}
+                alt=""
+              ></GatsbyImage>
+            </div> */}
+          </BigImagesWrapper>
+          {/** todo create thumbnails */}
+          <ThumbnailsWrapper>
+            {allThumbnails.current?.map((image, i) => {
+              return (
+                <div
+                  onClick={() =>
+                    flushSync(() => {
+                      setIndex(i);
+                    })
+                  }
+                >
+                  <GatsbyImage image={getImage(image)} />
+                </div>
+              );
+            })}
+          </ThumbnailsWrapper>
 
           <Div noBottomPadding>
             {pegsWithReservationsMap && (
@@ -259,8 +329,8 @@ function Lake(props) {
 export default Lake;
 
 export const query = graphql`
-  query ($id: String) {
-    lake(id: { eq: $id }) {
+  query lake($id: String) {
+    a: lake(id: { eq: $id }) {
       voivodeship
       priceMin
       name
@@ -288,10 +358,22 @@ export const query = graphql`
       }
       lakeOtherImagesFiles {
         childImageSharp {
-          gatsbyImageData(width: 300, height: 100, quality: 10)
+          gatsbyImageData
         }
       }
       numberOfPegs
+    }
+    b: lake(id: { eq: $id }) {
+      lakeMainImageFile {
+        childImageSharp {
+          gatsbyImageData(width: 100, height: 100, quality: 10)
+        }
+      }
+      lakeOtherImagesFiles {
+        childImageSharp {
+          gatsbyImageData(width: 100, height: 100, quality: 10)
+        }
+      }
     }
   }
 `;
@@ -301,4 +383,13 @@ const Section = styled.section`
   .lowisko_regu {
     padding-bottom: 60px;
   }
+`;
+
+const BigImagesWrapper = styled.div`
+  display: flex;
+  width: 100vw;
+  overflow-x: hidden;
+`;
+const ThumbnailsWrapper = styled.div`
+  display: flex;
 `;

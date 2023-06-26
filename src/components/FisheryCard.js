@@ -13,7 +13,7 @@ const listSpecies = (species) => {
 //prettier-ignore
 function FisheryCard({ data }) {
   console.log('data on fishery card', data);
-  const { id, city, voivodeship, name:lakeName, lakeMainImageFile, fishOnLake, priceMin, numberOfPegs } = data
+  const { id, city, voivodeship, name:lakeName, lakeMainImageFile, fishOnLake, priceMin, numberOfPegs, distance = null, freePegs = null } = data
 
   return (
     <Div key={id}>
@@ -50,6 +50,9 @@ function FisheryCard({ data }) {
             <Silhouette />
             <b>Liczba stanowisk: </b>
             {numberOfPegs}
+            {freePegs && <strong style={{fontSize: '10px'}}>
+              {"  "}/ wolnych {freePegs}
+            </strong>}
           </div>
           {/* {freePegs && (
               <div>
@@ -61,12 +64,12 @@ function FisheryCard({ data }) {
             <Dollar />
             <b>Od {priceMin} zł / osoba</b>
           </div>
-          {/* {distance && (
+          {distance && (
             <div className="lowi_itm_distance">
               <b>Odległość: </b>
               {distance} km
             </div>
-          )} */}
+          )}
         </Link>
       </li>
     </Div>
@@ -118,6 +121,7 @@ const Div = styled.div`
   }
   .stanowiska {
     margin-left: 1px;
+    align-items: center;
   }
   .cena {
     margin-left: 5px;
