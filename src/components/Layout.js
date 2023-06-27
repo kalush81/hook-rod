@@ -31,7 +31,8 @@ const Layout = ({ children, path }) => {
         noFixedPosition={
           path !== "/" &&
           path !== "/wybierz-wojew%C3%B3dztwo/" &&
-          path !== "/lowiska/"
+          path !== "/lowiska/" &&
+          path !== "/partnerzy/"
         }
       >
         Ant Design ©2023 Created by Ant UED

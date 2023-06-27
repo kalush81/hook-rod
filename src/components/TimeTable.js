@@ -44,7 +44,7 @@ const TimeTable = function (props) {
   return (
     <CalendarCss columns={maxDays + 1}>
       <header className="calendar_header">
-        <h3 style={{ textAlign: "center" }}>Terminarz rezerwacji</h3>
+        <h3 style={{ textAlign: "center" }}>Sprawdź dostępne terminy</h3>
       </header>
       <div className="flex">
         <button

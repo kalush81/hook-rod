@@ -56,7 +56,7 @@ const GlobalStyles = createGlobalStyle`
     background-size: 810px;
     background-attachment: fixed;
     font-family: 'Lato';
-    font-size: 10px;
+    font-size: 62.5%;
     color: var(--black);
     scroll-behavior: smooth;
     box-sizing: border-box !important;

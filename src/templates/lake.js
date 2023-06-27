@@ -109,6 +109,10 @@ function Lake(props) {
   useLayoutEffect(() => {
     allImages.current = [lakeMainImageFile, ...lakeOtherImagesFiles];
     allThumbnails.current = [firstThumbnail, ...restThumbnails];
+    allThumbnails.current = Array.from(
+      { length: 10 },
+      () => allThumbnails.current
+    ).flat();
   }, []);
 
   useEffect(() => {
@@ -203,24 +207,16 @@ function Lake(props) {
                     })
                   }
                 >
-                  <GatsbyImage image={getImage(image)} />
+                  <GatsbyImage
+                    image={getImage(image)}
+                    style={{ minWidth: "100px" }}
+                  />
                 </div>
               );
             })}
           </ThumbnailsWrapper>
 
           <Div noBottomPadding>
-            {pegsWithReservationsMap && (
-              <div style={{ marginTop: "2em" }}>
-                <Reservator2
-                  lakeName={lakeName}
-                  pegs={pegsWithReservationsMap}
-                  pegBasePrice={pegBasePrice}
-                  facilities={facilities}
-                  currentPath={currentPath}
-                />
-              </div>
-            )}
             {!loading ? (
               <Section className="time-table">
                 <TimeTable
@@ -233,6 +229,17 @@ function Lake(props) {
               </Section>
             ) : (
               <Skeleton active />
+            )}
+            {pegsWithReservationsMap && (
+              <div style={{ marginTop: "2em" }}>
+                <Reservator2
+                  lakeName={lakeName}
+                  pegs={pegsWithReservationsMap}
+                  pegBasePrice={pegBasePrice}
+                  facilities={facilities}
+                  currentPath={currentPath}
+                />
+              </div>
             )}
 
             {isError && <p>Cos poszlo nie tak podczas ladowania rezerwacji</p>}
@@ -399,4 +406,7 @@ const BigImagesWrapper = styled.div`
 `;
 const ThumbnailsWrapper = styled.div`
   display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  margin: 1rem;
 `;
