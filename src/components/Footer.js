@@ -3,8 +3,8 @@ import React from "react";
 import styled from "styled-components";
 import hookrod_logo from "../assets/images/hookrod_logo.svg";
 
-const Footer = () => (
-  <FooterCss className="footer_css">
+const Footer = ({ noFixedPosition }) => (
+  <FooterCss className="footer_css" noFixedPosition={noFixedPosition}>
     <div className="container">
       <div className="left">
         <ul>
@@ -45,7 +45,8 @@ const Footer = () => (
 );
 
 const FooterCss = styled.footer`
-  position: fixed;
+  //position: fixed;
+  position: ${(props) => (props.noFixedPosition ? "unset" : "fixed")};
   left: 0;
   bottom: 0;
   width: 100%;

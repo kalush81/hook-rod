@@ -12,7 +12,9 @@ import {
 //import "normalize.css";
 import GlobalStyles from "../styles/GlobalStyles";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, path }) => {
+  console.log("children", children);
+  console.log("path", path);
   //const [collapsed, setCollapsed] = useState(false);
   // const {
   //   token: { colorBgContainer },
@@ -24,7 +26,14 @@ const Layout = ({ children }) => {
       <Nav />
       {children}
 
-      <Footer style={{ textAlign: "center" }}>
+      <Footer
+        style={{ textAlign: "center" }}
+        noFixedPosition={
+          path !== "/" &&
+          path !== "/wybierz-wojew%C3%B3dztwo/" &&
+          path !== "/lowiska/"
+        }
+      >
         Ant Design ©2023 Created by Ant UED
       </Footer>
     </div>

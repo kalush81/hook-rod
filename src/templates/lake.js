@@ -144,8 +144,8 @@ function Lake(props) {
             </div>
 
             <div className="lowisko_card">
-              <h1 className="lowisko_name">{lakeName}</h1>
-              <div className="lowisko_city">
+              {/* <h1 className="lowisko_name">{lakeName}</h1> */}
+              <div className="lowisko_city" style={{ marginBottom: "20px" }}>
                 <LocationDot />
                 <span> {lakeName}</span>
                 <button
@@ -171,9 +171,16 @@ function Lake(props) {
               return (
                 <div ref={index === i ? matchedRef : null}>
                   <GatsbyImage
+                    placeholder="blured"
+                    objectFit="cover"
+                    layout={"fullWidth"}
+                    //imgStyle={{ objectFit: "cover" }}
                     image={getImage(imageFile)}
-                    alt=""
-                    style={{ minWidth: "100vw", maxHeight: "495px" }}
+                    alt={`lake image in ${city}`}
+                    style={{
+                      minWidth: "100vw",
+                      height: "500px",
+                    }}
                   ></GatsbyImage>
                 </div>
               );
