@@ -32,7 +32,9 @@ const Layout = ({ children, path }) => {
           path !== "/" &&
           path !== "/wybierz-wojew%C3%B3dztwo/" &&
           path !== "/lowiska/" &&
-          path !== "/partnerzy/"
+          path !== "/partnerzy/" &&
+          path !== "/strona-potwierdzenia/" &&
+          path !== "/nieudana-platnosc/"
         }
       >
         Ant Design ©2023 Created by Ant UED

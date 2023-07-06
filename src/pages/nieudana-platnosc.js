@@ -1,8 +1,12 @@
 import React from "react";
-import { Div } from "../components/cssComponents";
+import { Div, PageContainer } from "../components/cssComponents";
 
 const PaymentFailurePage = () => {
-  return <Div>Platnosc zakonczona niepowodzeniem !</Div>;
+  return (
+    <Div>
+      <PageContainer>Platnosc zakonczona niepowodzeniem !</PageContainer>
+    </Div>
+  );
 };
 
 export default PaymentFailurePage;
