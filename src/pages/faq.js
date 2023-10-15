@@ -1,15 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import { Div, PageContainer } from "../components/cssComponents/index"
 
 import Faq from "../components/Faq.js";
 
 const Frequently_asked = () => {
   return (
-    <>
-      <FAQCss className="reg_form">
-        <Faq />
-      </FAQCss>
-    </>
+    <PageContainer>
+      <Div>
+        <FAQCss className="reg_form">
+          <Faq />
+          {/* <p>adasdas</p> */}
+        </FAQCss>
+      </Div>
+      </PageContainer>
   );
 };
 

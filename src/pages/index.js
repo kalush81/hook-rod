@@ -11,7 +11,7 @@ const HomePg = () => {
       query {
         desktop_m: file(relativePath: { eq: "cover.jpeg" }) {
           childImageSharp {
-            fluid(quality: 50, maxWidth: 1000) {
+            fluid(quality: 100, maxWidth: 1920) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }

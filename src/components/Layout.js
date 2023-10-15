@@ -34,7 +34,9 @@ const Layout = ({ children, path }) => {
           path !== "/lowiska/" &&
           path !== "/partnerzy/" &&
           path !== "/strona-potwierdzenia/" &&
-          path !== "/nieudana-platnosc/"
+          path !== "/nieudana-platnosc/" &&
+          path !== "/faq/" &&
+          path !== "/onas/"
         }
       >
         Ant Design ©2023 Created by Ant UED
