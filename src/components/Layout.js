@@ -28,16 +28,6 @@ const Layout = ({ children, path }) => {
 
       <Footer
         style={{ textAlign: "center" }}
-        noFixedPosition={
-          path !== "/" &&
-          path !== "/wybierz-wojew%C3%B3dztwo/" &&
-          path !== "/lowiska/" &&
-          path !== "/partnerzy/" &&
-          path !== "/strona-potwierdzenia/" &&
-          path !== "/nieudana-platnosc/" &&
-          path !== "/faq/" &&
-          path !== "/onas/"
-        }
       >
         Ant Design ©2023 Created by Ant UED
       </Footer>

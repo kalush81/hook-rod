@@ -45,8 +45,7 @@ const Footer = ({ noFixedPosition }) => (
 );
 
 const FooterCss = styled.footer`
-  //position: fixed;
-  position: ${(props) => (props.noFixedPosition ? "unset" : "fixed")};
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
