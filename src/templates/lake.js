@@ -5,6 +5,9 @@ import React, {
   useRef,
   useLayoutEffect,
 } from "react";
+//import { Helmet } from "react-helmet";
+import { SEO } from "../components/seo";
+import GoogleMapReact from 'google-map-react';
 import { flushSync } from "react-dom";
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
@@ -20,6 +23,8 @@ import useFetch from "../hooks/useFetch.js";
 import useWindowSize from "../hooks/useWindowSize";
 import { useLocation } from "@reach/router";
 import { Dog, Fish2 } from "../assets/icons";
+
+
 
 const mapTitleStyle = {
   background: "var(--litegray)",
@@ -45,17 +50,28 @@ function Lake(props) {
     city,
     name: lakeName,
     id,
+    latitude,
+    longitude,
     facilities,
     numberOfPegs,
     lakeMainImageFile,
     lakeOtherImagesFiles,
     pegs,
     pegBasePrice,
+    metadata
   } = props.data.a;
   const {
     lakeMainImageFile: firstThumbnail,
     lakeOtherImagesFiles: restThumbnails,
   } = props.data.b;
+
+  const defaultProps = {
+    center: {
+      lat: latitude,
+      lng: longitude
+    },
+    zoom: 11
+  };
 
   const [opened, setOpened] = useState(false);
   const [pegsWithReservations, setPegWithReservations] = useState(null);
@@ -77,7 +93,7 @@ function Lake(props) {
   const fetchData = useCallback(async () => {
     try {
       const data = await get(id);
-      setPegWithReservations(data);
+      setPegWithReservations([]);
     } catch (error) {
       setIsError(true);
       console.error(
@@ -217,6 +233,8 @@ function Lake(props) {
           </ThumbnailsWrapper>
 
           <Div noBottomPadding>
+            <div style={{width: '100%', display: 'grid', gridTemplateColumns: '2fr 1fr'}}>
+
             {!loading ? (
               <Section className="time-table">
                 <TimeTable
@@ -241,11 +259,13 @@ function Lake(props) {
                 />
               </div>
             )}
+            </div>
 
             {isError && <p>Cos poszlo nie tak podczas ladowania rezerwacji</p>}
           </Div>
+
           <Div>
-            <div className="map-container">
+            {/* <div className="map-container">
               <h1 style={mapTitleStyle}>Mapa Stanowisk</h1>
               <StaticImage
                 src={"../assets/images/mapa-stanowisk.jpg"}
@@ -258,7 +278,21 @@ function Lake(props) {
                 alt="A Dog Image"
                 transformOptions={{ fit: "cover", cropFocus: "attention" }}
               />
-            </div>
+            </div> */}
+            <div style={{ height: '50vh', width: '100%' }}>
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: "AIzaSyByN_9TGcmxwAZMkuAAGfWzXd7FZQAKYUw" }}
+        defaultCenter={defaultProps.center}
+        defaultZoom={defaultProps.zoom}
+        yesIWantToUseGoogleMapApiInternals
+      >
+        {/* <AnyReactComponent
+          lat={59.955413}
+          lng={30.337844}
+          text="My Marker"
+        /> */}
+      </GoogleMapReact>
+    </div>
           </Div>
           <Div>
             <div className="failities" style={facilitiesStyle}>
@@ -349,6 +383,8 @@ export const query = graphql`
       priceMin
       name
       city
+      latitude
+      longitude
       facilities {
         name
         basePrice
@@ -365,6 +401,10 @@ export const query = graphql`
       }
       pegBasePrice
       id
+      metadata {
+        description
+        keywords
+      }
       lakeMainImageFile {
         childImageSharp {
           gatsbyImageData
@@ -410,3 +450,9 @@ const ThumbnailsWrapper = styled.div`
   gap: 1rem;
   margin: 1rem;
 `;
+
+export const Head = (props) => {
+  //console.log('props in HEAD', props)
+  return <SEO description={props.data.a.metadata.description}/>
+}
+

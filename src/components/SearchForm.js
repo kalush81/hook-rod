@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import dayjs from 'dayjs';
 import { navigate } from "gatsby";
 import { Select, DatePicker, Button, Form } from "antd";
 import { SearchInput } from "./SearchInput";
@@ -14,6 +15,11 @@ export const SearchForm = ({ className }) => {
 
   const setCoordsToForm = (coords) => {
     form.setFieldsValue({ city: coords });
+  };
+
+  const disabledDate = (current) => {
+    // Can not select days before today and today
+    return current && current < dayjs().endOf('day');
   };
 
   return (
@@ -61,6 +67,7 @@ export const SearchForm = ({ className }) => {
         ]}
       >
         <RangePicker
+          disabledDate={disabledDate}
           className="home_cover_search_date"
           size="large"
           placeholder={["Kiedy?"]}

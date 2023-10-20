@@ -2,7 +2,11 @@
 
 module.exports = {
   siteMetadata: {
-    title: `HookRod`,
+    title: `System Rezerwacji Na Łowiskach`,
+    description: `platforma słuząca do rezerwacji stanowisk na łowiskach komercyjnych , jak równiez wszelakich udogodnień`,
+    twitterUsername: `@unknown`,
+    image: ``,
+    siteUrl: `localhost:8000`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,

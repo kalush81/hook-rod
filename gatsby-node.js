@@ -1,3 +1,43 @@
+// const mockData = [
+//   {
+//     city: "Katowice_Test",
+//     facilities: [
+//       {
+//         basePrice: 0,
+//         name: "ponton"
+//       }
+//     ],
+//     fishOnLake: [
+//       {
+//         name: "Karp"
+//       }
+//     ],
+//     id: "2",
+//     images: [
+//       {
+//         path: ""
+//       }
+//     ],
+//     latitude: 50.719236, 
+//     longitude: 18.118428,
+//     mainImagePath: "",
+//     metadata: "meta dane",
+//     name: "dolina 3 stawow kato",
+//     numberOfPegs: 1,
+//     pegBasePrice: 10,
+//     pegs: [
+//       {
+//         pegId: "3",
+//         pegName: "stanowisko nr 1",
+//         pegNumber: 1
+//       }
+//     ],
+//     priceMin: 10,
+//     regulations: "przepisy... ",
+//     voivodeship: "śląskie"
+//   }
+// ]
+
 function sortData(data) {
   const result = {
     voivodeships: [],
@@ -108,6 +148,13 @@ exports.createSchemaCustomization = ({ actions }) => {
       fishOnLake: [FishOnLake]!
       facilities: [Facility]!
       pegBasePrice:  Float!
+      metadata: MetaData
+    }
+
+    type MetaData {
+      id: String
+      description: String
+      keywords: String
     }
 
     type Peg {
@@ -151,8 +198,9 @@ exports.sourceNodes = async ({
       latitude: item.latitude,
       longitude: item.longitude,
       pegs: item.pegs,
-      //images: item.images,
+      images: item.images,
       pegBasePrice: item.pegBasePrice,
+      metadata: item.metadata,
       parent: null,
       children: [],
       internal: {

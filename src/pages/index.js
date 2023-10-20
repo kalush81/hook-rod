@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Helmet } from "react-helmet";
 import SearchBox from "../components/SearchBox";
+import { SEO } from "../components/seo"
 
 const HomePg = () => {
   const data = useStaticQuery(
@@ -52,10 +53,10 @@ const HomePg = () => {
 
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <meta charSet="utf-8" />
         <title>Hook&Rod</title>
-      </Helmet>
+      </Helmet> */}
       <HomeCss>
         <BackgroundImage
           Tag="div"
@@ -92,3 +93,7 @@ const HomeCss = styled.div`
 `;
 
 export default HomePg;
+
+export const Head = () => (
+  <SEO />
+)
