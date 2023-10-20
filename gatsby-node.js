@@ -158,7 +158,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type Peg {
-      pegId: Int
+      pegId: String
       pegName: String
       pegNumber: Int
     }
