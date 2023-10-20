@@ -93,7 +93,7 @@ function Lake(props) {
   const fetchData = useCallback(async () => {
     try {
       const data = await get(id);
-      setPegWithReservations([]);
+      setPegWithReservations(data);
     } catch (error) {
       setIsError(true);
       console.error(
