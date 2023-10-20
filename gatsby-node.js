@@ -152,13 +152,13 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type MetaData {
-      id: String
+      id: ID
       description: String
       keywords: String
     }
 
     type Peg {
-      pegId: String
+      pegId: ID
       pegName: String
       pegNumber: Int
     }

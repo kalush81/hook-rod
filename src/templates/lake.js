@@ -453,6 +453,6 @@ const ThumbnailsWrapper = styled.div`
 
 export const Head = (props) => {
   //console.log('props in HEAD', props)
-  return <SEO description={props.data.a.metadata.description}/>
+  return <SEO description={props.data.a.metadata.description} title={props.data.a.name}/>
 }
 

@@ -33,7 +33,8 @@ const Reservator = ({
   lakeName,
   currentPath,
 }) => {
-  //console.log(pegs)
+  console.log('[pegs]', pegs, "[pegBasePrice]", pegBasePrice, '[facilities]', facilities, '[lakeName]',lakeName, '[currentPath]', currentPath)
+
   const startDateInputRef = useRef(null);
   const [form] = Form.useForm();
 
@@ -69,7 +70,7 @@ const Reservator = ({
   const handleSetNumGuests = (num) => {
     setNumGuests(parseInt(num));
   };
-  console.log("reservations", reservations);
+  
   const handleSelectPeg = (pegId) => {
     if (pegId) {
       setReservations(() => {
@@ -105,7 +106,7 @@ const Reservator = ({
       const reservedEnd = dayjs(reservations[0].startDate).add(1, "day");
       return current.set(noon) > reservedEnd || current < dayjs(range[0]);
     } else {
-      for (const { startDate, endDate } of reservations) {
+      for (const { startDate, endDate } of reservations || []) {
         const reservedStart = dayjs(startDate);
         const reservedEnd = dayjs(endDate);
         if (
@@ -128,7 +129,7 @@ const Reservator = ({
       setNumDays(0);
     } else {
       setReservations(() => {
-        return pegs.find((peg) => peg.pegId === pegId).reservations;
+        return pegs.find((peg) => peg.pegId === pegId)?.reservations;
       });
     }
   };
@@ -225,6 +226,7 @@ const Reservator = ({
               ]}
             >
               <RangePicker
+                disabled={!pegId}
                 ref={startDateInputRef}
                 disabledDate={disableDate}
                 onCalendarChange={handleRangeChange}
