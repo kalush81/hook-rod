@@ -158,7 +158,7 @@ const Reservator = ({
     <Form form={form} name="register" onFinish={onFinish} scrollToFirstError>
       <CalendarCSS>
         <div className="container">
-          <h1>Rezerwacja</h1>
+          <h1 style={{textAlign: 'center'}}>Rezerwacja</h1>
           <h3>Cennik: 1 stanowisko / doba - {pegBasePrice}</h3>
           <div className="row row1">
             <Form.Item

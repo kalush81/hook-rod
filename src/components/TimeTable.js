@@ -43,9 +43,9 @@ const TimeTable = function (props) {
 
   return (
     <CalendarCss columns={maxDays + 1}>
-      <header className="calendar_header">
+      {/* <header className="calendar_header">
         <h3 style={{ textAlign: "center" }}>Sprawdź dostępne terminy</h3>
-      </header>
+      </header> */}
       <div className="flex">
         <button
           className="calendar_lowisko_day_box noStyle"
