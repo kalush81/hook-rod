@@ -33,11 +33,10 @@ const Reservator = ({
   lakeName,
   currentPath,
 }) => {
-  console.log('[pegs]', pegs, "[pegBasePrice]", pegBasePrice, '[facilities]', facilities, '[lakeName]',lakeName, '[currentPath]', currentPath)
+  //console.log('[pegs]', pegs, "[pegBasePrice]", pegBasePrice, '[facilities]', facilities, '[lakeName]',lakeName, '[currentPath]', currentPath)
 
   const startDateInputRef = useRef(null);
   const [form] = Form.useForm();
-
   const [reservations, setReservations] = useState([]);
   const [pegId, setPegId] = useState(null);
   const [range, setRange] = useState([]);
@@ -63,7 +62,6 @@ const Reservator = ({
         pegBasePrice * numGuests * numDays +
         getTotalOfextras(extraOptions, numDays),
     };
-    //console.log("newReservationData", newReservationData);
     navigate("/reservation-details", { state: { newReservationData } });
   };
 

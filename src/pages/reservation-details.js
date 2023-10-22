@@ -56,7 +56,6 @@ const ReservatorSummary = ({
 
 //entire page
 const ReservationDetails = (props) => {
-  //console.log("props in  ReservationDetails", props);
   const [sD, eD] = props.location.state?.newReservationData?.dates || [];
   const {
     pegId,
@@ -104,7 +103,7 @@ const ReservationDetails = (props) => {
             .set("minute", 0)
             .format("YYYY-MM-DD hh:mm")}
           // numDays={numDays}
-          cost={parseFloat(Number(totalPrice).toFixed(2)).toString()}
+          cost={totalPrice}
         />
         <Space className="site-button-ghost-wrapper" wrap>
           <Button type="primary" ghost onClick={() => window.history.back()}>

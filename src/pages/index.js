@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
-import { Helmet } from "react-helmet";
+//import { Helmet } from "react-helmet";
 import SearchBox from "../components/SearchBox";
 import { SEO } from "../components/seo"
 
@@ -44,9 +44,6 @@ const HomePg = () => {
 
   // Set ImageData.
   const imageData = data.desktop_m.childImageSharp.fluid;
-
-  //console.log("imageData", imageData);
-
   // const imageDataP1 = data.ite.childImageSharp.fluid;
   // const imageDataP2 = data.itee.childImageSharp.fluid;
   // const imageDataP3 = data.iteee.childImageSharp.fluid;

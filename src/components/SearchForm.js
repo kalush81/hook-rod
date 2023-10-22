@@ -22,6 +22,7 @@ export const SearchForm = ({ className }) => {
     return current && current < dayjs().endOf('day');
   };
 
+
   return (
     <Form form={form} onFinish={handleFinishForm} className="home_cover_search">
       <Form.Item
@@ -67,6 +68,7 @@ export const SearchForm = ({ className }) => {
         ]}
       >
         <RangePicker
+          
           disabledDate={disabledDate}
           className="home_cover_search_date"
           size="large"

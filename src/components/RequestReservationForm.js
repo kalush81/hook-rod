@@ -23,8 +23,11 @@ export const ReservationForm = (reservationDetails) => {
     const reservationData = {
       ...personalData,
       ...reservationDetails,
+      extraServicesId: [],
       agreement: Boolean(agreement).toString(),
     };
+
+    console.log('reservData', reservationData)
 
     const sendForm = async () => {
       setOpenModal(true);
