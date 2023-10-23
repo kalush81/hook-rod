@@ -10,12 +10,14 @@ function Voivodeship(props) {
     <PageContainer>
       <Div>
         <Header>Lista Łowisk w : </Header>
+        <Div responsive>
         <Map />
-        <div>
+        <div className="fishery-cards-wrapper">
           {props.data.allLake.nodes.map((node) => {
             return <FisheryCard key={node.id} data={node} />;
           })}
         </div>
+        </Div>
       </Div>
     </PageContainer>
   );

@@ -25,6 +25,19 @@ export const Div = styled.div`
   .map-container {
     width: 100%;
   }
+  @media (min-width: 900px) {
+    grid-template-columns: ${({responsive}) => responsive ? "1fr 2fr;" : "auto;"}
+    
+  }
+  .fishery-cards-wrapper {
+    grid-template-columns: unset;
+
+      @media (min-width: 660px) {
+        gap: 1em;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }  
+  }
 `;
 
 export const PageContainer = styled.div`

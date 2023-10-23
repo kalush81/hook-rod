@@ -24,8 +24,6 @@ import useWindowSize from "../hooks/useWindowSize";
 import { useLocation } from "@reach/router";
 import { Dog, Fish2 } from "../assets/icons";
 
-
-
 const mapTitleStyle = {
   background: "var(--litegray)",
   margin: 0,
@@ -455,4 +453,5 @@ export const Head = (props) => {
   //console.log('props in HEAD', props)
   return <SEO description={props.data.a.metadata.description} title={props.data.a.name}/>
 }
+
 

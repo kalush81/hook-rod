@@ -86,7 +86,7 @@ const Div = styled.div`
     cursor: pointer;
     transition: all 0.3s ease-out;
     position: relative;
-    width: 325px;
+    max-width: 290px;
     height: 471px;
     background: rgba(237, 237, 237);
     svg {

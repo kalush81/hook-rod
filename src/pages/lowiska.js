@@ -99,9 +99,11 @@ const Lowiska = function ({ location = {} }) {
         setClientError(null);
         setMergedLakes(combined);
       } catch (error) {
+        console.log("ERROR ON ChecklakesOnDates", error)
+        console.log("ERROR STATUS .. ", error.response.status)
         setMergedLakes(null);
         if (error.response.status >= 500 && error.response.status <= 599) {
-          setServerError("Problem z serwerem");
+          return setServerError("Problem z serwerem");
         }
         if (error.response.status >= 400 && error.response.status <= 499) {
           console.log("error from server: ", error);
@@ -128,7 +130,8 @@ const Lowiska = function ({ location = {} }) {
     data.allLake.edges,
     location,
   ]);
-
+  if (serverError) return <h1 style={{marginTop: '4em'}}>Server Error</h1>
+  if (clientError) return  <h1 style={{marginTop: '4em'}}>UI error</h1> 
   return (
     <ConfigProvider locale={plPL}>
       <PageContainer>
@@ -179,8 +182,7 @@ const Lowiska = function ({ location = {} }) {
                     <br />
                   </>
                 )}
-                {serverError}
-                {clientError}
+                
                 {mergedLakes?.length < 1 && (
                   <div>
                     <p>"nie znaleziono łowisk spełniających podane kryteria"</p>
@@ -193,7 +195,7 @@ const Lowiska = function ({ location = {} }) {
                     serverError === null &&
                     !loading &&
                     "nie znaleziono łowisk s"} */}
-                  {mergedLakes.length > 0 &&
+                  {mergedLakes?.length > 0 &&
                     mergedLakes.map((node) => {
                       return <FisheryCard key={node.id} data={node} />;
                     })}

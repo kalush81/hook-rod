@@ -191,6 +191,11 @@ function Map({ children, disabled }) {
 const MapCssNew = styled.div`
   width: 100%;
   max-width: 450px;
+  @media (min-width: 700px) {
+    position: sticky;
+  }
+  top: 40px;
+  align-self: flex-start;
   svg {
     path {
       fill: var(--yellow);
