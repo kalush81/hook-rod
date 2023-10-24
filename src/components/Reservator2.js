@@ -29,7 +29,7 @@ const noon = {
 const Reservator = ({
   pegs,
   pegBasePrice,
-  facilities,
+  extraServices,
   lakeName,
   currentPath,
 }) => {
@@ -51,7 +51,6 @@ const Reservator = ({
   }, [form, range]);
 
   const onFinish = (formValues) => {
-    //console.log("form reservation values", formValues);
     let newReservationData = {
       ...formValues,
       lakeName,
@@ -234,7 +233,7 @@ const Reservator = ({
               />
             </Form.Item>
           </div>
-          {facilities.length > 0 && (
+          {extraServices.length > 0 && (
             <>
               <h2>Opcje dodatkowe</h2>
               <div className="options">
@@ -243,12 +242,12 @@ const Reservator = ({
                     style={{ display: "block" }}
                     onChange={onChangeCheckBoxes}
                   >
-                    {facilities.map((f) => {
+                    {extraServices.map((f) => {
                       return (
-                        <div key={f.name} className="options_row">
+                        <div key={f.id} className="options_row">
                           <Checkbox className="checkbox" value={f}></Checkbox>
                           <h3 style={{ margin: 0 }}>
-                            {f.name} {f.basePrice}zł/doba
+                            {f.name} {f.price}zł/doba
                           </h3>
                         </div>
                       );

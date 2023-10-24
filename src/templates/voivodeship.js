@@ -47,6 +47,7 @@ export const query = graphql`
         }
         voivodeship
         priceMin
+        numberOfPegs
       }
     }
   }

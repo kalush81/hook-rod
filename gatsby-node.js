@@ -149,6 +149,13 @@ exports.createSchemaCustomization = ({ actions }) => {
       facilities: [Facility]!
       pegBasePrice:  Float!
       metadata: MetaData
+      extraServices: [ExtraService]
+    }
+
+    type ExtraService {
+      id: ID
+      name: String
+      price: Float
     }
 
     type MetaData {
@@ -201,6 +208,7 @@ exports.sourceNodes = async ({
       images: item.images,
       pegBasePrice: item.pegBasePrice,
       metadata: item.metadata,
+      extraServices: item.extraService,
       parent: null,
       children: [],
       internal: {

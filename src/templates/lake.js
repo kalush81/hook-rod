@@ -43,6 +43,7 @@ const title = {
 };
 
 function Lake(props) {
+  console.log("props", props);
   const {
     voivodeship,
     city,
@@ -56,7 +57,8 @@ function Lake(props) {
     lakeOtherImagesFiles,
     pegs,
     pegBasePrice,
-    metadata
+    metadata,
+    extraServices,
   } = props.data.a;
   const {
     lakeMainImageFile: firstThumbnail,
@@ -252,7 +254,7 @@ function Lake(props) {
                   lakeName={lakeName}
                   pegs={pegsWithReservationsMap}
                   pegBasePrice={pegBasePrice}
-                  facilities={facilities}
+                  extraServices={extraServices}
                   currentPath={currentPath}
                 />
               </div>
@@ -402,6 +404,11 @@ export const query = graphql`
       metadata {
         description
         keywords
+      }
+      extraServices {
+        id
+        name
+        price
       }
       lakeMainImageFile {
         childImageSharp {

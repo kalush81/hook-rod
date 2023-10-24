@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Card, Select, Space } from "antd";
+import { Select, Space } from "antd";
 import plCities from "../assets/data/cities-with-county.json";
-import { Form } from "antd";
 const { Option } = Select;
 // eslint-disable-next-line react-hooks/rules-of-hooks
 
@@ -59,10 +58,8 @@ const fetchCities = (value, callback) => {
 };
 
 export const SearchInput = (props) => {
-  //const [form] = Form.useForm();
   const [data, setData] = useState([]);
   const [value, setValue] = useState();
-  //const [isCitySelected, setIsCitySelected] = useState(false);
 
   const handleSearch = (newValue) => {
     fetchCities(newValue, setData);
@@ -70,12 +67,9 @@ export const SearchInput = (props) => {
 
   const handleChange = (newValue, _) => {
     setValue(newValue);
-    //setIsCitySelected(false);
   };
   const handleSelect = (_, option) => {
     props.setCoordsToForm(option.coords);
-    // setIsCitySelected(true);
-    // form.validateFields(["city"]);
   };
 
   useEffect(() => {
