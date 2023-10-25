@@ -1,10 +1,10 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 //import "antd/dist/antd.css";
 
-import lato300 from "../assets/fonts/Lato-Thin.woff";
-import lato400 from "../assets/fonts/Lato-Regular.woff";
-import lato500 from "../assets/fonts/Lato-Medium.woff";
-import lato700 from "../assets/fonts/Lato-Bold.woff";
+import lato300 from '../assets/fonts/Lato-Thin.woff';
+import lato400 from '../assets/fonts/Lato-Regular.woff';
+import lato500 from '../assets/fonts/Lato-Medium.woff';
+import lato700 from '../assets/fonts/Lato-Bold.woff';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -71,6 +71,11 @@ const GlobalStyles = createGlobalStyle`
     scroll-behavior: smooth;
     // padding: 70px 0 100px 0;
     margin: 0;
+  }
+
+  .thumbs-wrapper.axis-vertical {
+    display: flex;
+    justify-content: center;
   }
 
   .ant-picker-panels {
