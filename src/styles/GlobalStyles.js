@@ -52,7 +52,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    background-color:rgba(255, 255, 255, 0.253);
+    //background-color:rgba(255, 255, 255, 0.253);
+    background-color: black;
     background-size: 810px;
     background-attachment: fixed;
     font-family: 'Lato';
