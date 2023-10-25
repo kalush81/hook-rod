@@ -12,7 +12,6 @@ const listSpecies = (species) => {
 
 //prettier-ignore
 function FisheryCard({ data }) {
-  console.log('data on fishery card', data);
   const { id, city, voivodeship, name:lakeName, lakeMainImageFile, fishOnLake, priceMin, numberOfPegs, distance = null, freePegs = null } = data
 
   return (

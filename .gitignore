@@ -1,6 +1,8 @@
 node_modules/
 public/
 do-omowienia.md
+.env.*
+*.prettierrc
 
 # Logs
 logs

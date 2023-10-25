@@ -73,7 +73,7 @@ export const SearchInput = (props) => {
   };
 
   useEffect(() => {
-    console.log("search input rendered");
+    //console.log("search input rendered");
   }, []);
 
   return (

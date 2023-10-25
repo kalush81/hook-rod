@@ -1,80 +1,118 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useRef,
-  useLayoutEffect,
-} from "react";
+import React, { useState, useEffect, useRef } from 'react';
 //import { Helmet } from "react-helmet";
-import { SEO } from "../components/seo";
+import { SEO } from '../components/seo';
 import GoogleMapReact from 'google-map-react';
-import { flushSync } from "react-dom";
-import { graphql, Link } from "gatsby";
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
-import styled from "styled-components";
-import { ConfigProvider, Breadcrumb, Skeleton } from "antd";
-import plPL from "antd/lib/locale/pl_PL";
-import { LocationDot } from "../assets/icons";
-import { Collapse } from "react-collapse";
-import Reservator2 from "../components/Reservator2.js";
-import TimeTable from "../components/TimeTable";
-import { Div, PageContainer } from "../components/cssComponents";
-import useFetch from "../hooks/useFetch.js";
-import useWindowSize from "../hooks/useWindowSize";
-import { useLocation } from "@reach/router";
-import { Dog, Fish2 } from "../assets/icons";
+import { flushSync } from 'react-dom';
+import { graphql, Link } from 'gatsby';
+import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
+import styled from 'styled-components';
+import { ConfigProvider, Breadcrumb, Skeleton } from 'antd';
+import plPL from 'antd/lib/locale/pl_PL';
+import { LocationDot } from '../assets/icons';
+import { Collapse } from 'react-collapse';
+import Reservator2 from '../components/Reservator2.js';
+import TimeTable from '../components/TimeTable';
+import { Div, PageContainer } from '../components/cssComponents';
+import useFetch from '../hooks/useFetch.js';
+import useWindowSize from '../hooks/useWindowSize';
+import { useLocation } from '@reach/router';
+import { Dog, Fish2 } from '../assets/icons';
 
+//Nisko
+const pegsDataMock = [
+  {
+    pegId: '3f11014b-f52d-43f4-84a1-7eef721d6cc5',
+    pegName: 'Stanowisko 1',
+    pegNumber: 1,
+    reservations: [
+      {
+        startDate: '2023-10-26T12:00:00',
+        endDate: '2023-10-27T11:59:00',
+        status: 'PAID',
+      },
+    ],
+  },
+  {
+    pegId: '3fe7bf92-dc29-49f0-9fb6-8da61de80ec7',
+    pegName: 'Stanowisko 3',
+    pegNumber: 3,
+  },
+  {
+    pegId: '810c1f9b-11dd-4626-af27-302a37002f09',
+    pegName: 'Stanowisko 5',
+    pegNumber: 5,
+  },
+  {
+    pegId: '8ab41a72-5a90-407c-a3d2-d384f6bad85d',
+    pegName: 'Stanowisko 7',
+    pegNumber: 7,
+  },
+  {
+    pegId: '9412a235-d770-4a9d-83cc-8dd16d425e5f',
+    pegName: 'Stanowisko 2',
+    pegNumber: 2,
+  },
+  {
+    pegId: 'aa5d3003-1c69-439b-bbfd-a6e3641ac4b8',
+    pegName: 'Stanowisko 6',
+    pegNumber: 6,
+    reservations: [
+      {
+        startDate: '2023-10-25T12:00:00',
+        endDate: '2023-10-26T11:59:00',
+        status: 'PAID',
+      },
+    ],
+  },
+  {
+    pegId: 'cfd04d40-0b00-4ffd-9e4e-5c09bf2bcf7d',
+    pegName: 'Stanowisko 4',
+    pegNumber: 4,
+  },
+];
 const mapTitleStyle = {
-  background: "var(--litegray)",
+  background: 'var(--litegray)',
   margin: 0,
-  borderRadius: "10px 10px 0 0",
-  padding: "5px",
+  borderRadius: '10px 10px 0 0',
+  padding: '5px',
   fontWeight: 300,
 };
 const facilitiesStyle = {
-  width: "100%",
-  background: "var(--litegray)",
-  padding: "10px",
-  borderRadius: "10px",
+  width: '100%',
+  background: 'var(--litegray)',
+  padding: '10px',
+  borderRadius: '10px',
 };
-
 const title = {
   fontWeight: 300,
 };
 
 function Lake(props) {
-  console.log("props", props);
   const {
     voivodeship,
     city,
     name: lakeName,
-    id,
+    id: lakeId,
     latitude,
     longitude,
     facilities,
     numberOfPegs,
     lakeMainImageFile,
     lakeOtherImagesFiles,
-    pegs,
+    pegs: staticPegs,
     pegBasePrice,
     metadata,
-    extraServices,
+    extraServices = [],
   } = props.data.a;
   const {
     lakeMainImageFile: firstThumbnail,
     lakeOtherImagesFiles: restThumbnails,
   } = props.data.b;
 
-  const defaultProps = {
-    center: {
-      lat: latitude,
-      lng: longitude
-    },
-    zoom: 11
-  };
-
+  const [mergedPegs, setMergedPegs] = useState(staticPegs);
   const [opened, setOpened] = useState(false);
   const [pegsWithReservations, setPegWithReservations] = useState(null);
+  const [pegsWithReservationsMap, setPegsWithReservationsMap] = useState([]);
   const [isError, setIsError] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
@@ -86,146 +124,86 @@ function Lake(props) {
   const allThumbnails = useRef(null);
 
   const toggleOpened = () => setOpened((value) => !value);
+
   const { get, loading } = useFetch(
     `https://hookandrod.herokuapp.com/api/lakes/lakeReservations/`
   );
-
-  const fetchData = useCallback(async () => {
-    try {
-      const data = await get(id);
-      setPegWithReservations(data);
-    } catch (error) {
-      setIsError(true);
-      console.error(
-        "error while fetching dynamic data related to a lake, pegs reservations etc",
-        error
-      );
-    }
-  }, [get, id]);
-
   useEffect(() => {
-    fetchData();
-    return () => {
-      setPegWithReservations(null);
-    };
-  }, [fetchData]);
-
-  let pegsWithReservationsMap = [];
-
-  if (pegsWithReservations) {
-    pegsWithReservationsMap = pegs.map((peg) => {
-      const pegWithReservations = pegsWithReservations.find(
-        (pr) => pr.pegId === peg.pegId
-      );
-      return pegWithReservations
-        ? { ...peg, reservations: pegWithReservations.reservations }
-        : { ...peg, reservations: [] };
-    });
-  }
-  useLayoutEffect(() => {
-    allImages.current = [lakeMainImageFile, ...lakeOtherImagesFiles];
-    allThumbnails.current = [firstThumbnail, ...restThumbnails];
-    allThumbnails.current = Array.from(
-      { length: 10 },
-      () => allThumbnails.current
-    ).flat();
-  }, []);
-
-  useEffect(() => {
-    if (matchedRef.current) {
-      matchedRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "center",
+    async function fetchData() {
+      const response = await get(lakeId);
+      const mergedPegs = staticPegs.map((peg) => {
+        const foundPegWithRes = response.find((res) => res.pegId === peg.pegId);
+        if (foundPegWithRes) {
+          return { ...peg, reservations: foundPegWithRes.reservations };
+        } else {
+          return { ...peg, reservations: [] };
+        }
       });
+      setMergedPegs(mergedPegs);
     }
-  }, [index]);
+    fetchData();
+  }, [lakeId]);
 
-  console.log("index", index);
+  const defaultProps = {
+    center: {
+      lat: latitude,
+      lng: longitude,
+    },
+    zoom: 11,
+  };
 
   return (
     <>
       <ConfigProvider locale={plPL}>
         <PageContainer>
           <Div noBottomPadding>
-            <div className="breadcrumbs">
-              <Breadcrumb>
-                <Breadcrumb.Item>
-                  <Link to="/">{}</Link>
-                </Breadcrumb.Item>
-                <Breadcrumb.Item>
-                  <Link to={`/${voivodeship}`}>{voivodeship}</Link>
-                </Breadcrumb.Item>
-                <Breadcrumb.Item>
-                  <Link to={`/${voivodeship}/${city}`}>{city}</Link>
-                </Breadcrumb.Item>
-                <Breadcrumb.Item>{lakeName}</Breadcrumb.Item>
-              </Breadcrumb>
+            <div className='breadcrumbs'>
+              <Breadcrumb
+                items={[
+                  {
+                    title: <Link to='/'>{}</Link>,
+                  },
+                  {
+                    title: <Link to={`/${voivodeship}`}>{voivodeship}</Link>,
+                  },
+                  {
+                    title: <Link to={`/${voivodeship}/${city}`}>{city}</Link>,
+                  },
+                  {
+                    title: lakeName,
+                  },
+                ]}></Breadcrumb>
             </div>
 
-            <div className="lowisko_card">
-              {/* <h1 className="lowisko_name">{lakeName}</h1> */}
-              <div className="lowisko_city" style={{ marginBottom: "20px" }}>
+            <div className='lowisko_card'>
+              <div className='lowisko_city' style={{ marginBottom: '20px' }}>
                 <LocationDot />
                 <span> {lakeName}</span>
-                <button
-                  onClick={() => {
-                    flushSync(() => {
-                      if (index < allImages.current?.length - 1) {
-                        setIndex((index) => index + 1);
-                      } else {
-                        setIndex(0);
-                      }
-                    });
-                  }}
-                >
-                  scroll to next img
-                </button>
               </div>
             </div>
           </Div>
-          {/* TODO - create grid container from here to bttom */}
 
-          <BigImagesWrapper>
-            {allImages.current?.map((imageFile, i) => {
-              return (
-                <div ref={index === i ? matchedRef : null}>
-                  <GatsbyImage
-                    placeholder="blured"
-                    objectFit="cover"
-                    layout={"fullWidth"}
-                    //imgStyle={{ objectFit: "cover" }}
-                    image={getImage(imageFile)}
-                    alt={`lake image in ${city}`}
-                    style={{
-                      minWidth: "100vw",
-                      height: "500px",
-                    }}
-                  ></GatsbyImage>
-                </div>
-              );
-            })}
-            {/* <div>
-              <GatsbyImage
-                image={getImage(lakeMainImageFile)}
-                alt=""
-              ></GatsbyImage>
-            </div> */}
-          </BigImagesWrapper>
-          {/** todo create thumbnails */}
+          <div>
+            <GatsbyImage
+              style={{ width: '100%', height: '50vh' }}
+              image={getImage(lakeMainImageFile)}
+              alt=''></GatsbyImage>
+          </div>
+
           <ThumbnailsWrapper>
             {allThumbnails.current?.map((image, i) => {
               return (
                 <div
+                  key={i}
                   onClick={() =>
                     flushSync(() => {
                       setIndex(i);
                     })
-                  }
-                >
+                  }>
                   <GatsbyImage
+                    alt={`${lakeName} in ${city}`}
                     image={getImage(image)}
-                    style={{ minWidth: "100px" }}
+                    style={{ minWidth: '100px' }}
                   />
                 </div>
               );
@@ -233,71 +211,54 @@ function Lake(props) {
           </ThumbnailsWrapper>
 
           <Div noBottomPadding>
-            <div style={{width: '100%', display: 'grid', gridTemplateColumns: '2fr 1fr'}}>
-
-            {!loading ? (
-              <Section className="time-table">
+            <div
+              style={{
+                width: '100%',
+                display: 'grid',
+                gridTemplateColumns: '2fr 1fr',
+              }}>
+              <Section className='time-table'>
                 <TimeTable
-                  id={id}
-                  pegs={pegsWithReservationsMap}
+                  isLoading={loading}
+                  id={lakeId}
+                  pegs={mergedPegs}
                   maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
                   maxDays={size}
                   numberOfPegs={numberOfPegs}
                 />
               </Section>
-            ) : (
-              <Skeleton active />
-            )}
-            {pegsWithReservationsMap && (
-              <div style={{ marginTop: "2em" }}>
-                <Reservator2
-                  lakeName={lakeName}
-                  pegs={pegsWithReservationsMap}
-                  pegBasePrice={pegBasePrice}
-                  extraServices={extraServices}
-                  currentPath={currentPath}
-                />
-              </div>
-            )}
+
+              {pegsWithReservationsMap && (
+                <div style={{ marginTop: '2em' }}>
+                  <Reservator2
+                    lakeName={lakeName}
+                    pegs={mergedPegs}
+                    pegBasePrice={pegBasePrice}
+                    extraServices={extraServices}
+                    currentPath={currentPath}
+                  />
+                </div>
+              )}
             </div>
 
             {isError && <p>Cos poszlo nie tak podczas ladowania rezerwacji</p>}
           </Div>
 
           <Div>
-            {/* <div className="map-container">
-              <h1 style={mapTitleStyle}>Mapa Stanowisk</h1>
-              <StaticImage
-                src={"../assets/images/mapa-stanowisk.jpg"}
-                placeholder="blurred"
-                layout="fullWidth"
-                style={{ borderRadius: "0 0 10 10" }}
-                // width={600}
-                // height={600}
-                formats={["auto", "webp", "avif"]}
-                alt="A Dog Image"
-                transformOptions={{ fit: "cover", cropFocus: "attention" }}
-              />
-            </div> */}
             <div style={{ height: '50vh', width: '100%' }}>
-      <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyByN_9TGcmxwAZMkuAAGfWzXd7FZQAKYUw" }}
-        defaultCenter={defaultProps.center}
-        defaultZoom={defaultProps.zoom}
-        yesIWantToUseGoogleMapApiInternals
-      >
-        {/* <AnyReactComponent
-          lat={59.955413}
-          lng={30.337844}
-          text="My Marker"
-        /> */}
-      </GoogleMapReact>
-    </div>
+              <GoogleMapReact
+                bootstrapURLKeys={{
+                  key: 'AIzaSyByN_9TGcmxwAZMkuAAGfWzXd7FZQAKYUw',
+                }}
+                defaultCenter={defaultProps.center}
+                defaultZoom={defaultProps.zoom}
+                yesIWantToUseGoogleMapApiInternals></GoogleMapReact>
+            </div>
           </Div>
           <Div>
-            <div className="failities" style={facilitiesStyle}>
+            <div className='failities' style={facilitiesStyle}>
               <h1 style={title}>Czego mozesz się spodziewać ?</h1>
-              <ul className="facilities-list">
+              <ul className='facilities-list'>
                 <li>
                   <Dog />
                   <p>Parking</p>
@@ -322,9 +283,9 @@ function Lake(props) {
             </div>
           </Div>
           <Div>
-            <div className="failities" style={facilitiesStyle}>
+            <div className='failities' style={facilitiesStyle}>
               <h1 style={title}>Jakie ryby występują na łowisku?</h1>
-              <ul className="facilities-list">
+              <ul className='facilities-list'>
                 <li>
                   <Fish2 />
                   <p>Karaś</p>
@@ -350,19 +311,18 @@ function Lake(props) {
           </Div>
           <Div noBottomPadding>
             <Section>
-              <div className="lowisko_regu">
+              <div className='lowisko_regu'>
                 <h2>Regulamin Łowiska</h2>
-                <div className="lowisko_regu_body">
+                <div className='lowisko_regu_body'>
                   <h3
-                    className="text_toggle"
+                    className='text_toggle'
                     onClick={toggleOpened}
-                    style={{ color: "red" }}
-                  >
-                    Regulamin Łowiska {lakeName} {opened ? " v" : " >"}
+                    style={{ color: 'red' }}>
+                    Regulamin Łowiska {lakeName} {opened ? ' v' : ' >'}
                   </h3>
-                  <Collapse isOpened={opened}>{"regulations"}</Collapse>
-                  <div className="text_toggle" onClick={toggleOpened}>
-                    {opened ? "Zwiń..." : "Rozwiń..."}
+                  <Collapse isOpened={opened}>{'regulations'}</Collapse>
+                  <div className='text_toggle' onClick={toggleOpened}>
+                    {opened ? 'Zwiń...' : 'Rozwiń...'}
                   </div>
                 </div>
               </div>
@@ -373,8 +333,6 @@ function Lake(props) {
     </>
   );
 }
-
-export default Lake;
 
 export const query = graphql`
   query lake($id: String) {
@@ -456,9 +414,13 @@ const ThumbnailsWrapper = styled.div`
   margin: 1rem;
 `;
 
+export default Lake;
+
 export const Head = (props) => {
-  //console.log('props in HEAD', props)
-  return <SEO description={props.data.a.metadata.description} title={props.data.a.name}/>
-}
-
-
+  return (
+    <SEO
+      description={props.data.a.metadata.description}
+      title={props.data.a.name}
+    />
+  );
+};

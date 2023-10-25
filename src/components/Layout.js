@@ -13,8 +13,7 @@ import {
 import GlobalStyles from "../styles/GlobalStyles";
 
 const Layout = ({ children, path }) => {
-  console.log("children", children);
-  console.log("path", path);
+
   //const [collapsed, setCollapsed] = useState(false);
   // const {
   //   token: { colorBgContainer },
