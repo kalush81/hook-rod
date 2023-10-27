@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useRef } from "react";
-import { navigate } from "gatsby";
-import styled from "styled-components";
-import { Form, Select, DatePicker, Checkbox, Button } from "antd";
-import { calculateDays } from "../utils/calculate-days";
-import { getTotalOfextras } from "../utils/get-total-of-extras";
+import React, { useState, useEffect, useRef } from 'react';
+import { navigate } from 'gatsby';
+import styled from 'styled-components';
+import { Form, Select, DatePicker, Checkbox, Button } from 'antd';
+import { calculateDays } from '../utils/calculate-days';
+import { getTotalOfextras } from '../utils/get-total-of-extras';
 
-import dayjs from "dayjs";
-import "dayjs/locale/pl";
-import isBetween from "dayjs/plugin/isBetween";
-import customParseFormat from "dayjs/plugin/customParseFormat";
-import objectSupport from "dayjs/plugin/objectSupport";
+import dayjs from 'dayjs';
+import 'dayjs/locale/pl';
+import isBetween from 'dayjs/plugin/isBetween';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+import objectSupport from 'dayjs/plugin/objectSupport';
 
 const { RangePicker } = DatePicker;
 const { Option } = Select;
@@ -18,7 +18,7 @@ dayjs.extend(objectSupport);
 dayjs.extend(isBetween);
 dayjs.extend(customParseFormat);
 
-dayjs().format("YYYY-MM-DDTHH-mm-ss");
+dayjs().format('YYYY-MM-DDTHH-mm-ss');
 
 const noon = {
   hour: 12,
@@ -33,8 +33,6 @@ const Reservator = ({
   lakeName,
   currentPath,
 }) => {
-  //console.log('[pegs]', pegs, "[pegBasePrice]", pegBasePrice, '[facilities]', facilities, '[lakeName]',lakeName, '[currentPath]', currentPath)
-
   const startDateInputRef = useRef(null);
   const [form] = Form.useForm();
   const [reservations, setReservations] = useState([]);
@@ -61,13 +59,13 @@ const Reservator = ({
         pegBasePrice * numGuests * numDays +
         getTotalOfextras(extraOptions, numDays),
     };
-    navigate("/reservation-details", { state: { newReservationData } });
+    navigate('/reservation-details', { state: { newReservationData } });
   };
 
   const handleSetNumGuests = (num) => {
     setNumGuests(parseInt(num));
   };
-  
+
   const handleSelectPeg = (pegId) => {
     if (pegId) {
       setReservations(() => {
@@ -100,14 +98,14 @@ const Reservator = ({
   function disableDate(current) {
     const now = dayjs();
     if (range[0] && !range[1] && reservations.length === 1) {
-      const reservedEnd = dayjs(reservations[0].startDate).add(1, "day");
+      const reservedEnd = dayjs(reservations[0].startDate).add(1, 'day');
       return current.set(noon) > reservedEnd || current < dayjs(range[0]);
     } else {
       for (const { startDate, endDate } of reservations || []) {
         const reservedStart = dayjs(startDate);
         const reservedEnd = dayjs(endDate);
         if (
-          current.set(noon).isBetween(reservedStart, reservedEnd, null, "[]")
+          current.set(noon).isBetween(reservedStart, reservedEnd, null, '[]')
         ) {
           return true;
         }
@@ -121,7 +119,7 @@ const Reservator = ({
       setReservations(() => {
         return pegs.find((peg) => peg.pegId === pegId).reservations;
       });
-      form.resetFields(["dates"]);
+      form.resetFields(['dates']);
       setRange([]);
       setNumDays(0);
     } else {
@@ -132,7 +130,7 @@ const Reservator = ({
   };
 
   const handleRangePickerFocus = (e) => {
-    if (e.target.placeholder === "Data końcowa") {
+    if (e.target.placeholder === 'Data końcowa') {
       if (!range[0]) {
         startDateInputRef.current.focus();
       }
@@ -152,31 +150,29 @@ const Reservator = ({
   };
 
   return (
-    <Form form={form} name="register" onFinish={onFinish} scrollToFirstError>
+    <Form form={form} name='register' onFinish={onFinish} scrollToFirstError>
       <CalendarCSS>
-        <div className="container">
-          <h1 style={{textAlign: 'center'}}>Rezerwacja</h1>
+        <div className='container'>
+          {/* <h1 style={{textAlign: 'center'}}>Rezerwacja</h1> */}
           <h3>Cennik: 1 stanowisko / doba - {pegBasePrice}</h3>
-          <div className="row row1">
+          <div className='row row1'>
             <Form.Item
-              name="pegId"
+              name='pegId'
               rules={[
                 {
                   required: true,
-                  message: "wybierz stanowisko",
+                  message: 'wybierz stanowisko',
                 },
-              ]}
-            >
+              ]}>
               <Select
                 loading={!pegs.length}
                 allowClear
-                showArrow="true"
-                className="select_row1"
-                size="medium"
-                placeholder="wybierz stanowisko"
-                showAction="focus"
-                onChange={handleSelectPeg}
-              >
+                showArrow='true'
+                className='select_row1'
+                size='medium'
+                placeholder='wybierz stanowisko'
+                showAction='focus'
+                onChange={handleSelectPeg}>
                 {pegs.length &&
                   pegs.map((peg) => {
                     return (
@@ -188,23 +184,21 @@ const Reservator = ({
               </Select>
             </Form.Item>
             <Form.Item
-              name="numGuests"
+              name='numGuests'
               rules={[
                 {
                   required: true,
-                  message: "Prosze podaj ilość osób!",
+                  message: 'Prosze podaj ilość osób!',
                 },
-              ]}
-            >
+              ]}>
               <Select
                 allowClear
-                showArrow="true"
-                className="select_row1"
-                size="medium"
-                placeholder="Osoby"
-                showAction="focus"
-                onChange={handleSetNumGuests}
-              >
+                showArrow='true'
+                className='select_row1'
+                size='medium'
+                placeholder='Osoby'
+                showAction='focus'
+                onChange={handleSetNumGuests}>
                 <Option value={1}>1 osoba</Option>
                 <Option value={2}>2 osoby</Option>
                 <Option value={3}>3 osoby</Option>
@@ -212,16 +206,15 @@ const Reservator = ({
               </Select>
             </Form.Item>
           </div>
-          <div className="row row2">
+          <div className='row row2'>
             <Form.Item
-              name="dates"
+              name='dates'
               rules={[
                 {
                   required: true,
-                  message: "Prosze podaj daty!",
+                  message: 'Prosze podaj daty!',
                 },
-              ]}
-            >
+              ]}>
               <RangePicker
                 disabled={!pegId}
                 ref={startDateInputRef}
@@ -236,16 +229,15 @@ const Reservator = ({
           {extraServices.length > 0 && (
             <>
               <h2>Opcje dodatkowe</h2>
-              <div className="options">
-                <Form.Item name="options">
+              <div className='options'>
+                <Form.Item name='options'>
                   <Checkbox.Group
-                    style={{ display: "block" }}
-                    onChange={onChangeCheckBoxes}
-                  >
+                    style={{ display: 'block' }}
+                    onChange={onChangeCheckBoxes}>
                     {extraServices.map((f) => {
                       return (
-                        <div key={f.id} className="options_row">
-                          <Checkbox className="checkbox" value={f}></Checkbox>
+                        <div key={f.id} className='options_row'>
+                          <Checkbox className='checkbox' value={f}></Checkbox>
                           <h3 style={{ margin: 0 }}>
                             {f.name} {f.price}zł/doba
                           </h3>
@@ -259,13 +251,13 @@ const Reservator = ({
           )}
 
           <h2>Podsumowanie</h2>
-          <div className="podsumowanie">
+          <div className='podsumowanie'>
             <h3>stanowisko nr {pegId && getPegNumber(pegId)}</h3>
             <h3>{numGuests && pegBasePrice * numGuests * numDays} zł</h3>
             {extraOptions.map((extra) => {
               return (
                 <>
-                  <h3 style={{ display: "block" }}>
+                  <h3 style={{ display: 'block' }}>
                     {extra.name} x {numDays} dni
                   </h3>
                   <h3>{extra.basePrice * numDays} zł</h3>
@@ -275,26 +267,25 @@ const Reservator = ({
 
             <h2>Łącznie</h2>
             <h2>
-              łączna suma:{" "}
+              łączna suma:{' '}
               {pegBasePrice * numGuests * numDays +
                 getTotalOfextras(extraOptions, numDays)}
             </h2>
           </div>
 
-          <div className="button_container">
+          <div className='button_container'>
             <Form.Item>
               <Button
-                className="button"
-                size="large"
-                type="primary"
-                htmlType="submit"
+                className='button'
+                size='large'
+                type='primary'
+                htmlType='submit'
                 // disabled={!agreement}
                 onClick={() => {
                   //console.log("form", form.getFieldsError());
                   //console.log(form.getFieldsValue("agreement").agreement);
-                }}
-              >
-                PRZEJDŹ DO PODSUMOWANIA
+                }}>
+                DODAJ DO KOSZYKA
               </Button>
             </Form.Item>
           </div>

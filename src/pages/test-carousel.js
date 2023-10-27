@@ -5,15 +5,15 @@ import { Carousel } from 'react-responsive-carousel';
 import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const TestCarousel = ({ data }) => {
-  console.log('data', data.lake.lakeOtherImagesFiles);
   const images = data.lake.lakeOtherImagesFiles.map((im) => im);
   const allLakeImages = images;
   return (
-    <div style={{ position: 'relative', top: '60px' }}>
+    <div>
+      {/* <div style={{ position: 'relative', top: '60px' }}> */}
       <Carousel
         showArrows={true}
         onChange={(params) => console.log(params)}
-        showThumbs={false}
+        showThumbs={true}
         // onClickItem={onClickItem}
         // onClickThumb={onClickThumb}
       >
@@ -21,10 +21,13 @@ const TestCarousel = ({ data }) => {
           return (
             <div className='slider-div'>
               <GatsbyImage
-                style={{
-                  width: '100%',
-                  height: 'calc(100vh - 160px)',
-                }}
+                style={
+                  {
+                    //width: '100%',
+                    //height: '50vh',
+                    //height: 'calc(100vh - 160px)',
+                  }
+                }
                 image={getImage(img)}
               />
               {/* <p className='legend'>Jakiś opis</p> */}

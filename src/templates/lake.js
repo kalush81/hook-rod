@@ -2,11 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 //import { Helmet } from "react-helmet";
 import { SEO } from '../components/seo';
 import GoogleMapReact from 'google-map-react';
-import { flushSync } from 'react-dom';
 import { graphql, Link } from 'gatsby';
-import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
-import { ConfigProvider, Breadcrumb, Skeleton } from 'antd';
+import { ConfigProvider, Breadcrumb } from 'antd';
 import plPL from 'antd/lib/locale/pl_PL';
 import { LocationDot } from '../assets/icons';
 import { Collapse } from 'react-collapse';
@@ -17,6 +16,8 @@ import useFetch from '../hooks/useFetch.js';
 import useWindowSize from '../hooks/useWindowSize';
 import { useLocation } from '@reach/router';
 import { Dog, Fish2 } from '../assets/icons';
+import { Carousel } from 'react-responsive-carousel';
+import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 //Nisko
 const pegsDataMock = [
@@ -102,7 +103,7 @@ function Lake(props) {
     pegs: staticPegs,
     pegBasePrice,
     metadata,
-    extraServices = [],
+    extraServices,
   } = props.data.a;
   const {
     lakeMainImageFile: firstThumbnail,
@@ -111,8 +112,8 @@ function Lake(props) {
 
   const [mergedPegs, setMergedPegs] = useState(staticPegs);
   const [opened, setOpened] = useState(false);
-  const [pegsWithReservations, setPegWithReservations] = useState(null);
-  const [pegsWithReservationsMap, setPegsWithReservationsMap] = useState([]);
+  //const [pegsWithReservations, setPegWithReservations] = useState(null);
+  //const [pegsWithReservationsMap, setPegsWithReservationsMap] = useState([]);
   const [isError, setIsError] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
@@ -125,12 +126,16 @@ function Lake(props) {
 
   const toggleOpened = () => setOpened((value) => !value);
 
-  const { get, loading } = useFetch(
+  const { get: getPegReservations, loading: loadingPegReservations } = useFetch(
     `https://hookandrod.herokuapp.com/api/lakes/lakeReservations/`
   );
+  const { get: getServicesReservations, loading: loadingServicesReservations } =
+    useFetch(`https://hookandrod.herokuapp.com/api/lakes/lakeReservations/`);
+
   useEffect(() => {
     async function fetchData() {
-      const response = await get(lakeId);
+      const response = await getPegReservations(lakeId);
+      console.log('response', response);
       const mergedPegs = staticPegs.map((peg) => {
         const foundPegWithRes = response.find((res) => res.pegId === peg.pegId);
         if (foundPegWithRes) {
@@ -155,6 +160,64 @@ function Lake(props) {
   return (
     <>
       <ConfigProvider locale={plPL}>
+        <div style={{ position: 'relative', top: '60px' }}>
+          <Carousel
+            showArrows={true}
+            onChange={(params) => console.log(params)}
+            showThumbs={true}
+            // onClickItem={onClickItem}
+            // onClickThumb={onClickThumb}
+          >
+            {restThumbnails.map((img) => {
+              return (
+                <div className='slider-div'>
+                  <GatsbyImage
+                    style={{
+                      width: '100%',
+                      height: 'calc(100vh - 160px)',
+                    }}
+                    image={getImage(img)}
+                  />
+                  <p className='legend'>
+                    <div className='breadcrumbs'>
+                      <Breadcrumb
+                        items={[
+                          {
+                            title: (
+                              <Link to='/' style={{ color: 'white' }}>
+                                {}
+                              </Link>
+                            ),
+                          },
+                          {
+                            title: (
+                              <Link to={`/${voivodeship}`}>
+                                <span style={{ color: 'white' }}>
+                                  {voivodeship}
+                                </span>
+                              </Link>
+                            ),
+                          },
+                          {
+                            title: (
+                              <Link to={`/${voivodeship}/${city}`}>
+                                <span style={{ color: 'white' }}>{city}</span>
+                              </Link>
+                            ),
+                          },
+                          {
+                            title: (
+                              <span style={{ color: 'white' }}>{lakeName}</span>
+                            ),
+                          },
+                        ]}></Breadcrumb>
+                    </div>
+                  </p>
+                </div>
+              );
+            })}
+          </Carousel>
+        </div>
         <PageContainer>
           <Div noBottomPadding>
             <div className='breadcrumbs'>
@@ -183,33 +246,16 @@ function Lake(props) {
             </div>
           </Div>
 
-          <div>
+          {/* <div>
             <GatsbyImage
               style={{ width: '100%', height: '50vh' }}
               image={getImage(lakeMainImageFile)}
               alt=''></GatsbyImage>
-          </div>
+          </div> */}
 
-          <ThumbnailsWrapper>
-            {allThumbnails.current?.map((image, i) => {
-              return (
-                <div
-                  key={i}
-                  onClick={() =>
-                    flushSync(() => {
-                      setIndex(i);
-                    })
-                  }>
-                  <GatsbyImage
-                    alt={`${lakeName} in ${city}`}
-                    image={getImage(image)}
-                    style={{ minWidth: '100px' }}
-                  />
-                </div>
-              );
-            })}
-          </ThumbnailsWrapper>
-
+          <h2 style={{ textAlign: 'center' }}>
+            terminarz rezerwacji stanowisk{' '}
+          </h2>
           <Div noBottomPadding>
             <div
               style={{
@@ -219,7 +265,7 @@ function Lake(props) {
               }}>
               <Section className='time-table'>
                 <TimeTable
-                  isLoading={loading}
+                  isLoading={loadingPegReservations}
                   id={lakeId}
                   pegs={mergedPegs}
                   maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
@@ -228,19 +274,16 @@ function Lake(props) {
                 />
               </Section>
 
-              {pegsWithReservationsMap && (
-                <div style={{ marginTop: '2em' }}>
-                  <Reservator2
-                    lakeName={lakeName}
-                    pegs={mergedPegs}
-                    pegBasePrice={pegBasePrice}
-                    extraServices={extraServices}
-                    currentPath={currentPath}
-                  />
-                </div>
-              )}
+              <div style={{ marginTop: '2em' }}>
+                <Reservator2
+                  lakeName={lakeName}
+                  pegs={mergedPegs}
+                  pegBasePrice={pegBasePrice}
+                  extraServices={[]}
+                  currentPath={currentPath}
+                />
+              </div>
             </div>
-
             {isError && <p>Cos poszlo nie tak podczas ladowania rezerwacji</p>}
           </Div>
 
@@ -383,12 +426,12 @@ export const query = graphql`
     b: lake(id: { eq: $id }) {
       lakeMainImageFile {
         childImageSharp {
-          gatsbyImageData(width: 100, height: 100, quality: 10)
+          gatsbyImageData(width: 1000, quality: 100)
         }
       }
       lakeOtherImagesFiles {
         childImageSharp {
-          gatsbyImageData(width: 100, height: 100, quality: 10)
+          gatsbyImageData(width: 1000, quality: 100)
         }
       }
     }

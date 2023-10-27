@@ -52,8 +52,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    //background-color:rgba(255, 255, 255, 0.253);
-    background-color: black;
+    background-color:rgba(255, 255, 255, 0.253);
+    //background-color: black;
     background-size: 810px;
     background-attachment: fixed;
     font-family: 'Lato';
@@ -93,6 +93,7 @@ const GlobalStyles = createGlobalStyle`
   //   width: 9px;
   // }
   html {
+    background: gray;
     scrollbar-width: thin;
     scrollbar-color: var(--red) var(--white);
   }
@@ -100,6 +101,7 @@ const GlobalStyles = createGlobalStyle`
     background: var(--white);
   }
   body::-webkit-scrollbar-thumb {
+    
     background-color: var(--red) ;
     border-radius: 6px;
     border: 3px solid var(--white);
@@ -134,6 +136,10 @@ const GlobalStyles = createGlobalStyle`
   a.ant-anchor-link-title {
     color: white;
   }
+  .breadcrumbs ol li.ant-breadcrumb-separator {
+    color: yellow;
+  } 
+  
 `;
 
 export default GlobalStyles;
