@@ -50,7 +50,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    background-color:rgba(255, 255, 255, 0.253);
+    //background-color:rgba(255, 255, 255, 0.253);
     //background-color: black;
     background-size: 810px;
     background-attachment: fixed;
@@ -77,10 +77,6 @@ const GlobalStyles = createGlobalStyle`
     justify-content: center;
   }
 
- .noColor {
-    background: black !important;
- }
-
   .ant-picker-panels {
     flex-direction: column;
   } 
@@ -95,7 +91,6 @@ const GlobalStyles = createGlobalStyle`
   //   width: 9px;
   // }
   html {
-    background: gray;
     scrollbar-width: thin;
     scrollbar-color: var(--red) var(--white);
   }
@@ -141,7 +136,6 @@ const GlobalStyles = createGlobalStyle`
   .breadcrumbs ol li.ant-breadcrumb-separator {
     color: yellow;
   }
-
   
 `;
 

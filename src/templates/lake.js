@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
+import { flushSync } from 'react-dom';
 import { SEO } from '../components/seo';
 import GoogleMapReact from 'google-map-react';
 import { graphql, Link } from 'gatsby';
@@ -112,7 +113,7 @@ function Lake(props) {
       lat: latitude,
       lng: longitude,
     },
-    zoom: 11,
+    zoom: 12,
   };
   const [mergedPegs, setMergedPegs] = useState(staticPegs);
   const [opened, setOpened] = useState(false);
@@ -134,7 +135,6 @@ function Lake(props) {
     useFetch(`https://hookandrod.herokuapp.com/api/lakes/lakeReservations/`);
 
   useEffect(() => {
-    console.log('use effect workd in lake');
     async function fetchData() {
       const response = await getPegReservations(lakeId);
       console.log('response', response);
@@ -168,9 +168,7 @@ function Lake(props) {
         block: 'nearest',
         inline: 'center',
       });
-      setMergedPegs(mergedPegs);
     }
-    fetchData();
   }, [lakeId]);
 
   return (
@@ -207,8 +205,8 @@ function Lake(props) {
                     image={getImage(imageFile)}
                     alt={`lake image in ${city}`}
                     style={{
-                      minWidth: '100vw',
-                      height: '500px',
+                      minWidth: '100vh',
+                      height: '60vh',
                     }}></GatsbyImage>
                 </div>
               );
@@ -219,11 +217,12 @@ function Lake(props) {
             {allThumbnails.current?.map((image, i) => {
               return (
                 <div
-                  onClick={() =>
-                    flushSync(() => {
+                  onClick={() => {
+                    console.log('img clicked');
+                    return flushSync(() => {
                       setIndex(i);
-                    })
-                  }>
+                    });
+                  }}>
                   <GatsbyImage
                     image={getImage(image)}
                     style={{ minWidth: '100px' }}
@@ -407,12 +406,12 @@ export const query = graphql`
     b: lake(id: { eq: $id }) {
       lakeMainImageFile {
         childImageSharp {
-          gatsbyImageData(width: 1000, quality: 100)
+          gatsbyImageData(width: 1980, quality: 100)
         }
       }
       lakeOtherImagesFiles {
         childImageSharp {
-          gatsbyImageData(width: 1000, quality: 100)
+          gatsbyImageData(width: 1980, quality: 100)
         }
       }
     }
@@ -428,7 +427,7 @@ const Section = styled.section`
 
 const BigImagesWrapper = styled.div`
   display: flex;
-  width: 100vw;
+  min-width: 100vw;
   overflow-x: hidden;
 `;
 const ThumbnailsWrapper = styled.div`
