@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Nav from './Nav';
 import Footer from './Footer';
-//import styles from 'react-responsive-carousel/lib/styles/carousel.css';
 
 import {
   MenuFoldOutlined,
