@@ -107,15 +107,19 @@ function Lake(props) {
     lakeOtherImagesFiles: restThumbnails,
   } = props.data.b;
 
+  const defaultProps = {
+    center: {
+      lat: latitude,
+      lng: longitude,
+    },
+    zoom: 11,
+  };
   const [mergedPegs, setMergedPegs] = useState(staticPegs);
   const [opened, setOpened] = useState(false);
-  //const [pegsWithReservations, setPegWithReservations] = useState(null);
-  //const [pegsWithReservationsMap, setPegsWithReservationsMap] = useState([]);
   const [isError, setIsError] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
-  const size = useWindowSize(lakeId);
-
+  const size = useWindowSize();
   const [index, setIndex] = useState(0);
   const matchedRef = useRef(null);
   const allImages = useRef(null);
@@ -130,6 +134,7 @@ function Lake(props) {
     useFetch(`https://hookandrod.herokuapp.com/api/lakes/lakeReservations/`);
 
   useEffect(() => {
+    console.log('use effect workd in lake');
     async function fetchData() {
       const response = await getPegReservations(lakeId);
       console.log('response', response);
@@ -146,13 +151,27 @@ function Lake(props) {
     fetchData();
   }, [lakeId]);
 
-  const defaultProps = {
-    center: {
-      lat: latitude,
-      lng: longitude,
-    },
-    zoom: 11,
-  };
+  //zostawic useLayoutEffect
+  useLayoutEffect(() => {
+    allImages.current = [lakeMainImageFile, ...lakeOtherImagesFiles];
+    allThumbnails.current = [firstThumbnail, ...restThumbnails];
+    allThumbnails.current = Array.from(
+      { length: 10 },
+      () => allThumbnails.current
+    ).flat();
+  }, []);
+
+  useEffect(() => {
+    if (matchedRef.current) {
+      matchedRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      });
+      setMergedPegs(mergedPegs);
+    }
+    fetchData();
+  }, [lakeId]);
 
   return (
     <>
@@ -194,14 +213,8 @@ function Lake(props) {
                 </div>
               );
             })}
-            {/* <div>
-              <GatsbyImage
-                image={getImage(lakeMainImageFile)}
-                alt=""
-              ></GatsbyImage>
-            </div> */}
           </BigImagesWrapper>
-          {/** todo create thumbnails */}
+
           <ThumbnailsWrapper>
             {allThumbnails.current?.map((image, i) => {
               return (
@@ -236,7 +249,7 @@ function Lake(props) {
                   isLoading={loadingPegReservations}
                   id={lakeId}
                   pegs={mergedPegs}
-                  maxPegs={staticPegs.length}
+                  maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
                   maxDays={size}
                   numberOfPegs={numberOfPegs}
                 />

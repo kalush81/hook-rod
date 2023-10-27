@@ -6,9 +6,7 @@ import { getCallendarString } from '../utils/get-date-string';
 import { Left, Right, Up, Down } from '../assets/icons';
 
 const TimeTable = function (props) {
-  const { maxPegs = 4, maxDays, pegs, isLoading } = props;
-
-  console.log('props passed to TimeTable', props);
+  const { maxPegs, maxDays, pegs, isLoading } = props;
 
   const [firstIdx, setFirstIdx] = useState(0);
   const [lastIdx, setLastIdx] = useState(maxPegs);
