@@ -47,14 +47,14 @@ function Lake(props) {
     voivodeship,
     city,
     name: lakeName,
-    id,
+    id: lakeId,
     latitude,
     longitude,
     facilities,
     numberOfPegs,
     lakeMainImageFile,
     lakeOtherImagesFiles,
-    pegs,
+    pegs: staticPegs,
     pegBasePrice,
     metadata,
   } = props.data.a;
@@ -70,56 +70,65 @@ function Lake(props) {
     },
     zoom: 11,
   };
-
+  const [mergedPegs, setMergedPegs] = useState(staticPegs);
+  console.log('mergedPegs', mergedPegs);
   const [opened, setOpened] = useState(false);
-  const [pegsWithReservations, setPegWithReservations] = useState(null);
   const [isError, setIsError] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
   const size = useWindowSize();
-
   const [index, setIndex] = useState(0);
   const matchedRef = useRef(null);
   const allImages = useRef(null);
   const allThumbnails = useRef(null);
 
   const toggleOpened = () => setOpened((value) => !value);
-  const { get, loading } = useFetch(
+
+  const { get: getPegReservations, loading: loadingPegReservations } = useFetch(
     `https://hookandrod.herokuapp.com/api/lakes/lakeReservations/`
   );
-
-  const fetchData = useCallback(async () => {
-    try {
-      const data = await get(id);
-      setPegWithReservations(data);
-    } catch (error) {
-      setIsError(true);
-      console.error(
-        'error while fetching dynamic data related to a lake, pegs reservations etc',
-        error
-      );
-    }
-  }, [get, id]);
+  const { get: getServicesReservations, loading: loadingServicesReservations } =
+    useFetch(`https://hookandrod.herokuapp.com/api/lakes/lakeReservations/`);
 
   useEffect(() => {
+    console.log('use effect workd in lake');
+    async function fetchData() {
+      const response = await getPegReservations(lakeId);
+      console.log('response', response);
+      const mergedPegs = staticPegs.map((peg) => {
+        const foundPegWithRes = response.find((res) => res.pegId === peg.pegId);
+        if (foundPegWithRes) {
+          return { ...peg, reservations: foundPegWithRes.reservations };
+        } else {
+          return { ...peg, reservations: [] };
+        }
+      });
+      setMergedPegs(mergedPegs);
+    }
     fetchData();
-    return () => {
-      setPegWithReservations(null);
-    };
-  }, [fetchData]);
+  }, [lakeId]);
 
-  let pegsWithReservationsMap = [];
+  //do usunięcia ten use Effect
+  // useEffect(() => {
+  //   fetchData();
+  //   return () => {
+  //     setPegWithReservations(null);
+  //   };
+  // }, [fetchData]);
 
-  if (pegsWithReservations) {
-    pegsWithReservationsMap = pegs.map((peg) => {
-      const pegWithReservations = pegsWithReservations.find(
-        (pr) => pr.pegId === peg.pegId
-      );
-      return pegWithReservations
-        ? { ...peg, reservations: pegWithReservations.reservations }
-        : { ...peg, reservations: [] };
-    });
-  }
+  // let pegsWithReservationsMap = [];
+
+  // if (pegsWithReservations) {
+  //   pegsWithReservationsMap = pegs.map((peg) => {
+  //     const pegWithReservations = pegsWithReservations.find(
+  //       (pr) => pr.pegId === peg.pegId
+  //     );
+  //     return pegWithReservations
+  //       ? { ...peg, reservations: pegWithReservations.reservations }
+  //       : { ...peg, reservations: [] };
+  //   });
+  // }
+  //zostawic useLayoutEffect
   useLayoutEffect(() => {
     allImages.current = [lakeMainImageFile, ...lakeOtherImagesFiles];
     allThumbnails.current = [firstThumbnail, ...restThumbnails];
@@ -161,26 +170,7 @@ function Lake(props) {
                 <span>{lakeName}</span>
               </Breadcrumb>
             </div>
-
-            <div className='lowisko_card'>
-              {/* <h1 className="lowisko_name">{lakeName}</h1> */}
-              {/* <div className='lowisko_city' style={{ marginBottom: '20px' }}>
-                <button
-                  onClick={() => {
-                    flushSync(() => {
-                      if (index < allImages.current?.length - 1) {
-                        setIndex((index) => index + 1);
-                      } else {
-                        setIndex(0);
-                      }
-                    });
-                  }}>
-                  scroll to next img
-                </button>
-              </div> */}
-            </div>
           </Div>
-          {/* TODO - create grid container from here to bttom */}
 
           <BigImagesWrapper>
             {allImages.current?.map((imageFile, i) => {
@@ -200,14 +190,8 @@ function Lake(props) {
                 </div>
               );
             })}
-            {/* <div>
-              <GatsbyImage
-                image={getImage(lakeMainImageFile)}
-                alt=""
-              ></GatsbyImage>
-            </div> */}
           </BigImagesWrapper>
-          {/** todo create thumbnails */}
+
           <ThumbnailsWrapper>
             {allThumbnails.current?.map((image, i) => {
               return (
@@ -237,30 +221,26 @@ function Lake(props) {
                 display: 'grid',
                 gridTemplateColumns: '2fr 1fr',
               }}>
-              {!loading ? (
-                <Section className='time-table'>
-                  <TimeTable
-                    id={id}
-                    pegs={pegsWithReservationsMap}
-                    maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
-                    maxDays={size}
-                    numberOfPegs={numberOfPegs}
-                  />
-                </Section>
-              ) : (
-                <Skeleton active />
-              )}
-              {pegsWithReservationsMap && (
-                <div style={{ marginTop: '2em' }}>
-                  <Reservator2
-                    lakeName={lakeName}
-                    pegs={pegsWithReservationsMap}
-                    pegBasePrice={pegBasePrice}
-                    facilities={facilities}
-                    currentPath={currentPath}
-                  />
-                </div>
-              )}
+              <Section className='time-table'>
+                <TimeTable
+                  isLoading={loadingPegReservations}
+                  id={lakeId}
+                  pegs={mergedPegs}
+                  maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
+                  maxDays={size}
+                  numberOfPegs={numberOfPegs}
+                />
+              </Section>
+
+              <div style={{ marginTop: '2em' }}>
+                <Reservator2
+                  lakeName={lakeName}
+                  pegs={mergedPegs}
+                  pegBasePrice={pegBasePrice}
+                  facilities={facilities}
+                  currentPath={currentPath}
+                />
+              </div>
             </div>
 
             {isError && <p>Cos poszlo nie tak podczas ladowania rezerwacji</p>}

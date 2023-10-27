@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import PegDatesRow from "./PegDatesRow";
-import moment from "moment";
-import { getCallendarString } from "../utils/get-date-string";
-import { Left, Right, Up, Down } from "../assets/icons";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import PegDatesRow from './PegDatesRow';
+import moment from 'moment';
+import { getCallendarString } from '../utils/get-date-string';
+import { Left, Right, Up, Down } from '../assets/icons';
 
 const TimeTable = function (props) {
-  const { maxPegs, maxDays, pegs } = props;
+  const { maxPegs, maxDays, pegs, isLoading } = props;
 
   const [firstIdx, setFirstIdx] = useState(0);
   const [lastIdx, setLastIdx] = useState(maxPegs);
@@ -38,7 +38,7 @@ const TimeTable = function (props) {
   let daysArr = new Array(maxDays)
     .fill(undefined)
     .map((el, i) =>
-      moment(moment().add(otherDays, "day")).add(i, "day").format("DD/MM/YYYY")
+      moment(moment().add(otherDays, 'day')).add(i, 'day').format('DD/MM/YYYY')
     );
 
   return (
@@ -46,27 +46,25 @@ const TimeTable = function (props) {
       {/* <header className="calendar_header">
         <h3 style={{ textAlign: "center" }}>Sprawdź dostępne terminy</h3>
       </header> */}
-      <div className="flex">
+      <div className='flex'>
         <button
-          className="calendar_lowisko_day_box noStyle"
-          onClick={() => setOtherDays(otherDays - maxDays)}
-        >
+          className='calendar_lowisko_day_box noStyle'
+          onClick={() => setOtherDays(otherDays - maxDays)}>
           <Left />
         </button>
         <span>wcześniej</span>
         <span>{getCallendarString(daysArr)}</span>
         <span>później</span>
         <button
-          className="calendar_lowisko_day_box noStyle"
-          onClick={() => setOtherDays(otherDays + maxDays)}
-        >
+          className='calendar_lowisko_day_box noStyle'
+          onClick={() => setOtherDays(otherDays + maxDays)}>
           <Right />
         </button>
       </div>
 
-      <div className="wrapper">
-        <div className="grid">
-          <button className="up" onClick={() => handlePrev(firstIdx, lastIdx)}>
+      <div className='wrapper'>
+        <div className='grid'>
+          <button className='up' onClick={() => handlePrev(firstIdx, lastIdx)}>
             <Up />
           </button>
 
@@ -80,6 +78,7 @@ const TimeTable = function (props) {
               if (i >= firstIdx && i < lastIdx) {
                 return (
                   <PegDatesRow
+                    isLoading={isLoading}
                     key={peg.pegNumber}
                     peg={peg}
                     maxDays={maxDays}
@@ -91,10 +90,9 @@ const TimeTable = function (props) {
             })}
 
           <button
-            className="down"
-            onClick={() => handleNext(firstIdx, lastIdx)}
-          >
-            <Down className="bounce" />
+            className='down'
+            onClick={() => handleNext(firstIdx, lastIdx)}>
+            <Down className='bounce' />
           </button>
         </div>
       </div>
@@ -114,7 +112,7 @@ export const CalendarCss = styled.div`
   }
 
   .calendar_header h3 {
-    font-family: "Lato";
+    font-family: 'Lato';
     font-style: normal;
     font-weight: 400;
     font-size: 28px;
@@ -204,7 +202,7 @@ export const CalendarCss = styled.div`
           display: block;
           width: 100%;
           height: auto;
-          content: "więcej stanowisk";
+          content: 'więcej stanowisk';
 
           font-size: 7px;
           text-align: center;
@@ -248,7 +246,7 @@ export const CalendarCss = styled.div`
   }
 
   .small {
-    font-family: "Lato";
+    font-family: 'Lato';
     font-style: normal;
     font-size: 12px;
     color: #828282;
