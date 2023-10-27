@@ -43,6 +43,52 @@ export const Div = styled.div`
 export const PageContainer = styled.div`
   padding: 60px 0 120px 0;
   //border: 4px solid red;
-  // min-height: 100vh;
-  // display: flex;
+  .field {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+
+    top: 0;
+    margin: auto;
+    left: calc(50% - 50px);
+    bottom: -30vh;
+    display: flex;
+    justify-content: center;
+    .mouse {
+      background: rgba(255, 255, 255, 0.3);
+      width: 50px;
+      height: 90px;
+      border: 3px solid #333;
+      border-radius: 60px;
+      position: relative;
+      &::before {
+        content: '';
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #333;
+        border-radius: 50%;
+        opacity: 1;
+        animation: wheel 2s infinite;
+        -webkit-animation: wheel 2s infinite;
+      }
+    }
+
+    @keyframes wheel {
+      to {
+        opacity: 0;
+        top: 60px;
+      }
+    }
+
+    @-webkit-keyframes wheel {
+      to {
+        opacity: 0;
+        top: 60px;
+      }
+    }
+  }
 `;

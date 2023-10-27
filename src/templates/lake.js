@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Helmet } from 'react-helmet';
 import { SEO } from '../components/seo';
 import GoogleMapReact from 'google-map-react';
 import { graphql, Link } from 'gatsby';
@@ -16,7 +15,6 @@ import useFetch from '../hooks/useFetch.js';
 import useWindowSize from '../hooks/useWindowSize';
 import { useLocation } from '@reach/router';
 import { Dog, Fish2 } from '../assets/icons';
-import { Carousel } from 'react-responsive-carousel';
 
 //Nisko
 const pegsDataMock = [
@@ -158,111 +156,74 @@ function Lake(props) {
 
   return (
     <>
-      {/* <Helmet>
-        <link
-          rel='stylesheet'
-          href='node_modules/react-responsive-carousel/lib/styles/carousel.min.css'
-          type='text/css'
-        />
-      </Helmet> */}
       <ConfigProvider locale={plPL}>
-        <div style={{ position: 'relative', top: '60px' }}>
-          <Carousel
-            showArrows={true}
-            // onChange={(p1, p2) => console.log('on change carousel', p1, p2)}
-            showThumbs={false}
-            // onClickItem={onClickItem}
-            // onClickThumb={onClickThumb}
-          >
-            {restThumbnails.map((img, idx) => {
-              return (
-                <div key={idx}>
-                  <GatsbyImage
-                    style={{
-                      width: '100%',
-                      height: 'calc(100vh - 160px)',
-                    }}
-                    image={getImage(img)}
-                  />
-
-                  {/* <p className='legend'>
-                    <div className='breadcrumbs'>
-                      <Breadcrumb
-                        items={[
-                          {
-                            title: (
-                              <Link to='/' style={{ color: 'white' }}>
-                                {}
-                              </Link>
-                            ),
-                          },
-                          {
-                            title: (
-                              <Link to={`/${voivodeship}`}>
-                                <span style={{ color: 'white' }}>
-                                  {voivodeship}
-                                </span>
-                              </Link>
-                            ),
-                          },
-                          {
-                            title: (
-                              <Link to={`/${voivodeship}/${city}`}>
-                                <span style={{ color: 'white' }}>{city}</span>
-                              </Link>
-                            ),
-                          },
-                          {
-                            title: (
-                              <span style={{ color: 'white' }}>{lakeName}</span>
-                            ),
-                          },
-                        ]}></Breadcrumb>
-                    </div>
-                  </p> */}
-                </div>
-              );
-            })}
-          </Carousel>
-        </div>
         <PageContainer>
           <Div noBottomPadding>
             <div className='breadcrumbs'>
-              <Breadcrumb
-                items={[
-                  {
-                    title: <Link to='/'>{}</Link>,
-                  },
-                  {
-                    title: <Link to={`/${voivodeship}`}>{voivodeship}</Link>,
-                  },
-                  {
-                    title: <Link to={`/${voivodeship}/${city}`}>{city}</Link>,
-                  },
-                  {
-                    title: lakeName,
-                  },
-                ]}></Breadcrumb>
-            </div>
-
-            <div className='lowisko_card'>
-              <div className='lowisko_city' style={{ marginBottom: '20px' }}>
+              <Breadcrumb>
+                <Breadcrumb.Item>
+                  <Link to='/'>{}</Link>
+                </Breadcrumb.Item>
+                <Breadcrumb.Item>
+                  <Link to={`/${voivodeship}`}>{voivodeship}</Link>
+                </Breadcrumb.Item>
+                <Breadcrumb.Item>
+                  <Link to={`/${voivodeship}/${city}`}>{city}</Link>
+                </Breadcrumb.Item>
                 <LocationDot />
-                <span> {lakeName}</span>
-              </div>
+                <span>{lakeName}</span>
+              </Breadcrumb>
             </div>
           </Div>
 
-          {/* <div>
-            <GatsbyImage
-              style={{ width: '100%', height: '50vh' }}
-              image={getImage(lakeMainImageFile)}
-              alt=''></GatsbyImage>
-          </div> */}
+          <BigImagesWrapper>
+            {allImages.current?.map((imageFile, i) => {
+              return (
+                <div ref={index === i ? matchedRef : null}>
+                  <GatsbyImage
+                    placeholder='blured'
+                    objectFit='cover'
+                    layout={'fullWidth'}
+                    //imgStyle={{ objectFit: "cover" }}
+                    image={getImage(imageFile)}
+                    alt={`lake image in ${city}`}
+                    style={{
+                      minWidth: '100vw',
+                      height: '500px',
+                    }}></GatsbyImage>
+                </div>
+              );
+            })}
+            {/* <div>
+              <GatsbyImage
+                image={getImage(lakeMainImageFile)}
+                alt=""
+              ></GatsbyImage>
+            </div> */}
+          </BigImagesWrapper>
+          {/** todo create thumbnails */}
+          <ThumbnailsWrapper>
+            {allThumbnails.current?.map((image, i) => {
+              return (
+                <div
+                  onClick={() =>
+                    flushSync(() => {
+                      setIndex(i);
+                    })
+                  }>
+                  <GatsbyImage
+                    image={getImage(image)}
+                    style={{ minWidth: '100px' }}
+                  />
+                </div>
+              );
+            })}
+          </ThumbnailsWrapper>
 
-          <h2 style={{ textAlign: 'center' }}>
-            terminarz rezerwacji stanowisk{' '}
-          </h2>
+          <div className='field'>
+            <div className='mouse'></div>
+          </div>
+
           <Div noBottomPadding>
             <div
               style={{
