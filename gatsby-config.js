@@ -6,7 +6,7 @@ module.exports = {
     description: `platforma słuząca do rezerwacji stanowisk na łowiskach komercyjnych , jak równiez wszelakich udogodnień`,
     twitterUsername: `@unknown`,
     image: ``,
-    siteUrl: `https://letsfish.com.pl`,
+    siteUrl: `https://letsfish.com`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,

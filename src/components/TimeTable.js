@@ -8,7 +8,7 @@ import { Left, Right, Up, Down } from '../assets/icons';
 const TimeTable = function (props) {
   const { maxPegs = 4, maxDays, pegs, isLoading } = props;
 
-  console.log('pegs passed to TimeTable', pegs);
+  console.log('props passed to TimeTable', props);
 
   const [firstIdx, setFirstIdx] = useState(0);
   const [lastIdx, setLastIdx] = useState(maxPegs);
@@ -44,7 +44,7 @@ const TimeTable = function (props) {
     );
 
   return (
-    <CalendarCss columns={maxDays + 1}>
+    <CalendarCss columns={maxDays && maxDays + 1}>
       {/* <header className="calendar_header">
         <h3 style={{ textAlign: "center" }}>Sprawdź dostępne terminy</h3>
       </header> */}
@@ -182,7 +182,13 @@ export const CalendarCss = styled.div`
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(${(props) => props.columns}, 1fr);
+      grid-template-columns: repeat(
+        ${(props) => {
+          console.log('props in styled', props);
+          return props.columns;
+        }},
+        1fr
+      );
       grid-auto-rows: 1fr; /* Allow the rows to resize dynamically */
       top: 0;
       left: 0;
