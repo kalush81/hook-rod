@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import Nav from "./Nav";
-import Footer from "./Footer";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import Nav from './Nav';
+import Footer from './Footer';
+//import styles from 'react-responsive-carousel/lib/styles/carousel.css';
+
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   UploadOutlined,
   UserOutlined,
   VideoCameraOutlined,
-} from "@ant-design/icons";
+} from '@ant-design/icons';
 //import "normalize.css";
-import GlobalStyles from "../styles/GlobalStyles";
+import GlobalStyles from '../styles/GlobalStyles';
 
 const Layout = ({ children, path }) => {
-
   //const [collapsed, setCollapsed] = useState(false);
   // const {
   //   token: { colorBgContainer },
@@ -25,9 +25,7 @@ const Layout = ({ children, path }) => {
       <Nav />
       {children}
 
-      <Footer
-        style={{ textAlign: "center" }}
-      >
+      <Footer style={{ textAlign: 'center' }}>
         Ant Design ©2023 Created by Ant UED
       </Footer>
     </div>

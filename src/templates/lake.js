@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-//import { Helmet } from "react-helmet";
+import { Helmet } from 'react-helmet';
 import { SEO } from '../components/seo';
 import GoogleMapReact from 'google-map-react';
 import { graphql, Link } from 'gatsby';
@@ -17,7 +17,6 @@ import useWindowSize from '../hooks/useWindowSize';
 import { useLocation } from '@reach/router';
 import { Dog, Fish2 } from '../assets/icons';
 import { Carousel } from 'react-responsive-carousel';
-import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 //Nisko
 const pegsDataMock = [
@@ -117,7 +116,7 @@ function Lake(props) {
   const [isError, setIsError] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
-  const size = useWindowSize();
+  const size = useWindowSize(lakeId);
 
   const [index, setIndex] = useState(0);
   const matchedRef = useRef(null);
@@ -159,18 +158,25 @@ function Lake(props) {
 
   return (
     <>
+      {/* <Helmet>
+        <link
+          rel='stylesheet'
+          href='node_modules/react-responsive-carousel/lib/styles/carousel.min.css'
+          type='text/css'
+        />
+      </Helmet> */}
       <ConfigProvider locale={plPL}>
         <div style={{ position: 'relative', top: '60px' }}>
           <Carousel
             showArrows={true}
-            onChange={(params) => console.log(params)}
-            showThumbs={true}
+            // onChange={(p1, p2) => console.log('on change carousel', p1, p2)}
+            showThumbs={false}
             // onClickItem={onClickItem}
             // onClickThumb={onClickThumb}
           >
-            {restThumbnails.map((img) => {
+            {restThumbnails.map((img, idx) => {
               return (
-                <div className='slider-div'>
+                <div key={idx}>
                   <GatsbyImage
                     style={{
                       width: '100%',
@@ -178,7 +184,8 @@ function Lake(props) {
                     }}
                     image={getImage(img)}
                   />
-                  <p className='legend'>
+
+                  {/* <p className='legend'>
                     <div className='breadcrumbs'>
                       <Breadcrumb
                         items={[
@@ -212,7 +219,7 @@ function Lake(props) {
                           },
                         ]}></Breadcrumb>
                     </div>
-                  </p>
+                  </p> */}
                 </div>
               );
             })}

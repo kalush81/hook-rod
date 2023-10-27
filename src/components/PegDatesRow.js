@@ -13,7 +13,7 @@ function PegDatesRow({ peg, daysArr, isLoading }) {
 
   return (
     <>
-      <span key={peg.pegId} style={{ fontSize: '14px' }}>
+      <span className='noColor' key={peg.pegId} style={{ fontSize: '14px' }}>
         {peg.pegNumber}
       </span>
 

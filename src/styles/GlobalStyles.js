@@ -1,6 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-//import "antd/dist/antd.css";
-
 import lato300 from '../assets/fonts/Lato-Thin.woff';
 import lato400 from '../assets/fonts/Lato-Regular.woff';
 import lato500 from '../assets/fonts/Lato-Medium.woff';
@@ -79,6 +77,10 @@ const GlobalStyles = createGlobalStyle`
     justify-content: center;
   }
 
+ .noColor {
+    background: black !important;
+ }
+
   .ant-picker-panels {
     flex-direction: column;
   } 
@@ -138,7 +140,8 @@ const GlobalStyles = createGlobalStyle`
   }
   .breadcrumbs ol li.ant-breadcrumb-separator {
     color: yellow;
-  } 
+  }
+
   
 `;
 

@@ -44,7 +44,7 @@ const TimeTable = function (props) {
     );
 
   return (
-    <CalendarCss columns={maxDays && maxDays + 1}>
+    <CalendarCss columns={maxDays}>
       {/* <header className="calendar_header">
         <h3 style={{ textAlign: "center" }}>Sprawdź dostępne terminy</h3>
       </header> */}
@@ -72,7 +72,10 @@ const TimeTable = function (props) {
 
           {daysArr.map((day) => {
             return (
-              <span key={day} style={{ letterSpacing: '1px' }}>
+              <span
+                className='noColor'
+                key={day}
+                style={{ letterSpacing: '1px' }}>
                 {day.substring(0, 5)}
               </span>
             );
@@ -182,13 +185,34 @@ export const CalendarCss = styled.div`
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(
-        ${(props) => {
-          console.log('props in styled', props);
-          return props.columns;
-        }},
-        1fr
-      );
+      @media (max-width: 500px) {
+        grid-template-columns: repeat(8, 1fr);
+      }
+
+      @media (min-width: 501px) and (max-width: 600px) {
+        grid-template-columns: repeat(9, 1fr);
+      }
+
+      @media (min-width: 601px) and (max-width: 700px) {
+        grid-template-columns: repeat(10, 1fr);
+      }
+
+      @media (min-width: 701px) and (max-width: 800px) {
+        grid-template-columns: repeat(11, 1fr);
+      }
+
+      @media (min-width: 801px) and (max-width: 900px) {
+        grid-template-columns: repeat(12, 1fr);
+      }
+
+      @media (min-width: 901px) and (max-width: 1000px) {
+        grid-template-columns: repeat(13, 1fr);
+      }
+
+      @media (min-width: 1001px) {
+        grid-template-columns: repeat(14, 1fr);
+      }
+
       grid-auto-rows: 1fr; /* Allow the rows to resize dynamically */
       top: 0;
       left: 0;
@@ -250,6 +274,9 @@ export const CalendarCss = styled.div`
       }
       span.pending {
         background-color: #757575;
+      }
+      span.noColor {
+        background-color: #ccc;
       }
     }
   }
