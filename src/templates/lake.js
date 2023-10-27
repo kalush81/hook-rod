@@ -268,7 +268,7 @@ function Lake(props) {
                   isLoading={loadingPegReservations}
                   id={lakeId}
                   pegs={mergedPegs}
-                  maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
+                  maxPegs={staticPegs.length}
                   maxDays={size}
                   numberOfPegs={numberOfPegs}
                 />
