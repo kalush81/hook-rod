@@ -40,9 +40,9 @@ const TimeTable = function (props) {
     .map((el, i) =>
       moment(moment().add(otherDays, 'day')).add(i, 'day').format('DD/MM/YYYY')
     );
-
+  console.log('maxDays', maxDays);
   return (
-    <CalendarCss columns={maxDays}>
+    <CalendarCss columns={maxDays + 1}>
       {/* <header className="calendar_header">
         <h3 style={{ textAlign: "center" }}>Sprawdź dostępne terminy</h3>
       </header> */}
@@ -183,34 +183,7 @@ export const CalendarCss = styled.div`
 
     .grid {
       display: grid;
-      @media (max-width: 500px) {
-        grid-template-columns: repeat(8, 1fr);
-      }
-
-      @media (min-width: 501px) and (max-width: 600px) {
-        grid-template-columns: repeat(9, 1fr);
-      }
-
-      @media (min-width: 601px) and (max-width: 700px) {
-        grid-template-columns: repeat(10, 1fr);
-      }
-
-      @media (min-width: 701px) and (max-width: 800px) {
-        grid-template-columns: repeat(11, 1fr);
-      }
-
-      @media (min-width: 801px) and (max-width: 900px) {
-        grid-template-columns: repeat(12, 1fr);
-      }
-
-      @media (min-width: 901px) and (max-width: 1000px) {
-        grid-template-columns: repeat(13, 1fr);
-      }
-
-      @media (min-width: 1001px) {
-        grid-template-columns: repeat(14, 1fr);
-      }
-
+      grid-template-columns: ${(props) => `repeat(${props.columns}, 1fr)`};
       grid-auto-rows: 1fr; /* Allow the rows to resize dynamically */
       top: 0;
       left: 0;

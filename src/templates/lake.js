@@ -113,7 +113,7 @@ function Lake(props) {
       lat: latitude,
       lng: longitude,
     },
-    zoom: 12,
+    zoom: 14,
   };
   const [mergedPegs, setMergedPegs] = useState(staticPegs);
   const [opened, setOpened] = useState(false);
@@ -121,10 +121,11 @@ function Lake(props) {
   const location = useLocation();
   const currentPath = location.pathname;
   const size = useWindowSize();
+  console.log('size', size);
   const [index, setIndex] = useState(0);
   const matchedRef = useRef(null);
-  const allImages = useRef(null);
-  const allThumbnails = useRef(null);
+  const allImages = useRef([]);
+  const allThumbnails = useRef([]);
 
   const toggleOpened = () => setOpened((value) => !value);
 
@@ -134,32 +135,14 @@ function Lake(props) {
   const { get: getServicesReservations, loading: loadingServicesReservations } =
     useFetch(`https://hookandrod.herokuapp.com/api/lakes/lakeReservations/`);
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await getPegReservations(lakeId);
-      console.log('response', response);
-      const mergedPegs = staticPegs.map((peg) => {
-        const foundPegWithRes = response.find((res) => res.pegId === peg.pegId);
-        if (foundPegWithRes) {
-          return { ...peg, reservations: foundPegWithRes.reservations };
-        } else {
-          return { ...peg, reservations: [] };
-        }
-      });
-      setMergedPegs(mergedPegs);
-    }
-    fetchData();
-  }, [lakeId]);
-
-  //zostawic useLayoutEffect
-  useLayoutEffect(() => {
-    allImages.current = [lakeMainImageFile, ...lakeOtherImagesFiles];
-    allThumbnails.current = [firstThumbnail, ...restThumbnails];
-    allThumbnails.current = Array.from(
-      { length: 10 },
-      () => allThumbnails.current
-    ).flat();
-  }, []);
+  // useEffect(() => {
+  //   allImages.current = [lakeMainImageFile, ...lakeOtherImagesFiles];
+  //   allThumbnails.current = [firstThumbnail, ...restThumbnails];
+  //   allThumbnails.current = Array.from(
+  //     { length: 10 },
+  //     () => allThumbnails.current
+  //   ).flat();
+  // }, [lakeId]);
 
   useEffect(() => {
     if (matchedRef.current) {
@@ -170,6 +153,24 @@ function Lake(props) {
       });
     }
   }, [lakeId]);
+
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const response = await getPegReservations(lakeId);
+  //     const mergedPegs = staticPegs.map((peg) => {
+  //       const foundPegWithRes = response.find((res) => res.pegId === peg.pegId);
+  //       if (foundPegWithRes) {
+  //         return { ...peg, reservations: foundPegWithRes.reservations };
+  //       } else {
+  //         return { ...peg, reservations: [] };
+  //       }
+  //     });
+  //     setMergedPegs(mergedPegs);
+  //   }
+  //   setTimeout(() => {
+  //     fetchData();
+  //   }, 2000);
+  // }, [lakeId]);
 
   return (
     <>
@@ -194,33 +195,44 @@ function Lake(props) {
           </Div>
 
           <BigImagesWrapper>
-            {allImages.current?.map((imageFile, i) => {
+            {lakeOtherImagesFiles.map((imageFile, i) => {
               return (
-                <div ref={index === i ? matchedRef : null}>
+                <div key={i} ref={index === i ? matchedRef : null}>
                   <GatsbyImage
                     placeholder='blured'
-                    objectFit='cover'
-                    layout={'fullWidth'}
+                    className='gatsby-img-wraper'
+                    // style={{
+                    //   border: '2px solid red',
+                    //   width: '100vw',
+                    //   height: 'calc(100vh - 197px)',
+                    // }}
+                    // objectFit='cover'
+                    // layout={'fullWidth'}
                     //imgStyle={{ objectFit: "cover" }}
                     image={getImage(imageFile)}
-                    alt={`lake image in ${city}`}
-                    style={{
-                      minWidth: '100vh',
-                      height: '60vh',
-                    }}></GatsbyImage>
+                    // alt={`lake image in ${city}`}
+                    // style={{
+                    //   minWidth: '100vh',
+                    //   height: '60vh',
+                    // }}
+                  />
                 </div>
               );
             })}
           </BigImagesWrapper>
 
           <ThumbnailsWrapper>
-            {allThumbnails.current?.map((image, i) => {
+            {restThumbnails.map((image, i) => {
               return (
                 <div
+                  key={i}
                   onClick={() => {
-                    console.log('img clicked');
-                    return flushSync(() => {
-                      setIndex(i);
+                    flushSync(() => {
+                      if (index < allImages.current?.length - 1) {
+                        setIndex((index) => index + 1);
+                      } else {
+                        setIndex(0);
+                      }
                     });
                   }}>
                   <GatsbyImage
@@ -249,7 +261,7 @@ function Lake(props) {
                   id={lakeId}
                   pegs={mergedPegs}
                   maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
-                  maxDays={size}
+                  maxDays={size - 1}
                   numberOfPegs={numberOfPegs}
                 />
               </Section>
@@ -406,12 +418,12 @@ export const query = graphql`
     b: lake(id: { eq: $id }) {
       lakeMainImageFile {
         childImageSharp {
-          gatsbyImageData(width: 1980, quality: 100)
+          gatsbyImageData(width: 100, quality: 100)
         }
       }
       lakeOtherImagesFiles {
         childImageSharp {
-          gatsbyImageData(width: 1980, quality: 100)
+          gatsbyImageData(width: 100, quality: 100)
         }
       }
     }
@@ -427,8 +439,36 @@ const Section = styled.section`
 
 const BigImagesWrapper = styled.div`
   display: flex;
-  min-width: 100vw;
   overflow-x: hidden;
+  width: 100vw;
+  .gatsby-img-wraper {
+    //border: 2px solid red;
+    width: 100vw;
+    height: calc(100vh - 197px);
+    &::after {
+      content: '';
+      width: 50px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      transform: translateX(-100%);
+      //border: 4px solid yellow;
+      background: rgba(255, 255, 255, 0.5);
+    }
+    &::before {
+      content: '';
+      width: 50px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      //transform: translateX(100%);
+      //border: 4px solid yellow;
+      background: rgba(255, 255, 255, 0.5);
+    }
+  }
 `;
 const ThumbnailsWrapper = styled.div`
   display: flex;

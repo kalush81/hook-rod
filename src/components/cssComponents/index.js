@@ -47,18 +47,18 @@ export const PageContainer = styled.div`
     position: absolute;
     width: 100px;
     height: 100px;
-
-    top: 0;
+    //border 2px solid red;
+    top: 200px;
     margin: auto;
     left: calc(50% - 50px);
     bottom: -30vh;
     display: flex;
     justify-content: center;
     .mouse {
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.5);
       width: 50px;
       height: 90px;
-      border: 3px solid #333;
+      border: 3px solid #fff;
       border-radius: 60px;
       position: relative;
       &::before {

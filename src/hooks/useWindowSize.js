@@ -9,41 +9,36 @@ const useWindowSize = () => {
       if (window.innerWidth > 700 && window.innerWidth < 801) return 10;
       if (window.innerWidth > 800 && window.innerWidth < 901) return 11;
       if (window.innerWidth > 900 && window.innerWidth < 1001) return 12;
-      return 13;
+      return 14;
     } else {
       return null;
     }
   });
 
   useLayoutEffect(() => {
-    if (typeof window !== 'undefined') {
-      // Your window size update logic
-      console.log('useUeffect in useWindowSize worked!!!');
-      console.log('size', size);
-      const handleResize = () => {
-        if (window.innerWidth < 501) return setSize(7);
-        if (window.innerWidth > 500 && window.innerWidth < 601)
-          return setSize(8);
-        if (window.innerWidth > 600 && window.innerWidth < 701)
-          return setSize(9);
-        if (window.innerWidth > 700 && window.innerWidth < 801)
-          return setSize(10);
-        if (window.innerWidth > 800 && window.innerWidth < 901)
-          return setSize(11);
-        if (window.innerWidth > 900 && window.innerWidth < 1001)
-          return setSize(12);
-        else {
-          return setSize(13);
-        }
-      };
+    // if (typeof window !== 'undefined') {
+    // Your window size update logic
+    console.log('useUeffect in useWindowSize worked!!!');
+    console.log('size', size);
+    const handleResize = () => {
+      if (window.innerWidth < 501) return setSize(7);
+      if (window.innerWidth > 500 && window.innerWidth < 601) return setSize(8);
+      if (window.innerWidth > 600 && window.innerWidth < 701) return setSize(9);
+      if (window.innerWidth > 700 && window.innerWidth < 801)
+        return setSize(10);
+      if (window.innerWidth > 800 && window.innerWidth < 901)
+        return setSize(11);
+      if (window.innerWidth > 900 && window.innerWidth < 1001)
+        return setSize(12);
+      else {
+        return setSize(14);
+      }
+    };
 
-      window.addEventListener('resize', handleResize);
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
-    } else {
-      return null;
-    }
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return size;
