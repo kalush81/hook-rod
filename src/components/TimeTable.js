@@ -35,7 +35,7 @@ const TimeTable = function (props) {
     }
   };
 
-  let daysArr = new Array(maxDays)
+  let daysArr = new Array(maxDays ? maxDays : 7)
     .fill(undefined)
     .map((el, i) =>
       moment(moment().add(otherDays, 'day')).add(i, 'day').format('DD/MM/YYYY')

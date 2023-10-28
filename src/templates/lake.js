@@ -121,7 +121,7 @@ function Lake(props) {
   const location = useLocation();
   const currentPath = location.pathname;
   const size = useWindowSize();
-  console.log('size', size);
+  //console.log('size', size);
   const [index, setIndex] = useState(0);
   const matchedRef = useRef(null);
   const allImages = useRef([]);
@@ -261,7 +261,7 @@ function Lake(props) {
                   id={lakeId}
                   pegs={mergedPegs}
                   maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
-                  maxDays={size - 1}
+                  maxDays={size}
                   numberOfPegs={numberOfPegs}
                 />
               </Section>
