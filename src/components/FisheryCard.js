@@ -1,12 +1,12 @@
-import React from "react";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { Link } from "gatsby";
-import { Dollar, Fish, Silhouette, Pin, Trophy } from "../assets/icons";
-import styled from "styled-components";
+import React from 'react';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { Link } from 'gatsby';
+import styled from 'styled-components';
+import { Dollar, Fish, Silhouette, Pin, Trophy } from '../assets/icons';
 
 const listSpecies = (species) => {
   return species.map((fish) => {
-    return <span key={fish.name}>{fish.name + " "}</span>;
+    return <span key={fish.name}>{fish.name + ' '}</span>;
   });
 };
 

@@ -1,9 +1,8 @@
-import React, { useRef } from "react";
-import styled from "styled-components";
-import { SearchForm } from "./SearchForm";
-//import "moment/locale/pl";
-import plPL from "antd/lib/locale/pl_PL";
-import { ConfigProvider } from "antd";
+import React, { useRef } from 'react';
+import styled from 'styled-components';
+import { ConfigProvider } from 'antd';
+import { SearchForm } from './SearchForm';
+import plPL from 'antd/lib/locale/pl_PL';
 
 const SearchBox = () => {
   const header = useRef(null);
@@ -11,13 +10,13 @@ const SearchBox = () => {
   return (
     <ConfigProvider locale={plPL}>
       <SearchBoxCss>
-        <div className="home_search_box">
-          <h1 ref={header} className="home_cover_header--big">
+        <div className='home_search_box'>
+          <h1 ref={header} className='home_cover_header--big'>
             HOOK&ROD
           </h1>
-          <h2 className="home_cover_header">Znajdź łowiska blisko Ciebie</h2>
-          <div className="home_cover_search">
-            <SearchForm className={"home_cover_search_input"} />
+          <h2 className='home_cover_header'>Znajdź łowiska blisko Ciebie</h2>
+          <div className='home_cover_search'>
+            <SearchForm className={'home_cover_search_input'} />
           </div>
         </div>
       </SearchBoxCss>
@@ -37,7 +36,7 @@ const SearchBoxCss = styled.div`
   .home_cover_header {
     width: 100%;
     /* max-width: 800px; */
-    font-family: "Lato";
+    font-family: 'Lato';
     font-size: 19px;
     font-weight: 500;
     text-align: center;
@@ -46,7 +45,7 @@ const SearchBoxCss = styled.div`
   }
 
   .home_cover_header--big {
-    font-family: "Lato";
+    font-family: 'Lato';
     font-size: 58px;
     font-weight: 700;
     text-align: center;

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Div } from "../components/cssComponents";
-import { Link } from "gatsby";
+import React from 'react';
+import { Div } from '../components/cssComponents';
+import { Link } from 'gatsby';
 
 const ReservationDatesUnavailable = ({ location }) => {
   //const [goTo, setGoTo] = useState("");
   //console.log("goto:", goTo);
-  console.log("location.state", location.state);
+  console.log('location.state', location.state);
   // useEffect(() => {
   //   setGoTo(location.state.fromUrl);
   //   return () => {
@@ -22,13 +22,13 @@ const ReservationDatesUnavailable = ({ location }) => {
           i lowisku nr xxx
         </p>
         <p>Sprawdz terminarz dostepnosci i sprobuj ponownie</p>
-        <span style={{ fontSize: "0.7em" }}>
+        <span style={{ fontSize: '0.7em' }}>
           "w miejscach xxx bedą dane nieudanej rezerwacji"
         </span>
       </Div>
       <Div>
-        <Link to={"/"}>Przejdz do łowiska</Link>{" "}
-        <span style={{ fontSize: "0.7em" }}>
+        <Link to={'/'}>Przejdz do łowiska</Link>{' '}
+        <span style={{ fontSize: '0.7em' }}>
           "tu nastapi przekierwoanie do tego samego łowiska"
         </span>
       </Div>

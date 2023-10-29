@@ -1,39 +1,39 @@
-import { Link } from "gatsby";
-import React from "react";
-import styled from "styled-components";
-import hookrod_logo from "../assets/images/hookrod_logo.svg";
+import { Link } from 'gatsby';
+import React from 'react';
+import styled from 'styled-components';
+import hookrod_logo from '../assets/images/hookrod_logo.svg';
 
 const Footer = ({ noFixedPosition }) => (
-  <FooterCss className="footer_css" noFixedPosition={noFixedPosition}>
-    <div className="container">
-      <div className="left">
+  <FooterCss className='footer_css' noFixedPosition={noFixedPosition}>
+    <div className='container'>
+      <div className='left'>
         <ul>
           <li>
-            <Link to="/partnerzy">Partnerzy</Link>
+            <Link to='/partnerzy'>Partnerzy</Link>
           </li>
         </ul>
       </div>
-      <div className="center">
+      <div className='center'>
         <ul>
           <li>
-            <Link to="" className="bold">
+            <Link to='' className='bold'>
               Ważne informacje
             </Link>
           </li>
           <li>
-            <Link to="">Regulamin</Link>
+            <Link to=''>Regulamin</Link>
           </li>
           <li>
-            <Link to="">Polityka prywatności</Link>
+            <Link to=''>Polityka prywatności</Link>
           </li>
           <li>
-            <Link to="">Płatności</Link>
+            <Link to=''>Płatności</Link>
           </li>
         </ul>
       </div>
-      <ul className="right">
-        <div className="right">
-          <Link to="/">Logo</Link>
+      <ul className='right'>
+        <div className='right'>
+          <Link to='/'>Logo</Link>
           <li>HOOK&ROD Sp. z o.o.</li>
           <li>ul. Rybia 66</li>
           <li>tel. +48 725 465 444</li>
@@ -45,13 +45,14 @@ const Footer = ({ noFixedPosition }) => (
 );
 
 const FooterCss = styled.footer`
+  //display: none;
+  display: flex;
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   background: rgba(22, 56, 50, 0.9);
   height: 100px;
-  display: flex;
   justify-content: space-between;
   font-family: Lato;
   z-index: 111;

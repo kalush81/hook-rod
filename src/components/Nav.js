@@ -1,77 +1,77 @@
-import React, { useState } from "react";
-import { Link } from "gatsby";
-import styled from "styled-components";
-import hookrod_logo from "../assets/images/hookrod_logo.svg";
-import { Squeeze as Hamburger } from "hamburger-react";
-import { Logo, LoginIcon } from "../assets/icons";
-import "animate.css";
+import React, { useState } from 'react';
+import { Link } from 'gatsby';
+import styled from 'styled-components';
+import hookrod_logo from '../assets/images/hookrod_logo.svg';
+import { Squeeze as Hamburger } from 'hamburger-react';
+import { Logo, LoginIcon } from '../assets/icons';
+import 'animate.css';
 
 const Nav = () => {
   const [isToggled, setIsToggled] = useState(false);
   const hide = () => setIsToggled(false);
 
   return (
-    <NavCss className="nav">
-      <div className="container">
-        <Link to="/">
-          <div className="nav_logo">
+    <NavCss className='nav'>
+      <div className='container'>
+        <Link to='/'>
+          <div className='nav_logo'>
             <Logo />
           </div>
         </Link>
-        <div className="navbar_middle">
-          <ul className="navbar_middle">
+        <div className='navbar_middle'>
+          <ul className='navbar_middle'>
             <li>
-              <Link to="/wybierz-województwo">Zobacz wszystkie łowiska</Link>
+              <Link to='/wybierz-województwo'>Zobacz wszystkie łowiska</Link>
             </li>
             <li>
-              <Link to="/onas">O nas</Link>
+              <Link to='/onas'>O nas</Link>
             </li>
             <li>
-              <Link to="/faq">FAQ</Link>
+              <Link to='/faq'>FAQ</Link>
             </li>
           </ul>
         </div>
-        <div className="navbar_right">
-          <ul className="navbar_right">
-            <div className="login">
+        <div className='navbar_right'>
+          <ul className='navbar_right'>
+            <div className='login'>
               <li>
-                <Link to="/login">Zaloguj</Link>
+                <Link to='/login'>Zaloguj</Link>
                 <LoginIcon />
               </li>
             </div>
             <li>
-              <Link to="/registration">Zarejestruj</Link>
+              <Link to='/registration'>Zarejestruj</Link>
             </li>
           </ul>
         </div>
-        <div className="hamburger">
+        <div className='hamburger'>
           <Hamburger
             duration={0.6}
             toggled={isToggled}
             toggle={setIsToggled}
             size={27}
-            color="#fff"
+            color='#fff'
           />
         </div>
       </div>
       {isToggled && (
-        <div className="collapse_navbar">
-          <Link to="/wybierz-województwo">
+        <div className='collapse_navbar'>
+          <Link to='/wybierz-województwo'>
             <h1 onClick={hide}>Łowiska</h1>
           </Link>
-          <Link to="/onas">
+          <Link to='/onas'>
             <h1 onClick={hide}>O nas</h1>
           </Link>
-          <Link to="/faq">
+          <Link to='/faq'>
             <h1 onClick={hide}>FAQ</h1>
           </Link>
-          <Link to="/login">
-            <div className="login">
+          <Link to='/login'>
+            <div className='login'>
               <h1 onClick={hide}>Zaloguj</h1>
               <LoginIcon />
             </div>
           </Link>
-          <Link to="/registration">
+          <Link to='/registration'>
             <h1 onClick={hide}>Zarejestruj</h1>
           </Link>
         </div>

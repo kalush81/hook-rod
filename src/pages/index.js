@@ -1,10 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { graphql, useStaticQuery } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
-//import { Helmet } from "react-helmet";
-import SearchBox from "../components/SearchBox";
-import { SEO } from "../components/seo"
+import React from 'react';
+import styled from 'styled-components';
+import { graphql, useStaticQuery } from 'gatsby';
+import BackgroundImage from 'gatsby-background-image';
+import SearchBox from '../components/SearchBox';
+import { SEO } from '../components/seo';
 
 const HomePg = () => {
   const data = useStaticQuery(
@@ -56,11 +55,10 @@ const HomePg = () => {
       </Helmet> */}
       <HomeCss>
         <BackgroundImage
-          Tag="div"
+          Tag='div'
           fluid={imageData}
-          className="home_cover"
-          backgroundColor="#040e18"
-        >
+          className='home_cover'
+          backgroundColor='#040e18'>
           <SearchBox />
         </BackgroundImage>
       </HomeCss>
@@ -91,6 +89,4 @@ const HomeCss = styled.div`
 
 export default HomePg;
 
-export const Head = () => (
-  <SEO />
-)
+export const Head = () => <SEO />;

@@ -6,8 +6,24 @@ export const Div = styled.div`
   width: 90%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 10px 0 20px 0;
-  padding-bottom: ${({ noBottomPadding }) => noBottomPadding && '0 '};
+  .breadcrumbs {
+    margin: 1rem;
+  }
+  //padding-bottom: ${({ nobottompadding }) => nobottompadding && '0 '};
+  .callendar-wraper {
+    margin-top: 7rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: unset;
+    gap: 1rem;
+  }
+  .facilities {
+    margin: 3rem;
+    width: 100%;
+    background: var(--litegray);
+    padding: 10px;
+    border-radius: 10px;
+  }
   .facilities-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -26,6 +42,9 @@ export const Div = styled.div`
     width: 100%;
   }
   @media (min-width: 900px) {
+    .callendar-wraper {
+      grid-template-columns: 2fr 1fr;
+    }
     grid-template-columns: ${({ responsive }) =>
       responsive ? '1fr 2fr;' : 'auto;'};
   }
@@ -42,19 +61,19 @@ export const Div = styled.div`
 
 export const PageContainer = styled.div`
   padding: 60px 0 120px 0;
-  //border: 4px solid red;
+
   .field {
     position: absolute;
     width: 100px;
     height: 100px;
     //border 2px solid red;
-    top: 200px;
+    /* top: 200px; */
     margin: auto;
     left: calc(50% - 50px);
-    bottom: -30vh;
+    bottom: 100px;
     display: flex;
     justify-content: center;
-    .mouse {
+    /* .mouse {
       background: rgba(255, 255, 255, 0.5);
       width: 50px;
       height: 90px;
@@ -88,6 +107,52 @@ export const PageContainer = styled.div`
       to {
         opacity: 0;
         top: 60px;
+      }
+    } */
+    .arrow {
+      width: 0;
+      height: 40px;
+      border: 4px solid #777;
+      position: relative;
+      animation: scroll 1.5s infinite;
+      -webkit-animation: scroll 1.5s infinite;
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: -5px;
+        width: 1px;
+        height: 10px;
+
+        // triangle
+        border-top: 20px solid #777;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+      }
+    }
+
+    @keyframes scroll {
+      0% {
+        height: 40px;
+      }
+      30% {
+        height: 70px;
+      }
+      60% {
+        height: 40px;
+      }
+    }
+
+    @-webkit-keyframes scroll {
+      0% {
+        height: 40px;
+      }
+      30% {
+        height: 70px;
+      }
+      60% {
+        height: 40px;
       }
     }
   }

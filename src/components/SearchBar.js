@@ -1,17 +1,17 @@
-import React from "react";
-import styled from "styled-components";
-import "moment/locale/pl";
-import plPL from "antd/lib/locale/pl_PL";
-import { ConfigProvider } from "antd";
-import { SearchForm } from "./SearchForm";
+import React from 'react';
+import styled from 'styled-components';
+import { ConfigProvider } from 'antd';
+import 'moment/locale/pl';
+import plPL from 'antd/lib/locale/pl_PL';
+import { SearchForm } from './SearchForm';
 
 const SearchBar = () => {
   return (
     <ConfigProvider locale={plPL}>
       <SearchBarCss>
-        <div className="lowi_search_bar">
-          <div className="lowi_search">
-            <SearchForm className="lowi_search" />
+        <div className='lowi_search_bar'>
+          <div className='lowi_search'>
+            <SearchForm className='lowi_search' />
           </div>
         </div>
       </SearchBarCss>

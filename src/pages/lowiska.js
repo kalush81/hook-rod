@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import { PageContainer } from "../components/cssComponents";
-import axios from "axios";
-import { Select, ConfigProvider, Skeleton } from "antd";
-import plPL from "antd/lib/locale/pl_PL";
-import dayjs from "dayjs";
-import FisheryCard from "../components/FisheryCard";
-import { Link, graphql, navigate, useStaticQuery } from "gatsby";
+import React, { useEffect, useState } from 'react';
+import { Link, graphql, navigate, useStaticQuery } from 'gatsby';
+import axios from 'axios';
+import styled from 'styled-components';
+import { Select, ConfigProvider, Skeleton } from 'antd';
+import plPL from 'antd/lib/locale/pl_PL';
+import dayjs from 'dayjs';
+import { PageContainer } from '../components/cssComponents';
+import FisheryCard from '../components/FisheryCard';
 const { Option } = Select;
 
 const Lowiska = function ({ location = {} }) {
-  console.log("location", location);
+  console.log('location', location);
   let coords = {};
   let dates = [];
   let distance = null;
@@ -22,7 +22,7 @@ const Lowiska = function ({ location = {} }) {
   }
 
   const formatedDates = dates.map((date) =>
-    dayjs(date.$d).format("YYYY-MM-DD")
+    dayjs(date.$d).format('YYYY-MM-DD')
   );
   const sday = formatedDates[0];
   const eday = formatedDates[1];
@@ -66,14 +66,14 @@ const Lowiska = function ({ location = {} }) {
         const response = await axios.get(
           `https://hookandrod.herokuapp.com/api/lakes/checkLakesOnDate`,
           {
-            mode: "cors",
+            mode: 'cors',
             headers: {
-              "Access-Control-Allow-Origin": "*",
-              Accept: "application/json",
-              "Content-Type": "application/json",
+              'Access-Control-Allow-Origin': '*',
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
             },
             withCredentials: false,
-            credentials: "same-origin",
+            credentials: 'same-origin',
             crossdomain: true,
             params: {
               distance: parseInt(distance) || null,
@@ -84,7 +84,7 @@ const Lowiska = function ({ location = {} }) {
             },
           }
         );
-        console.log("response", response);
+        console.log('response', response);
         const combined = response.data.map((lake) => {
           let lakeFromEdge = data.allLake.edges.find(
             (edge) => edge.node.id === String(lake.id)
@@ -99,27 +99,27 @@ const Lowiska = function ({ location = {} }) {
         setClientError(null);
         setMergedLakes(combined);
       } catch (error) {
-        console.log("ERROR ON ChecklakesOnDates", error)
-        console.log("ERROR STATUS .. ", error.response.status)
+        console.log('ERROR ON ChecklakesOnDates', error);
+        console.log('ERROR STATUS .. ', error.response.status);
         setMergedLakes(null);
         if (error.response.status >= 500 && error.response.status <= 599) {
-          return setServerError("Problem z serwerem");
+          return setServerError('Problem z serwerem');
         }
         if (error.response.status >= 400 && error.response.status <= 499) {
-          console.log("error from server: ", error);
-          setClientError("Coś poszło nietak, spróbuj ponownie");
+          console.log('error from server: ', error);
+          setClientError('Coś poszło nietak, spróbuj ponownie');
         }
         console.log(
-          "couldnt fetch from https://hookandrod.herokuapp.com/api/lakes/checkLakesOnDate"
+          'couldnt fetch from https://hookandrod.herokuapp.com/api/lakes/checkLakesOnDate'
         );
       }
     };
-    if (!location.state) return navigate("/");
+    if (!location.state) return navigate('/');
     loadLowiska();
 
     return () => {
       location.state = null;
-      console.log("lowiska page component is unmounted");
+      console.log('lowiska page component is unmounted');
     };
   }, [
     eday,
@@ -130,50 +130,48 @@ const Lowiska = function ({ location = {} }) {
     data.allLake.edges,
     location,
   ]);
-  if (serverError) return <h1 style={{marginTop: '4em'}}>Server Error</h1>
-  if (clientError) return  <h1 style={{marginTop: '4em'}}>UI error</h1> 
+  if (serverError) return <h1 style={{ marginTop: '4em' }}>Server Error</h1>;
+  if (clientError) return <h1 style={{ marginTop: '4em' }}>UI error</h1>;
   return (
     <ConfigProvider locale={plPL}>
       <PageContainer>
         <LowiskaCss>
-          <div className="lowi">
+          <div className='lowi'>
             {/* <SearchBar /> */}
-            <div className="lowi_body">
-              <div className="lowi_filters">
-                <div className="filtruj">
+            <div className='lowi_body'>
+              <div className='lowi_filters'>
+                <div className='filtruj'>
                   <h3>Filtruj</h3>
                 </div>
-                <div className="lowi_select">
+                <div className='lowi_select'>
                   <Select
-                    mode="multiple"
+                    mode='multiple'
                     allowClear
-                    showArrow="true"
-                    className="lowi_filter"
-                    size="large"
-                    placeholder="Odmiana  "
-                  >
-                    <Option value="10">Karp</Option>
-                    <Option value="101">Rekin</Option>
-                    <Option value="50">Szczupak</Option>
-                    <Option value="100">Okoń</Option>
-                    <Option value="102">Śledź</Option>
+                    showArrow='true'
+                    className='lowi_filter'
+                    size='large'
+                    placeholder='Odmiana  '>
+                    <Option value='10'>Karp</Option>
+                    <Option value='101'>Rekin</Option>
+                    <Option value='50'>Szczupak</Option>
+                    <Option value='100'>Okoń</Option>
+                    <Option value='102'>Śledź</Option>
                   </Select>
                   <Select
-                    mode="multiple"
+                    mode='multiple'
                     allowClear
-                    showArrow="true"
-                    className="lowi_filter"
-                    size="large"
-                    placeholder="Udogodnienia  "
-                  >
-                    <Option value="10">WC</Option>
-                    <Option value="101">Namiot</Option>
-                    <Option value="50">Ponton</Option>
-                    <Option value="100">WiFi</Option>
+                    showArrow='true'
+                    className='lowi_filter'
+                    size='large'
+                    placeholder='Udogodnienia  '>
+                    <Option value='10'>WC</Option>
+                    <Option value='101'>Namiot</Option>
+                    <Option value='50'>Ponton</Option>
+                    <Option value='100'>WiFi</Option>
                   </Select>
                 </div>
               </div>
-              <section className="lowi_list">
+              <section className='lowi_list'>
                 {loading && (
                   <>
                     <Skeleton active />
@@ -182,14 +180,14 @@ const Lowiska = function ({ location = {} }) {
                     <br />
                   </>
                 )}
-                
+
                 {mergedLakes?.length < 1 && (
                   <div>
                     <p>"nie znaleziono łowisk spełniających podane kryteria"</p>
-                    <Link to="/">wróć do wyszukiwarki</Link>
+                    <Link to='/'>wróć do wyszukiwarki</Link>
                   </div>
                 )}
-                <ul className="lowi_list_ul">
+                <ul className='lowi_list_ul'>
                   {/* {mergedLakes.length === 0 &&
                     clientError === null &&
                     serverError === null &&

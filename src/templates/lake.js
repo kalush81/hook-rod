@@ -7,15 +7,14 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { ConfigProvider, Breadcrumb } from 'antd';
 import plPL from 'antd/lib/locale/pl_PL';
-import { LocationDot } from '../assets/icons';
 import { Collapse } from 'react-collapse';
-import Reservator2 from '../components/Reservator2.js';
+import Reservator from '../components/Reservator.js';
 import TimeTable from '../components/TimeTable';
 import { Div, PageContainer } from '../components/cssComponents';
 import useFetch from '../hooks/useFetch.js';
 import useWindowSize from '../hooks/useWindowSize';
 import { useLocation } from '@reach/router';
-import { Dog, Fish2 } from '../assets/icons';
+import { Dog, Fish2, LocationDot, Left, Right } from '../assets/icons';
 
 //Nisko
 const pegsDataMock = [
@@ -85,6 +84,7 @@ const facilitiesStyle = {
 const title = {
   fontWeight: 300,
 };
+const Marker = ({ text }) => <LocationDot style={{ color: 'white' }} />;
 
 function Lake(props) {
   const {
@@ -122,11 +122,11 @@ function Lake(props) {
   const currentPath = location.pathname;
   const size = useWindowSize();
   //console.log('size', size);
-  const [index, setIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   const matchedRef = useRef(null);
   const allImages = useRef([]);
   const allThumbnails = useRef([]);
-
+  console.log('activeIndex', activeIndex);
   const toggleOpened = () => setOpened((value) => !value);
 
   const { get: getPegReservations, loading: loadingPegReservations } = useFetch(
@@ -154,6 +154,18 @@ function Lake(props) {
     }
   }, [lakeId]);
 
+  const updateIndex = (value) => {
+    let newIndex;
+    if (value < 0) {
+      newIndex = 0;
+    } else if (value > lakeOtherImagesFiles.length - 1) {
+      newIndex = lakeOtherImagesFiles.length - 1;
+    } else {
+      newIndex = value;
+    }
+    setActiveIndex(newIndex);
+  };
+
   // useEffect(() => {
   //   async function fetchData() {
   //     const response = await getPegReservations(lakeId);
@@ -176,52 +188,59 @@ function Lake(props) {
     <>
       <ConfigProvider locale={plPL}>
         <PageContainer>
-          <Div noBottomPadding>
+          <Div nobottompadding='true'>
             <div className='breadcrumbs'>
-              <Breadcrumb>
-                <Breadcrumb.Item>
-                  <Link to='/'>{}</Link>
-                </Breadcrumb.Item>
-                <Breadcrumb.Item>
-                  <Link to={`/${voivodeship}`}>{voivodeship}</Link>
-                </Breadcrumb.Item>
-                <Breadcrumb.Item>
-                  <Link to={`/${voivodeship}/${city}`}>{city}</Link>
-                </Breadcrumb.Item>
-                <LocationDot />
-                <span>{lakeName}</span>
-              </Breadcrumb>
+              <Breadcrumb
+                items={[
+                  {
+                    title: <Link to={`/${voivodeship}`}>{voivodeship}</Link>,
+                  },
+                  {
+                    title: <Link to={`/${voivodeship}/${city}`}>{city}</Link>,
+                  },
+                  {
+                    title: (
+                      <span>
+                        {lakeName} <LocationDot />
+                      </span>
+                    ),
+                  },
+                ]}></Breadcrumb>
             </div>
           </Div>
 
           <BigImagesWrapper>
+            <button
+              onClick={() => updateIndex(activeIndex - 1)}
+              className='left-arrow'>
+              <Left />
+            </button>
+            <button
+              onClick={() => updateIndex(activeIndex + 1)}
+              className='right-arrow strong'>
+              <Right />
+            </button>
             {lakeOtherImagesFiles.map((imageFile, i) => {
               return (
-                <div key={i} ref={index === i ? matchedRef : null}>
+                <div key={i}>
                   <GatsbyImage
+                    imgStyle={{ transition: 'transform 1s' }}
+                    style={{
+                      transform: `translateX(-${activeIndex * 100}%)`,
+                      transition: 'all 0.45s ease-out',
+                    }}
+                    alt=''
                     placeholder='blured'
                     className='gatsby-img-wraper'
-                    // style={{
-                    //   border: '2px solid red',
-                    //   width: '100vw',
-                    //   height: 'calc(100vh - 197px)',
-                    // }}
-                    // objectFit='cover'
-                    // layout={'fullWidth'}
-                    //imgStyle={{ objectFit: "cover" }}
                     image={getImage(imageFile)}
-                    // alt={`lake image in ${city}`}
-                    // style={{
-                    //   minWidth: '100vh',
-                    //   height: '60vh',
-                    // }}
+                    // loading='eager'
                   />
                 </div>
               );
             })}
           </BigImagesWrapper>
 
-          <ThumbnailsWrapper>
+          {/* <ThumbnailsWrapper>
             {restThumbnails.map((image, i) => {
               return (
                 <div
@@ -236,25 +255,21 @@ function Lake(props) {
                     });
                   }}>
                   <GatsbyImage
+                    alt=''
                     image={getImage(image)}
                     style={{ minWidth: '100px' }}
                   />
                 </div>
               );
             })}
-          </ThumbnailsWrapper>
+          </ThumbnailsWrapper> */}
 
           <div className='field'>
-            <div className='mouse'></div>
+            <div className='arrow'></div>
           </div>
 
-          <Div noBottomPadding>
-            <div
-              style={{
-                width: '100%',
-                display: 'grid',
-                gridTemplateColumns: '2fr 1fr',
-              }}>
+          <Div nobottompadding='true'>
+            <div className='callendar-wraper'>
               <Section className='time-table'>
                 <TimeTable
                   isLoading={loadingPegReservations}
@@ -267,7 +282,7 @@ function Lake(props) {
               </Section>
 
               <div style={{ marginTop: '2em' }}>
-                <Reservator2
+                <Reservator
                   lakeName={lakeName}
                   pegs={mergedPegs}
                   pegBasePrice={pegBasePrice}
@@ -280,18 +295,23 @@ function Lake(props) {
           </Div>
 
           <Div>
-            <div style={{ height: '50vh', width: '100%' }}>
+            <div style={{ height: '50vh', width: '100%', margin: '3rem' }}>
               <GoogleMapReact
                 bootstrapURLKeys={{
                   key: 'AIzaSyByN_9TGcmxwAZMkuAAGfWzXd7FZQAKYUw',
                 }}
                 defaultCenter={defaultProps.center}
                 defaultZoom={defaultProps.zoom}
-                yesIWantToUseGoogleMapApiInternals></GoogleMapReact>
+                options={{
+                  mapTypeId: 'hybrid', // Set both map types
+                }}
+                yesIWantToUseGoogleMapApiInternals>
+                <Marker lat={latitude} lng={longitude} />
+              </GoogleMapReact>
             </div>
           </Div>
           <Div>
-            <div className='failities' style={facilitiesStyle}>
+            <div className='facilities'>
               <h1 style={title}>Czego mozesz się spodziewać ?</h1>
               <ul className='facilities-list'>
                 <li>
@@ -318,7 +338,7 @@ function Lake(props) {
             </div>
           </Div>
           <Div>
-            <div className='failities' style={facilitiesStyle}>
+            <div className='facilities'>
               <h1 style={title}>Jakie ryby występują na łowisku?</h1>
               <ul className='facilities-list'>
                 <li>
@@ -344,7 +364,7 @@ function Lake(props) {
               </ul>
             </div>
           </Div>
-          <Div noBottomPadding>
+          <Div nobottompadding='true'>
             <Section>
               <div className='lowisko_regu'>
                 <h2>Regulamin Łowiska</h2>
@@ -440,34 +460,57 @@ const Section = styled.section`
 const BigImagesWrapper = styled.div`
   display: flex;
   overflow-x: hidden;
-  width: 100vw;
+  //width: 100vw;
+  //border: 2px solid red;
+  position: relative;
+
+  .right-arrow,
+  .left-arrow {
+    display: grid;
+    place-content: center;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.5);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    border: none;
+    cursor: pointer;
+  }
+  .right-arrow {
+    right: 0;
+    border-radius: 10px 0 0 10px;
+  }
+  .left-arrow {
+    border-radius: 0 10px 10px 0;
+  }
   .gatsby-img-wraper {
-    //border: 2px solid red;
     width: 100vw;
-    height: calc(100vh - 197px);
-    &::after {
-      content: '';
-      width: 50px;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 100%;
-      transform: translateX(-100%);
-      //border: 4px solid yellow;
-      background: rgba(255, 255, 255, 0.5);
-    }
-    &::before {
-      content: '';
-      width: 50px;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 2;
-      //transform: translateX(100%);
-      //border: 4px solid yellow;
-      background: rgba(255, 255, 255, 0.5);
-    }
+    height: calc(100vh - 202px);
+    // &::after {
+    //   content: '';
+    //   width: 50px;
+    //   height: 100%;
+    //   position: absolute;
+    //   top: 0;
+    //   left: 100%;
+    //   transform: translateX(-100%);
+    //   //border: 4px solid yellow;
+    //   background: rgba(255, 255, 255, 0.5);
+    // }
+    // &::before {
+    //   content: '';
+    //   width: 50px;
+    //   height: 100%;
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   z-index: 2;
+    //   //transform: translateX(100%);
+    //   //border: 4px solid yellow;
+    //   background: rgba(255, 255, 255, 0.5);
+    // }
   }
 `;
 const ThumbnailsWrapper = styled.div`

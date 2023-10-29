@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import PegDatesRow from './PegDatesRow';
 import moment from 'moment';
+import PegDatesRow from './PegDatesRow';
 import { getCallendarString } from '../utils/get-date-string';
 import { Left, Right, Up, Down } from '../assets/icons';
 
@@ -109,7 +109,7 @@ const TimeTable = function (props) {
 
 export const CalendarCss = styled.div`
   scroll-behavior: smooth;
-  padding: 13px 13px;
+  padding: 0;
   border-radius: 9px;
 
   .calendar_header {
