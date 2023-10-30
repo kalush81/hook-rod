@@ -9,7 +9,7 @@ export const Div = styled.div`
   .breadcrumbs {
     margin: 1rem;
   }
-  //padding-bottom: ${({ nobottompadding }) => nobottompadding && '0 '};
+
   .callendar-wraper {
     margin-top: 7rem;
     width: 100%;

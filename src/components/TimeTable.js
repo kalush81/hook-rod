@@ -295,4 +295,6 @@ export const CalendarCss = styled.div`
   }
 `;
 
+CalendarCss.shouldForwardProp = (prop) => prop !== 'columns';
+
 export default TimeTable;

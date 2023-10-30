@@ -172,7 +172,7 @@ function Lake(props) {
     <>
       <ConfigProvider locale={plPL}>
         <PageContainer>
-          <Div nobottompadding='true'>
+          <Div>
             <div className='breadcrumbs'>
               <Breadcrumb
                 items={[
@@ -252,7 +252,7 @@ function Lake(props) {
             <div className='arrow'></div>
           </div>
 
-          <Div nobottompadding='true'>
+          <Div>
             <div className='callendar-wraper'>
               <Section className='time-table'>
                 <TimeTable
@@ -348,7 +348,7 @@ function Lake(props) {
               </ul>
             </div>
           </Div>
-          <Div nobottompadding='true'>
+          <Div>
             <Section>
               <div className='lowisko_regu'>
                 <h2>Regulamin Łowiska</h2>
