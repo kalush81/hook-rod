@@ -53,6 +53,7 @@ export const ReservationForm = (reservationDetails) => {
           const response = await result.json();
           throw new Error(response.message);
         }
+        console.log('response result', result);
         return await result.text();
       } catch (error) {
         console.error('error while fetching from API', error);

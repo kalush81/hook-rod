@@ -75,15 +75,11 @@ const mapTitleStyle = {
   padding: '5px',
   fontWeight: 300,
 };
-const facilitiesStyle = {
-  width: '100%',
-  background: 'var(--litegray)',
-  padding: '10px',
-  borderRadius: '10px',
-};
+
 const title = {
   fontWeight: 300,
 };
+
 const Marker = ({ text }) => <LocationDot style={{ color: 'white' }} />;
 
 function Lake(props) {
@@ -108,7 +104,7 @@ function Lake(props) {
     lakeOtherImagesFiles: restThumbnails,
   } = props.data.b;
 
-  const defaultProps = {
+  const googleMapsProps = {
     center: {
       lat: latitude,
       lng: longitude,
@@ -121,12 +117,10 @@ function Lake(props) {
   const location = useLocation();
   const currentPath = location.pathname;
   const size = useWindowSize();
-  //console.log('size', size);
   const [activeIndex, setActiveIndex] = useState(0);
   const matchedRef = useRef(null);
   const allImages = useRef([]);
   const allThumbnails = useRef([]);
-  console.log('activeIndex', activeIndex);
   const toggleOpened = () => setOpened((value) => !value);
 
   const { get: getPegReservations, loading: loadingPegReservations } = useFetch(
@@ -144,16 +138,6 @@ function Lake(props) {
   //   ).flat();
   // }, [lakeId]);
 
-  useEffect(() => {
-    if (matchedRef.current) {
-      matchedRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center',
-      });
-    }
-  }, [lakeId]);
-
   const updateIndex = (value) => {
     let newIndex;
     if (value < 0) {
@@ -166,23 +150,23 @@ function Lake(props) {
     setActiveIndex(newIndex);
   };
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const response = await getPegReservations(lakeId);
-  //     const mergedPegs = staticPegs.map((peg) => {
-  //       const foundPegWithRes = response.find((res) => res.pegId === peg.pegId);
-  //       if (foundPegWithRes) {
-  //         return { ...peg, reservations: foundPegWithRes.reservations };
-  //       } else {
-  //         return { ...peg, reservations: [] };
-  //       }
-  //     });
-  //     setMergedPegs(mergedPegs);
-  //   }
-  //   setTimeout(() => {
-  //     fetchData();
-  //   }, 2000);
-  // }, [lakeId]);
+  useEffect(() => {
+    async function fetchData() {
+      const response = await getPegReservations(lakeId);
+      const mergedPegs = staticPegs.map((peg) => {
+        const foundPegWithRes = response.find((res) => res.pegId === peg.pegId);
+        if (foundPegWithRes) {
+          return { ...peg, reservations: foundPegWithRes.reservations };
+        } else {
+          return { ...peg, reservations: [] };
+        }
+      });
+      setMergedPegs(mergedPegs);
+    }
+    setTimeout(() => {
+      fetchData();
+    }, 2000);
+  }, [lakeId]);
 
   return (
     <>
@@ -286,7 +270,7 @@ function Lake(props) {
                   lakeName={lakeName}
                   pegs={mergedPegs}
                   pegBasePrice={pegBasePrice}
-                  extraServices={[]}
+                  extraServices={extraServices}
                   currentPath={currentPath}
                 />
               </div>
@@ -300,8 +284,8 @@ function Lake(props) {
                 bootstrapURLKeys={{
                   key: 'AIzaSyByN_9TGcmxwAZMkuAAGfWzXd7FZQAKYUw',
                 }}
-                defaultCenter={defaultProps.center}
-                defaultZoom={defaultProps.zoom}
+                defaultCenter={googleMapsProps.center}
+                defaultZoom={googleMapsProps.zoom}
                 options={{
                   mapTypeId: 'hybrid', // Set both map types
                 }}

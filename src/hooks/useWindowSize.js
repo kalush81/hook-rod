@@ -10,16 +10,13 @@ const useWindowSize = () => {
       if (window.innerWidth > 800 && window.innerWidth < 901) return 11;
       if (window.innerWidth > 900 && window.innerWidth < 1001) return 12;
       return 14;
-    } else {
-      return null;
     }
+    // } else {
+    //   return null;
+    // }
   });
 
   useLayoutEffect(() => {
-    // if (typeof window !== 'undefined') {
-    // Your window size update logic
-    console.log('useUeffect in useWindowSize worked!!!');
-    console.log('size', size);
     const handleResize = () => {
       if (window.innerWidth < 501) return setSize(7);
       if (window.innerWidth > 500 && window.innerWidth < 601) return setSize(8);

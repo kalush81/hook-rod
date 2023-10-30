@@ -17,6 +17,12 @@ const TimeTable = function (props) {
     setLastIdx(maxPegs);
   }
 
+  const daysArr = new Array(maxDays ? maxDays : 7)
+    .fill(undefined)
+    .map((el, i) =>
+      moment(moment().add(otherDays, 'day')).add(i, 'day').format('DD/MM/YYYY')
+    );
+
   const handleNext = (first, last) => {
     if (last >= pegs.length) {
       resetQueue();
@@ -35,17 +41,8 @@ const TimeTable = function (props) {
     }
   };
 
-  let daysArr = new Array(maxDays ? maxDays : 7)
-    .fill(undefined)
-    .map((el, i) =>
-      moment(moment().add(otherDays, 'day')).add(i, 'day').format('DD/MM/YYYY')
-    );
-  console.log('maxDays', maxDays);
   return (
-    <CalendarCss columns={maxDays + 1}>
-      {/* <header className="calendar_header">
-        <h3 style={{ textAlign: "center" }}>Sprawdź dostępne terminy</h3>
-      </header> */}
+    <CalendarCss columns={maxDays ? maxDays + 1 : 8}>
       <div className='flex'>
         <button
           className='calendar_lowisko_day_box noStyle'
