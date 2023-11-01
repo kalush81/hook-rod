@@ -127,6 +127,7 @@ const Reservator = ({
         pegBasePrice * numGuests * numDays +
         getTotalOfextras(extraOptions, numDays),
     };
+    console.log('form Values', formValues);
     navigate('/reservation-details', { state: { newReservationData } });
   };
 
@@ -328,7 +329,7 @@ const Reservator = ({
                   <h3 style={{ display: 'block' }}>
                     {extra.name} x {numDays} dni
                   </h3>
-                  <h3>{extra.basePrice * numDays} zł</h3>
+                  <h3>{(extra.basePrice || 0) * numDays} zł</h3>
                 </>
               );
             })}

@@ -23,7 +23,6 @@ export const RequestReservationForm = (reservationDetails) => {
     const reservationData = {
       ...personalData,
       ...reservationDetails,
-      extraServicesReservation: [],
       agreement: Boolean(agreement).toString(),
     };
 

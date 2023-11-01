@@ -91,8 +91,8 @@ const ReservationDetails = (props) => {
         <RequestReservationForm
           currentPath={currentPath}
           pegId={pegId}
-          // options={options}
-          // numGuests={numGuests}
+          extraServicesReservations={options.map((option) => option.id)}
+          numberOfPerson={numGuests}
           startDate={dayjs(sD?.$d)
             .set('hour', 12)
             .set('minute', 0)
