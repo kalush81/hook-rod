@@ -153,6 +153,7 @@ function Lake(props) {
   useEffect(() => {
     async function fetchData() {
       const response = await getPegReservations(lakeId);
+      console.log(response);
       const mergedPegs = staticPegs.map((peg) => {
         const foundPegWithRes = response.find((res) => res.pegId === peg.pegId);
         if (foundPegWithRes) {
@@ -268,7 +269,7 @@ function Lake(props) {
               <div style={{ marginTop: '2em' }}>
                 <Reservator
                   lakeName={lakeName}
-                  pegs={mergedPegs}
+                  pegs={loadingPegReservations || mergedPegs}
                   pegBasePrice={pegBasePrice}
                   extraServices={extraServices}
                   currentPath={currentPath}

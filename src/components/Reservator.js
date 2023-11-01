@@ -25,6 +25,70 @@ const noon = {
   minute: 0,
   second: 0,
 };
+const beforeNoon = {
+  hour: 11,
+  minute: 59,
+  second: 0,
+};
+const servicesReservationsDATA = [
+  {
+    id: '0ba27951-bdfe-4b7c-a966-148f667ff82d',
+    reservations: [
+      {
+        endDate: '2023-11-03T11:59:00',
+        startDate: '2023-11-02T12:00:00',
+      },
+      {
+        endDate: '2023-11-06T11:59:00',
+        startDate: '2023-11-04T12:00:00',
+      },
+    ],
+  },
+  {
+    id: '26099044-21a0-4b94-abc4-897067e3bdb9',
+    reservations: [
+      {
+        endDate: '2023-11-03T11:59:00',
+        startDate: '2023-11-02T12:00:00',
+      },
+      {
+        endDate: '2023-11-09T11:59:00',
+        startDate: '2023-11-08T12:00:00',
+      },
+    ],
+  },
+];
+
+const getAwailableServicesOnSelectedDates = (
+  existedReservations,
+  [
+    startDateRequest = dayjs(startDateRequest).set(noon),
+    endDateRequest = dayjs(endDateRequest).set(beforeNoon),
+  ]
+) => {
+  return existedReservations
+    .filter((data) => {
+      if (
+        dayjs(data.endDate).isBetween(
+          startDateRequest,
+          endDateRequest,
+          null,
+          '[]'
+        ) ||
+        dayjs(data.startDate).isBetween(
+          startDateRequest,
+          endDateRequest,
+          null,
+          '[]'
+        )
+      ) {
+        return false;
+      } else {
+        return true;
+      }
+    })
+    .map((service) => service.extraServiceId);
+};
 
 const Reservator = ({
   pegs,
@@ -45,8 +109,12 @@ const Reservator = ({
   useEffect(() => {
     if (range[0] && range[1]) {
       calculateDays(setNumDays, range[0], range[1]);
+      console.log(
+        'id available services list',
+        getAwailableServicesOnSelectedDates(servicesReservationsDATA, range)
+      );
     }
-  }, [form, range]);
+  }, [range]);
 
   const onFinish = (formValues) => {
     let newReservationData = {
