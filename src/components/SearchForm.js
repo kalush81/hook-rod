@@ -35,7 +35,7 @@ export const SearchForm = ({ className }) => {
         <SearchInput
           setCoordsToForm={setCoordsToForm}
           className='home_cover_search_input'
-          placeholder='wybierz miejscowość'
+          placeholder='Wybierz miejscowość'
         />
       </Form.Item>
 
@@ -48,7 +48,7 @@ export const SearchForm = ({ className }) => {
             message: 'Proszę wybrać dystans z listy!',
           },
         ]}>
-        <Select size='large' placeholder='zasięg' showAction='focus'>
+        <Select size='large' placeholder='Odległość' showAction='focus'>
           <Option value='50'>&lt; 50km</Option>
           <Option value='100'>&lt; 100km</Option>
           <Option value='200'>&lt; 200km</Option>

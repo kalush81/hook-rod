@@ -1,22 +1,22 @@
-import React from "react";
-import styled from "styled-components";
-import { graphql } from "gatsby";
-import FisheryCard from "../components/FisheryCard";
-import Map from "../components/Map";
-import { Div, PageContainer } from "../components/cssComponents";
+import React from 'react';
+import styled from 'styled-components';
+import { graphql } from 'gatsby';
+import FisheryCard from '../components/FisheryCard';
+import Map from '../components/Map';
+import { Div, PageContainer } from '../components/cssComponents';
 
 function Voivodeship(props) {
   return (
     <PageContainer>
       <Div>
         <Header>Lista Łowisk w : </Header>
-        <Div responsive>
-        <Map />
-        <div className="fishery-cards-wrapper">
-          {props.data.allLake.nodes.map((node) => {
-            return <FisheryCard key={node.id} data={node} />;
-          })}
-        </div>
+        <Div responsive='true'>
+          <Map />
+          <div className='fishery-cards-wrapper'>
+            {props.data.allLake.nodes.map((node) => {
+              return <FisheryCard key={node.id} data={node} />;
+            })}
+          </div>
         </Div>
       </Div>
     </PageContainer>

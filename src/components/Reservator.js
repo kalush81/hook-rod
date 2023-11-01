@@ -235,7 +235,7 @@ const Reservator = ({
               <Select
                 loading={!pegs.length}
                 allowClear
-                showArrow='true'
+                //showArrow='true'
                 className='select_row1'
                 size='medium'
                 placeholder='wybierz stanowisko'
@@ -261,7 +261,7 @@ const Reservator = ({
               ]}>
               <Select
                 allowClear
-                showArrow='true'
+                //showArrow='true'
                 className='select_row1'
                 size='medium'
                 placeholder='Osoby'

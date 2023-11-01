@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Select, Space } from "antd";
-import plCities from "../assets/data/cities-with-county.json";
+import React, { useEffect, useState } from 'react';
+import { Select, Space } from 'antd';
+import plCities from '../assets/data/cities-with-county.json';
 const { Option } = Select;
-// eslint-disable-next-line react-hooks/rules-of-hooks
+//eslint-disable-next-line react-hooks/rules-of-hooks
 
 let timeout;
 let currentValue;
@@ -15,7 +15,9 @@ const fetchCities = (value, callback) => {
   currentValue = value;
   const search = () => {
     if (currentValue === value) {
-      const pattern = new RegExp(`\\b${currentValue}\\w*`, "i");
+      //wrap RegExp in try catch block
+      const pattern = new RegExp(`\\b${currentValue}\\w*`, 'i');
+
       const data = plCities.filter((city) => pattern.test(city.name));
 
       data.sort((city1, city2) => {
@@ -79,30 +81,28 @@ export const SearchInput = (props) => {
   return (
     <Select
       className={props.className}
-      size="large"
+      size='large'
       showSearch
       value={value}
       placeholder={props.placeholder}
       defaultActiveFirstOption={false}
-      showArrow={false}
+      suffixIcon={null}
       filterOption={false}
       onSearch={handleSearch}
       onChange={handleChange}
       onSelect={handleSelect}
-      notFoundContent={true}
-      optionLabelProp="label"
-    >
+      notFoundContent={null}
+      optionLabelProp='label'>
       {data.map((d) => {
         return (
           <Option
             key={d.value.id}
             value={d.value.city}
             label={d.text}
-            coords={{ lat: d.value.lat, long: d.value.long }}
-          >
-            <Space direction="vertical">
+            coords={{ lat: d.value.lat, long: d.value.long }}>
+            <Space direction='vertical'>
               <span aria-label={d.text}>{d.value.city}</span>
-              <i style={{ fontSize: "9px", margin: 0 }}>({d.value.county})</i>
+              <i style={{ fontSize: '9px', margin: 0 }}>({d.value.county})</i>
             </Space>
           </Option>
         );

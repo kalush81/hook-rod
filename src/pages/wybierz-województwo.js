@@ -1,16 +1,16 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import Map from "../components/Map";
-import { Div, PageContainer } from "../components/cssComponents";
+import Map from '../components/Map';
+import { Div, PageContainer } from '../components/cssComponents';
 import FisheryCard from '../components/FisheryCard';
 
 function Wybierz(props) {
   return (
     <PageContainer>
-      <Div responsive>
+      <Div responsive='true'>
         <Map />
-        <div className="fishery-cards-wrapper">
+        <div className='fishery-cards-wrapper'>
           {props.data.allLake.nodes.map((node) => {
             return <FisheryCard key={node.id} data={node} />;
           })}
@@ -20,10 +20,10 @@ function Wybierz(props) {
   );
 }
 export const query = graphql`
-query MyQuery {
-  allLake {
-    nodes {
-      id
+  query MyQuery {
+    allLake {
+      nodes {
+        id
         name
         voivodeship
         city
@@ -39,9 +39,8 @@ query MyQuery {
           name
           weight
         }
+      }
     }
   }
-}
-
-`
+`;
 export default Wybierz;

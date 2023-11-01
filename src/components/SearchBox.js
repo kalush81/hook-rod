@@ -77,7 +77,7 @@ const SearchBoxCss = styled.div`
     margin-right: 9px;
     width: 200px;
     background: white;
-    &: hover {
+    &:hover {
       background: white;
     }
   }

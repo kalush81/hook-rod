@@ -146,7 +146,7 @@ const Lowiska = function ({ location = {} }) {
                   <Select
                     mode='multiple'
                     allowClear
-                    showArrow='true'
+                    //showArrow='true'
                     className='lowi_filter'
                     size='large'
                     placeholder='Odmiana  '>
@@ -159,7 +159,7 @@ const Lowiska = function ({ location = {} }) {
                   <Select
                     mode='multiple'
                     allowClear
-                    showArrow='true'
+                    //showArrow='true'
                     className='lowi_filter'
                     size='large'
                     placeholder='Udogodnienia  '>
