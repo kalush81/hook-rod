@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { navigate } from 'gatsby';
 import { Form, Input, Checkbox, Button, Modal } from 'antd';
 
-export const ReservationForm = (reservationDetails) => {
+export const RequestReservationForm = (reservationDetails) => {
   const [agreement, setAgreement] = useState(false);
   const [linkToPaymentPage, setLinkToPayment] = useState('');
 

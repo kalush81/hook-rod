@@ -1,9 +1,9 @@
-import React from "react";
-import { Button, Space, ConfigProvider } from "antd";
-import styled from "styled-components";
-import dayjs from "dayjs";
-import "dayjs/locale/pl";
-import { ReservationForm } from "../components/RequestReservationForm";
+import React from 'react';
+import { Button, Space, ConfigProvider } from 'antd';
+import styled from 'styled-components';
+import dayjs from 'dayjs';
+import 'dayjs/locale/pl';
+import { RequestReservationForm } from '../components/RequestReservationForm';
 
 //dayjs().set("hour", 12).set("minutes", 0).format("YYYY-MM-DD HH:MM");
 
@@ -18,7 +18,7 @@ const ReservatorSummary = ({
   totalPrice,
 }) => {
   return (
-    <div className="reservation-summary-card">
+    <div className='reservation-summary-card'>
       <h2>Podsumowanie Rezerwacji</h2>
       <div>{lakeName}</div>
       <div>Całkowita długość pobytu : {numDays}</div>
@@ -30,7 +30,7 @@ const ReservatorSummary = ({
       </div>
       <div>Liczba osób : {numGuests}</div>
       <div>
-        {numGuests} x {numDays * pegBasePrice} zł {"---------"}{" "}
+        {numGuests} x {numDays * pegBasePrice} zł {'---------'}{' '}
         {numGuests * numDays * pegBasePrice}zł
       </div>
       <div>Opcje dodatkowe: </div>
@@ -41,7 +41,7 @@ const ReservatorSummary = ({
               <div>
                 <p>{option.name}</p>
                 <div>
-                  {numDays} x {option.basePrice} zł ----{" "}
+                  {numDays} x {option.basePrice} zł ----{' '}
                   {numDays * option.basePrice} zł
                 </div>
               </div>
@@ -67,17 +67,16 @@ const ReservationDetails = (props) => {
     options = [],
     totalPrice,
   } = props.location.state?.newReservationData || {};
-  const startDateUI = dayjs(sD?.$d).locale("pl").format("DD MMMM YYYY");
-  const endDateUI = dayjs(eD?.$d).locale("pl").format("DD MMMM YYYY");
+  const startDateUI = dayjs(sD?.$d).locale('pl').format('DD MMMM YYYY');
+  const endDateUI = dayjs(eD?.$d).locale('pl').format('DD MMMM YYYY');
 
   return (
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: "#00b96b",
+          colorPrimary: '#00b96b',
         },
-      }}
-    >
+      }}>
       <WrapperWithGrid>
         <ReservatorSummary
           startDateUI={startDateUI}
@@ -89,24 +88,24 @@ const ReservationDetails = (props) => {
           lakeName={lakeName}
           totalPrice={totalPrice}
         />
-        <ReservationForm
+        <RequestReservationForm
           currentPath={currentPath}
           pegId={pegId}
           // options={options}
           // numGuests={numGuests}
           startDate={dayjs(sD?.$d)
-            .set("hour", 12)
-            .set("minute", 0)
-            .format("YYYY-MM-DD hh:mm")}
+            .set('hour', 12)
+            .set('minute', 0)
+            .format('YYYY-MM-DD hh:mm')}
           endDate={dayjs(eD?.$d)
-            .set("hour", 12)
-            .set("minute", 0)
-            .format("YYYY-MM-DD hh:mm")}
+            .set('hour', 12)
+            .set('minute', 0)
+            .format('YYYY-MM-DD hh:mm')}
           // numDays={numDays}
           cost={totalPrice}
         />
-        <Space className="site-button-ghost-wrapper" wrap>
-          <Button type="primary" ghost onClick={() => window.history.back()}>
+        <Space className='site-button-ghost-wrapper' wrap>
+          <Button type='primary' ghost onClick={() => window.history.back()}>
             powrot do rezerwacji
           </Button>
         </Space>
