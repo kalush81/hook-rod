@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
+import dayjs from 'dayjs';
+import 'dayjs/locale/pl';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 import PegDatesRow from './PegDatesRow';
 import { getCallendarString } from '../utils/get-date-string';
 import { Left, Right, Up, Down } from '../assets/icons';
-
+dayjs.locale('pl');
+dayjs.extend(customParseFormat);
 const TimeTable = function (props) {
   const { maxPegs, maxDays, pegs, isLoading } = props;
 
@@ -22,7 +26,7 @@ const TimeTable = function (props) {
     .map((el, i) =>
       moment(moment().add(otherDays, 'day')).add(i, 'day').format('DD/MM/YYYY')
     );
-
+  console.log('daysArr in TT', daysArr);
   const handleNext = (first, last) => {
     if (last >= pegs.length) {
       resetQueue();
@@ -66,13 +70,18 @@ const TimeTable = function (props) {
           </button>
 
           {daysArr.map((day) => {
+            console.log('day', day);
+            console.log(dayjs(day, 'DD/MM/YYYY', true).format('YYYY-MM-DD'));
             return (
-              <span
-                className='noColor'
-                key={day}
-                style={{ letterSpacing: '1px' }}>
-                {day.substring(0, 5)}
-              </span>
+              <div className='date-square'>
+                <span
+                  className='noColor'
+                  key={day}
+                  style={{ letterSpacing: '1px' }}>
+                  {day.substring(0, 5)}
+                </span>
+                <i>{dayjs(day, 'DD/MM/YYYY', true).format('ddd')}</i>
+              </div>
             );
           })}
 
@@ -187,6 +196,7 @@ export const CalendarCss = styled.div`
       width: 100%;
       gap: 0.4em;
       span,
+      .date-square,
       button {
         background-color: #ccc; /* Set the background color of each cell */
         padding: 0;
@@ -245,6 +255,11 @@ export const CalendarCss = styled.div`
       }
       span.noColor {
         background-color: #ccc;
+        word-wrap: wrap;
+      }
+      .date-square {
+        display: flex;
+        flex-direction: column;
       }
     }
   }
