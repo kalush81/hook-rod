@@ -16,6 +16,7 @@ const ReservatorSummary = ({
   lakeName,
   options,
   totalPrice,
+  paymentType,
 }) => {
   return (
     <div className='reservation-summary-card'>
@@ -33,7 +34,7 @@ const ReservatorSummary = ({
         {numGuests} x {numDays * pegBasePrice} zł {'---------'}{' '}
         {numGuests * numDays * pegBasePrice}zł
       </div>
-      <div>Opcje dodatkowe: </div>
+      <div>Opcje dodatkowe: {options.length < 1 && '- nie wybrano'}</div>
       <ul>
         {options.map((option) => {
           return (
@@ -41,15 +42,20 @@ const ReservatorSummary = ({
               <div>
                 <p>{option.name}</p>
                 <div>
-                  {numDays} x {option.basePrice} zł ----{' '}
-                  {numDays * option.basePrice} zł
+                  {numDays} x {option.basePrice || 0} zł ----{' '}
+                  {numDays * option.basePrice || 0} zł
                 </div>
               </div>
             </li>
           );
         })}
       </ul>
-      <div>Łączna kwota: {totalPrice}</div>
+      <div>
+        Łączna kwota: {totalPrice}{' '}
+        {paymentType === 'TRANSFER' ? 'płatne teraz' : 'płatne później'}
+      </div>
+      <div>Opłata rezerwcyjna: 10 zł płatne teraz</div>
+      <div>Metoda płatności: {paymentType}</div>
     </div>
   );
 };
@@ -66,6 +72,7 @@ const ReservationDetails = (props) => {
     currentPath,
     options = [],
     totalPrice,
+    paymentType,
   } = props.location.state?.newReservationData || {};
   const startDateUI = dayjs(sD?.$d).locale('pl').format('DD MMMM YYYY');
   const endDateUI = dayjs(eD?.$d).locale('pl').format('DD MMMM YYYY');
@@ -87,6 +94,7 @@ const ReservationDetails = (props) => {
           options={options}
           lakeName={lakeName}
           totalPrice={totalPrice}
+          paymentType={paymentType}
         />
         <RequestReservationForm
           currentPath={currentPath}
@@ -102,7 +110,8 @@ const ReservationDetails = (props) => {
             .set('minute', 0)
             .format('YYYY-MM-DD hh:mm')}
           // numDays={numDays}
-          cost={totalPrice}
+          cost={totalPrice + 10}
+          paymentType={paymentType}
         />
         <Space className='site-button-ghost-wrapper' wrap>
           <Button type='primary' ghost onClick={() => window.history.back()}>

@@ -164,9 +164,8 @@ function Lake(props) {
       });
       setMergedPegs(mergedPegs);
     }
-    setTimeout(() => {
-      fetchData();
-    }, 2000);
+
+    fetchData();
   }, [lakeId]);
 
   return (

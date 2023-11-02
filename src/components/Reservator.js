@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { navigate } from 'gatsby';
 import styled from 'styled-components';
-import { Form, Select, DatePicker, Checkbox, Button } from 'antd';
+import { Form, Select, DatePicker, Checkbox, Button, Radio, Space } from 'antd';
 import { calculateDays } from '../utils/calculate-days';
 import { getTotalOfextras } from '../utils/get-total-of-extras';
 
@@ -87,7 +87,7 @@ const getAwailableServicesOnSelectedDates = (
         return true;
       }
     })
-    .map((service) => service.extraServiceId);
+    .map((service) => service.id);
 };
 
 const Reservator = ({
@@ -223,7 +223,7 @@ const Reservator = ({
       <CalendarCSS>
         <div className='container'>
           {/* <h1 style={{textAlign: 'center'}}>Rezerwacja</h1> */}
-          <h3>Cennik: 1 stanowisko / doba - {pegBasePrice}</h3>
+          <h3>Cennik: 1 stanowisko / doba od {pegBasePrice} zł</h3>
           <div className='row row1'>
             <Form.Item
               name='pegId'
@@ -333,15 +333,32 @@ const Reservator = ({
                 </>
               );
             })}
-
-            <h2>Łącznie</h2>
-            <h2>
-              łączna suma:{' '}
-              {pegBasePrice * numGuests * numDays +
-                getTotalOfextras(extraOptions, numDays)}
-            </h2>
           </div>
+          {/* <h2>Łącznie</h2> */}
+          <h3>opłata rezerwacyjna: 10 zł</h3>
+          <h2>
+            łączna suma:{' '}
+            {pegBasePrice * numGuests * numDays +
+              getTotalOfextras(extraOptions, numDays) +
+              10}
+          </h2>
 
+          <div className='options'>
+            <Form.Item name='paymentType'>
+              <Radio.Group
+                onChange={(e) => {
+                  console.log('radio checked', e.target.value);
+                  //setValue(e.target.value);
+                }}
+                //</Form.Item>value={value}
+              >
+                <Space direction='vertical'>
+                  <Radio value={'ON_PLACE'}>płatność na miejscu</Radio>
+                  <Radio value={'TRANSFER'}>płatność online</Radio>
+                </Space>
+              </Radio.Group>
+            </Form.Item>
+          </div>
           <div className='button_container'>
             <Form.Item>
               <Button
