@@ -26,7 +26,7 @@ const TimeTable = function (props) {
     .map((el, i) =>
       moment(moment().add(otherDays, 'day')).add(i, 'day').format('DD/MM/YYYY')
     );
-  console.log('daysArr in TT', daysArr);
+
   const handleNext = (first, last) => {
     if (last >= pegs.length) {
       resetQueue();
@@ -70,8 +70,8 @@ const TimeTable = function (props) {
           </button>
 
           {daysArr.map((day) => {
-            console.log('day', day);
-            console.log(dayjs(day, 'DD/MM/YYYY', true).format('YYYY-MM-DD'));
+            //console.log('day', day);
+            //console.log(dayjs(day, 'DD/MM/YYYY', true).format('YYYY-MM-DD'));
             return (
               <div className='date-square'>
                 <span
