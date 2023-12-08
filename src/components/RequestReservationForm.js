@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
 import { navigate } from 'gatsby';
 import { Form, Input, Checkbox, Button, Modal } from 'antd';
+import useFetch from '../hooks/useFetch';
 
 export const RequestReservationForm = (reservationDetails) => {
   const [agreement, setAgreement] = useState(false);
-  const [linkToPaymentPage, setLinkToPayment] = useState('');
-
-  /* modal states*/
+  const [linkToPayment, setLinkToPayment] = useState('');
   const [openModal, setOpenModal] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
+
+  const { post, loading } = useFetch('https://hookandrod.herokuapp.com/api/');
 
   const handleCancelModal = () => {
     setOpenModal(false);
   };
+
   const handleGoToPaymentPage = () => {
     setOpenModal(false);
-    navigate(linkToPaymentPage);
+    navigate(linkToPayment);
   };
-  /* modal states*/
 
   const onRequestReservation = async (personalData) => {
     const reservationData = {
@@ -26,49 +27,26 @@ export const RequestReservationForm = (reservationDetails) => {
       agreement: Boolean(agreement).toString(),
     };
 
-    console.log('reservData', reservationData);
-
     const sendForm = async () => {
       setOpenModal(true);
       setConfirmLoading(true);
       try {
-        const result = await fetch(
-          `https://hookandrod.herokuapp.com/api/reservation`,
-          {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-              'Access-Control-Allow-Origin': '*',
-              Accept: '*/*',
-              'Content-Type': 'application/json',
-            },
-            withCredentials: false,
-            credentials: 'same-origin',
-            crossdomain: true,
-            body: JSON.stringify(reservationData),
-          }
-        );
-        if (result.status === 403) {
-          const response = await result.json();
-          throw new Error(response.message);
-        }
-        console.log('response result', result);
-        return await result.text();
+        const response = await post('reservation', reservationData);
+        return response;
       } catch (error) {
-        console.error('error while fetching from API', error);
         setOpenModal(false);
+        setLinkToPayment('');
         return Modal.error({
           title: 'Error',
-          content: error.message,
+          content: error.message || [...error.messages],
           onOk: () => navigate(-1),
           okText: 'wróć do rezerwacji',
         });
       }
     };
-    const linkToPaymentPage = await sendForm();
+    const response = await sendForm();
     setConfirmLoading(false);
-    setLinkToPayment(linkToPaymentPage);
-    //return navigate(linkToPaymentPage);
+    setLinkToPayment(response.message);
   };
 
   const handleCheckboxChange = (e) => {
@@ -84,11 +62,11 @@ export const RequestReservationForm = (reservationDetails) => {
         confirmLoading={confirmLoading}
         onCancel={handleCancelModal}
         okText={
-          linkToPaymentPage
+          linkToPayment
             ? 'przechodzę do płatności'
             : 'sprawdzanie dostępności dat'
         }>
-        {linkToPaymentPage
+        {linkToPayment
           ? 'rezerwacja jest mozliwa, mozesz przejść do platności'
           : 'czekaj, sprawdzamy dostępność dat na wybranym przez Ciebie stanowisku'}
       </Modal>

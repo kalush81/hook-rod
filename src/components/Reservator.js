@@ -10,6 +10,7 @@ import 'dayjs/locale/pl';
 import isBetween from 'dayjs/plugin/isBetween';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import objectSupport from 'dayjs/plugin/objectSupport';
+import { ExtraServicesAvailable } from './ExtraServicesAvailable';
 
 const { RangePicker } = DatePicker;
 const { Option } = Select;
@@ -66,8 +67,8 @@ const getAwailableServicesOnSelectedDates = (
     endDateRequest = dayjs(endDateRequest).set(beforeNoon),
   ]
 ) => {
-  return existedReservations
-    .filter((data) => {
+  return existedReservations.extraServiceReservationsDto
+    ?.filter((data) => {
       if (
         dayjs(data.endDate).isBetween(
           startDateRequest,
@@ -96,8 +97,11 @@ const Reservator = ({
   extraServices,
   lakeName,
   currentPath,
+  servicesReservationsDATA,
 }) => {
   const startDateInputRef = useRef(null);
+  const [extraServicesAvailable, setExtraServicesAvailabl] =
+    useState(extraServices);
   const [form] = Form.useForm();
   const [reservations, setReservations] = useState([]);
   const [pegId, setPegId] = useState(null);
@@ -105,7 +109,7 @@ const Reservator = ({
   const [numGuests, setNumGuests] = useState(0);
   const [extraOptions, setExtraOptions] = useState([]);
   const [numDays, setNumDays] = useState(0);
-
+  console.log('servicesReservationsDATA', servicesReservationsDATA);
   useEffect(() => {
     if (range[0] && range[1]) {
       calculateDays(setNumDays, range[0], range[1]);
@@ -127,7 +131,7 @@ const Reservator = ({
         pegBasePrice * numGuests * numDays +
         getTotalOfextras(extraOptions, numDays),
     };
-    console.log('form Values', formValues);
+
     navigate('/reservation-details', { state: { newReservationData } });
   };
 
@@ -295,30 +299,10 @@ const Reservator = ({
               />
             </Form.Item>
           </div>
-          {extraServices.length > 0 && (
-            <>
-              <h2>Opcje dodatkowe</h2>
-              <div className='options'>
-                <Form.Item name='options'>
-                  <Checkbox.Group
-                    style={{ display: 'block' }}
-                    onChange={onChangeCheckBoxes}>
-                    {extraServices.map((f) => {
-                      return (
-                        <div key={f.id} className='options_row'>
-                          <Checkbox className='checkbox' value={f}></Checkbox>
-                          <h3 style={{ margin: 0 }}>
-                            {f.name} {f.price}zł/doba
-                          </h3>
-                        </div>
-                      );
-                    })}
-                  </Checkbox.Group>
-                </Form.Item>
-              </div>
-            </>
-          )}
-
+          <ExtraServicesAvailable
+            availableServices={extraServices}
+            onChangeCheckBoxes={onChangeCheckBoxes}
+          />
           <h2>Podsumowanie</h2>
           <div className='podsumowanie'>
             <h3>stanowisko nr {pegId && getPegNumber(pegId)}</h3>

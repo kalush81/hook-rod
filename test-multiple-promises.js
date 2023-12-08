@@ -80,3 +80,4 @@ const getDataByVoiv = async (voiv) => {
 };
 
 getDataByVoiv(voivodeships[14]).then((data) => console.log(data));
+

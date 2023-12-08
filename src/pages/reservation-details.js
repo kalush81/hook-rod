@@ -99,7 +99,7 @@ const ReservationDetails = (props) => {
         <RequestReservationForm
           currentPath={currentPath}
           pegId={pegId}
-          extraServicesReservations={options.map((option) => option.id)}
+          extraServiceIdList={options.map((option) => option.id)}
           numberOfPerson={numGuests}
           startDate={dayjs(sD?.$d)
             .set('hour', 12)
@@ -110,7 +110,7 @@ const ReservationDetails = (props) => {
             .set('minute', 0)
             .format('YYYY-MM-DD hh:mm')}
           // numDays={numDays}
-          cost={totalPrice + 10}
+          cost={totalPrice}
           paymentType={paymentType}
         />
         <Space className='site-button-ghost-wrapper' wrap>

@@ -74,7 +74,7 @@ const fetch = (...args) =>
 
 const getStaticDataFromApi = async () => {
   try {
-    const result = await fetch(
+    const response = await fetch(
       `https://hookandrod.herokuapp.com/api/lakes/static`,
       {
         mode: "cors",
@@ -88,44 +88,53 @@ const getStaticDataFromApi = async () => {
         crossdomain: true,
       }
     );
-    return await result.json();
+    const data =  await response.json();
+    if (data.error) {
+      return new Error(data.error)
+    }
+    return data
   } catch (error) {
-    console.error("error while fetchoing from API", error);
+    console.error("error while fetching from API", error);
   }
 };
 
 exports.createPages = async ({ actions: { createPage }, createNodeId }) => {
-  const data = await getStaticDataFromApi();
-  const sortedData = sortData(data); //data sorted by voivodeship and city
-  const allLakes = data; // unsorted raw data of all lakes
-  sortedData.voivodeships.forEach((voiv) => {
-    createPage({
-      path: `${voiv.name}`,
-      component: require.resolve("./src/templates/voivodeship"),
-      context: { voivodeship: voiv.name },
+  try {
+    const data = await getStaticDataFromApi();
+    const sortedData = sortData(data); //data sorted by voivodeship and city
+    const allLakes = data; // unsorted raw data of all lakes
+    sortedData.voivodeships.forEach((voiv) => {
+      createPage({
+        path: `${voiv.name}`,
+        component: require.resolve("./src/templates/voivodeship"),
+        context: { voivodeship: voiv.name },
+      });
     });
-  });
-  sortedData.cities.forEach((city) => {
-    createPage({
-      path: `${city.voivodeship}/${city.name}`,
-      component: require.resolve("./src/templates/city"),
-      context: { city: city.name },
+    sortedData.cities.forEach((city) => {
+      createPage({
+        path: `${city.voivodeship}/${city.name}`,
+        component: require.resolve("./src/templates/city"),
+        context: { city: city.name },
+      });
     });
-  });
-  allLakes.forEach(async (item) => {
-    console.log("lake item", item);
-    const lake = {
-      ...item,
-      //mainImagePath: `https://hookrod.s3.eu-central-1.amazonaws.com/${item.mainImagePath}`,
-    };
-    createPage({
-      path: `${lake.voivodeship}/${lake.city}/${lake.name}`,
-      component: require.resolve("./src/templates/lake"),
-      context: {
-        id: String(lake.id),
-      },
+    allLakes.forEach(async (item) => {
+      console.log("lake item", item);
+      const lake = {
+        ...item,
+        //mainImagePath: `https://hookrod.s3.eu-central-1.amazonaws.com/${item.mainImagePath}`,
+      };
+      createPage({
+        path: `${lake.voivodeship}/${lake.city}/${lake.name}`,
+        component: require.resolve("./src/templates/lake"),
+        context: {
+          id: String(lake.id),
+        },
+      });
     });
-  });
+  } catch (error) {
+    console.error('Server responded with error', error)
+  }
+
 };
 // https://hookrod.s3.eu-central-1.amazonaws.com/Extra+Carp+Radymno/1675710309282-117714995_3471086599610855_7441530922398424970_o.jpg
 exports.createSchemaCustomization = ({ actions }) => {

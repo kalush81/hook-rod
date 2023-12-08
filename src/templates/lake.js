@@ -1,20 +1,19 @@
-import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
-import { flushSync } from 'react-dom';
+import React, { useState, useEffect } from 'react';
+import { Slider } from '../components/Slider';
 import { SEO } from '../components/seo';
 import GoogleMapReact from 'google-map-react';
 import { graphql, Link } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { ConfigProvider, Breadcrumb } from 'antd';
 import plPL from 'antd/lib/locale/pl_PL';
-import { Collapse } from 'react-collapse';
 import Reservator from '../components/Reservator.js';
-import TimeTable from '../components/TimeTable';
+import { TimeTable } from '../components/TimeTable';
 import { Div, PageContainer } from '../components/cssComponents';
 import useFetch from '../hooks/useFetch.js';
 import useWindowSize from '../hooks/useWindowSize';
 import { useLocation } from '@reach/router';
-import { Dog, Fish2, LocationDot, Left, Right } from '../assets/icons';
+import { Dog, Fish2, LocationDot } from '../assets/icons';
+import { LakeTerms } from '../components/LakeTerms.js';
 
 //Nisko
 const pegsDataMock = [
@@ -68,6 +67,7 @@ const pegsDataMock = [
     pegNumber: 4,
   },
 ];
+
 const mapTitleStyle = {
   background: 'var(--litegray)',
   margin: 0,
@@ -90,72 +90,42 @@ function Lake(props) {
     id: lakeId,
     latitude,
     longitude,
-    facilities,
     numberOfPegs,
-    lakeMainImageFile,
     lakeOtherImagesFiles,
     pegs: staticPegs,
     pegBasePrice,
-    metadata,
     extraServices,
   } = props.data.a;
-  const {
-    lakeMainImageFile: firstThumbnail,
-    lakeOtherImagesFiles: restThumbnails,
-  } = props.data.b;
+
+  //console.log('lakeId', lakeId);
 
   const googleMapsProps = {
     center: {
       lat: latitude,
       lng: longitude,
     },
-    zoom: 14,
+    zoom: 15,
   };
   const [mergedPegs, setMergedPegs] = useState(staticPegs);
-  const [opened, setOpened] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [error, setError] = useState(null);
+  const [servicesReservationsDATA, setServicesReservationsDATA] = useState([]);
   const location = useLocation();
   const currentPath = location.pathname;
   const size = useWindowSize();
-  const [activeIndex, setActiveIndex] = useState(0);
-  const matchedRef = useRef(null);
-  const allImages = useRef([]);
-  const allThumbnails = useRef([]);
-  const toggleOpened = () => setOpened((value) => !value);
 
   const { get: getPegReservations, loading: loadingPegReservations } = useFetch(
     `https://hookandrod.herokuapp.com/api/lakes/lakeReservations/`
   );
-  const { get: getServicesReservations, loading: loadingServicesReservations } =
-    useFetch(`https://hookandrod.herokuapp.com/api/lakes/lakeReservations/`);
-
-  // useEffect(() => {
-  //   allImages.current = [lakeMainImageFile, ...lakeOtherImagesFiles];
-  //   allThumbnails.current = [firstThumbnail, ...restThumbnails];
-  //   allThumbnails.current = Array.from(
-  //     { length: 10 },
-  //     () => allThumbnails.current
-  //   ).flat();
-  // }, [lakeId]);
-
-  const updateIndex = (value) => {
-    let newIndex;
-    if (value < 0) {
-      newIndex = 0;
-    } else if (value > lakeOtherImagesFiles.length - 1) {
-      newIndex = lakeOtherImagesFiles.length - 1;
-    } else {
-      newIndex = value;
-    }
-    setActiveIndex(newIndex);
-  };
 
   useEffect(() => {
     async function fetchData() {
-      const response = await getPegReservations(lakeId);
-      console.log(response);
+      const data = await getPegReservations(lakeId);
+      console.log('peg reserv data', data);
+      if (data.error) {
+        return setError(data);
+      }
       const mergedPegs = staticPegs.map((peg) => {
-        const foundPegWithRes = response.find((res) => res.pegId === peg.pegId);
+        const foundPegWithRes = data.find((res) => res.pegId === peg.pegId);
         if (foundPegWithRes) {
           return { ...peg, reservations: foundPegWithRes.reservations };
         } else {
@@ -164,7 +134,20 @@ function Lake(props) {
       });
       setMergedPegs(mergedPegs);
     }
+    fetchData();
+  }, [lakeId]);
 
+  const { get: getServicesReservations, loading: loadingServicesReservations } =
+    useFetch(
+      `https://hookandrod.herokuapp.com/api/extraservices/reservations/`
+    );
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getServicesReservations(lakeId);
+      console.log('extraservices reservations data', data);
+      setServicesReservationsDATA(data);
+    }
     fetchData();
   }, [lakeId]);
 
@@ -192,91 +175,46 @@ function Lake(props) {
                 ]}></Breadcrumb>
             </div>
           </Div>
-
-          <BigImagesWrapper>
-            <button
-              onClick={() => updateIndex(activeIndex - 1)}
-              className='left-arrow'>
-              <Left />
-            </button>
-            <button
-              onClick={() => updateIndex(activeIndex + 1)}
-              className='right-arrow strong'>
-              <Right />
-            </button>
-            {lakeOtherImagesFiles.map((imageFile, i) => {
-              return (
-                <div key={i}>
-                  <GatsbyImage
-                    imgStyle={{ transition: 'transform 1s' }}
-                    style={{
-                      transform: `translateX(-${activeIndex * 100}%)`,
-                      transition: 'all 0.45s ease-out',
-                    }}
-                    alt=''
-                    placeholder='blured'
-                    className='gatsby-img-wraper'
-                    image={getImage(imageFile)}
-                    // loading='eager'
-                  />
-                </div>
-              );
-            })}
-          </BigImagesWrapper>
-
-          {/* <ThumbnailsWrapper>
-            {restThumbnails.map((image, i) => {
-              return (
-                <div
-                  key={i}
-                  onClick={() => {
-                    flushSync(() => {
-                      if (index < allImages.current?.length - 1) {
-                        setIndex((index) => index + 1);
-                      } else {
-                        setIndex(0);
-                      }
-                    });
-                  }}>
-                  <GatsbyImage
-                    alt=''
-                    image={getImage(image)}
-                    style={{ minWidth: '100px' }}
-                  />
-                </div>
-              );
-            })}
-          </ThumbnailsWrapper> */}
+          <Slider lakeOtherImagesFiles={lakeOtherImagesFiles} />
 
           <div className='field'>
             <div className='arrow'></div>
           </div>
 
-          <Div>
-            <div className='callendar-wraper'>
-              <Section className='time-table'>
-                <TimeTable
-                  isLoading={loadingPegReservations}
-                  id={lakeId}
-                  pegs={mergedPegs}
-                  maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
-                  maxDays={size}
-                  numberOfPegs={numberOfPegs}
-                />
-              </Section>
+          {error ? (
+            <h2>
+              server odpowiedział błędem, coś poszło nie tak{' '}
+              <p>error status : {error.status}</p>
+              <p>error name : {error.error}</p>
+              <p>error message: {error.message}</p>
+            </h2>
+          ) : (
+            <Div>
+              <div className='callendar-wraper'>
+                <Section className='time-table'>
+                  <TimeTable
+                    isLoading={loadingPegReservations}
+                    id={lakeId}
+                    pegs={mergedPegs}
+                    maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
+                    maxDays={size}
+                    numberOfPegs={numberOfPegs}
+                  />
+                </Section>
 
-              <div style={{ marginTop: '2em' }}>
-                <Reservator
-                  lakeName={lakeName}
-                  pegs={loadingPegReservations || mergedPegs}
-                  pegBasePrice={pegBasePrice}
-                  extraServices={extraServices}
-                  currentPath={currentPath}
-                />
+                <div style={{ marginTop: '2em' }}>
+                  <Reservator
+                    lakeName={lakeName}
+                    pegs={loadingPegReservations || mergedPegs}
+                    pegBasePrice={pegBasePrice}
+                    extraServices={extraServices}
+                    currentPath={currentPath}
+                    servicesReservationsDATA={servicesReservationsDATA}
+                  />
+                </div>
               </div>
-            </div>
-            {isError && <p>Cos poszlo nie tak podczas ladowania rezerwacji</p>}
-          </Div>
+            </Div>
+          )}
 
           <Div>
             <div style={{ height: '50vh', width: '100%', margin: '3rem' }}>
@@ -348,25 +286,7 @@ function Lake(props) {
               </ul>
             </div>
           </Div>
-          <Div>
-            <Section>
-              <div className='lowisko_regu'>
-                <h2>Regulamin Łowiska</h2>
-                <div className='lowisko_regu_body'>
-                  <h3
-                    className='text_toggle'
-                    onClick={toggleOpened}
-                    style={{ color: 'red' }}>
-                    Regulamin Łowiska {lakeName} {opened ? ' v' : ' >'}
-                  </h3>
-                  <Collapse isOpened={opened}>{'regulations'}</Collapse>
-                  <div className='text_toggle' onClick={toggleOpened}>
-                    {opened ? 'Zwiń...' : 'Rozwiń...'}
-                  </div>
-                </div>
-              </div>
-            </Section>
-          </Div>
+          <LakeTerms lakeName={lakeName} />
         </PageContainer>
       </ConfigProvider>
     </>
@@ -419,18 +339,6 @@ export const query = graphql`
       }
       numberOfPegs
     }
-    b: lake(id: { eq: $id }) {
-      lakeMainImageFile {
-        childImageSharp {
-          gatsbyImageData(width: 100, quality: 100)
-        }
-      }
-      lakeOtherImagesFiles {
-        childImageSharp {
-          gatsbyImageData(width: 100, quality: 100)
-        }
-      }
-    }
   }
 `;
 
@@ -439,69 +347,6 @@ const Section = styled.section`
   .lowisko_regu {
     padding-bottom: 60px;
   }
-`;
-
-const BigImagesWrapper = styled.div`
-  display: flex;
-  overflow-x: hidden;
-  //width: 100vw;
-  //border: 2px solid red;
-  position: relative;
-
-  .right-arrow,
-  .left-arrow {
-    display: grid;
-    place-content: center;
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.5);
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-    border: none;
-    cursor: pointer;
-  }
-  .right-arrow {
-    right: 0;
-    border-radius: 10px 0 0 10px;
-  }
-  .left-arrow {
-    border-radius: 0 10px 10px 0;
-  }
-  .gatsby-img-wraper {
-    width: 100vw;
-    height: calc(100vh - 202px);
-    // &::after {
-    //   content: '';
-    //   width: 50px;
-    //   height: 100%;
-    //   position: absolute;
-    //   top: 0;
-    //   left: 100%;
-    //   transform: translateX(-100%);
-    //   //border: 4px solid yellow;
-    //   background: rgba(255, 255, 255, 0.5);
-    // }
-    // &::before {
-    //   content: '';
-    //   width: 50px;
-    //   height: 100%;
-    //   position: absolute;
-    //   top: 0;
-    //   left: 0;
-    //   z-index: 2;
-    //   //transform: translateX(100%);
-    //   //border: 4px solid yellow;
-    //   background: rgba(255, 255, 255, 0.5);
-    // }
-  }
-`;
-const ThumbnailsWrapper = styled.div`
-  display: flex;
-  overflow-x: auto;
-  gap: 1rem;
-  margin: 1rem;
 `;
 
 export default Lake;
