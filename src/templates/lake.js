@@ -120,7 +120,7 @@ function Lake(props) {
   useEffect(() => {
     async function fetchData() {
       const data = await getPegReservations(lakeId);
-      console.log('peg reserv data', data);
+      //console.log('peg reserv data', data);
       if (data.error) {
         return setError(data);
       }
@@ -145,7 +145,6 @@ function Lake(props) {
   useEffect(() => {
     async function fetchData() {
       const data = await getServicesReservations(lakeId);
-      console.log('extraservices reservations data', data);
       setServicesReservationsDATA(data);
     }
     fetchData();

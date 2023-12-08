@@ -11,6 +11,8 @@ import isBetween from 'dayjs/plugin/isBetween';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import objectSupport from 'dayjs/plugin/objectSupport';
 import { ExtraServicesAvailable } from './ExtraServicesAvailable';
+import { PaymenthMethod } from './PaymenthMethod';
+import { SummaryShort } from './SummaryShort';
 
 const { RangePicker } = DatePicker;
 const { Option } = Select;
@@ -60,7 +62,7 @@ const servicesReservationsDATA = [
   },
 ];
 
-const getAwailableServicesOnSelectedDates = (
+const getAvailableServices = (
   existedReservations,
   [
     startDateRequest = dayjs(startDateRequest).set(noon),
@@ -100,8 +102,7 @@ const Reservator = ({
   servicesReservationsDATA,
 }) => {
   const startDateInputRef = useRef(null);
-  const [extraServicesAvailable, setExtraServicesAvailabl] =
-    useState(extraServices);
+  const [availableServices, setAvailableServices] = useState(extraServices);
   const [form] = Form.useForm();
   const [reservations, setReservations] = useState([]);
   const [pegId, setPegId] = useState(null);
@@ -109,17 +110,21 @@ const Reservator = ({
   const [numGuests, setNumGuests] = useState(0);
   const [extraOptions, setExtraOptions] = useState([]);
   const [numDays, setNumDays] = useState(0);
-  console.log('servicesReservationsDATA', servicesReservationsDATA);
-  useEffect(() => {
-    if (range[0] && range[1]) {
-      calculateDays(setNumDays, range[0], range[1]);
-      console.log(
-        'id available services list',
-        getAwailableServicesOnSelectedDates(servicesReservationsDATA, range)
-      );
-    }
-  }, [range]);
 
+  console.log('servicesReservationsDATA', servicesReservationsDATA);
+
+  // useEffect(() => {
+  //   console.log('requested range changed');
+  //   // if (range[0] && range[1]) {
+  //   //   calculateDays(setNumDays, range[0], range[1]);
+  //   //   console.log(
+  //   //     'id available services list',
+  //   //     getAvailableServices(servicesReservationsDATA, range)
+  //   //   );
+  //   // }
+  // }, [range[0], range[1]]);
+
+  //on finish doesn't cause rerender
   const onFinish = (formValues) => {
     let newReservationData = {
       ...formValues,
@@ -135,6 +140,7 @@ const Reservator = ({
     navigate('/reservation-details', { state: { newReservationData } });
   };
 
+  //handleASetNumGuests cause rerender
   const handleSetNumGuests = (num) => {
     setNumGuests(parseInt(num));
   };
@@ -165,6 +171,9 @@ const Reservator = ({
       } else {
         setReservations([]);
       }
+    }
+    if (stringDates[0] && stringDates[1]) {
+      console.log('teraz implementuj wyciaganie dostepnych serwisów');
     }
   };
 
@@ -226,7 +235,6 @@ const Reservator = ({
     <Form form={form} name='register' onFinish={onFinish} scrollToFirstError>
       <CalendarCSS>
         <div className='container'>
-          {/* <h1 style={{textAlign: 'center'}}>Rezerwacja</h1> */}
           <h3>Cennik: 1 stanowisko / doba od {pegBasePrice} zł</h3>
           <div className='row row1'>
             <Form.Item
@@ -240,7 +248,6 @@ const Reservator = ({
               <Select
                 loading={!pegs.length}
                 allowClear
-                //showArrow='true'
                 className='select_row1'
                 size='medium'
                 placeholder='wybierz stanowisko'
@@ -266,7 +273,6 @@ const Reservator = ({
               ]}>
               <Select
                 allowClear
-                //showArrow='true'
                 className='select_row1'
                 size='medium'
                 placeholder='Osoby'
@@ -300,10 +306,18 @@ const Reservator = ({
             </Form.Item>
           </div>
           <ExtraServicesAvailable
-            availableServices={extraServices}
+            availableServices={availableServices}
             onChangeCheckBoxes={onChangeCheckBoxes}
           />
-          <h2>Podsumowanie</h2>
+          <SummaryShort
+            pegId={pegId}
+            extraOptions={extraOptions}
+            numDays={numDays}
+            numGuests={numGuests}
+            pegBasePrice={pegBasePrice}
+            getPegNumber={getPegNumber}
+          />
+          {/* <h2>Podsumowanie</h2>
           <div className='podsumowanie'>
             <h3>stanowisko nr {pegId && getPegNumber(pegId)}</h3>
             <h3>{numGuests && pegBasePrice * numGuests * numDays} zł</h3>
@@ -318,31 +332,15 @@ const Reservator = ({
               );
             })}
           </div>
-          {/* <h2>Łącznie</h2> */}
           <h3>opłata rezerwacyjna: 10 zł</h3>
           <h2>
             łączna suma:{' '}
             {pegBasePrice * numGuests * numDays +
               getTotalOfextras(extraOptions, numDays) +
               10}
-          </h2>
+          </h2> */}
+          <PaymenthMethod />
 
-          <div className='options'>
-            <Form.Item name='paymentType'>
-              <Radio.Group
-                onChange={(e) => {
-                  console.log('radio checked', e.target.value);
-                  //setValue(e.target.value);
-                }}
-                //</Form.Item>value={value}
-              >
-                <Space direction='vertical'>
-                  <Radio value={'ON_PLACE'}>płatność na miejscu</Radio>
-                  <Radio value={'TRANSFER'}>płatność online</Radio>
-                </Space>
-              </Radio.Group>
-            </Form.Item>
-          </div>
           <div className='button_container'>
             <Form.Item>
               <Button
@@ -350,11 +348,7 @@ const Reservator = ({
                 size='large'
                 type='primary'
                 htmlType='submit'
-                // disabled={!agreement}
-                onClick={() => {
-                  //console.log("form", form.getFieldsError());
-                  //console.log(form.getFieldsValue("agreement").agreement);
-                }}>
+                onClick={() => {}}>
                 DODAJ DO KOSZYKA
               </Button>
             </Form.Item>
