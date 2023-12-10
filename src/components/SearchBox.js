@@ -75,7 +75,7 @@ const SearchBoxCss = styled.div`
   }
   .home_cover_search_date {
     margin-right: 9px;
-    width: 200px;
+    //width: 200px;
     background: white;
     &:hover {
       background: white;

@@ -11,5 +11,8 @@
     },
     "[html]": {
         "editor.formatOnSave": false
-      }
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }

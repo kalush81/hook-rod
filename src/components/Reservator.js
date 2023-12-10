@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { navigate } from 'gatsby';
 import styled from 'styled-components';
-import { Form, Select, DatePicker, Checkbox, Button, Radio, Space } from 'antd';
+import { Form, Select, Button } from 'antd';
 import { calculateDays } from '../utils/calculate-days';
 import { getTotalOfextras } from '../utils/get-total-of-extras';
 
@@ -13,8 +13,8 @@ import objectSupport from 'dayjs/plugin/objectSupport';
 import { ExtraServicesAvailable } from './ExtraServicesAvailable';
 import { PaymenthMethod } from './PaymenthMethod';
 import { SummaryShort } from './SummaryShort';
+import { MyDatePicker } from './MyDatePicker';
 
-const { RangePicker } = DatePicker;
 const { Option } = Select;
 
 dayjs.extend(objectSupport);
@@ -177,7 +177,7 @@ const Reservator = ({
     }
   };
 
-  function disableDate(current) {
+  const disableDate = (current) => {
     const now = dayjs();
     if (range[0] && !range[1] && reservations.length === 1) {
       const reservedEnd = dayjs(reservations[0].startDate).add(1, 'day');
@@ -194,7 +194,7 @@ const Reservator = ({
       }
       return current.set(noon).diff(now) < 0;
     }
-  }
+  };
 
   const onOpenChange = (open) => {
     if ((open && range[0]) || (open && range[1])) {
@@ -285,26 +285,14 @@ const Reservator = ({
               </Select>
             </Form.Item>
           </div>
-          <div className='row row2'>
-            <Form.Item
-              name='dates'
-              rules={[
-                {
-                  required: true,
-                  message: 'Prosze podaj daty!',
-                },
-              ]}>
-              <RangePicker
-                disabled={!pegId}
-                ref={startDateInputRef}
-                disabledDate={disableDate}
-                onCalendarChange={handleRangeChange}
-                onOpenChange={onOpenChange}
-                onFocus={handleRangePickerFocus}
-                allowClear={false}
-              />
-            </Form.Item>
-          </div>
+          <MyDatePicker
+            // startDateInputRef={startDateInputRef}
+            pegId={pegId}
+            disableDate={disableDate}
+            // handleRangeChange={handleRangeChange}
+            // onOpenChange={onOpenChange}
+            // handleRangePickerFocus={handleRangePickerFocus}
+          />
           <ExtraServicesAvailable
             availableServices={availableServices}
             onChangeCheckBoxes={onChangeCheckBoxes}
@@ -317,28 +305,6 @@ const Reservator = ({
             pegBasePrice={pegBasePrice}
             getPegNumber={getPegNumber}
           />
-          {/* <h2>Podsumowanie</h2>
-          <div className='podsumowanie'>
-            <h3>stanowisko nr {pegId && getPegNumber(pegId)}</h3>
-            <h3>{numGuests && pegBasePrice * numGuests * numDays} zł</h3>
-            {extraOptions.map((extra) => {
-              return (
-                <>
-                  <h3 style={{ display: 'block' }}>
-                    {extra.name} x {numDays} dni
-                  </h3>
-                  <h3>{(extra.basePrice || 0) * numDays} zł</h3>
-                </>
-              );
-            })}
-          </div>
-          <h3>opłata rezerwacyjna: 10 zł</h3>
-          <h2>
-            łączna suma:{' '}
-            {pegBasePrice * numGuests * numDays +
-              getTotalOfextras(extraOptions, numDays) +
-              10}
-          </h2> */}
           <PaymenthMethod />
 
           <div className='button_container'>

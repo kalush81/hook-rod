@@ -4,6 +4,7 @@ import { SEO } from '../components/seo';
 import GoogleMapReact from 'google-map-react';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
+
 import { ConfigProvider, Breadcrumb } from 'antd';
 import plPL from 'antd/lib/locale/pl_PL';
 import Reservator from '../components/Reservator.js';
@@ -154,26 +155,26 @@ function Lake(props) {
     <>
       <ConfigProvider locale={plPL}>
         <PageContainer>
-          <Div>
-            <div className='breadcrumbs'>
-              <Breadcrumb
-                items={[
-                  {
-                    title: <Link to={`/${voivodeship}`}>{voivodeship}</Link>,
-                  },
-                  {
-                    title: <Link to={`/${voivodeship}/${city}`}>{city}</Link>,
-                  },
-                  {
-                    title: (
-                      <span>
-                        {lakeName} <LocationDot />
-                      </span>
-                    ),
-                  },
-                ]}></Breadcrumb>
-            </div>
-          </Div>
+          {/* <Div> */}
+          <div className='breadcrumbs'>
+            <Breadcrumb
+              items={[
+                {
+                  title: <Link to={`/${voivodeship}`}>{voivodeship}</Link>,
+                },
+                {
+                  title: <Link to={`/${voivodeship}/${city}`}>{city}</Link>,
+                },
+                {
+                  title: (
+                    <span>
+                      {lakeName} <LocationDot />
+                    </span>
+                  ),
+                },
+              ]}></Breadcrumb>
+          </div>
+          {/* </Div> */}
           <Slider lakeOtherImagesFiles={lakeOtherImagesFiles} />
 
           <div className='field'>

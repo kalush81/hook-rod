@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Form, Checkbox } from 'antd';
 
-export const ExtraServicesAvailable = ({
+export const ExtraServicesAvailable = memo(function ExtraServicesAvailable({
   availableServices,
   onChangeCheckBoxes,
-}) => {
+}) {
   return (
     <>
       {availableServices.length > 0 && (
@@ -32,4 +32,4 @@ export const ExtraServicesAvailable = ({
       )}
     </>
   );
-};
+});

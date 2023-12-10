@@ -5,6 +5,7 @@ import { Select, DatePicker, Button, Form } from 'antd';
 import { SearchInput } from './SearchInput';
 const { RangePicker } = DatePicker;
 const { Option } = Select;
+//import 'antd/dist/antd.css';
 
 export const SearchForm = ({ className }) => {
   const [form] = Form.useForm();
@@ -64,6 +65,7 @@ export const SearchForm = ({ className }) => {
           },
         ]}>
         <RangePicker
+          picker='date'
           disabledDate={disabledDate}
           className='home_cover_search_date'
           size='large'

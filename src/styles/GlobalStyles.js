@@ -5,6 +5,7 @@ import lato500 from '../assets/fonts/Lato-Medium.woff';
 import lato700 from '../assets/fonts/Lato-Bold.woff';
 
 const GlobalStyles = createGlobalStyle`
+ @import '~antd/dist/antd.css';
   :root {
     --black: #000000;
     --greymi: #ddd;
@@ -21,6 +22,7 @@ const GlobalStyles = createGlobalStyle`
     --litegray: #C4C4C4;
   }
   /* Lato-300 */
+
   @font-face {
     font-family: 'Lato';
     font-style: normal;
@@ -80,6 +82,9 @@ const GlobalStyles = createGlobalStyle`
   .ant-picker-panels {
     flex-direction: column;
   } 
+  /* .ant-picker-panels > *:nth-child(2) {
+      display: none;
+    } */
   @media (min-width: 567px) {
     .ant-picker-panels {
       flex-direction: row;
