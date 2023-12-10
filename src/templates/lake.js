@@ -98,7 +98,7 @@ function Lake(props) {
     extraServices,
   } = props.data.a;
 
-  //console.log('lakeId', lakeId);
+  console.log('lake extraservices in Lake', extraServices);
 
   const googleMapsProps = {
     center: {
@@ -153,9 +153,9 @@ function Lake(props) {
 
   return (
     <>
-      <ConfigProvider locale={plPL}>
-        <PageContainer>
-          {/* <Div> */}
+      {/* <ConfigProvider locale={plPL}> */}
+      <PageContainer>
+        <Div>
           <div className='breadcrumbs'>
             <Breadcrumb
               items={[
@@ -174,121 +174,121 @@ function Lake(props) {
                 },
               ]}></Breadcrumb>
           </div>
-          {/* </Div> */}
-          <Slider lakeOtherImagesFiles={lakeOtherImagesFiles} />
+        </Div>
+        <Slider lakeOtherImagesFiles={lakeOtherImagesFiles} />
 
-          <div className='field'>
-            <div className='arrow'></div>
-          </div>
+        <div className='field'>
+          <div className='arrow'></div>
+        </div>
 
-          {error ? (
-            <h2>
-              server odpowiedział błędem, coś poszło nie tak{' '}
-              <p>error status : {error.status}</p>
-              <p>error name : {error.error}</p>
-              <p>error message: {error.message}</p>
-            </h2>
-          ) : (
-            <Div>
-              <div className='callendar-wraper'>
-                <Section className='time-table'>
-                  <TimeTable
-                    isLoading={loadingPegReservations}
-                    id={lakeId}
-                    pegs={mergedPegs}
-                    maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
-                    maxDays={size}
-                    numberOfPegs={numberOfPegs}
-                  />
-                </Section>
+        {error ? (
+          <h2>
+            server odpowiedział błędem, coś poszło nie tak{' '}
+            <p>error status : {error.status}</p>
+            <p>error name : {error.error}</p>
+            <p>error message: {error.message}</p>
+          </h2>
+        ) : (
+          <Div>
+            <div className='callendar-wraper'>
+              <Section className='time-table'>
+                <TimeTable
+                  isLoading={loadingPegReservations}
+                  id={lakeId}
+                  pegs={mergedPegs}
+                  maxPegs={numberOfPegs || 8 > 5 ? 5 : numberOfPegs}
+                  maxDays={size}
+                  numberOfPegs={numberOfPegs}
+                />
+              </Section>
 
-                <div style={{ marginTop: '2em' }}>
-                  <Reservator
-                    lakeName={lakeName}
-                    pegs={loadingPegReservations || mergedPegs}
-                    pegBasePrice={pegBasePrice}
-                    extraServices={extraServices}
-                    currentPath={currentPath}
-                    servicesReservationsDATA={servicesReservationsDATA}
-                  />
-                </div>
+              <div style={{ marginTop: '2em' }}>
+                <Reservator
+                  lakeName={lakeName}
+                  pegs={loadingPegReservations || mergedPegs}
+                  pegBasePrice={pegBasePrice}
+                  extraServices={extraServices || []}
+                  currentPath={currentPath}
+                  servicesReservationsDATA={servicesReservationsDATA}
+                />
               </div>
-            </Div>
-          )}
+            </div>
+          </Div>
+        )}
 
-          <Div>
-            <div style={{ height: '50vh', width: '100%', margin: '3rem' }}>
-              <GoogleMapReact
-                bootstrapURLKeys={{
-                  key: 'AIzaSyByN_9TGcmxwAZMkuAAGfWzXd7FZQAKYUw',
-                }}
-                defaultCenter={googleMapsProps.center}
-                defaultZoom={googleMapsProps.zoom}
-                options={{
-                  mapTypeId: 'hybrid', // Set both map types
-                }}
-                yesIWantToUseGoogleMapApiInternals>
-                <Marker lat={latitude} lng={longitude} />
-              </GoogleMapReact>
-            </div>
-          </Div>
-          <Div>
-            <div className='facilities'>
-              <h1 style={title}>Czego mozesz się spodziewać ?</h1>
-              <ul className='facilities-list'>
-                <li>
-                  <Dog />
-                  <p>Parking</p>
-                </li>
-                <li>
-                  <Dog />
-                  <p>Psy mile widziane</p>
-                </li>
-                <li>
-                  <Dog />
-                  <p>Łódka do wynajęcia</p>
-                </li>
-                <li>
-                  <Dog />
-                  <>Parking</>
-                </li>
-                <li>
-                  <Dog />
-                  <p>Parking</p>
-                </li>
-              </ul>
-            </div>
-          </Div>
-          <Div>
-            <div className='facilities'>
-              <h1 style={title}>Jakie ryby występują na łowisku?</h1>
-              <ul className='facilities-list'>
-                <li>
-                  <Fish2 />
-                  <p>Karaś</p>
-                </li>
-                <li>
-                  <Fish2 />
-                  <p>Szczupak</p>
-                </li>
-                <li>
-                  <Fish2 />
-                  <p>Lin</p>
-                </li>
-                <li>
-                  <Fish2 />
-                  <p>Karp</p>
-                </li>
-                <li>
-                  <Fish2 />
-                  <p>Rybka</p>
-                </li>
-              </ul>
-            </div>
-          </Div>
-          <LakeTerms lakeName={lakeName} />
-        </PageContainer>
-      </ConfigProvider>
+        <Div>
+          <div style={{ height: '50vh', width: '100%', margin: '3rem' }}>
+            <GoogleMapReact
+              bootstrapURLKeys={{
+                key: 'AIzaSyByN_9TGcmxwAZMkuAAGfWzXd7FZQAKYUw',
+              }}
+              defaultCenter={googleMapsProps.center}
+              defaultZoom={googleMapsProps.zoom}
+              options={{
+                mapTypeId: 'hybrid', // Set both map types
+              }}
+              yesIWantToUseGoogleMapApiInternals>
+              <Marker lat={latitude} lng={longitude} />
+            </GoogleMapReact>
+          </div>
+        </Div>
+        <Div>
+          <div className='facilities'>
+            <h1 style={title}>Czego mozesz się spodziewać ?</h1>
+            <ul className='facilities-list'>
+              <li>
+                <Dog />
+                <p>Parking</p>
+              </li>
+              <li>
+                <Dog />
+                <p>Psy mile widziane</p>
+              </li>
+              <li>
+                <Dog />
+                <p>Łódka do wynajęcia</p>
+              </li>
+              <li>
+                <Dog />
+                <>Parking</>
+              </li>
+              <li>
+                <Dog />
+                <p>Parking</p>
+              </li>
+            </ul>
+          </div>
+        </Div>
+        <Div>
+          <div className='facilities'>
+            <h1 style={title}>Jakie ryby występują na łowisku?</h1>
+            <ul className='facilities-list'>
+              <li>
+                <Fish2 />
+                <p>Karaś</p>
+              </li>
+              <li>
+                <Fish2 />
+                <p>Szczupak</p>
+              </li>
+              <li>
+                <Fish2 />
+                <p>Lin</p>
+              </li>
+              <li>
+                <Fish2 />
+                <p>Karp</p>
+              </li>
+              <li>
+                <Fish2 />
+                <p>Rybka</p>
+              </li>
+            </ul>
+          </div>
+        </Div>
+        <LakeTerms lakeName={lakeName} />
+      </PageContainer>
+      {/* </ConfigProvider> */}
     </>
   );
 }

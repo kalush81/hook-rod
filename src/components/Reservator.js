@@ -101,6 +101,7 @@ const Reservator = ({
   currentPath,
   servicesReservationsDATA,
 }) => {
+  console.log('extraServices', extraServices);
   const startDateInputRef = useRef(null);
   const [availableServices, setAvailableServices] = useState(extraServices);
   const [form] = Form.useForm();
@@ -112,6 +113,7 @@ const Reservator = ({
   const [numDays, setNumDays] = useState(0);
 
   console.log('servicesReservationsDATA', servicesReservationsDATA);
+  console.log('availableServices', availableServices);
 
   // useEffect(() => {
   //   console.log('requested range changed');
