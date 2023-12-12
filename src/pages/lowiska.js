@@ -132,77 +132,77 @@ const Lowiska = function ({ location = {} }) {
   if (serverError) return <h1 style={{ marginTop: '4em' }}>Server Error</h1>;
   if (clientError) return <h1 style={{ marginTop: '4em' }}>UI error</h1>;
   return (
-    <ConfigProvider locale={plPL}>
-      <PageContainer>
-        <LowiskaCss>
-          <div className='lowi'>
-            {/* <SearchBar /> */}
-            <div className='lowi_body'>
-              <div className='lowi_filters'>
-                <div className='filtruj'>
-                  <h3>Filtruj</h3>
-                </div>
-                <div className='lowi_select'>
-                  <Select
-                    mode='multiple'
-                    allowClear
-                    //showArrow='true'
-                    className='lowi_filter'
-                    size='large'
-                    placeholder='Odmiana  '>
-                    <Option value='10'>Karp</Option>
-                    <Option value='101'>Rekin</Option>
-                    <Option value='50'>Szczupak</Option>
-                    <Option value='100'>Okoń</Option>
-                    <Option value='102'>Śledź</Option>
-                  </Select>
-                  <Select
-                    mode='multiple'
-                    allowClear
-                    //showArrow='true'
-                    className='lowi_filter'
-                    size='large'
-                    placeholder='Udogodnienia  '>
-                    <Option value='10'>WC</Option>
-                    <Option value='101'>Namiot</Option>
-                    <Option value='50'>Ponton</Option>
-                    <Option value='100'>WiFi</Option>
-                  </Select>
-                </div>
+    // <ConfigProvider locale={plPL}>
+    <PageContainer>
+      <LowiskaCss>
+        <div className='lowi'>
+          {/* <SearchBar /> */}
+          <div className='lowi_body'>
+            <div className='lowi_filters'>
+              <div className='filtruj'>
+                <h3>Filtruj</h3>
               </div>
-              <section className='lowi_list'>
-                {loading && (
-                  <>
-                    <Skeleton active />
-                    <br />
-                    <Skeleton active />
-                    <br />
-                  </>
-                )}
+              <div className='lowi_select'>
+                <Select
+                  mode='multiple'
+                  allowClear
+                  //showArrow='true'
+                  className='lowi_filter'
+                  size='large'
+                  placeholder='Odmiana  '>
+                  <Option value='10'>Karp</Option>
+                  <Option value='101'>Rekin</Option>
+                  <Option value='50'>Szczupak</Option>
+                  <Option value='100'>Okoń</Option>
+                  <Option value='102'>Śledź</Option>
+                </Select>
+                <Select
+                  mode='multiple'
+                  allowClear
+                  //showArrow='true'
+                  className='lowi_filter'
+                  size='large'
+                  placeholder='Udogodnienia  '>
+                  <Option value='10'>WC</Option>
+                  <Option value='101'>Namiot</Option>
+                  <Option value='50'>Ponton</Option>
+                  <Option value='100'>WiFi</Option>
+                </Select>
+              </div>
+            </div>
+            <section className='lowi_list'>
+              {loading && (
+                <>
+                  <Skeleton active />
+                  <br />
+                  <Skeleton active />
+                  <br />
+                </>
+              )}
 
-                {mergedLakes?.length < 1 && (
-                  <div>
-                    <p>"nie znaleziono łowisk spełniających podane kryteria"</p>
-                    <Link to='/'>wróć do wyszukiwarki</Link>
-                  </div>
-                )}
-                <ul className='lowi_list_ul'>
-                  {/* {mergedLakes.length === 0 &&
+              {mergedLakes?.length < 1 && (
+                <div>
+                  <p>"nie znaleziono łowisk spełniających podane kryteria"</p>
+                  <Link to='/'>wróć do wyszukiwarki</Link>
+                </div>
+              )}
+              <ul className='lowi_list_ul'>
+                {/* {mergedLakes.length === 0 &&
                     clientError === null &&
                     serverError === null &&
                     !loading &&
                     "nie znaleziono łowisk s"} */}
-                  {mergedLakes?.length > 0 &&
-                    mergedLakes.map((node) => {
-                      return <FisheryCard key={node.id} data={node} />;
-                    })}
-                </ul>
-              </section>
-            </div>
+                {mergedLakes?.length > 0 &&
+                  mergedLakes.map((node) => {
+                    return <FisheryCard key={node.id} data={node} />;
+                  })}
+              </ul>
+            </section>
           </div>
-        </LowiskaCss>
-      </PageContainer>
-    </ConfigProvider>
+        </div>
+      </LowiskaCss>
+    </PageContainer>
+    // </ConfigProvider>
   );
 };
 

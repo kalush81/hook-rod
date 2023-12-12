@@ -75,7 +75,7 @@ export const TimeTable = function (props) {
             //console.log('day', day);
             //console.log(dayjs(day, 'DD/MM/YYYY', true).format('YYYY-MM-DD'));
             return (
-              <div className='date-square'>
+              <div className='date-square' key={day}>
                 <span
                   className='noColor'
                   key={day}

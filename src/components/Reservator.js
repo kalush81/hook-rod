@@ -10,10 +10,13 @@ import 'dayjs/locale/pl';
 import isBetween from 'dayjs/plugin/isBetween';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import objectSupport from 'dayjs/plugin/objectSupport';
-import { ExtraServicesAvailable } from './ExtraServicesAvailable';
-import { PaymenthMethod } from './PaymenthMethod';
-import { SummaryShort } from './SummaryShort';
-import { MyDatePicker } from './MyDatePicker';
+import { ExtraServicesAvailable } from '././reservator-atoms/ExtraServicesAvailable';
+import { PaymenthMethod } from './reservator-atoms/PaymenthMethod';
+import { SummaryShort } from './reservator-atoms/SummaryShort';
+import { MyDatePicker } from './reservator-atoms/MyDatePicker';
+import { NumberGuestSelector } from './reservator-atoms/NumberGuestSelector';
+import { PegSelector } from './reservator-atoms/PegSelector';
+import { SubmitReservationButton } from './reservator-atoms/SubmitReservationButton';
 
 const { Option } = Select;
 
@@ -101,7 +104,7 @@ const Reservator = ({
   currentPath,
   servicesReservationsDATA,
 }) => {
-  console.log('extraServices', extraServices);
+  //console.log('extraServices', extraServices);
   const startDateInputRef = useRef(null);
   const [availableServices, setAvailableServices] = useState(extraServices);
   const [form] = Form.useForm();
@@ -112,21 +115,16 @@ const Reservator = ({
   const [extraOptions, setExtraOptions] = useState([]);
   const [numDays, setNumDays] = useState(0);
 
-  console.log('servicesReservationsDATA', servicesReservationsDATA);
-  console.log('availableServices', availableServices);
+  //console.log('servicesReservationsDATA', servicesReservationsDATA);
+  //console.log('availableServices', availableServices);
 
-  // useEffect(() => {
-  //   console.log('requested range changed');
-  //   // if (range[0] && range[1]) {
-  //   //   calculateDays(setNumDays, range[0], range[1]);
-  //   //   console.log(
-  //   //     'id available services list',
-  //   //     getAvailableServices(servicesReservationsDATA, range)
-  //   //   );
-  //   // }
-  // }, [range[0], range[1]]);
+  useEffect(() => {
+    //console.log('requested range changed');
+    if (range[0] && range[1]) {
+      calculateDays(setNumDays, range[0], range[1]);
+    }
+  }, [range[0], range[1]]);
 
-  //on finish doesn't cause rerender
   const onFinish = (formValues) => {
     let newReservationData = {
       ...formValues,
@@ -142,7 +140,6 @@ const Reservator = ({
     navigate('/reservation-details', { state: { newReservationData } });
   };
 
-  //handleASetNumGuests cause rerender
   const handleSetNumGuests = (num) => {
     setNumGuests(parseInt(num));
   };
@@ -180,6 +177,7 @@ const Reservator = ({
   };
 
   const disableDate = (current) => {
+    //console.log('disabled date fun was defined');
     const now = dayjs();
     if (range[0] && !range[1] && reservations.length === 1) {
       const reservedEnd = dayjs(reservations[0].startDate).add(1, 'day');
@@ -238,62 +236,19 @@ const Reservator = ({
       <CalendarCSS>
         <div className='container'>
           <h3>Cennik: 1 stanowisko / doba od {pegBasePrice} zł</h3>
+
           <div className='row row1'>
-            <Form.Item
-              name='pegId'
-              rules={[
-                {
-                  required: true,
-                  message: 'wybierz stanowisko',
-                },
-              ]}>
-              <Select
-                loading={!pegs.length}
-                allowClear
-                className='select_row1'
-                size='medium'
-                placeholder='wybierz stanowisko'
-                showAction='focus'
-                onChange={handleSelectPeg}>
-                {pegs.length &&
-                  pegs.map((peg) => {
-                    return (
-                      <Option key={peg.pegId} value={peg.pegId}>
-                        {peg.pegName}
-                      </Option>
-                    );
-                  })}
-              </Select>
-            </Form.Item>
-            <Form.Item
-              name='numGuests'
-              rules={[
-                {
-                  required: true,
-                  message: 'Prosze podaj ilość osób!',
-                },
-              ]}>
-              <Select
-                allowClear
-                className='select_row1'
-                size='medium'
-                placeholder='Osoby'
-                showAction='focus'
-                onChange={handleSetNumGuests}>
-                <Option value={1}>1 osoba</Option>
-                <Option value={2}>2 osoby</Option>
-                <Option value={3}>3 osoby</Option>
-                <Option value={4}>4 osoby</Option>
-              </Select>
-            </Form.Item>
+            <PegSelector pegs={pegs} handleSelectPeg={handleSelectPeg} />
+            <NumberGuestSelector handleSetNumGuests={handleSetNumGuests} />
           </div>
+
           <MyDatePicker
             // startDateInputRef={startDateInputRef}
             pegId={pegId}
             disableDate={disableDate}
-            // handleRangeChange={handleRangeChange}
-            // onOpenChange={onOpenChange}
-            // handleRangePickerFocus={handleRangePickerFocus}
+            handleRangeChange={handleRangeChange}
+            onOpenChange={onOpenChange}
+            handleRangePickerFocus={handleRangePickerFocus}
           />
           <ExtraServicesAvailable
             availableServices={availableServices}
@@ -308,19 +263,7 @@ const Reservator = ({
             getPegNumber={getPegNumber}
           />
           <PaymenthMethod />
-
-          <div className='button_container'>
-            <Form.Item>
-              <Button
-                className='button'
-                size='large'
-                type='primary'
-                htmlType='submit'
-                onClick={() => {}}>
-                DODAJ DO KOSZYKA
-              </Button>
-            </Form.Item>
-          </div>
+          <SubmitReservationButton />
         </div>
       </CalendarCSS>
     </Form>

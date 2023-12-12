@@ -98,7 +98,7 @@ function Lake(props) {
     extraServices,
   } = props.data.a;
 
-  console.log('lake extraservices in Lake', extraServices);
+  //console.log('lake extraservices in Lake', extraServices);
 
   const googleMapsProps = {
     center: {

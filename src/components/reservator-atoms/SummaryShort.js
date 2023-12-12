@@ -1,5 +1,5 @@
 import React from 'react';
-import { getTotalOfextras } from '../utils/get-total-of-extras';
+import { getTotalOfextras } from '../../utils/get-total-of-extras';
 
 export const SummaryShort = function ({
   pegId,
@@ -9,7 +9,6 @@ export const SummaryShort = function ({
   numDays,
   getPegNumber,
 }) {
-  console.log('SummaryShort Rerender');
   return (
     <>
       <h2>Podsumowanie</h2>
@@ -18,12 +17,12 @@ export const SummaryShort = function ({
         <h3>{numGuests && pegBasePrice * numGuests * numDays} zł</h3>
         {extraOptions.map((extra) => {
           return (
-            <>
+            <div key={extra.id}>
               <h3 style={{ display: 'block' }}>
                 {extra.name} x {numDays} dni
               </h3>
-              <h3>{(extra.basePrice || 0) * numDays} zł</h3>
-            </>
+              <h3>{(extra.price || 0) * numDays} zł</h3>
+            </div>
           );
         })}
       </div>

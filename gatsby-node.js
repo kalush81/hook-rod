@@ -18,7 +18,7 @@
 //         path: ""
 //       }
 //     ],
-//     latitude: 50.719236, 
+//     latitude: 50.719236,
 //     longitude: 18.118428,
 //     mainImagePath: "",
 //     metadata: "meta dane",
@@ -88,11 +88,11 @@ const getStaticDataFromApi = async () => {
         crossdomain: true,
       }
     );
-    const data =  await response.json();
+    const data = await response.json();
     if (data.error) {
-      return new Error(data.error)
+      return new Error(data.error);
     }
-    return data
+    return data;
   } catch (error) {
     console.error("error while fetching from API", error);
   }
@@ -132,9 +132,8 @@ exports.createPages = async ({ actions: { createPage }, createNodeId }) => {
       });
     });
   } catch (error) {
-    console.error('Server responded with error', error)
+    console.error("Server responded with error", error);
   }
-
 };
 // https://hookrod.s3.eu-central-1.amazonaws.com/Extra+Carp+Radymno/1675710309282-117714995_3471086599610855_7441530922398424970_o.jpg
 exports.createSchemaCustomization = ({ actions }) => {
@@ -217,7 +216,7 @@ exports.sourceNodes = async ({
       images: item.images,
       pegBasePrice: item.pegBasePrice,
       metadata: item.metadata,
-      extraServices: item.extraService,
+      extraServices: item.extraServices,
       parent: null,
       children: [],
       internal: {

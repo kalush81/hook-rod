@@ -6,11 +6,11 @@ export const MyDatePicker = memo(function MyDatePicker({
   pegId,
   disableDate,
   // startDateInputRef,
-  // handleRangeChange,
-  // onOpenChange,
-  // handleRangePickerFocus,
+  handleRangeChange,
+  onOpenChange,
+  handleRangePickerFocus,
 }) {
-  console.log('MYDATEPICKER RERENDERED !!!');
+  //console.log('MYDATEPICKER RERENDERED !!!');
   return (
     <div className='row row2'>
       <Form.Item
@@ -23,11 +23,12 @@ export const MyDatePicker = memo(function MyDatePicker({
         ]}>
         <RangePicker
           disabled={!pegId}
+          placeholder={['początek', 'koniec']}
           // ref={startDateInputRef}
           disabledDate={disableDate}
-          // onCalendarChange={handleRangeChange}
-          // onOpenChange={onOpenChange}
-          // onFocus={handleRangePickerFocus}
+          onCalendarChange={handleRangeChange}
+          onOpenChange={onOpenChange}
+          onFocus={handleRangePickerFocus}
           // allowClear={false}
         />
       </Form.Item>

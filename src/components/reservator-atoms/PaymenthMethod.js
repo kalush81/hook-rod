@@ -2,7 +2,6 @@ import React, { memo } from 'react';
 import { Form, Radio, Space } from 'antd';
 
 export const PaymenthMethod = memo(function PaymentMethod(props) {
-  console.log('PAYMENT METHOD RERENDERED!!!');
   return (
     <div className='options'>
       <Form.Item name='paymentType'>

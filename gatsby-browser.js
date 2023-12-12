@@ -1,10 +1,13 @@
 import React from "react";
 import Layout from "./src/components/Layout";
 import { ConfigProvider } from "antd";
+import plPL from "antd/lib/locale/pl_PL";
 
 export function wrapPageElement({ element, props }) {
   return (
+    //use this config provider to custome style ANT's components
     <ConfigProvider
+      locale={plPL}
       theme={{
         token: {
           // Seed Token
