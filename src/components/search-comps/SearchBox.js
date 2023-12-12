@@ -1,26 +1,22 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { ConfigProvider } from 'antd';
 import { SearchForm } from './SearchForm';
-import plPL from 'antd/lib/locale/pl_PL';
 
 const SearchBox = () => {
   const header = useRef(null);
 
   return (
-    <ConfigProvider locale={plPL}>
-      <SearchBoxCss>
-        <div className='home_search_box'>
-          <h1 ref={header} className='home_cover_header--big'>
-            HOOK&ROD
-          </h1>
-          <h2 className='home_cover_header'>Znajdź łowiska blisko Ciebie</h2>
-          <div className='home_cover_search'>
-            <SearchForm className={'home_cover_search_input'} />
-          </div>
+    <SearchBoxCss>
+      <div className='home_search_box'>
+        <h1 ref={header} className='home_cover_header--big'>
+          HOOK&ROD
+        </h1>
+        <h2 className='home_cover_header'>Znajdź łowiska blisko Ciebie</h2>
+        <div className='home_cover_search'>
+          <SearchForm className={'home_cover_search_input'} />
         </div>
-      </SearchBoxCss>
-    </ConfigProvider>
+      </div>
+    </SearchBoxCss>
   );
 };
 

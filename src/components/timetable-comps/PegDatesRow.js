@@ -1,6 +1,6 @@
 import React from 'react';
 import DateSquare from './DateSquare';
-import { getBookingDataOnDate } from '../utils/booking-checker';
+import { getBookingDataOnDate } from '../../utils/booking-checker';
 
 function PegDatesRow({ peg, daysArr, isLoading }) {
   let bookings = peg.reservations?.map(({ startDate, endDate, status }) => {

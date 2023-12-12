@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Select, Space } from 'antd';
-import plCities from '../assets/data/cities-with-county.json';
+import plCities from '../../assets/data/cities-with-county.json';
 const { Option } = Select;
 //eslint-disable-next-line react-hooks/rules-of-hooks
 

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import hookrod_logo from '../assets/images/hookrod_logo.svg';
+import hookrod_logo from '../../assets/images/hookrod_logo.svg';
 import { Squeeze as Hamburger } from 'hamburger-react';
-import { Logo, LoginIcon } from '../assets/icons';
+import { Logo, LoginIcon } from '../../assets/icons';
 import 'animate.css';
 
 const Nav = () => {

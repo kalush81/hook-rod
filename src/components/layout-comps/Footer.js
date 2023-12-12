@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
-import hookrod_logo from '../assets/images/hookrod_logo.svg';
+//import hookrod_logo from '../assets/images/hookrod_logo.svg';
 
 const Footer = ({ noFixedPosition }) => (
   <FooterCss className='footer_css' noFixedPosition={noFixedPosition}>

@@ -1,22 +1,25 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { navigate } from 'gatsby';
 import styled from 'styled-components';
-import { Form, Select, Button } from 'antd';
-import { calculateDays } from '../utils/calculate-days';
-import { getTotalOfextras } from '../utils/get-total-of-extras';
+import { Form, Select } from 'antd';
+
+import { calculateDays } from '../../utils/calculate-days';
+import { getTotalOfextras } from '../../utils/get-total-of-extras';
 
 import dayjs from 'dayjs';
 import 'dayjs/locale/pl';
+
 import isBetween from 'dayjs/plugin/isBetween';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import objectSupport from 'dayjs/plugin/objectSupport';
-import { ExtraServicesAvailable } from '././reservator-atoms/ExtraServicesAvailable';
-import { PaymenthMethod } from './reservator-atoms/PaymenthMethod';
-import { SummaryShort } from './reservator-atoms/SummaryShort';
-import { MyDatePicker } from './reservator-atoms/MyDatePicker';
-import { NumberGuestSelector } from './reservator-atoms/NumberGuestSelector';
-import { PegSelector } from './reservator-atoms/PegSelector';
-import { SubmitReservationButton } from './reservator-atoms/SubmitReservationButton';
+
+import { ExtraServicesAvailable } from './ExtraServicesAvailable';
+import { PaymenthMethod } from './PaymenthMethod';
+import { SummaryShort } from './SummaryShort';
+import { MyDatePicker } from './MyDatePicker';
+import { NumberGuestSelector } from './NumberGuestSelector';
+import { PegSelector } from './PegSelector';
+import { SubmitReservationButton } from './SubmitReservationButton';
 
 const { Option } = Select;
 

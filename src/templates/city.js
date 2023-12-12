@@ -1,6 +1,5 @@
-import { graphql } from "gatsby";
-import React from "react";
-import TestLakeCard from "../components/TestLakeCard";
+import { graphql } from 'gatsby';
+import React from 'react';
 
 function City(props) {
   console.log(props);

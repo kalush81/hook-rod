@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Slider } from '../components/Slider';
-import { SEO } from '../components/seo';
+import { SEO } from '../components/Seo';
 import GoogleMapReact from 'google-map-react';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
-
-import { ConfigProvider, Breadcrumb } from 'antd';
-import plPL from 'antd/lib/locale/pl_PL';
-import Reservator from '../components/Reservator.js';
-import { TimeTable } from '../components/TimeTable';
-import { Div, PageContainer } from '../components/cssComponents';
+import { Breadcrumb } from 'antd';
+import Reservator from '../components/reservator-comps/Reservator.js';
+import { TimeTable } from '../components/timetable-comps/TimeTable.js';
+import { Div, PageContainer } from '../components/cssComponents/index.js';
 import useFetch from '../hooks/useFetch.js';
 import useWindowSize from '../hooks/useWindowSize';
 import { useLocation } from '@reach/router';

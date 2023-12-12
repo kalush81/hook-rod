@@ -5,14 +5,13 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/pl';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import PegDatesRow from './PegDatesRow';
-import { getCallendarString } from '../utils/get-date-string';
-import { Left, Right, Up, Down } from '../assets/icons';
+import { getCallendarString } from '../../utils/get-date-string';
+import { Left, Right, Up, Down } from '../../assets/icons';
 dayjs.locale('pl');
 dayjs.extend(customParseFormat);
 
 export const TimeTable = function (props) {
   const { maxPegs, maxDays, pegs, isLoading } = props;
-  //console.log('TT rendered with pegs data', props);
 
   const [firstIdx, setFirstIdx] = useState(0);
   const [lastIdx, setLastIdx] = useState(maxPegs);

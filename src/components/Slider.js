@@ -54,8 +54,6 @@ export const Slider = ({ lakeOtherImagesFiles }) => {
 const BigImagesWrapper = styled.div`
   display: flex;
   overflow-x: hidden;
-  //width: 100vw;
-  //border: 2px solid red;
   position: relative;
 
   .right-arrow,
@@ -82,28 +80,5 @@ const BigImagesWrapper = styled.div`
   .gatsby-img-wraper {
     width: 100vw;
     height: calc(100vh - 202px);
-    // &::after {
-    //   content: '';
-    //   width: 50px;
-    //   height: 100%;
-    //   position: absolute;
-    //   top: 0;
-    //   left: 100%;
-    //   transform: translateX(-100%);
-    //   //border: 4px solid yellow;
-    //   background: rgba(255, 255, 255, 0.5);
-    // }
-    // &::before {
-    //   content: '';
-    //   width: 50px;
-    //   height: 100%;
-    //   position: absolute;
-    //   top: 0;
-    //   left: 0;
-    //   z-index: 2;
-    //   //transform: translateX(100%);
-    //   //border: 4px solid yellow;
-    //   background: rgba(255, 255, 255, 0.5);
-    // }
   }
 `;

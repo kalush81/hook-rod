@@ -1,5 +1,5 @@
 import React from 'react';
-import { V, X, QuestionMark } from '../assets/icons';
+import { V, X, QuestionMark } from '../../assets/icons';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 
