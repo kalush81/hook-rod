@@ -5,7 +5,6 @@ import { Link } from 'gatsby';
 import { Div, PageContainer } from '../components/cssComponents';
 
 export default function FourOhFour(props) {
-  console.log('props in 404', props);
   return (
     <PageContainer>
       <Div>

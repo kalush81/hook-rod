@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-
-import { Link } from "gatsby";
-
-import { Form, Input, Select, Checkbox, Button } from "antd";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { Form, Input, Select, Checkbox, Button } from 'antd';
 
 const { Option } = Select;
 const formItemLayout = {
@@ -41,7 +38,7 @@ const Registration_Form = () => {
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
-    console.log("Received values of form: ", values);
+    console.log('Received values of form: ', values);
   };
 
   const [autoCompleteResult, setAutoCompleteResult] = useState([]);
@@ -51,7 +48,7 @@ const Registration_Form = () => {
       setAutoCompleteResult([]);
     } else {
       setAutoCompleteResult(
-        [".com", ".org", ".net"].map((domain) => `${value}${domain}`)
+        ['.com', '.org', '.net'].map((domain) => `${value}${domain}`)
       );
     }
   };
@@ -62,159 +59,151 @@ const Registration_Form = () => {
   }));
   return (
     <RegistrationCss>
-      <div className="row">
-        <div className="column column-left">
+      <div className='row'>
+        <div className='column column-left'>
           <h1>Utwórz konto</h1>
-          <div className="form">
+          <div className='form'>
             <Form
               {...formItemLayout}
-              className="form"
+              className='form'
               form={form}
-              name="register"
+              name='register'
               onFinish={onFinish}
-              scrollToFirstError
-            >
+              scrollToFirstError>
               <Form.Item
-                name="imie"
+                name='imie'
                 // label="Imię"
                 rules={[
                   {
                     required: true,
-                    message: "Podaj imię!",
+                    message: 'Podaj imię!',
                   },
-                ]}
-              >
+                ]}>
                 <Input
-                  placeholder="Imię"
-                  size="large"
-                  className="imie"
+                  placeholder='Imię'
+                  size='large'
+                  className='imie'
                   style={{ height: 44.5 }}
                 />
               </Form.Item>
 
               <Form.Item
-                name="nazwisko"
+                name='nazwisko'
                 // label="Nazwisko"
                 rules={[
                   {
                     required: true,
-                    message: "Podaj nazwisko!",
+                    message: 'Podaj nazwisko!',
                   },
-                ]}
-              >
+                ]}>
                 <Input
-                  placeholder="Nazwisko"
-                  size="large"
-                  className="nazwisko"
+                  placeholder='Nazwisko'
+                  size='large'
+                  className='nazwisko'
                   style={{ height: 44.5 }}
                 />
               </Form.Item>
 
               <Form.Item
-                name="email"
+                name='email'
                 // label="E-mail"
                 rules={[
                   {
-                    type: "email",
-                    message: "Niepoprawny adres e-mail!",
+                    type: 'email',
+                    message: 'Niepoprawny adres e-mail!',
                   },
                   {
                     required: true,
-                    message: "Podaj adres e-mail!",
+                    message: 'Podaj adres e-mail!',
                   },
-                ]}
-              >
+                ]}>
                 <Input
-                  placeholder="Adres e-mail"
-                  size="large"
-                  className="e-mail"
+                  placeholder='Adres e-mail'
+                  size='large'
+                  className='e-mail'
                   style={{ height: 44.5 }}
                 />
               </Form.Item>
 
               <Form.Item
-                name="password"
+                name='password'
                 // label="Password"
                 rules={[
                   {
                     required: true,
-                    message: "Wpisz hasło!",
+                    message: 'Wpisz hasło!',
                   },
                 ]}
-                hasFeedback
-              >
+                hasFeedback>
                 <Input.Password
-                  placeholder="Hasło"
-                  size="large"
-                  className="password"
+                  placeholder='Hasło'
+                  size='large'
+                  className='password'
                   style={{ height: 44.5 }}
                 />
               </Form.Item>
 
               <Form.Item
-                name="confirm"
+                name='confirm'
                 // label="Confirm Password"
-                dependencies={["password"]}
+                dependencies={['password']}
                 hasFeedback
                 rules={[
                   {
                     required: true,
-                    message: "Powtórz hasło!",
+                    message: 'Powtórz hasło!',
                   },
                   ({ getFieldValue }) => ({
                     validator(_, value) {
-                      if (!value || getFieldValue("password") === value) {
+                      if (!value || getFieldValue('password') === value) {
                         return Promise.resolve();
                       }
 
                       return Promise.reject(
                         new Error(
-                          "The two passwords that you entered do not match!"
+                          'The two passwords that you entered do not match!'
                         )
                       );
                     },
                   }),
-                ]}
-              >
+                ]}>
                 <Input.Password
-                  className="confirm_password"
-                  placeholder="Powtórz hasło"
-                  size="large"
+                  className='confirm_password'
+                  placeholder='Powtórz hasło'
+                  size='large'
                   style={{ height: 44.5 }}
                 />
               </Form.Item>
 
               <Form.Item
-                name="agreement"
-                valuePropName="checked"
+                name='agreement'
+                valuePropName='checked'
                 rules={[
                   {
                     validator: (_, value) =>
                       value
                         ? Promise.resolve()
-                        : Promise.reject(new Error("Zaakceptuj regulamin!")),
+                        : Promise.reject(new Error('Zaakceptuj regulamin!')),
                   },
                 ]}
-                {...tailFormItemLayout}
-              >
-                <Checkbox className="checkbox" size="large">
-                  Zakładając konto akceptujesz nasz <a href="">Regulamin</a>.
+                {...tailFormItemLayout}>
+                <Checkbox className='checkbox' size='large'>
+                  Zakładając konto akceptujesz nasz <a href=''>Regulamin</a>.
                 </Checkbox>
               </Form.Item>
               <Form.Item {...tailFormItemLayout}>
                 <Button
-                  className="register-button"
-                  size="large"
-                  type="primary"
-                  htmlType="submit"
-                >
+                  className='register-button'
+                  size='large'
+                  type='primary'
+                  htmlType='submit'>
                   Załóż konto
                 </Button>
               </Form.Item>
             </Form>
           </div>
         </div>
-        <div className="column column-right">
+        <div className='column column-right'>
           <h1>Dlaczego warto mieć konto w HOOK&ROD?</h1>
           <h2>Subtitle1</h2>
           <h2>Subtitle2</h2>

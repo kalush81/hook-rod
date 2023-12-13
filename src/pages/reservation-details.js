@@ -5,8 +5,6 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/pl';
 import { RequestReservationForm } from '../components/RequestReservationForm';
 
-//dayjs().set("hour", 12).set("minutes", 0).format("YYYY-MM-DD HH:MM");
-
 const ReservatorSummary = ({
   startDateUI,
   endDateUI,

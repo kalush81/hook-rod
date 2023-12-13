@@ -1,16 +1,14 @@
-import React from "react";
-import { Link } from "gatsby";
-import styled from "styled-components";
-
-import { Breadcrumb } from "antd";
-// import ClientOnly from "./ClientOnly";
+import React from 'react';
+import { Link } from 'gatsby';
+import styled from 'styled-components';
+import { Breadcrumb } from 'antd';
 
 const Breadcrumbs = ({ lowiskName }) => (
   <BreadcrumbsCss>
-    <div className="breadcrumbs">
+    <div className='breadcrumbs'>
       <Breadcrumb>
         <Breadcrumb.Item>
-          <Link to="/">Strona Głowna</Link>
+          <Link to='/'>Strona Głowna</Link>
         </Breadcrumb.Item>
         <Breadcrumb.Item>Łowiska</Breadcrumb.Item>
         <Breadcrumb.Item>{lowiskName}</Breadcrumb.Item>

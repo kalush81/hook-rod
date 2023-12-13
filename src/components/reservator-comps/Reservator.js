@@ -39,64 +39,64 @@ const beforeNoon = {
   minute: 59,
   second: 0,
 };
-const servicesReservationsDATA = [
+const servicesReservationsDATAMOCK = [
   {
-    id: '0ba27951-bdfe-4b7c-a966-148f667ff82d',
-    reservations: [
+    extraServiceId: '0ba27951-bdfe-4b7c-a966-148f667ff82d',
+    extraServiceReservationDto: [
       {
-        endDate: '2023-11-03T11:59:00',
-        startDate: '2023-11-02T12:00:00',
+        endDate: '2023-12-15T11:59:00',
+        startDate: '2023-12-14T12:00:00',
       },
       {
-        endDate: '2023-11-06T11:59:00',
-        startDate: '2023-11-04T12:00:00',
+        endDate: '2023-12-19T11:59:00',
+        startDate: '2023-12-16T12:00:00',
       },
     ],
   },
   {
-    id: '26099044-21a0-4b94-abc4-897067e3bdb9',
-    reservations: [
+    extraServiceId: '26099044-21a0-4b94-abc4-897067e3bdb9',
+    extraServiceReservationDto: [
       {
-        endDate: '2023-11-03T11:59:00',
-        startDate: '2023-11-02T12:00:00',
+        endDate: '2023-12-22T11:59:00',
+        startDate: '2023-12-21T12:00:00',
       },
       {
-        endDate: '2023-11-09T11:59:00',
-        startDate: '2023-11-08T12:00:00',
+        endDate: '2023-12-29T11:59:00',
+        startDate: '2023-12-27T12:00:00',
       },
     ],
   },
 ];
 
-const getAvailableServices = (
-  existedReservations,
-  [
-    startDateRequest = dayjs(startDateRequest).set(noon),
-    endDateRequest = dayjs(endDateRequest).set(beforeNoon),
-  ]
-) => {
-  return existedReservations.extraServiceReservationsDto
-    ?.filter((data) => {
-      if (
-        dayjs(data.endDate).isBetween(
-          startDateRequest,
-          endDateRequest,
-          null,
-          '[]'
-        ) ||
-        dayjs(data.startDate).isBetween(
-          startDateRequest,
-          endDateRequest,
-          null,
-          '[]'
-        )
-      ) {
-        return false;
-      } else {
-        return true;
-      }
-    })
-    .map((service) => service.id);
+const getUnavailableServices = (existed, requested) => {
+  //todo, loop theough objects in "existed" array. If requested dates are within
+  //current object's extraServicesReservationsDto, then return extraServiceID of that object. Use redux.
+  return [
+    ...new Set(
+      existed.reduce((acc, curr) => {
+        curr.extraServiceReservationDto.map((currentReservation) => {
+          if (
+            dayjs(currentReservation.endDate).isBetween(
+              requested.startDate,
+              requested.endDate,
+              null,
+              '[]'
+            ) ||
+            dayjs(currentReservation.startDate).isBetween(
+              requested.startDate,
+              requested.endDate,
+              null,
+              '[]'
+            )
+          ) {
+            acc.push(curr.extraServiceId);
+          }
+        });
+        console.log('reduce acc: ', acc);
+        return acc;
+      }, [])
+    ),
+  ];
 };
 
 const Reservator = ({
@@ -107,9 +107,12 @@ const Reservator = ({
   currentPath,
   servicesReservationsDATA,
 }) => {
-  //console.log('extraServices', extraServices);
+  console.log('extraServices', extraServices);
+  console.log('servicesReservationsDATA', servicesReservationsDATA);
+
   const startDateInputRef = useRef(null);
   const [availableServices, setAvailableServices] = useState(extraServices);
+  const [unavailableServices, setUnavailableServices] = useState([]);
   const [form] = Form.useForm();
   const [reservations, setReservations] = useState([]);
   const [pegId, setPegId] = useState(null);
@@ -125,6 +128,8 @@ const Reservator = ({
     //console.log('requested range changed');
     if (range[0] && range[1]) {
       calculateDays(setNumDays, range[0], range[1]);
+    } else {
+      setUnavailableServices([]);
     }
   }, [range[0], range[1]]);
 
@@ -175,7 +180,12 @@ const Reservator = ({
       }
     }
     if (stringDates[0] && stringDates[1]) {
-      console.log('teraz implementuj wyciaganie dostepnych serwisów');
+      setUnavailableServices(
+        getUnavailableServices(servicesReservationsDATAMOCK, {
+          startDate: dayjs(stringDates[0]).set(noon),
+          endDate: dayjs(stringDates[1]).set(beforeNoon),
+        })
+      );
     }
   };
 
@@ -206,6 +216,7 @@ const Reservator = ({
       });
       form.resetFields(['dates']);
       setRange([]);
+      setUnavailableServices([]);
       setNumDays(0);
     } else {
       setReservations(() => {
@@ -255,6 +266,7 @@ const Reservator = ({
           />
           <ExtraServicesAvailable
             availableServices={availableServices}
+            unavailableServices={unavailableServices}
             onChangeCheckBoxes={onChangeCheckBoxes}
           />
           <SummaryShort

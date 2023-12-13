@@ -53,12 +53,6 @@ function FisheryCard({ data }) {
               {"  "}/ wolnych {freePegs}
             </strong>}
           </div>
-          {/* {freePegs && (
-              <div>
-              <b>Wolnych stanowisk: </b>
-              {freePegs}
-              </div>
-            )} */}
           <div className="lowi_itm_amnt cena">
             <Dollar />
             <b>Od {priceMin} zł / osoba</b>

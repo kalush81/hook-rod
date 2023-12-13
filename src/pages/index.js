@@ -48,27 +48,20 @@ const HomePg = () => {
   // const imageDataP3 = data.iteee.childImageSharp.fluid;
 
   return (
-    <>
-      {/* <Helmet>
-        <meta charSet="utf-8" />
-        <title>Hook&Rod</title>
-      </Helmet> */}
-      <HomeCss>
-        <BackgroundImage
-          Tag='div'
-          fluid={imageData}
-          className='home_cover'
-          backgroundColor='#040e18'>
-          <SearchBox />
-        </BackgroundImage>
-      </HomeCss>
-    </>
+    <HomeCss>
+      <BackgroundImage
+        Tag='div'
+        fluid={imageData}
+        className='home_cover'
+        backgroundColor='#040e18'>
+        <SearchBox />
+      </BackgroundImage>
+    </HomeCss>
   );
 };
 
 const HomeCss = styled.div`
   scroll-behavior: smooth;
-  //height: calc(100vh - 120px);
 
   .home_cover {
     background-size: cover;

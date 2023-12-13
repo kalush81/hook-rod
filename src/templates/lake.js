@@ -117,6 +117,7 @@ function Lake(props) {
   );
 
   useEffect(() => {
+    console.log('lakeId in useEffect', lakeId);
     async function fetchData() {
       const data = await getPegReservations(lakeId);
       //console.log('peg reserv data', data);

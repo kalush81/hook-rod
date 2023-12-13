@@ -3,6 +3,7 @@ import { Form, Checkbox } from 'antd';
 
 export const ExtraServicesAvailable = memo(function ExtraServicesAvailable({
   availableServices,
+  unavailableServices,
   onChangeCheckBoxes,
 }) {
   return (
@@ -19,9 +20,16 @@ export const ExtraServicesAvailable = memo(function ExtraServicesAvailable({
                   return (
                     <div key={f.id} className='options_row'>
                       <Checkbox className='checkbox' value={f}></Checkbox>
-                      <h3 style={{ margin: 0 }}>
-                        {f.name} {f.price}zł/doba
-                      </h3>
+                      {unavailableServices.find((id) => id === f.id) ? (
+                        <h3
+                          style={{ margin: 0, textDecoration: 'line-through' }}>
+                          {f.name} {f.price}zł/doba
+                        </h3>
+                      ) : (
+                        <h3 style={{ margin: 0 }}>
+                          {f.name} {f.price}zł/doba
+                        </h3>
+                      )}
                     </div>
                   );
                 })}

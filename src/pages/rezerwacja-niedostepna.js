@@ -2,17 +2,7 @@ import React from 'react';
 import { Div } from '../components/cssComponents';
 import { Link } from 'gatsby';
 
-const ReservationDatesUnavailable = ({ location }) => {
-  //const [goTo, setGoTo] = useState("");
-  //console.log("goto:", goTo);
-  console.log('location.state', location.state);
-  // useEffect(() => {
-  //   setGoTo(location.state.fromUrl);
-  //   return () => {
-  //     setGoTo("/");
-  //   };
-  // }, []);
-
+const ReservationDatesUnavailable = () => {
   return (
     <>
       <Div>
