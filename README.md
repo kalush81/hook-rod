@@ -17,6 +17,7 @@ aplikacja sluzaca do dokonywania rezerwacji poszczegolnych stanowisk na wybranuc
 - zoptymalizowac grafiki/zdjecia na homepage i partnerzy
 - usunac icony z fontawesome and react-icons
 - chcę zapewnic indywidualne SEO dla kazego łowiska/podstrony. Zwiazane to jest ze api/static Potrzebujemy dodac cos typu "description" i "keywords" obok wlasciwosci tj "pegBasePrice", "imagePath" itd..
+- najechanie na nr stanowiska otwiera tooltip z info na temat stanowiska i mozliwe przekierowanie na podstronę stanowiska, albo widok zdjecia stanowiska
 
 # Na kiedyś... 
 Wlascicielom łowisk trzeba dobrze przedstawic korzysci płynace z korzystania 

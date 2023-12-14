@@ -68,7 +68,7 @@ export const RequestReservationForm = (reservationDetails) => {
         }>
         {linkToPayment
           ? 'rezerwacja jest mozliwa, mozesz przejść do platności'
-          : 'czekaj, sprawdzamy dostępność dat na wybranym przez Ciebie stanowisku'}
+          : 'poczekaj jeszcze chwilkę, sprawdzamy dostępność dat'}
       </Modal>
       <h2>Dane kontaktowe</h2>
       <Form
