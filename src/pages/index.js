@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
 import SearchBox from '../components/search-comps/SearchBox';
 import { SEO } from '../components/Seo';
+import Layout from '../components/layout-comps/Layout';
 
 const HomePg = () => {
   const data = useStaticQuery(
@@ -48,15 +49,17 @@ const HomePg = () => {
   // const imageDataP3 = data.iteee.childImageSharp.fluid;
 
   return (
-    <HomeCss>
-      <BackgroundImage
-        Tag='div'
-        fluid={imageData}
-        className='home_cover'
-        backgroundColor='#040e18'>
-        <SearchBox />
-      </BackgroundImage>
-    </HomeCss>
+    <Layout>
+      <HomeCss>
+        <BackgroundImage
+          Tag='div'
+          fluid={imageData}
+          className='home_cover'
+          backgroundColor='#040e18'>
+          <SearchBox />
+        </BackgroundImage>
+      </HomeCss>
+    </Layout>
   );
 };
 
