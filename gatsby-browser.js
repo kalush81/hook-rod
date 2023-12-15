@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "./src/components/layout-comps/Layout";
 import { ConfigProvider } from "antd";
 import plPL from "antd/lib/locale/pl_PL";
-import GlobalStyles from "./src/styles/GlobalStyles";
+//import GlobalStyles from "./src/styles/GlobalStyles";
 
 export function wrapPageElement({ element, props }) {
   return (
@@ -25,7 +25,7 @@ export function wrapPageElement({ element, props }) {
         },
       }}
     >
-      <GlobalStyles />
+      {/* <GlobalStyles /> */}
       <Layout {...props}>{element}</Layout>
     </ConfigProvider>
   );
