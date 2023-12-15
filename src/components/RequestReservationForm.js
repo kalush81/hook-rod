@@ -26,8 +26,8 @@ export const RequestReservationForm = (reservationDetails) => {
       ...reservationDetails,
       agreement: Boolean(agreement).toString(),
     };
-
     const sendForm = async () => {
+      console.log('reservationData', reservationData);
       setOpenModal(true);
       setConfirmLoading(true);
       try {

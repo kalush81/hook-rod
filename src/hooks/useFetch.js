@@ -30,20 +30,17 @@ export default function useFetch(baseUrl) {
         })
           .then((response) => response.json())
           .then((data) => {
+            setLoading(false);
             if (!data) {
-              setLoading(false);
               return reject('server nie odpowiedział');
             }
-            if (data.status === 200) {
-            }
             if (data.status >= 400 && data.status < 600) {
-              setLoading(false);
               return reject(data);
             }
-            setLoading(false);
             resolve(data);
           })
           .catch((error) => {
+            console.error('error in useFetch catch block ', error);
             setLoading(false);
             reject(error);
           });

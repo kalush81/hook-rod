@@ -92,7 +92,7 @@ const getUnavailableServices = (existed, requested) => {
             acc.push(curr.extraServiceId);
           }
         });
-        console.log('reduce acc: ', acc);
+        //console.log('reduce acc: ', acc);
         return acc;
       }, [])
     ),
@@ -107,8 +107,8 @@ const Reservator = ({
   currentPath,
   servicesReservationsDATA,
 }) => {
-  console.log('extraServices', extraServices);
-  console.log('servicesReservationsDATA', servicesReservationsDATA);
+  //console.log('extraServices', extraServices);
+  //console.log('servicesReservationsDATA', servicesReservationsDATA);
 
   const startDateInputRef = useRef(null);
   const [availableServices, setAvailableServices] = useState(extraServices);

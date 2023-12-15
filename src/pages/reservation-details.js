@@ -113,7 +113,7 @@ const ReservationDetails = (props) => {
         />
         <Space className='site-button-ghost-wrapper' wrap>
           <Button type='primary' ghost onClick={() => window.history.back()}>
-            powrot do rezerwacji
+            edytuj dane rezerwacji
           </Button>
         </Space>
       </WrapperWithGrid>

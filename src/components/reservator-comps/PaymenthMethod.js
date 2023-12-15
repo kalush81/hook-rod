@@ -7,7 +7,7 @@ export const PaymenthMethod = memo(function PaymentMethod(props) {
       <Form.Item name='paymentType'>
         <Radio.Group
           onChange={(e) => {
-            console.log('radio checked', e.target.value);
+            //console.log('radio checked', e.target.value);
           }}>
           <Space direction='vertical'>
             <Radio value={'ON_PLACE'}>płatność na miejscu</Radio>
