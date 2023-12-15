@@ -124,11 +124,11 @@ const GlobalStyles = createGlobalStyle`
   }
   a:hover {
     opacity: 0.69;
-    color: var(--yellow) !important;
+    color: var(--yellow);
   }
 
   ul {
-    margin: 0 !important;
+    margin: 0;
     padding: 0;
     list-style: none;
   }

@@ -6,7 +6,7 @@ import GlobalStyles from '../../styles/GlobalStyles';
 const Layout = ({ children }) => {
   return (
     <>
-      <GlobalStyles />
+      {/* <GlobalStyles /> */}
       <Nav />
       {children}
       <Footer style={{ textAlign: 'center' }}>
