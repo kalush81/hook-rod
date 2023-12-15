@@ -49,17 +49,15 @@ const HomePg = () => {
   // const imageDataP3 = data.iteee.childImageSharp.fluid;
 
   return (
-    <Layout>
-      <HomeCss>
-        <BackgroundImage
-          Tag='div'
-          fluid={imageData}
-          className='home_cover'
-          backgroundColor='#040e18'>
-          <SearchBox />
-        </BackgroundImage>
-      </HomeCss>
-    </Layout>
+    <HomeCss>
+      <BackgroundImage
+        Tag='div'
+        fluid={imageData}
+        className='home_cover'
+        backgroundColor='#040e18'>
+        <SearchBox />
+      </BackgroundImage>
+    </HomeCss>
   );
 };
 
