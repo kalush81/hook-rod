@@ -5,7 +5,7 @@ import lato500 from '../assets/fonts/Lato-Medium.woff';
 import lato700 from '../assets/fonts/Lato-Bold.woff';
 
 const GlobalStyles = createGlobalStyle`
- //@import '~antd/dist/antd.css';
+@import '~antd/dist/antd.css';
   :root {
     --black: #000000;
     --greymi: #ddd;

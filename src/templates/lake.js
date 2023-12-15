@@ -94,6 +94,9 @@ function Lake(props) {
     pegs: staticPegs,
     pegBasePrice,
     extraServices,
+    downPaymentAsPercents,
+    paymentOnline,
+    paymentOnPlace,
   } = props.data.a;
 
   //console.log('lake extraservices in Lake', extraServices);
@@ -326,6 +329,9 @@ export const query = graphql`
         name
         price
       }
+      paymentOnline
+      paymentOnPlace
+      downPaymentAsPercents
       lakeMainImageFile {
         childImageSharp {
           gatsbyImageData
