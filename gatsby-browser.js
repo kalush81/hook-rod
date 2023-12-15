@@ -2,7 +2,6 @@ import React from "react";
 import Layout from "./src/components/layout-comps/Layout";
 import { ConfigProvider } from "antd";
 import plPL from "antd/lib/locale/pl_PL";
-import "antd/dist/reset.css";
 
 export function wrapPageElement({ element, props }) {
   return (

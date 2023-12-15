@@ -3,6 +3,7 @@ import lato300 from '../assets/fonts/Lato-Thin.woff';
 import lato400 from '../assets/fonts/Lato-Regular.woff';
 import lato500 from '../assets/fonts/Lato-Medium.woff';
 import lato700 from '../assets/fonts/Lato-Bold.woff';
+import 'antd/dist/reset.css';
 
 const GlobalStyles = createGlobalStyle`
   :root {
