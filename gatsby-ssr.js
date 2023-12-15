@@ -1,4 +1,4 @@
-//import React from "react";
+import React from "react";
 import Layout from "./src/components/layout-comps/Layout";
 import { ConfigProvider } from "antd";
 import plPL from "antd/lib/locale/pl_PL";
