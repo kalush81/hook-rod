@@ -77,17 +77,17 @@ const GlobalStyles = createGlobalStyle`
     justify-content: center;
   }
 
-  .ant-picker-panels {
+  /* .ant-picker-panels {
     flex-direction: column;
-  } 
+  }  */
   /* .ant-picker-panels > *:nth-child(2) {
       display: none;
     } */
-  @media (min-width: 567px) {
+  /* @media (min-width: 567px) {
     .ant-picker-panels {
       flex-direction: row;
     }
-  } 
+  }  */
 
   /* Scrollbar Styles */
   // body::-webkit-scrollbar {
@@ -133,12 +133,12 @@ const GlobalStyles = createGlobalStyle`
     list-style: none;
   }
 
-  a.ant-anchor-link-title {
+  /* a.ant-anchor-link-title {
     color: white;
   }
   .breadcrumbs ol li.ant-breadcrumb-separator {
     color: yellow;
-  }
+  } */
  
   
 `;
