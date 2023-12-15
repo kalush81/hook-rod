@@ -6,6 +6,7 @@ import GlobalStyles from '../../styles/GlobalStyles';
 const Layout = ({ children }) => {
   return (
     <div>
+      <GlobalStyles />
       <Nav />
       {children}
 
