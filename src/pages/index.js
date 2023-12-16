@@ -4,7 +4,6 @@ import { graphql, useStaticQuery } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
 import SearchBox from '../components/search-comps/SearchBox';
 import { SEO } from '../components/Seo';
-import Layout from '../components/layout-comps/Layout';
 
 const HomePg = () => {
   const data = useStaticQuery(
