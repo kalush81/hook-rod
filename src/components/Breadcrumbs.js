@@ -5,7 +5,7 @@ import { Breadcrumb } from 'antd';
 
 const Breadcrumbs = ({ lowiskName }) => (
   <BreadcrumbsCss>
-    <div className='breadcrumbs'>
+    {/* <div className='breadcrumbs'>
       <Breadcrumb>
         <Breadcrumb.Item>
           <Link to='/'>Strona Głowna</Link>
@@ -13,7 +13,7 @@ const Breadcrumbs = ({ lowiskName }) => (
         <Breadcrumb.Item>Łowiska</Breadcrumb.Item>
         <Breadcrumb.Item>{lowiskName}</Breadcrumb.Item>
       </Breadcrumb>
-    </div>
+    </div> */}
   </BreadcrumbsCss>
 );
 

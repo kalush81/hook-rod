@@ -158,7 +158,7 @@ function Lake(props) {
       {/* <ConfigProvider locale={plPL}> */}
       <PageContainer>
         <Div>
-          <div className='breadcrumbs'>
+          <div /*className='breadcrumbs' */>
             <Breadcrumb
               items={[
                 {

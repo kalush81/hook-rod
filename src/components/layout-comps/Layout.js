@@ -4,6 +4,7 @@ import Footer from './Footer';
 import GlobalStyles from '../../styles/GlobalStyles';
 
 const Layout = ({ children }) => {
+  console.log('children', children);
   return (
     <>
       <GlobalStyles />
