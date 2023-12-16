@@ -158,25 +158,31 @@ function Lake(props) {
       {/* <ConfigProvider locale={plPL}> */}
       <PageContainer>
         <Div>
-          <div /*className='breadcrumbs' */>
+          <div className='breadcrumbs'>
             <Breadcrumb
-              items={[
-                {
-                  title: <Link to={`/${voivodeship}`}>{voivodeship}</Link>,
-                },
-                {
-                  title: <Link to={`/${voivodeship}/${city}`}>{city}</Link>,
-                },
-                {
-                  title: (
-                    <span>
-                      {lakeName} <LocationDot />
-                    </span>
-                  ),
-                },
-              ]}></Breadcrumb>
+            // items={[
+            //   {
+            //     title: <Link to={`/${voivodeship}`}>{voivodeship}</Link>,
+            //   },
+            //   {
+            //     title: <Link to={`/${voivodeship}/${city}`}>{city}</Link>,
+            //   },
+            //   {
+            //     title: (
+            //       <span>
+            //         {lakeName} <LocationDot />
+            //       </span>
+            //     ),
+            //   },
+            // ]}
+            >
+              <Breadcrumb.Item>sample1</Breadcrumb.Item>
+              <Breadcrumb.Item>sample2</Breadcrumb.Item>
+              <Breadcrumb.Item>sample3</Breadcrumb.Item>
+            </Breadcrumb>
           </div>
         </Div>
+
         <Slider lakeOtherImagesFiles={lakeOtherImagesFiles} />
 
         <div className='field'>
