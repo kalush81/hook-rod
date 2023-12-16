@@ -4,7 +4,7 @@ import { SEO } from '../components/Seo';
 import GoogleMapReact from 'google-map-react';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
-import { Breadcrumb } from 'antd';
+//import { Breadcrumb } from 'antd';
 import Reservator from '../components/reservator-comps/Reservator.js';
 import { TimeTable } from '../components/timetable-comps/TimeTable.js';
 import { Div, PageContainer } from '../components/cssComponents/index.js';
@@ -158,29 +158,29 @@ function Lake(props) {
       {/* <ConfigProvider locale={plPL}> */}
       <PageContainer>
         <Div>
-          <div className='breadcrumbs'>
+          {/* <div className='breadcrumbs'>
             <Breadcrumb
-            // items={[
-            //   {
-            //     title: <Link to={`/${voivodeship}`}>{voivodeship}</Link>,
-            //   },
-            //   {
-            //     title: <Link to={`/${voivodeship}/${city}`}>{city}</Link>,
-            //   },
-            //   {
-            //     title: (
-            //       <span>
-            //         {lakeName} <LocationDot />
-            //       </span>
-            //     ),
-            //   },
-            // ]}
+            items={[
+              {
+                title: <Link to={`/${voivodeship}`}>{voivodeship}</Link>,
+              },
+              {
+                title: <Link to={`/${voivodeship}/${city}`}>{city}</Link>,
+              },
+              {
+                title: (
+                  <span>
+                    {lakeName} <LocationDot />
+                  </span>
+                ),
+              },
+            ]}
             >
               <Breadcrumb.Item>sample1</Breadcrumb.Item>
               <Breadcrumb.Item>sample2</Breadcrumb.Item>
               <Breadcrumb.Item>sample3</Breadcrumb.Item>
             </Breadcrumb>
-          </div>
+          </div> */}
         </Div>
 
         <Slider lakeOtherImagesFiles={lakeOtherImagesFiles} />
