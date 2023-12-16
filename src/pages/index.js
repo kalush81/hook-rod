@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { graphql, useStaticQuery } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
-//import SearchBox from '../components/search-comps/SearchBox';
+import SearchBox from '../components/search-comps/SearchBox';
 import { SEO } from '../components/Seo';
 
 const HomePg = () => {
@@ -54,7 +54,7 @@ const HomePg = () => {
         fluid={imageData}
         className='home_cover'
         backgroundColor='#040e18'>
-        {/* <SearchBox /> */}
+        <SearchBox />
       </BackgroundImage>
     </HomeCss>
   );
