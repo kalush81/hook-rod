@@ -26,21 +26,21 @@ module.exports = {
         style: true,
       },
     },
-    {
-      resolve: "gatsby-plugin-less",
-      options: {
-        lessOptions: {
-          javascriptEnabled: true,
-          modifyVars: {
-            "primary-color": "#ff8800",
-            "border-radius-base": "5px",
-            "border-width-base": "2px",
-            "height-lg": "36px",
-            "btn-height-lg": "40px",
-          },
-        },
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-less",
+    //   options: {
+    //     lessOptions: {
+    //       javascriptEnabled: true,
+    //       modifyVars: {
+    //         "primary-color": "#ff8800",
+    //         "border-radius-base": "5px",
+    //         "border-width-base": "2px",
+    //         "height-lg": "36px",
+    //         "btn-height-lg": "40px",
+    //       },
+    //     },
+    //   },
+    // },
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
