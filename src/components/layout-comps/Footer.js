@@ -34,7 +34,7 @@ const Footer = ({ noFixedPosition }) => (
       <ul className='right'>
         <div className='right'>
           <Link to='/'>Logo</Link>
-          <li>HOOK&ROD Sp. z o.o.</li>
+          <li>LETSFISH Sp. z o.o.</li>
           <li>ul. Rybia 66</li>
           <li>tel. +48 725 465 444</li>
           <li>email: hookandrod@gmail.com</li>
@@ -53,6 +53,7 @@ const FooterCss = styled.footer`
   width: 100%;
   background: rgba(22, 56, 50, 0.9);
   height: 100px;
+  max-height: 15%;
   justify-content: space-between;
   font-family: Lato;
   z-index: 111;
