@@ -252,19 +252,21 @@ const RegistrationCss = styled.div`
   padding: 60px 0 120px 0;
 
   .row {
-    display: flex;
+    display: block;
     //border: 1px solid black;
     //height: calc(100vh - 160px);
   }
   .column {
-    width: 50%;
+    width: 100%;
+    margin: auto;
     //margin-top: 80px;
     //max-width: 1000px;
   }
 
   .column-left h1 {
-    text-align: center;
+    text-align: left;
     font-size: 48px;
+    font-weight: 400;
     margin-bottom: 70px;
     margin-top: 20px;
   }
@@ -280,12 +282,14 @@ const RegistrationCss = styled.div`
   .column-right {
     //max-height: calc(100vh - 160px);
     //border: 2px solid red;
+    min-height: 600px;
+    margin: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
   .column-right h1 {
-    text-align: center;
+    font-weight: 400;
     //font-size: 32px;
     //line-height: 24px;
     //margin-bottom: 25px;
@@ -308,6 +312,9 @@ const RegistrationCss = styled.div`
   }
   .form {
     width: 100%;
+    & > div {
+      width: 100%;
+    }
   }
   .register-button {
     background-color: var(--yellow);
@@ -318,6 +325,18 @@ const RegistrationCss = styled.div`
   }
   @media screen and (max-height: 692px) {
     height: 100%;
+  }
+
+  @media screen and (max-width: 690px) {
+    .column-right {
+      height: 700px;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    .row {
+      display: flex;
+    }
   }
 `;
 

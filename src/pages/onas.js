@@ -76,7 +76,7 @@ const O_nas = () => {
 };
 
 const ONasCss = styled.div`
-  padding-top: 90px;
+  margin: 60px 0 100px 0;
   h2 {
     color: var(--yellow);
   }

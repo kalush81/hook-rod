@@ -109,6 +109,7 @@ const GlobalStyles = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     color: var(---black);
+    opacity: 0.7;
     padding: 0;
   }
 
@@ -131,6 +132,10 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+
+  span, i {
+    opacity: 0.7;
   }
 
   /* a.ant-anchor-link-title {
