@@ -74,12 +74,12 @@ const Frequently_asked = () => {
           </div>
         </FAQCss>
       </Div>
-      <video
+      {/* <video
         autoPlay={true}
         muted
         loop
         src='https://mysticparkfestival.my.canva.site/videos/6061270209f37a46695eaf9868b05d30.mp4'
-        type='video/webm'></video>
+        type='video/webm'></video> */}
     </PageContainer>
   );
 };
