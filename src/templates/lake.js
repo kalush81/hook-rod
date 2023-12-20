@@ -119,39 +119,39 @@ function Lake(props) {
     `https://hookandrod.herokuapp.com/api/lakes/lakeReservations/`
   );
 
-  useEffect(() => {
-    //console.log('lakeId in useEffect', lakeId);
-    async function fetchData() {
-      const data = await getPegReservations(lakeId);
-      //console.log('peg reserv data', data);
-      if (data.error) {
-        return setError(data);
-      }
-      const mergedPegs = staticPegs.map((peg) => {
-        const foundPegWithRes = data.find((res) => res.pegId === peg.pegId);
-        if (foundPegWithRes) {
-          return { ...peg, reservations: foundPegWithRes.reservations };
-        } else {
-          return { ...peg, reservations: [] };
-        }
-      });
-      setMergedPegs(mergedPegs);
-    }
-    fetchData();
-  }, [lakeId]);
+  // useEffect(() => {
+  //   //console.log('lakeId in useEffect', lakeId);
+  //   async function fetchData() {
+  //     const data = await getPegReservations(lakeId);
+  //     //console.log('peg reserv data', data);
+  //     if (data.error) {
+  //       return setError(data);
+  //     }
+  //     const mergedPegs = staticPegs.map((peg) => {
+  //       const foundPegWithRes = data.find((res) => res.pegId === peg.pegId);
+  //       if (foundPegWithRes) {
+  //         return { ...peg, reservations: foundPegWithRes.reservations };
+  //       } else {
+  //         return { ...peg, reservations: [] };
+  //       }
+  //     });
+  //     setMergedPegs(mergedPegs);
+  //   }
+  //   fetchData();
+  // }, [lakeId]);
 
-  const { get: getServicesReservations, loading: loadingServicesReservations } =
-    useFetch(
-      `https://hookandrod.herokuapp.com/api/extraservices/reservations/`
-    );
+  // const { get: getServicesReservations, loading: loadingServicesReservations } =
+  //   useFetch(
+  //     `https://hookandrod.herokuapp.com/api/extraservices/reservations/`
+  //   );
 
-  useEffect(() => {
-    async function fetchData() {
-      const data = await getServicesReservations(lakeId);
-      setServicesReservationsDATA(data);
-    }
-    fetchData();
-  }, [lakeId]);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const data = await getServicesReservations(lakeId);
+  //     setServicesReservationsDATA(data);
+  //   }
+  //   fetchData();
+  // }, [lakeId]);
 
   return (
     <>
