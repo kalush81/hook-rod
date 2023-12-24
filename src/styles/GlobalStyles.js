@@ -144,7 +144,9 @@ const GlobalStyles = createGlobalStyle`
   .breadcrumbs ol li.ant-breadcrumb-separator {
     color: yellow;
   } */
- 
+ span.ant-picker-super-next-icon, span.ant-picker-super-prev-icon {
+  display: none !important;
+ }
   
 `;
 
