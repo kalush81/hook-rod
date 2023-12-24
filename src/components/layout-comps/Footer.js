@@ -52,22 +52,28 @@ const FooterCss = styled.footer`
   bottom: 0;
   width: 100%;
   background: rgba(22, 56, 50, 0.9);
-  height: 100px;
+  height: 40px;
   max-height: 15%;
   justify-content: space-between;
   font-family: Lato;
   z-index: 111;
   align-items: center;
   overflow: hidden;
+  @media (min-width: 590px) {
+    height: 100px;
+  }
 
   .container {
+    display: none;
     width: 90%;
     max-width: 1400px;
     margin: 0 auto;
     //border: 2px solid red;
-    display: flex;
     justify-content: space-between;
     align-items: center;
+    @media (min-width: 590px) {
+      display: flex;
+    }
   }
 
   ul {

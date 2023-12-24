@@ -82,7 +82,7 @@ const Nav = () => {
 
 const NavCss = styled.nav`
   display: flex;
-  height: 60px;
+  height: 40px;
   align-items: center;
   position: fixed;
   width: 100%;
@@ -133,10 +133,10 @@ const NavCss = styled.nav`
   .nav_logo {
     //background: url(${hookrod_logo});
     position: relative;
-    width: 220px;
+    width: 120px;
     background-size: cover;
     background-repeat: no-repeat !important;
-    height: 40px;
+    //height: 40px;
     margin-left: 10px;
   }
   .nav_logo:hover {
