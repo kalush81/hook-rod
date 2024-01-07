@@ -147,6 +147,7 @@ const GlobalStyles = createGlobalStyle`
  span.ant-picker-super-next-icon, span.ant-picker-super-prev-icon {
   display: none !important;
  }
+ 
   
 `;
 

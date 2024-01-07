@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, Space, ConfigProvider } from 'antd';
 import styled from 'styled-components';
 import dayjs from 'dayjs';
@@ -72,8 +72,13 @@ const ReservationDetails = (props) => {
     totalPrice,
     paymentType,
   } = props.location.state?.newReservationData || {};
+
   const startDateUI = dayjs(sD?.$d).locale('pl').format('DD MMMM YYYY');
   const endDateUI = dayjs(eD?.$d).locale('pl').format('DD MMMM YYYY');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <ConfigProvider

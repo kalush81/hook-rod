@@ -18,43 +18,59 @@ export const Slider = ({ lakeOtherImagesFiles }) => {
   };
 
   return (
-    <BigImagesWrapper>
-      <button
-        onClick={() => updateIndex(activeIndex - 1)}
-        className='left-arrow'>
-        <Left />
-      </button>
-      <button
-        onClick={() => updateIndex(activeIndex + 1)}
-        className='right-arrow strong'>
-        <Right />
-      </button>
-      {lakeOtherImagesFiles.map((imageFile, i) => {
-        return (
-          <div key={i}>
-            <GatsbyImage
-              imgStyle={{ transition: 'transform 1s' }}
-              style={{
-                transform: `translateX(-${activeIndex * 100}%)`,
-                transition: 'all 0.45s ease-out',
-              }}
-              alt=''
-              placeholder='blured'
-              className='gatsby-img-wraper'
-              image={getImage(imageFile)}
-              // loading='eager'
-            />
-          </div>
-        );
-      })}
-    </BigImagesWrapper>
+    <>
+      <BigImagesWrapper>
+        <button
+          onClick={() => updateIndex(activeIndex - 1)}
+          className='left-arrow'>
+          <Left />
+        </button>
+        <button
+          onClick={() => updateIndex(activeIndex + 1)}
+          className='right-arrow strong'>
+          <Right />
+        </button>
+        {lakeOtherImagesFiles.map((imageFile, i) => {
+          return (
+            <div key={i}>
+              <GatsbyImage
+                imgStyle={{
+                  transition: 'transform 1s',
+                }}
+                style={{
+                  transform: `translateX(-${activeIndex * 100}%)`,
+                  transition: 'all 0.45s ease-out',
+                }}
+                alt=''
+                placeholder='blured'
+                className='gatsby-img-wraper'
+                image={getImage(imageFile)}
+                // loading='eager'
+              />
+            </div>
+          );
+        })}
+      </BigImagesWrapper>
+    </>
   );
 };
 
 const BigImagesWrapper = styled.div`
   display: flex;
-  overflow-x: hidden;
+  //overflow-x: hidden;
   position: relative;
+
+  height: calc(100vh - 202px);
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    bottom: 0;
+    background-image: url('/scrollClip.svg');
+  }
+  //height: calc(100vh);
 
   .right-arrow,
   .left-arrow {
@@ -79,6 +95,6 @@ const BigImagesWrapper = styled.div`
   }
   .gatsby-img-wraper {
     width: 100vw;
-    height: calc(100vh - 202px);
+    height: 100%;
   }
 `;
