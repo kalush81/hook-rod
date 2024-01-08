@@ -57,7 +57,7 @@ export const Slider = ({ lakeOtherImagesFiles }) => {
 
 const BigImagesWrapper = styled.div`
   display: flex;
-  //overflow-x: hidden;
+  overflow-x: hidden;
   position: relative;
 
   height: calc(100vh - 202px);
@@ -66,12 +66,20 @@ const BigImagesWrapper = styled.div`
     content: '';
     position: absolute;
     width: 100%;
-    height: 70px;
+    height: 50px;
+    width: 100%;
+    height: 50px;
+
     bottom: 0;
     background-image: url('/scrollClip.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    @media (max-width: 599px) {
+      height: 35px;
+    }
   }
   //height: calc(100vh);
-
   .right-arrow,
   .left-arrow {
     display: grid;
@@ -96,5 +104,9 @@ const BigImagesWrapper = styled.div`
   .gatsby-img-wraper {
     width: 100vw;
     height: 100%;
+  }
+
+  @media (max-width: 599px) {
+    height: calc(100vh - 142px);
   }
 `;
