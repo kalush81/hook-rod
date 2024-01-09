@@ -41,7 +41,7 @@ export const Div = styled.div`
   .map-container {
     width: 100%;
   }
-  @media (min-width: 900px) {
+  @media (min-width: 1150px) {
     .callendar-wraper {
       grid-template-columns: 2fr 1fr;
     }

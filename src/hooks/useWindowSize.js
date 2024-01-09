@@ -3,7 +3,8 @@ import { useState, useLayoutEffect } from 'react';
 const useWindowSize = () => {
   const [size, setSize] = useState(() => {
     if (typeof window !== 'undefined') {
-      if (window.innerWidth < 501) return 7;
+      if (window.innerWidth < 415) return 6;
+      if (window.innerWidth > 415) return 7;
       if (window.innerWidth > 500 && window.innerWidth < 601) return 8;
       if (window.innerWidth > 600 && window.innerWidth < 701) return 9;
       if (window.innerWidth > 700 && window.innerWidth < 801) return 10;
