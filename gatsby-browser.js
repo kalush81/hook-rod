@@ -4,7 +4,7 @@ import { ConfigProvider } from "antd";
 import plPL from "antd/locale/pl_PL";
 import { UserProvider } from "./src/constext/UserContext";
 
-export function wrapPageElement({ element, props }) {
+export function wrapRootElement({ element, props }) {
   return (
     <ConfigProvider locale={plPL}>
       <UserProvider>
