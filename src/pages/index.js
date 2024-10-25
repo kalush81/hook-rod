@@ -42,9 +42,7 @@ const HomePg = () => {
   );
 
   // Set ImageData.
-  console.log('data', data && data);
   const imageData = data.desktop_m.childImageSharp.fluid;
-  //const image = getImage(data);
   // const imageDataP1 = data.ite.childImageSharp.fluid;
   // const imageDataP2 = data.itee.childImageSharp.fluid;
   // const imageDataP3 = data.iteee.childImageSharp.fluid;

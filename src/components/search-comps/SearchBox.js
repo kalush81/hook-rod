@@ -1,15 +1,23 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { SearchForm } from './SearchForm';
+import { useUser } from '../../constext/UserContext';
 
 const SearchBox = () => {
   const header = useRef(null);
+  const { user } = useUser();
 
   return (
     <SearchBoxCss>
       <div className='home_search_box'>
+        {!user ? (
+          ''
+        ) : (
+          <p className='logedAS'>Zalogowany jako: {user.username} </p>
+        )}
+
         <h1 ref={header} className='home_cover_header--big'>
-          HOOK&ROD
+          Let's Fish
         </h1>
         <h2 className='home_cover_header'>Znajdź łowiska blisko Ciebie</h2>
         <div className='home_cover_search'>
@@ -21,6 +29,9 @@ const SearchBox = () => {
 };
 
 const SearchBoxCss = styled.div`
+  .logedAs {
+    position: fixed;
+  }
   .home_search_box {
     padding: 21px 21px;
     box-shadow: 1px 2px 9px rgba(0, 0, 0, 0.3);

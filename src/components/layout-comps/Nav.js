@@ -37,13 +37,9 @@ const Nav = () => {
         <div className='navbar_right'>
           <ul className='navbar_right'>
             <div className='login'>
-              <li>
+              <li style={{ display: 'contents' }}>
                 <Link to='/login'>{!user ? 'Zaloguj' : 'Wyloguj'}</Link>
-                {!user ? (
-                  <LoginIcon />
-                ) : (
-                  <p style={{ color: 'white' }}>{user.username}</p>
-                )}
+                <LoginIcon />
               </li>
             </div>
             <li>
