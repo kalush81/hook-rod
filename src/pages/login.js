@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import LoginForm from "../components/LoginForm";
+import LoginForm from '../components/LoginForm';
 
 const Login = () => {
   return (
     <>
-      <LoginCss className="reg_form">
+      <LoginCss className='reg_form'>
         <LoginForm />
       </LoginCss>
     </>

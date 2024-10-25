@@ -3,34 +3,28 @@ import { useState, useLayoutEffect } from 'react';
 const useWindowSize = () => {
   const [size, setSize] = useState(() => {
     if (typeof window !== 'undefined') {
-      if (window.innerWidth < 415) return 6;
-      if (window.innerWidth > 415) return 7;
-      if (window.innerWidth > 500 && window.innerWidth < 601) return 8;
-      if (window.innerWidth > 600 && window.innerWidth < 701) return 9;
-      if (window.innerWidth > 700 && window.innerWidth < 801) return 10;
-      if (window.innerWidth > 800 && window.innerWidth < 901) return 11;
-      if (window.innerWidth > 900 && window.innerWidth < 1001) return 12;
+      const width = window.innerWidth;
+      if (width < 501) return 7;
+      if (width > 500 && width < 601) return 8;
+      if (width > 600 && width < 701) return 9;
+      if (width > 700 && width < 801) return 10;
+      if (width > 800 && width < 901) return 11;
+      if (width > 900 && width < 1001) return 12;
       return 14;
     }
-    // } else {
-    //   return null;
-    // }
+    return 14; // Fallback in case window is undefined
   });
 
   useLayoutEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 501) return setSize(7);
-      if (window.innerWidth > 500 && window.innerWidth < 601) return setSize(8);
-      if (window.innerWidth > 600 && window.innerWidth < 701) return setSize(9);
-      if (window.innerWidth > 700 && window.innerWidth < 801)
-        return setSize(10);
-      if (window.innerWidth > 800 && window.innerWidth < 901)
-        return setSize(11);
-      if (window.innerWidth > 900 && window.innerWidth < 1001)
-        return setSize(12);
-      else {
-        return setSize(14);
-      }
+      const width = window.innerWidth;
+      if (width < 501) setSize(7);
+      else if (width > 500 && width < 601) setSize(8);
+      else if (width > 600 && width < 701) setSize(9);
+      else if (width > 700 && width < 801) setSize(10);
+      else if (width > 800 && width < 901) setSize(11);
+      else if (width > 900 && width < 1001) setSize(12);
+      else setSize(14);
     };
 
     window.addEventListener('resize', handleResize);

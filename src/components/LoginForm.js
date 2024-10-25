@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-import { Link } from "gatsby";
+import { Link, navigate } from 'gatsby';
 
-import { Form, Input, Button } from "antd";
-import gmail_login_logo from "../assets/images/gmail_login_logo.png";
-import facebook_login_logo from "../assets/images/facebook_login_logo.png";
+import { Form, Input, Button } from 'antd';
+import gmail_login_logo from '../assets/images/gmail_login_logo.png';
+import facebook_login_logo from '../assets/images/facebook_login_logo.png';
+import { useUser } from '../constext/UserContext';
 
 // const { Option } = Select;
 const formItemLayout = {
@@ -41,116 +42,146 @@ const tailFormItemLayout = {
 
 const Login_Form = () => {
   const [form] = Form.useForm();
+  const [error, setError] = useState(null);
+  const { login, user } = useUser();
 
-  const onFinish = (values) => {
-    console.log("Received values of form: ", values);
+  const onFinish = async ({ email, password }) => {
+    //console.log('Received values of form: ', email, password);
+    try {
+      const response = await fetch(
+        'https://hookandrod.herokuapp.com/api/auth/signin',
+        {
+          method: 'POST',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            Accept: 'application/json',
+          },
+          withCredentials: false,
+          credentials: 'same-origin',
+          crossdomain: true,
+          body: JSON.stringify({ username: email, password: password }),
+        }
+      );
+
+      if (response.ok) {
+        //console.log('response ok: ', response);
+        const userData = await response.json();
+        //console.log('userData', userData);
+        login(userData); // Ustaw użytkownika w kontekście
+        //user && console.log('user:', user);
+
+        // Przekierowanie na stronę główną po udanym logowaniu
+        navigate('/');
+      } else {
+        // Obsługa błędów logowania
+        console.error('Błąd logowania');
+        setError('blad logowania');
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
   return (
     <Css>
-      <div className="login-form">
+      <div className='login-form'>
         <h1>Witaj ponownie!</h1>
-        <div className="form">
+        <div className='form'>
           <Form
             {...formItemLayout}
-            className="form"
+            className='form'
             form={form}
-            name="register"
+            name='register'
             onFinish={onFinish}
-            scrollToFirstError
-          >
+            scrollToFirstError>
             <Form.Item
-              className="form-element"
-              name="email"
+              className='form-element'
+              name='email'
               // label="E-mail"
               rules={[
-                {
-                  type: "email",
-                  message: "Niepoprawny adres e-mail!",
-                },
+                // {
+                //   type: 'string',
+                //   message: 'Niepoprawny adres e-mail!',
+                // },
                 {
                   required: true,
-                  message: "Podaj adres e-mail!",
+                  message: 'Podaj adres e-mail!',
                 },
-              ]}
-            >
+              ]}>
               <Input
-                placeholder="Adres e-mail"
-                size="large"
-                className="e-mail"
+                placeholder='Adres e-mail'
+                size='large'
+                className='e-mail'
                 style={{ height: 44.5 }}
               />
             </Form.Item>
 
             <Form.Item
-              className="form-element"
-              name="password"
+              className='form-element'
+              name='password'
               // label="Password"
               rules={[
                 {
                   required: true,
-                  message: "Wpisz hasło!",
+                  message: 'Wpisz hasło!',
                 },
               ]}
-              hasFeedback
-            >
+              hasFeedback>
               <Input.Password
-                placeholder="Hasło"
-                size="large"
-                className="password"
+                placeholder='Hasło'
+                size='large'
+                className='password'
                 style={{ height: 44.5 }}
               />
             </Form.Item>
 
             <Form.Item {...tailFormItemLayout}>
               <Button
-                className="form-element login-button"
-                size="large"
-                type="primary"
-                htmlType="submit"
-              >
+                className='form-element login-button'
+                size='large'
+                type='primary'
+                htmlType='submit'>
                 Zaloguj się
               </Button>
             </Form.Item>
 
             <Form.Item {...formItemLayout}>
-              <Link to="" className="form-element link">
+              <Link to='' className='form-element link'>
                 ZAPOMNIAŁEŚ HASŁO?
               </Link>
             </Form.Item>
 
-            <Form.Item {...tailFormItemLayout}>
+            {/* <Form.Item {...tailFormItemLayout}>
               <Button
-                className="form-element login-button-facebook"
-                size="large"
-                type="primary"
-                htmlType="submit"
-              >
+                className='form-element login-button-facebook'
+                size='large'
+                type='primary'
+                htmlType='submit'>
                 KONTYNUUJ UŻYWAJĄC FACEBOOKA
               </Button>
             </Form.Item>
 
             <Form.Item {...tailFormItemLayout}>
               <Button
-                className="form-element login-button-google"
-                size="large"
-                type="primary"
-                htmlType="submit"
-              >
+                className='form-element login-button-google'
+                size='large'
+                type='primary'
+                htmlType='submit'>
                 KONTYNUUJ UŻYWAJĄC GOOGLE
               </Button>
-            </Form.Item>
+            </Form.Item> */}
 
             <Form.Item {...formItemLayout}>
-              <h3 className="form-element lub">LUB</h3>
+              <h3 className='form-element lub'>LUB</h3>
             </Form.Item>
 
             <Form.Item {...tailFormItemLayout}>
               <Button
-                className="form-element register-button"
-                size="large"
-                type="primary"
-                htmlType="submit"
-              >
+                className='form-element register-button'
+                size='large'
+                type='primary'
+                htmlType='submit'>
                 ZAREJESTRUJ SIĘ
               </Button>
             </Form.Item>

@@ -2,15 +2,18 @@ import React, { memo } from 'react';
 import { Form, DatePicker } from 'antd';
 const { RangePicker } = DatePicker;
 
-export const MyDatePicker = memo(function MyDatePicker({
+export const MyDatePicker = function MyDatePicker({
   pegId,
   disableDate,
-  // startDateInputRef,
   handleRangeChange,
   onOpenChange,
-  handleRangePickerFocus,
+  handleFocus,
+  onCalendarChange,
+  isStartDateSelected,
+  value,
+  handleBlur,
 }) {
-  //console.log('MYDATEPICKER RERENDERED !!!');
+  console.log('value', value);
   return (
     <div className='row row2'>
       <Form.Item
@@ -22,16 +25,16 @@ export const MyDatePicker = memo(function MyDatePicker({
           },
         ]}>
         <RangePicker
-          disabled={!pegId}
+          value={value}
+          disabled={[!pegId, !value || !value[1]]}
           placeholder={['początek', 'koniec']}
-          // ref={startDateInputRef}
           disabledDate={disableDate}
-          onCalendarChange={handleRangeChange}
+          onCalendarChange={onCalendarChange}
           onOpenChange={onOpenChange}
-          onFocus={handleRangePickerFocus}
-          // allowClear={false}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
         />
       </Form.Item>
     </div>
   );
-});
+};

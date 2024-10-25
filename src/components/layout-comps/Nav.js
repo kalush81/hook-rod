@@ -5,10 +5,13 @@ import hookrod_logo from '../../assets/images/hookrod_logo.svg';
 import { Squeeze as Hamburger } from 'hamburger-react';
 import { Logo, LoginIcon } from '../../assets/icons';
 import 'animate.css';
+import { useUser } from '../../constext/UserContext';
 
 const Nav = () => {
   const [isToggled, setIsToggled] = useState(false);
   const hide = () => setIsToggled(false);
+  const { user, logout } = useUser();
+  console.log('user in nav', user);
 
   return (
     <NavCss className='nav'>
@@ -35,8 +38,12 @@ const Nav = () => {
           <ul className='navbar_right'>
             <div className='login'>
               <li>
-                <Link to='/login'>Zaloguj</Link>
-                <LoginIcon />
+                <Link to='/login'>{!user ? 'Zaloguj' : 'Wyloguj'}</Link>
+                {!user ? (
+                  <LoginIcon />
+                ) : (
+                  <p style={{ color: 'white' }}>{user.username}</p>
+                )}
               </li>
             </div>
             <li>

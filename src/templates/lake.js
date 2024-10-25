@@ -120,6 +120,7 @@ function Lake(props) {
   );
 
   useEffect(() => {
+    console.log('size passed to lake afetr lake rendered', size);
     //console.log('lakeId in useEffect', lakeId);
     async function fetchData() {
       const data = await getPegReservations(lakeId);

@@ -44,12 +44,12 @@ const servicesReservationsDATAMOCK = [
     extraServiceId: '0ba27951-bdfe-4b7c-a966-148f667ff82d',
     extraServiceReservationDto: [
       {
-        endDate: '2023-12-15T11:59:00',
-        startDate: '2023-12-14T12:00:00',
+        endDate: '2024-12-15T11:59:00',
+        startDate: '2024-12-14T12:00:00',
       },
       {
-        endDate: '2023-12-19T11:59:00',
-        startDate: '2023-12-16T12:00:00',
+        endDate: '2024-12-19T11:59:00',
+        startDate: '2024-12-16T12:00:00',
       },
     ],
   },
@@ -57,12 +57,12 @@ const servicesReservationsDATAMOCK = [
     extraServiceId: '26099044-21a0-4b94-abc4-897067e3bdb9',
     extraServiceReservationDto: [
       {
-        endDate: '2023-12-22T11:59:00',
-        startDate: '2023-12-21T12:00:00',
+        endDate: '2024-12-22T11:59:00',
+        startDate: '2024-12-21T12:00:00',
       },
       {
-        endDate: '2023-12-29T11:59:00',
-        startDate: '2023-12-27T12:00:00',
+        endDate: '2024-12-29T11:59:00',
+        startDate: '2024-12-27T12:00:00',
       },
     ],
   },
@@ -98,7 +98,8 @@ const getUnavailableServices = (existed, requested) => {
     ),
   ];
 };
-
+const checkins = [1, 4, 6]; // Dni dostępne do zameldowania (poniedziałek, czwartek, sobota)
+const checkouts = [2, 5, 0];
 const Reservator = ({
   pegs,
   pegBasePrice,
@@ -107,9 +108,6 @@ const Reservator = ({
   currentPath,
   servicesReservationsDATA,
 }) => {
-  //console.log('extraServices', extraServices);
-  //console.log('servicesReservationsDATA', servicesReservationsDATA);
-
   const startDateInputRef = useRef(null);
   const [availableServices, setAvailableServices] = useState(extraServices);
   const [unavailableServices, setUnavailableServices] = useState([]);
@@ -120,12 +118,15 @@ const Reservator = ({
   const [numGuests, setNumGuests] = useState(0);
   const [extraOptions, setExtraOptions] = useState([]);
   const [numDays, setNumDays] = useState(0);
+  const [selectedRange, setSelectedRange] = useState(null);
+  const [isStartDateSelected, setIsStartDateSelected] = useState(false);
+  const [dates, setDates] = useState(null);
 
-  //console.log('servicesReservationsDATA', servicesReservationsDATA);
-  //console.log('availableServices', availableServices);
+  const startInputRef = useRef(null);
+  const endInputRef = useRef(null);
 
   useEffect(() => {
-    //console.log('requested range changed');
+    console.log('selected range', selectedRange);
     if (range[0] && range[1]) {
       calculateDays(setNumDays, range[0], range[1]);
     } else {
@@ -168,6 +169,7 @@ const Reservator = ({
   };
 
   const handleRangeChange = (_, stringDates) => {
+    console.log('stringDates', stringDates);
     setRange(stringDates || []);
     if (stringDates[0] && !stringDates[1]) {
       let closestReservation = reservations.find(
@@ -190,47 +192,90 @@ const Reservator = ({
   };
 
   const disableDate = (current) => {
-    //console.log('disabled date fun was defined');
+    //if (!current) return false; // Zapobiega problemom, jeśli current będzie undefined
+    const day = current.day();
     const now = dayjs();
-    if (range[0] && !range[1] && reservations.length === 1) {
-      const reservedEnd = dayjs(reservations[0].startDate).add(1, 'day');
-      return current.set(noon) > reservedEnd || current < dayjs(range[0]);
-    } else {
-      for (const { startDate, endDate } of reservations || []) {
-        const reservedStart = dayjs(startDate);
-        const reservedEnd = dayjs(endDate);
-        if (
-          current.set(noon).isBetween(reservedStart, reservedEnd, null, '[]')
-        ) {
-          return true;
-        }
-      }
-      return current.set(noon).diff(now) < 0;
+    // Jeśli nie wybrano jeszcze żadnej daty, blokuj wszystkie dni poza checkins
+    if (!selectedRange || !selectedRange[0]) {
+      return !checkins.includes(day) || current.set(noon).diff(now) < 0; //+ dzien ktory nie jest pomiedzy startdate i enddate
     }
+
+    // Jeśli wybrano datę, blokuj wszystkie dni poza checkouts
+    return !checkouts.includes(day) || current.set(noon).diff(now) < 0;
+    //console.log('select date, range:', range);
+    // const day = current.day();
+    // // Blokowanie wszystkich dni oprócz poniedziałków, czwartków i sobót
+    // if (![1, 4, 6].includes(day)) {
+    //   return true;
+    // }
+    // if (range[0] && !range[1]) {
+    //   return [2, 5, 0].includes(day);
+    // }
+    // Sprawdzanie warunków dla jednej rezerwacji
+    // if (range[0] && !range[1] && reservations.length === 1) {
+    //   console.log(
+    //     'powinnismy pozostawic odblokownane dni z tablicy rangeEndDay'
+    //   );
+    //   const reservedEnd = dayjs(reservations[0].startDate).add(1, 'day');
+    //   return current.set(noon) > reservedEnd || current < dayjs(range[0]);
+    // }
+    // // Sprawdzanie, czy data znajduje się w zakresie istniejących rezerwacji
+    // for (const { startDate, endDate } of reservations || []) {
+    //   const reservedStart = dayjs(startDate);
+    //   const reservedEnd = dayjs(endDate);
+    //   if (current.set(noon).isBetween(reservedStart, reservedEnd, null, '[]')) {
+    //     return true;
+    //   }
+    // }
+    // Blokowanie dat wcześniejszych niż teraz
+    //return current.set(noon).diff(now) < 0;
   };
+
+  // const disableDate = (current) => {
+  //   const now = dayjs();
+  //   if (
+  //     dayjs(current).day() !== 4 &&
+  //     dayjs(current).day() !== 1 &&
+  //     dayjs(current).day() !== 6
+  //   ) {
+  //     return true;
+  //   } else {
+  //     if (range[0] && !range[1] && reservations.length === 1) {
+  //       const reservedEnd = dayjs(reservations[0].startDate).add(1, 'day');
+  //       return current.set(noon) > reservedEnd || current < dayjs(range[0]);
+  //     } else {
+  //       for (const { startDate, endDate } of reservations || []) {
+  //         const reservedStart = dayjs(startDate);
+  //         const reservedEnd = dayjs(endDate);
+  //         if (
+  //           current.set(noon).isBetween(reservedStart, reservedEnd, null, '[]')
+  //         ) {
+  //           return true;
+  //         }
+  //       }
+  //       return current.set(noon).diff(now) < 0;
+  //     }
+  //   }
+  // };
 
   const onOpenChange = (open) => {
-    if ((open && range[0]) || (open && range[1])) {
-      setReservations(() => {
-        return pegs.find((peg) => peg.pegId === pegId).reservations;
-      });
-      form.resetFields(['dates']);
-      setRange([]);
-      setUnavailableServices([]);
-      setNumDays(0);
-    } else {
-      setReservations(() => {
-        return pegs.find((peg) => peg.pegId === pegId)?.reservations;
-      });
-    }
+    // if ((open && range[0]) || (open && range[1])) {
+    //   setReservations(() => {
+    //     return pegs.find((peg) => peg.pegId === pegId).reservations;
+    //   });
+    //   form.resetFields(['dates']);
+    //   setRange([]);
+    //   setUnavailableServices([]);
+    //   setNumDays(0);
+    // } else {
+    //   setReservations(() => {
+    //     return pegs.find((peg) => peg.pegId === pegId)?.reservations;
+    //   });
+    // }
   };
 
-  const handleRangePickerFocus = (e) => {
-    if (e.target.placeholder === 'Data końcowa') {
-      if (!range[0]) {
-        startDateInputRef.current.focus();
-      }
-    }
+  const handleFocus = (e, { range }) => {
+    console.log('handle Focus worked');
   };
 
   const onChangeCheckBoxes = (checkedValues) => {
@@ -245,6 +290,20 @@ const Reservator = ({
     return null;
   };
 
+  const handleCalendarChange = (dates, dateStrings, info) => {
+    //setIsStartDateSelected(true);
+    setDates(dates);
+    console.log('#############################');
+    console.log('onCalendarChange was triggerd');
+    console.log('dates', dates);
+    console.log('dateStrings', dateStrings);
+    console.log('info', info);
+    console.log('#############################');
+  };
+  const handleBlur = (e, { range }) => {
+    console.log('on blur worked ', range);
+  };
+
   return (
     <Form form={form} name='register' onFinish={onFinish} scrollToFirstError>
       <CalendarCSS>
@@ -257,12 +316,14 @@ const Reservator = ({
           </div>
 
           <MyDatePicker
-            // startDateInputRef={startDateInputRef}
             pegId={pegId}
             disableDate={disableDate}
-            handleRangeChange={handleRangeChange}
             onOpenChange={onOpenChange}
-            handleRangePickerFocus={handleRangePickerFocus}
+            handleFocus={handleFocus}
+            onCalendarChange={handleCalendarChange}
+            isStartDateSelected={isStartDateSelected}
+            value={dates}
+            handleBlur={handleBlur}
           />
           <ExtraServicesAvailable
             availableServices={availableServices}

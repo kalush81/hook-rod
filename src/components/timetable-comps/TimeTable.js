@@ -11,6 +11,7 @@ dayjs.locale('pl');
 dayjs.extend(customParseFormat);
 
 export const TimeTable = function (props) {
+  console.log('props in TT', props);
   const { maxPegs, maxDays, pegs, isLoading } = props;
 
   const [firstIdx, setFirstIdx] = useState(0);
@@ -48,6 +49,7 @@ export const TimeTable = function (props) {
 
   return (
     <CalendarCss columns={maxDays ? maxDays + 1 : 8}>
+      {/*  */}
       <div className='flex'>
         <button
           className='calendar_lowisko_day_box noStyle'
