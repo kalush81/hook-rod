@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, getImage } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
 import SearchBox from '../components/search-comps/SearchBox';
 import { SEO } from '../components/Seo';
@@ -11,8 +11,8 @@ const HomePg = () => {
       query {
         desktop_m: file(relativePath: { eq: "cover.jpeg" }) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
+            fluid(maxWidth: 1920, quality: 90, cropFocus: CENTER) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
@@ -42,7 +42,9 @@ const HomePg = () => {
   );
 
   // Set ImageData.
+  console.log('data', data && data);
   const imageData = data.desktop_m.childImageSharp.fluid;
+  //const image = getImage(data);
   // const imageDataP1 = data.ite.childImageSharp.fluid;
   // const imageDataP2 = data.itee.childImageSharp.fluid;
   // const imageDataP3 = data.iteee.childImageSharp.fluid;
@@ -64,7 +66,9 @@ const HomeCss = styled.div`
   scroll-behavior: smooth;
 
   .home_cover {
+    position: absolute;
     background-size: cover;
+    object-fit: cover;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -78,6 +82,7 @@ const HomeCss = styled.div`
   .home_cover:after {
     background-position: right bottom !important;
   }
+  //
 `;
 
 export default HomePg;

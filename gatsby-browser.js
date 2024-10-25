@@ -8,7 +8,7 @@ export function wrapRootElement({ element, props }) {
   return (
     <ConfigProvider locale={plPL}>
       <UserProvider>
-        <Layout {...props}>{element}</Layout>;
+        <Layout {...props}>{element}</Layout>
       </UserProvider>
     </ConfigProvider>
   );
