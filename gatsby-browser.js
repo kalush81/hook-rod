@@ -6,10 +6,10 @@ import { UserProvider } from "./src/constext/UserContext";
 
 export function wrapPageElement({ element, props }) {
   return (
-    <UserProvider>
-      <ConfigProvider locale={plPL}>
+    <ConfigProvider locale={plPL}>
+      <UserProvider>
         <Layout {...props}>{element}</Layout>;
-      </ConfigProvider>
-    </UserProvider>
+      </UserProvider>
+    </ConfigProvider>
   );
 }
