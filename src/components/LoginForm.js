@@ -69,7 +69,7 @@ const Login_Form = () => {
         //console.log('response ok: ', response);
         const userData = await response.json();
         //console.log('userData', userData);
-        login(userData); // Ustaw użytkownika w kontekście
+        login && login(userData); // Ustaw użytkownika w kontekście
         //user && console.log('user:', user);
 
         // Przekierowanie na stronę główną po udanym logowaniu
