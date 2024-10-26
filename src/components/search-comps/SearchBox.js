@@ -1,11 +1,9 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { SearchForm } from './SearchForm';
-import { useUser } from '../../constext/UserContext';
 
 const SearchBox = () => {
   const header = useRef(null);
-  const { user } = useUser();
 
   return (
     <SearchBoxCss>
