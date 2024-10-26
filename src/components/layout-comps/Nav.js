@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import styled from 'styled-components';
 import hookrod_logo from '../../assets/images/hookrod_logo.svg';
 import { Squeeze as Hamburger } from 'hamburger-react';
@@ -12,6 +12,11 @@ const Nav = () => {
   const [isToggled, setIsToggled] = useState(false);
   const hide = () => setIsToggled(false);
   const { user, logout } = useUser();
+
+  const handleLogout = () => {
+    logout(); // Wyloguj użytkownika
+    navigate('/login'); // Przekieruj np. na stronę główną
+  };
 
   return (
     <NavCss className='nav'>
@@ -37,14 +42,22 @@ const Nav = () => {
         <div className='navbar_right'>
           <ul className='navbar_right'>
             <div className='login'>
-              <li style={{ display: 'contents' }}>
-                <Link to='/login' replace>
-                  {!user ? 'Zaloguj' : 'Wyloguj'}
-                </Link>
+              <li>
+                {/* <Link to='/login'>{!user ? 'Zaloguj' : 'Wyloguj'}</Link> */}
+                {user ? (
+                  <span
+                    className='logout'
+                    onClick={handleLogout}
+                    style={{ cursor: 'pointer', color: 'white' }}>
+                    Wyloguj
+                  </span>
+                ) : (
+                  <Link to='/login'>Zaloguj</Link>
+                )}
               </li>
             </div>
             <li>
-              <Link to={!user ? '/registration' : '/paneladmin'} replace>
+              <Link to={!user ? '/registration' : '/paneladmin'}>
                 {!user ? (
                   'Zarejestruj'
                 ) : (
@@ -125,7 +138,8 @@ const NavCss = styled.nav`
     margin: 0 19px;
   }
 
-  a {
+  a,
+  .logout {
     text-decoration: none;
     color: var(--white);
     font-weight: 500;
