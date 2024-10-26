@@ -43,7 +43,7 @@ const tailFormItemLayout = {
 const Login_Form = () => {
   const [form] = Form.useForm();
   const [error, setError] = useState(null);
-  const { login, user } = useUser() || {};
+  const { login } = useUser() || {};
 
   const onFinish = async ({ email, password }) => {
     //console.log('Received values of form: ', email, password);

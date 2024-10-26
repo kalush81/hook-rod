@@ -1,5 +1,5 @@
-import React from "react";
-import { Div, PageContainer } from "../components/cssComponents";
+import React from 'react';
+import { Div, PageContainer } from '../components/cssComponents';
 
 const ConfirmationPage = () => {
   return (

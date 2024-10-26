@@ -10,12 +10,6 @@ const SearchBox = () => {
   return (
     <SearchBoxCss>
       <div className='home_search_box'>
-        {!user ? (
-          ''
-        ) : (
-          <p className='logedAS'>Zalogowany jako: {user.username} </p>
-        )}
-
         <h1 ref={header} className='home_cover_header--big'>
           Let's Fish
         </h1>

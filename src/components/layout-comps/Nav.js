@@ -6,12 +6,12 @@ import { Squeeze as Hamburger } from 'hamburger-react';
 import { Logo, LoginIcon } from '../../assets/icons';
 import 'animate.css';
 import { useUser } from '../../constext/UserContext';
+import { truncate } from '../../utils/truncate';
 
 const Nav = () => {
   const [isToggled, setIsToggled] = useState(false);
   const hide = () => setIsToggled(false);
   const { user, logout } = useUser();
-  console.log('user in nav', user);
 
   return (
     <NavCss className='nav'>
@@ -24,7 +24,7 @@ const Nav = () => {
         <div className='navbar_middle'>
           <ul className='navbar_middle'>
             <li>
-              <Link to='/wybierz-województwo'>Zobacz wszystkie łowiska</Link>
+              <Link to='/wybierz-województwo'>Łowiska</Link>
             </li>
             <li>
               <Link to='/onas'>O nas</Link>
@@ -38,12 +38,21 @@ const Nav = () => {
           <ul className='navbar_right'>
             <div className='login'>
               <li style={{ display: 'contents' }}>
-                <Link to='/login'>{!user ? 'Zaloguj' : 'Wyloguj'}</Link>
-                <LoginIcon />
+                <Link to='/login' replace>
+                  {!user ? 'Zaloguj' : 'Wyloguj'}
+                </Link>
               </li>
             </div>
             <li>
-              <Link to='/registration'>Zarejestruj</Link>
+              <Link to={!user ? '/registration' : '/paneladmin'} replace>
+                {!user ? (
+                  'Zarejestruj'
+                ) : (
+                  <>
+                    <LoginIcon /> {truncate(user.username, 8)}
+                  </>
+                )}
+              </Link>
             </li>
           </ul>
         </div>
@@ -85,7 +94,7 @@ const Nav = () => {
 
 const NavCss = styled.nav`
   display: flex;
-  height: 40px;
+  height: 50px;
   align-items: center;
   position: fixed;
   width: 100%;
@@ -94,6 +103,7 @@ const NavCss = styled.nav`
   z-index: 111;
   transition: background 0.3s ease-out;
   background: rgba(22, 56, 50, 0.9);
+  //border: 2px solid red;
 
   .container {
     width: 90%;
@@ -141,10 +151,9 @@ const NavCss = styled.nav`
     background-repeat: no-repeat !important;
     //height: 40px;
     margin-left: 10px;
+    color: black;
   }
   .nav_logo:hover {
-    filter: invert(69%) sepia(48%) saturate(6955%) hue-rotate(3deg)
-      brightness(230%) contrast(101%);
   }
 
   .login {

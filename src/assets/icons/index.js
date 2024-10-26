@@ -7,7 +7,7 @@ import { ReactComponent as Left } from '../images/left.svg';
 import { ReactComponent as Right } from '../images/right.svg';
 import { ReactComponent as Up } from '../images/up.svg';
 import { ReactComponent as Down } from '../images/down.svg';
-import { ReactComponent as Logo } from '../images/logo.svg';
+import { ReactComponent as Logo } from '../images/LetsFishLogo.svg';
 import { ReactComponent as LoginIcon } from '../images/login-icon.svg';
 import { ReactComponent as V } from '../images/V.svg';
 import { ReactComponent as X } from '../images/X.svg';
