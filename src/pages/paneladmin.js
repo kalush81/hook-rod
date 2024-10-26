@@ -3,7 +3,7 @@ import { Div, PageContainer } from '../components/cssComponents';
 import { useUser } from '../constext/UserContext';
 
 const AdminPage = () => {
-  const { user } = useUser();
+  const { user } = useUser() || {};
   if (!user) {
     return (
       <div style={{ marginTop: '100px', color: 'red' }}>
