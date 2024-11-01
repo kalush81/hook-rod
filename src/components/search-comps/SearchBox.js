@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { SearchForm } from './SearchForm';
 import 'antd/dist/reset.css';
 import 'antd/es/style/reset.css';
+import 'antd/es/date-picker/style';
 
 const SearchBox = () => {
   const header = useRef(null);

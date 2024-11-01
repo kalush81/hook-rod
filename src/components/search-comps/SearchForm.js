@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import { navigate } from 'gatsby';
 import { Select, DatePicker, Button, Form } from 'antd';
 import { SearchInput } from './SearchInput';
+import 'antd/es/date-picker/style';
 const { RangePicker } = DatePicker;
 const { Option } = Select;
 
