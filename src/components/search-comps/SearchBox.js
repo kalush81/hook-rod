@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { SearchForm } from './SearchForm';
 import 'antd/dist/reset.css';
-import 'antd/es/date-picker/style';
+import 'antd/es/style/reset.css';
 
 const SearchBox = () => {
   const header = useRef(null);
