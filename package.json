@@ -33,7 +33,6 @@
     "animate.css": "^4.1.1",
     "antd": "^5.14.0",
     "axios": "^1.6.5",
-    "babel-plugin-import": "^1.13.8",
     "babel-plugin-styled-components": "^2.1.4",
     "cities.json": "^1.1.5",
     "dotenv": "^8.2.0",
@@ -72,6 +71,7 @@
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
     "babel-eslint": "^10.1.0",
+    "babel-plugin-import": "^1.13.8",
     "cross-env": "^7.0.2",
     "eslint": "^7.28.0",
     "eslint-config-airbnb": "^18.2.1",
