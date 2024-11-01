@@ -96,14 +96,14 @@ const mockData = [
     rules: {
       rentalPerDay: true,
       rentalPerHour: false,
-      availableDays: ["lista stringow"],
-      rentalStartTime: "10:00",
-      rentalEndTime: "20:00",
+      availableDays: ["SUNDAY", "MONDAY", "TUESDAY"],
+      rentalStartTime: 8,
+      rentalEndTime: 20,
       allDays: false,
-      startRangeDays: ["stringi"],
-      endRangeDays: ["stringi"],
-      startDay: "double",
-      endDay: "double",
+      startRangeDays: ["SUNDAY", "WEDNESDAY"],
+      endRangeDays: ["WEDNESDAY", "SUNDAY"],
+      startDay: 300.0,
+      endDay: 400.0,
     },
   },
   {
@@ -504,6 +504,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       paymentOnPlace: Boolean
       paymentOnline: Boolean
       downPaymentAsPercents: Int
+      rules: Rules
     }
 
     type ExtraService {
@@ -539,6 +540,19 @@ exports.createSchemaCustomization = ({ actions }) => {
       basePrice: Int
     }
 
+    type Rules {
+      rentalPerDay: Boolean
+      rentalPerHour: Boolean
+      availableDays: [String]
+      rentalStartTime: Int
+      rentalEndTime: Int
+      allDays: Boolean
+      startRangeDays: [String]
+      endRangeDays: [String]
+      startDay: Float
+      endDay: Float
+    }
+
   `);
 };
 
@@ -566,6 +580,7 @@ exports.sourceNodes = async ({
       paymentOnPlace: item.paymentOnPlace,
       paymentOnline: item.paymentOnline,
       downPaymentAsPercents: item.downPaymentAsPercents,
+      rules: item.rules,
       parent: null,
       children: [],
       internal: {

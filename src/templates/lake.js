@@ -97,6 +97,7 @@ function Lake(props) {
     downPaymentAsPercents,
     paymentOnline,
     paymentOnPlace,
+    rules,
   } = props.data.a;
 
   //console.log('lake extraservices in Lake', extraServices);
@@ -209,6 +210,7 @@ function Lake(props) {
 
               <div style={{ marginTop: '2em' }}>
                 <Reservator
+                  rules={rules}
                   lakeName={lakeName}
                   pegs={loadingPegReservations || mergedPegs}
                   pegBasePrice={pegBasePrice}

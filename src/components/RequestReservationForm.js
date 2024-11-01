@@ -30,19 +30,19 @@ export const RequestReservationForm = (reservationDetails) => {
       console.log('reservationData', reservationData);
       setOpenModal(true);
       setConfirmLoading(true);
-      try {
-        const response = await post('reservation', reservationData);
-        return response;
-      } catch (error) {
-        setOpenModal(false);
-        setLinkToPayment('');
-        return Modal.error({
-          title: 'Error',
-          content: error.message || [...error.messages],
-          onOk: () => navigate(-1),
-          okText: 'wróć do rezerwacji',
-        });
-      }
+      // try {
+      //   const response = await post('reservation', reservationData);
+      //   return response;
+      // } catch (error) {
+      //   setOpenModal(false);
+      //   setLinkToPayment('');
+      //   return Modal.error({
+      //     title: 'Error',
+      //     content: error.message || [...error.messages],
+      //     onOk: () => navigate(-1),
+      //     okText: 'wróć do rezerwacji',
+      //   });
+      // }
     };
     const response = await sendForm();
     setConfirmLoading(false);

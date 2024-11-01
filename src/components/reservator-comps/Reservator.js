@@ -98,8 +98,8 @@ const getUnavailableServices = (existed, requested) => {
     ),
   ];
 };
-const checkins = [1, 4, 6]; // Dni dostępne do zameldowania (poniedziałek, czwartek, sobota)
-const checkouts = [2, 5, 0];
+//const checkins = [1, 4, 6]; // Dni dostępne do zameldowania (poniedziałek, czwartek, sobota)
+//const checkouts = [2, 5, 0];
 const Reservator = ({
   pegs,
   pegBasePrice,
@@ -107,6 +107,7 @@ const Reservator = ({
   lakeName,
   currentPath,
   servicesReservationsDATA,
+  rules,
 }) => {
   const startDateInputRef = useRef(null);
   const [availableServices, setAvailableServices] = useState(extraServices);
@@ -120,19 +121,22 @@ const Reservator = ({
   const [numDays, setNumDays] = useState(0);
   const [selectedRange, setSelectedRange] = useState(null);
   const [isStartDateSelected, setIsStartDateSelected] = useState(false);
-  const [dates, setDates] = useState(null);
+  const [dates, setDates] = useState([]);
 
   const startInputRef = useRef(null);
   const endInputRef = useRef(null);
 
+  const checkins = [];
+  const checkouts = [];
+
   useEffect(() => {
     console.log('selected range', selectedRange);
-    if (range[0] && range[1]) {
-      calculateDays(setNumDays, range[0], range[1]);
+    if (dates[0] && dates[1]) {
+      calculateDays(setNumDays, dates[0], dates[1]);
     } else {
       setUnavailableServices([]);
     }
-  }, [range[0], range[1]]);
+  }, [dates[0], dates[1]]);
 
   const onFinish = (formValues) => {
     let newReservationData = {
@@ -274,9 +278,9 @@ const Reservator = ({
     // }
   };
 
-  const handleFocus = (e, { range }) => {
-    console.log('handle Focus worked');
-  };
+  // const handleFocus = (e, { range }) => {
+  //   console.log('handle Focus worked');
+  // };
 
   const onChangeCheckBoxes = (checkedValues) => {
     setExtraOptions(checkedValues);
@@ -292,17 +296,12 @@ const Reservator = ({
 
   const handleCalendarChange = (dates, dateStrings, info) => {
     //setIsStartDateSelected(true);
+    //console.log('dates', dates);
     setDates(dates);
-    console.log('#############################');
-    console.log('onCalendarChange was triggerd');
-    console.log('dates', dates);
-    console.log('dateStrings', dateStrings);
-    console.log('info', info);
-    console.log('#############################');
   };
-  const handleBlur = (e, { range }) => {
-    console.log('on blur worked ', range);
-  };
+  // const handleBlur = (e, { range }) => {
+  //   console.log('on blur worked ', range);
+  // };
 
   return (
     <Form form={form} name='register' onFinish={onFinish} scrollToFirstError>
@@ -317,13 +316,13 @@ const Reservator = ({
 
           <MyDatePicker
             pegId={pegId}
-            disableDate={disableDate}
-            onOpenChange={onOpenChange}
-            handleFocus={handleFocus}
+            //disableDate={disableDate}
+            //onOpenChange={onOpenChange}
+            //handleFocus={handleFocus}
             onCalendarChange={handleCalendarChange}
             isStartDateSelected={isStartDateSelected}
             value={dates}
-            handleBlur={handleBlur}
+            //handleBlur={handleBlur}
           />
           <ExtraServicesAvailable
             availableServices={availableServices}

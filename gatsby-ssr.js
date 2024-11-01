@@ -1,1 +1,1 @@
-
+// gatsby-ssr.js

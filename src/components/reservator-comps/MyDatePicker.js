@@ -26,7 +26,7 @@ export const MyDatePicker = function MyDatePicker({
         ]}>
         <RangePicker
           value={value}
-          disabled={[!pegId, !value || !value[1]]}
+          //disabled={[!pegId, !value || !value[1]]}
           placeholder={['początek', 'koniec']}
           disabledDate={disableDate}
           onCalendarChange={onCalendarChange}

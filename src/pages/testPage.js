@@ -8,8 +8,8 @@ const noon = {
   minute: 0,
   second: 0,
 };
-const checkins = [1, 4, 6]; // Dni dostępne do zameldowania (poniedziałek, czwartek, sobota)
-const checkouts = [2, 5, 0];
+const checkins = [0, 1, 2, 3, 4, 5, 6]; // Dni dostępne do zameldowania (poniedziałek, czwartek, sobota)
+const checkouts = [0, 1, 2, 3, 4, 5, 6];
 
 const MyRangePicker = () => {
   const [dates, setDates] = useState([null, null]); // Domyślnie oba pola są puste
