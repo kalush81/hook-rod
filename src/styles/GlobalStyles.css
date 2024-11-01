@@ -1,10 +1,10 @@
-import { createGlobalStyle } from 'styled-components';
+/* import { createGlobalStyle } from 'styled-components';
 import lato300 from '../assets/fonts/Lato-Thin.woff';
 import lato400 from '../assets/fonts/Lato-Regular.woff';
 import lato500 from '../assets/fonts/Lato-Medium.woff';
-import lato700 from '../assets/fonts/Lato-Bold.woff';
+import lato700 from '../assets/fonts/Lato-Bold.woff'; */
 
-const GlobalStyles = createGlobalStyle`
+/* const GlobalStyles = createGlobalStyle`
   :root {
     --black: #000000;
     --greymi: #ddd;
@@ -19,35 +19,16 @@ const GlobalStyles = createGlobalStyle`
     --purple: #6750A4;
     --gray: #1A422B;
     --litegray: #C4C4C4;
-  }
+  } */
   /* Lato-300 */
-  @font-face {
+  /* @font-face {
     font-family: 'Lato';
     font-style: normal;
     font-weight: 300;
     src: url(${lato300});
   }
   /* Lato-400 */
-  @font-face {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 400;
-    src: url(${lato400});
-  }
-  /* Lato-500 */
-  @font-face {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 500;
-    src: url(${lato500});
-  }
-  /* Lato-700 */
-  @font-face {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 700;
-    src: url(${lato700});
-  }
+  
 
   html {
     background-size: 810px;
@@ -122,6 +103,6 @@ const GlobalStyles = createGlobalStyle`
  span.ant-picker-super-next-icon, span.ant-picker-super-prev-icon {
   display: none !important;
  } 
-`;
+;
 
-export default GlobalStyles;
+

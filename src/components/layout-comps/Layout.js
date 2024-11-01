@@ -1,12 +1,12 @@
 import React from 'react';
 import Nav from './Nav';
 import Footer from './Footer';
-import GlobalStyles from '../../styles/GlobalStyles';
+import '../../styles/GlobalStyles.css';
 
 const Layout = ({ children }) => {
   return (
     <>
-      <GlobalStyles />
+      {/* <GlobalStyles /> */}
       <Nav />
       {children}
       <Footer style={{ textAlign: 'center' }}>

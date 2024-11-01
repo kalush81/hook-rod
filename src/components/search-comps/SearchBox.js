@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { SearchForm } from './SearchForm';
+import 'antd/dist/reset.css';
 
 const SearchBox = () => {
   const header = useRef(null);
