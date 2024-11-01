@@ -124,7 +124,7 @@ function Lake(props) {
     console.log('size passed to lake afetr lake rendered', size);
     //console.log('lakeId in useEffect', lakeId);
     async function fetchData() {
-      const data = await getPegReservations(lakeId);
+      const data = pegsDataMock; //getPegReservations(lakeId);
       //console.log('peg reserv data', data);
       if (data.error) {
         return setError(data);
@@ -149,7 +149,7 @@ function Lake(props) {
 
   useEffect(() => {
     async function fetchData() {
-      const data = await getServicesReservations(lakeId);
+      const data = []; // await getServicesReservations(lakeId);
       setServicesReservationsDATA(data);
     }
     fetchData();
@@ -181,7 +181,7 @@ function Lake(props) {
           </div>
         </Div>
 
-        <Slider lakeOtherImagesFiles={lakeOtherImagesFiles} />
+        {/* <Slider lakeOtherImagesFiles={lakeOtherImagesFiles} /> */}
 
         <div className='field'>
           <div className='arrow'></div>
