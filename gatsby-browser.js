@@ -3,14 +3,19 @@ import Layout from "./src/components/layout-comps/Layout";
 import { ConfigProvider } from "antd";
 import plPL from "antd/locale/pl_PL";
 import { UserProvider } from "./src/constext/UserContext";
-import "antd/dist/reset.css";
+import {
+  legacyLogicalPropertiesTransformer,
+  StyleProvider,
+} from "@ant-design/cssinjs";
 
 export function wrapRootElement({ element, props }) {
   return (
-    <ConfigProvider locale={plPL}>
-      <UserProvider>
-        <Layout {...props}>{element}</Layout>
-      </UserProvider>
-    </ConfigProvider>
+    <StyleProvider transformers={[legacyLogicalPropertiesTransformer]}>
+      <ConfigProvider locale={plPL}>
+        <UserProvider>
+          <Layout {...props}>{element}</Layout>
+        </UserProvider>
+      </ConfigProvider>
+    </StyleProvider>
   );
 }

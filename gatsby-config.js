@@ -14,7 +14,6 @@ module.exports = {
   },
 
   plugins: [
-    `gatsby-plugin-postcss`,
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-google-fonts`,
@@ -26,12 +25,12 @@ module.exports = {
         display: "swap",
       },
     },
-    {
-      resolve: "gatsby-plugin-antd",
-      options: {
-        style: true,
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-antd",
+    //   options: {
+    //     style: true,
+    //   },
+    // },
     // {
     //   resolve: "gatsby-plugin-less",
     //   options: {
